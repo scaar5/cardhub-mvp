@@ -1,0 +1,21 @@
+name: sniper
+
+# Ejecuta el sniper de eBay cada 30 minutos (y a mano desde la pestaña Actions).
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Llamar a /api/sniper
+        env:
+          ALERT_SECRET: ${{ secrets.ALERT_SECRET }}
+          APP_URL: ${{ vars.APP_URL || 'https://scaard5-analytics.vercel.app' }}
+        run: |
+          curl -sS --fail-with-body -m 90 \
+            -H "x-alert-secret: $ALERT_SECRET" \
+            "$APP_URL/api/sniper"

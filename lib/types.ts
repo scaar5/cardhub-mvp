@@ -1,4 +1,4 @@
-export type Platform = "vinted" | "wallapop";
+export type Platform = "vinted" | "wallapop" | "ebay";
 
 export interface Deal {
   id: string;

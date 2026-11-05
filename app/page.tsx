@@ -1,6 +1,8 @@
 import DealsTable from "@/components/DealsTable";
 import StatusBar from "@/components/StatusBar";
 import { demoDeals } from "@/lib/demo-data";
+import Link from "next/link";
+import { ebayConfigured } from "@/lib/ebay";
 import { getSupabase } from "@/lib/supabase";
 import { discount, type Deal } from "@/lib/types";
 
@@ -17,7 +19,7 @@ async function loadDeals(): Promise<{ deals: Deal[]; live: boolean }> {
     .order("created_at", { ascending: false })
     .limit(50);
 
-  if (error || !data || data.length === 0) return { deals: demoDeals, live: false };
+  if (error || !data) return { deals: demoDeals, live: false };
   return { deals: data as Deal[], live: true };
 }
 
@@ -41,7 +43,7 @@ export default async function Home() {
 
   return (
     <>
-      <StatusBar supabase={live} telegram={telegramReady} />
+      <StatusBar supabase={live} telegram={telegramReady} ebay={ebayConfigured()} />
 
       <main className="mx-auto max-w-6xl px-4 py-10">
         <header className="mb-10">
@@ -50,16 +52,22 @@ export default async function Home() {
             sCARDs<span className="cursor" />
           </h1>
           <p className="mt-3 max-w-2xl text-sm text-term-dim">
-            Analytics &amp; Sniper para cartas y cromos de fútbol (Panini, Topps). Valoración de
-            mercado y alertas de chollos en Vinted y Wallapop directo a Telegram.
+            Analytics &amp; Sniper para cartas y cromos de fútbol (Panini, Topps). Sniper automático
+            en eBay y valorador para anuncios de Vinted y Wallapop, con alertas a Telegram.
           </p>
+          <Link
+            href="/valorar"
+            className="mt-5 inline-block rounded border border-term-green px-4 py-2 text-sm text-term-green hover:bg-term-green hover:text-term-bg"
+          >
+            &gt; valorar un anuncio de Vinted / Wallapop
+          </Link>
         </header>
 
         <section className="mb-8 grid grid-cols-2 gap-4 md:grid-cols-4">
           <Stat label="Anuncios analizados" value={String(deals.length)} />
           <Stat label="Chollos (≥30%)" value={String(hot.length)} accent />
           <Stat label="Descuento medio" value={`${avg}%`} />
-          <Stat label="Fuentes" value="2" />
+          <Stat label="Fuentes" value="3" />
         </section>
 
         <section>
@@ -67,11 +75,17 @@ export default async function Home() {
             <h2 className="text-sm uppercase text-term-dim">&gt; Últimos anuncios detectados</h2>
             {!live && <span className="text-xs text-term-amber">[datos de ejemplo]</span>}
           </div>
-          <DealsTable deals={deals} />
+          {deals.length ? (
+            <DealsTable deals={deals} />
+          ) : (
+            <div className="rounded border border-term-border bg-term-panel p-6 text-sm text-term-dim">
+              Aún no hay anuncios. El sniper los irá añadiendo en cuanto encuentre chollos.
+            </div>
+          )}
         </section>
 
         <footer className="mt-12 border-t border-term-border pt-4 text-xs text-term-dim">
-          sCARDs MVP · Next.js + Supabase + Telegram
+          sCARDs MVP · Next.js + Supabase + eBay + Telegram
         </footer>
       </main>
     </>

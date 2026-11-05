@@ -3,10 +3,12 @@
 create table if not exists public.deals (
   id uuid primary key default gen_random_uuid(),
   title text not null,
-  platform text not null check (platform in ('vinted', 'wallapop')),
+  platform text not null check (platform in ('vinted', 'wallapop', 'ebay')),
   price numeric(10,2) not null,
   market_value numeric(10,2) not null,
   url text,
+  external_id text unique,
+  query text,
   created_at timestamptz not null default now()
 );
 
@@ -19,6 +21,4 @@ drop policy if exists "deals lectura publica" on public.deals;
 create policy "deals lectura publica" on public.deals
   for select using (true);
 
--- Fila de prueba
-insert into public.deals (title, platform, price, market_value, url)
-values ('Panini Adrenalyn XL — Prueba Supabase', 'vinted', 10, 25, null);
+grant select on public.deals to anon, authenticated;

@@ -9,9 +9,11 @@ function Dot({ ok }: { ok: boolean }) {
 export default function StatusBar({
   supabase,
   telegram,
+  ebay,
 }: {
   supabase: boolean;
   telegram: boolean;
+  ebay: boolean;
 }) {
   return (
     <div className="flex flex-wrap items-center gap-x-6 gap-y-2 border-b border-term-border bg-term-panel px-4 py-2 text-xs text-term-dim">
@@ -24,7 +26,10 @@ export default function StatusBar({
       <span className="flex items-center gap-2">
         <Dot ok={telegram} /> telegram: {telegram ? "listo" : "sin configurar"}
       </span>
-      <span className="ml-auto">v0.1.0</span>
+      <span className="flex items-center gap-2">
+        <Dot ok={ebay} /> ebay: {ebay ? "listo" : "sin configurar"}
+      </span>
+      <span className="ml-auto">v0.2.0</span>
     </div>
   );
 }
