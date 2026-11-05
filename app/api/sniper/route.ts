@@ -22,7 +22,8 @@ export async function GET(req: Request) {
     return NextResponse.json({ ok: false, error: "No autorizado" }, { status: 401 });
   }
   if (!ebayConfigured()) {
-    return NextResponse.json({ ok: false, error: "eBay no configurado" }, { status: 503 });
+    // Sin claves de eBay todavía: no es un error, simplemente no hay nada que hacer.
+    return NextResponse.json({ ok: true, skipped: "eBay no configurado todavía" });
   }
   const db = getSupabaseAdmin();
   if (!db) {
