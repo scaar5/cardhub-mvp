@@ -1,11 +1,18 @@
-function Dot({ ok }: { ok: boolean }) {
+import Link from "next/link";
+
+function Pill({ ok, label }: { ok: boolean; label: string }) {
   return (
     <span
-      className={`inline-block h-2 w-2 rounded-full ${ok ? "bg-term-green" : "bg-term-amber"}`}
-    />
+      title={ok ? `${label}: conectado` : `${label}: sin configurar`}
+      className="inline-flex items-center gap-1.5 rounded-full bg-card px-2.5 py-1 text-xs text-muted shadow-card"
+    >
+      <span className={`h-1.5 w-1.5 rounded-full ${ok ? "bg-good" : "bg-faint"}`} />
+      {label}
+    </span>
   );
 }
 
+/** Cabecera: logo, estado de las conexiones y acceso al valorador. */
 export default function StatusBar({
   supabase,
   telegram,
@@ -16,20 +23,19 @@ export default function StatusBar({
   ebay: boolean;
 }) {
   return (
-    <div className="flex flex-wrap items-center gap-x-6 gap-y-2 border-b border-term-border bg-term-panel px-4 py-2 text-xs text-term-dim">
-      <span className="flex items-center gap-2">
-        <Dot ok /> vercel: online
-      </span>
-      <span className="flex items-center gap-2">
-        <Dot ok={supabase} /> supabase: {supabase ? "conectado" : "sin configurar (modo demo)"}
-      </span>
-      <span className="flex items-center gap-2">
-        <Dot ok={telegram} /> telegram: {telegram ? "listo" : "sin configurar"}
-      </span>
-      <span className="flex items-center gap-2">
-        <Dot ok={ebay} /> ebay: {ebay ? "listo" : "sin configurar"}
-      </span>
-      <span className="ml-auto">v0.2.0</span>
-    </div>
+    <header className="mx-auto flex max-w-5xl items-center gap-4 px-5 pt-6">
+      <Link href="/" className="flex items-center gap-2.5">
+        <span className="grid h-9 w-9 place-items-center rounded-xl bg-ink text-sm font-bold text-white">
+          s
+        </span>
+        <span className="text-lg font-semibold tracking-tight">sCARDs</span>
+      </Link>
+
+      <div className="ml-auto hidden items-center gap-2 sm:flex">
+        <Pill ok={ebay} label="eBay" />
+        <Pill ok={supabase} label="Base de datos" />
+        <Pill ok={telegram} label="Telegram" />
+      </div>
+    </header>
   );
 }

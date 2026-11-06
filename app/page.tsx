@@ -1,7 +1,8 @@
+import Link from "next/link";
 import DealsTable from "@/components/DealsTable";
 import StatusBar from "@/components/StatusBar";
+import { ALERT_THRESHOLD } from "@/lib/config";
 import { demoDeals } from "@/lib/demo-data";
-import Link from "next/link";
 import { ebayConfigured } from "@/lib/ebay";
 import { getSupabase } from "@/lib/supabase";
 import { discount, type Deal } from "@/lib/types";
@@ -23,11 +24,14 @@ async function loadDeals(): Promise<{ deals: Deal[]; live: boolean }> {
   return { deals: data as Deal[], live: true };
 }
 
-function Stat({ label, value, accent }: { label: string; value: string; accent?: boolean }) {
+const eur = new Intl.NumberFormat("es-ES", { style: "currency", currency: "EUR", maximumFractionDigits: 0 });
+
+function Stat({ label, value, hint }: { label: string; value: string; hint?: string }) {
   return (
-    <div className="rounded border border-term-border bg-term-panel p-4">
-      <div className="text-xs uppercase text-term-dim">{label}</div>
-      <div className={`mt-1 text-2xl font-bold ${accent ? "text-term-green" : ""}`}>{value}</div>
+    <div className="rounded-3xl bg-card p-5 shadow-card">
+      <p className="text-sm text-muted">{label}</p>
+      <p className="tabular mt-2 text-2xl font-semibold tracking-tight">{value}</p>
+      {hint && <p className="mt-1 text-xs text-faint">{hint}</p>}
     </div>
   );
 }
@@ -36,57 +40,80 @@ export default async function Home() {
   const { deals, live } = await loadDeals();
   const telegramReady = Boolean(process.env.TELEGRAM_BOT_TOKEN && process.env.TELEGRAM_CHAT_ID);
 
-  const hot = deals.filter((d) => discount(d) >= 30);
+  const hot = deals.filter((d) => discount(d) >= ALERT_THRESHOLD);
   const avg = deals.length
     ? Math.round(deals.reduce((s, d) => s + discount(d), 0) / deals.length)
     : 0;
+  const savings = hot.reduce((s, d) => s + Math.max(0, d.market_value - d.price), 0);
 
   return (
     <>
       <StatusBar supabase={live} telegram={telegramReady} ebay={ebayConfigured()} />
 
-      <main className="mx-auto max-w-6xl px-4 py-10">
-        <header className="mb-10">
-          <p className="text-xs text-term-dim">root@scards:~$ ./sniper --watch vinted wallapop</p>
-          <h1 className="mt-3 text-4xl font-bold tracking-tight text-term-green sm:text-5xl">
-            sCARDs<span className="cursor" />
-          </h1>
-          <p className="mt-3 max-w-2xl text-sm text-term-dim">
-            Analytics &amp; Sniper para cartas y cromos de fútbol (Panini, Topps). Sniper automático
-            en eBay y valorador para anuncios de Vinted y Wallapop, con alertas a Telegram.
+      <main className="mx-auto max-w-5xl px-5 pb-16 pt-10">
+        {/* Hero */}
+        <section className="rounded-[2rem] bg-ink px-7 py-9 text-white sm:px-10">
+          <p className="text-sm text-white/60">Ahorro potencial en chollos</p>
+          <p className="tabular mt-2 text-5xl font-semibold tracking-tight sm:text-6xl">
+            {eur.format(savings)}
           </p>
-          <Link
-            href="/valorar"
-            className="mt-5 inline-block rounded border border-term-green px-4 py-2 text-sm text-term-green hover:bg-term-green hover:text-term-bg"
-          >
-            &gt; valorar un anuncio de Vinted / Wallapop
-          </Link>
-        </header>
-
-        <section className="mb-8 grid grid-cols-2 gap-4 md:grid-cols-4">
-          <Stat label="Anuncios analizados" value={String(deals.length)} />
-          <Stat label="Chollos (≥30%)" value={String(hot.length)} accent />
-          <Stat label="Descuento medio" value={`${avg}%`} />
-          <Stat label="Fuentes" value="3" />
+          <p className="mt-3 max-w-md text-sm text-white/60">
+            Cartas y cromos de fútbol por debajo de su valor de mercado en eBay, Vinted y Wallapop.
+          </p>
+          <div className="mt-7 flex flex-wrap gap-3">
+            <Link
+              href="/valorar"
+              className="rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-ink transition hover:bg-white/90"
+            >
+              Valorar un anuncio
+            </Link>
+            <a
+              href="#chollos"
+              className="rounded-full bg-white/10 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-white/20"
+            >
+              Ver chollos
+            </a>
+          </div>
         </section>
 
-        <section>
-          <div className="mb-3 flex items-baseline justify-between">
-            <h2 className="text-sm uppercase text-term-dim">&gt; Últimos anuncios detectados</h2>
-            {!live && <span className="text-xs text-term-amber">[datos de ejemplo]</span>}
+        {/* Cifras */}
+        <section className="mt-5 grid grid-cols-2 gap-4 md:grid-cols-4">
+          <Stat label="Chollos" value={String(hot.length)} hint={`≥ ${ALERT_THRESHOLD}% de descuento`} />
+          <Stat label="Anuncios" value={String(deals.length)} hint="últimos detectados" />
+          <Stat label="Descuento medio" value={`${avg}%`} />
+          <Stat label="Fuentes" value="3" hint="eBay · Vinted · Wallapop" />
+        </section>
+
+        {/* Lista */}
+        <section id="chollos" className="mt-10">
+          <div className="mb-3 flex items-baseline justify-between px-1">
+            <h2 className="text-lg font-semibold tracking-tight">Últimos anuncios</h2>
+            {!live && (
+              <span className="rounded-full bg-warn-soft px-2.5 py-1 text-xs font-medium text-warn">
+                Datos de ejemplo
+              </span>
+            )}
           </div>
           {deals.length ? (
             <DealsTable deals={deals} />
           ) : (
-            <div className="rounded border border-term-border bg-term-panel p-6 text-sm text-term-dim">
-              Aún no hay anuncios. El sniper los irá añadiendo en cuanto encuentre chollos.
+            <div className="rounded-3xl bg-card px-6 py-14 text-center shadow-card">
+              <p className="text-base font-medium">Todavía no hay anuncios</p>
+              <p className="mx-auto mt-1 max-w-sm text-sm text-muted">
+                El sniper revisa eBay cada 30 minutos y los irá añadiendo aquí en cuanto encuentre
+                chollos.
+              </p>
+              <Link
+                href="/valorar"
+                className="mt-5 inline-block rounded-full bg-ink px-5 py-2.5 text-sm font-semibold text-white"
+              >
+                Valorar un anuncio
+              </Link>
             </div>
           )}
         </section>
 
-        <footer className="mt-12 border-t border-term-border pt-4 text-xs text-term-dim">
-          sCARDs MVP · Next.js + Supabase + eBay + Telegram
-        </footer>
+        <footer className="mt-14 text-center text-xs text-faint">sCARDs · v0.3</footer>
       </main>
     </>
   );

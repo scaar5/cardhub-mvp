@@ -5,14 +5,17 @@ export const metadata = { title: "Valorar anuncio — sCARDs" };
 
 export default function ValorarPage() {
   return (
-    <main className="mx-auto max-w-3xl px-4 py-10">
-      <Link href="/" className="text-xs text-term-dim hover:text-term-green">
-        &lt; volver
+    <main className="mx-auto max-w-xl px-5 pb-16 pt-6">
+      <Link
+        href="/"
+        className="inline-flex items-center gap-1.5 rounded-full bg-card px-3.5 py-1.5 text-sm text-muted shadow-card hover:text-ink"
+      >
+        ← Inicio
       </Link>
-      <h1 className="mt-3 text-3xl font-bold text-term-green">valorar anuncio</h1>
-      <p className="mt-2 text-sm text-term-dim">
-        Pega un anuncio de Vinted o Wallapop. Calculo su valor de mercado con los precios de eBay
-        España y te digo si es chollo. Si lo guardas y baja un 30 % o más, te llega a Telegram.
+      <h1 className="mt-8 text-3xl font-semibold tracking-tight">Valorar un anuncio</h1>
+      <p className="mt-2 text-[15px] text-muted">
+        Pega un anuncio de Vinted o Wallapop. Comparo su precio con eBay España y te digo si es un
+        chollo.
       </p>
       <ValorarForm />
     </main>

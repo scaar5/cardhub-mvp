@@ -1,46 +1,79 @@
-import { discount, type Deal } from "@/lib/types";
+import { discount, type Deal, type Platform } from "@/lib/types";
 
-function DiscountBadge({ pct }: { pct: number }) {
-  const color =
-    pct >= 40 ? "text-term-green" : pct >= 20 ? "text-term-amber" : "text-term-dim";
-  return <span className={`font-bold ${color}`}>-{pct}%</span>;
+const PLATFORM: Record<Platform, { label: string; initials: string; className: string }> = {
+  ebay: { label: "eBay", initials: "eB", className: "bg-accent-soft text-accent" },
+  vinted: { label: "Vinted", initials: "V", className: "bg-[#e6f6f7] text-[#007782]" },
+  wallapop: { label: "Wallapop", initials: "W", className: "bg-[#e5f8f3] text-[#0c9e7c]" },
+};
+
+const eur = new Intl.NumberFormat("es-ES", { style: "currency", currency: "EUR" });
+const rtf = new Intl.RelativeTimeFormat("es", { numeric: "auto" });
+
+function timeAgo(iso: string): string {
+  const mins = Math.round((new Date(iso).getTime() - Date.now()) / 60000);
+  if (Math.abs(mins) < 60) return rtf.format(mins, "minute");
+  const hours = Math.round(mins / 60);
+  if (Math.abs(hours) < 24) return rtf.format(hours, "hour");
+  return rtf.format(Math.round(hours / 24), "day");
 }
 
+function DiscountPill({ pct }: { pct: number }) {
+  const cls =
+    pct >= 30
+      ? "bg-good-soft text-good"
+      : pct >= 15
+        ? "bg-warn-soft text-warn"
+        : "bg-canvas text-muted";
+  return (
+    <span className={`tabular rounded-full px-2 py-0.5 text-xs font-semibold ${cls}`}>
+      −{pct}%
+    </span>
+  );
+}
+
+/** Lista de anuncios al estilo "movimientos" de una app de banca. */
 export default function DealsTable({ deals }: { deals: Deal[] }) {
   return (
-    <div className="overflow-x-auto rounded border border-term-border bg-term-panel">
-      <table className="w-full text-left text-sm">
-        <thead className="border-b border-term-border text-xs uppercase text-term-dim">
-          <tr>
-            <th className="px-4 py-3">Carta / Cromo</th>
-            <th className="px-4 py-3">Plataforma</th>
-            <th className="px-4 py-3 text-right">Precio</th>
-            <th className="px-4 py-3 text-right">Valor mercado</th>
-            <th className="px-4 py-3 text-right">Chollo</th>
-          </tr>
-        </thead>
-        <tbody>
-          {deals.map((d) => (
-            <tr key={d.id} className="border-b border-term-border/60 last:border-0 hover:bg-white/[0.02]">
-              <td className="px-4 py-3">
-                {d.url ? (
-                  <a href={d.url} target="_blank" rel="noreferrer" className="hover:text-term-green">
-                    {d.title}
-                  </a>
-                ) : (
-                  d.title
-                )}
-              </td>
-              <td className="px-4 py-3 text-term-dim">{d.platform}</td>
-              <td className="px-4 py-3 text-right">{d.price.toFixed(2)} €</td>
-              <td className="px-4 py-3 text-right text-term-dim">{d.market_value.toFixed(2)} €</td>
-              <td className="px-4 py-3 text-right">
-                <DiscountBadge pct={discount(d)} />
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+    <ul className="divide-y divide-line overflow-hidden rounded-3xl bg-card shadow-card">
+      {deals.map((d) => {
+        const p = PLATFORM[d.platform] ?? PLATFORM.ebay;
+        const pct = discount(d);
+        const row = (
+          <div className="flex items-center gap-4 px-5 py-4 transition-colors hover:bg-canvas/60">
+            <span
+              className={`grid h-11 w-11 shrink-0 place-items-center rounded-full text-sm font-semibold ${p.className}`}
+            >
+              {p.initials}
+            </span>
+            <div className="min-w-0 flex-1">
+              <p className="truncate text-[15px] font-medium">{d.title}</p>
+              <p className="mt-0.5 text-sm text-muted">
+                {p.label} · {timeAgo(d.created_at)}
+              </p>
+            </div>
+            <div className="text-right">
+              <p className="tabular text-[15px] font-semibold">{eur.format(d.price)}</p>
+              <div className="mt-1 flex items-center justify-end gap-2">
+                <span className="tabular hidden text-xs text-faint line-through sm:inline">
+                  {eur.format(d.market_value)}
+                </span>
+                <DiscountPill pct={pct} />
+              </div>
+            </div>
+          </div>
+        );
+        return (
+          <li key={d.id}>
+            {d.url ? (
+              <a href={d.url} target="_blank" rel="noreferrer" className="block">
+                {row}
+              </a>
+            ) : (
+              row
+            )}
+          </li>
+        );
+      })}
+    </ul>
   );
 }
