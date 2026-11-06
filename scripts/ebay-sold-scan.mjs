@@ -10,7 +10,22 @@
 const APP_URL = (process.env.APP_URL || "https://scaard5-analytics.vercel.app").replace(/\/$/, "");
 const SECRET = (process.env.ALERT_SECRET || "").trim();
 const UA =
-  "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36";
+  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36";
+const BROWSER_HEADERS = {
+  "User-Agent": UA,
+  Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+  "Accept-Language": "es-ES,es;q=0.9,en;q=0.8",
+  "Accept-Encoding": "gzip, deflate, br",
+  "Cache-Control": "no-cache",
+  "Upgrade-Insecure-Requests": "1",
+  "Sec-Fetch-Dest": "document",
+  "Sec-Fetch-Mode": "navigate",
+  "Sec-Fetch-Site": "none",
+  "Sec-Fetch-User": "?1",
+  "sec-ch-ua": '"Chromium";v="141", "Google Chrome";v="141", "Not?A_Brand";v="99"',
+  "sec-ch-ua-mobile": "?0",
+  "sec-ch-ua-platform": '"Windows"',
+};
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 const decode = (s) =>
@@ -89,16 +104,22 @@ async function main() {
   const cfg = await fetch(`${APP_URL}/api/ebay-sold`, { headers }).then((r) => r.json());
   if (!cfg.ok) throw new Error(`No pude leer las búsquedas: ${JSON.stringify(cfg)}`);
 
+  // Primero la portada, como un navegador, para recibir las cookies de sesión
+  const home = await fetch("https://www.ebay.es/", { headers: BROWSER_HEADERS });
+  const cookie = (home.headers.getSetCookie?.() ?? []).map((c) => c.split(";")[0]).join("; ");
+  console.log(`Portada eBay: ${home.status}, cookies: ${cookie ? "sí" : "no"}`);
+  await sleep(2000);
+
   const items = [];
   const summary = [];
   let skippedBestOffer = 0;
   let firstHtml = null;
   for (const { q, set } of cfg.searches) {
     const url = `https://www.ebay.es/sch/i.html?_nkw=${encodeURIComponent(q)}&LH_Sold=1&LH_Complete=1&_sop=13&_ipg=240`;
-    const res = await fetch(url, { headers: { "User-Agent": UA, "Accept-Language": "es-ES,es;q=0.9" } });
-    const html = res.ok ? await res.text() : "";
+    const res = await fetch(url, { headers: { ...BROWSER_HEADERS, ...(cookie ? { Cookie: cookie } : {}) } });
+    const html = await res.text();
     if (!res.ok || /Pardon Our Interruption|captcha|Disculpa la interrupción/i.test(html)) {
-      summary.push({ q, status: res.status, blocked: true });
+      summary.push({ q, status: res.status, blocked: true, page: html.match(/<title>([^<]*)/)?.[1] ?? "" });
       console.log(`eBay ha respondido ${res.status} o con un bloqueo. Paro esta pasada.`);
       break;
     }
