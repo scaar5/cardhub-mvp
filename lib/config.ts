@@ -16,7 +16,7 @@ export const SAVE_THRESHOLD = 25;
 export const ALERT_THRESHOLD = 35;
 
 /** Nº mínimo de anuncios de eBay de la misma carta y variante para fiarse de la referencia. */
-export const MIN_REF_SAMPLE = 3;
+export const MIN_REF_SAMPLE = 2;
 
 /** Días de anuncios de eBay que cuentan para la referencia. */
 export const REF_DAYS = 45;
