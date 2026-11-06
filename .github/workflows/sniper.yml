@@ -2,6 +2,7 @@ name: sniper
 
 # Cada 30 minutos (y a mano desde la pestaña Actions):
 #   1. eBay → guarda precios de referencia por carta (/api/sniper)
+#   1b. eBay → referencias a medida para las cartas de Vinted sin precio exacto (/api/ebay-targeted)
 #   2. Vinted → lee los anuncios nuevos y busca chollos frente a esa referencia (/api/vinted)
 on:
   schedule:
@@ -22,6 +23,14 @@ jobs:
           curl -sS --fail-with-body -m 90 \
             -H "x-alert-secret: $SECRET" \
             "$APP_URL/api/sniper"
+
+      - name: eBay → referencias a medida (jugador + producto de las cartas vistas en Vinted)
+        continue-on-error: true
+        run: |
+          SECRET="$(printf '%s' "$ALERT_SECRET" | tr -d '\r\n' | sed 's/^ *//;s/ *$//')"
+          curl -sS --fail-with-body -m 90 \
+            -H "x-alert-secret: $SECRET" \
+            "$APP_URL/api/ebay-targeted"
 
       - uses: actions/checkout@v4
         with:

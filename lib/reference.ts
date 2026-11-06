@@ -162,11 +162,12 @@ export function resolveReference(
     return { ...sib, level: 2, basedOn: cardLabel(c, sib.parallel) };
   }
 
-  // 3) Misma colección, numeración más cercana (solo si la carta es numerada)
+  // 3) Misma colección, numeración más cercana y parecida (solo si la carta es numerada)
   if (run !== null) {
     const near = own
       .map((r) => ({ ...r, run: printRun(r.parallel) }))
-      .filter((r) => r.run !== null && r.run !== run)
+      // Solo numeraciones parecidas (/150 ↔ /125 o /199): /150 frente a /25 o /499 no se parece al precio real
+      .filter((r) => r.run !== null && r.run !== run && Math.max(r.run, run) / Math.min(r.run, run) <= 1.6)
       .sort((a, b) => Math.abs(a.run! - run) - Math.abs(b.run! - run) || b.sample - a.sample)[0];
     if (near) {
       const { run: _run, ...r } = near;
