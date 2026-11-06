@@ -65,6 +65,19 @@ export function ebayProduct(card: CatalogCard): string | null {
   return null;
 }
 
+/** Varias búsquedas en eBay, sin repetir anuncios (si una falla, sigue con las demás). */
+async function searchMany(queries: string[]) {
+  const seen = new Map<string, Awaited<ReturnType<typeof searchEbay>>[number]>();
+  for (const q of [...new Set(queries)]) {
+    try {
+      for (const it of await searchEbay(q, { limit: 200 })) seen.set(it.id, it);
+    } catch {
+      // seguimos con la siguiente búsqueda
+    }
+  }
+  return [...seen.values()];
+}
+
 /** Misma regla que loadReferences(): con pocos anuncios el más barato; con más, el percentil 25. */
 function askingPriceRef(prices: number[]): number {
   const sorted = [...prices].sort((a, b) => a - b);
@@ -105,8 +118,10 @@ async function textValuation(query: string): Promise<{ ref: Valuation["ref"]; co
   const wantAuto = AUTO_RE.test(flat(query));
   const wantRelic = RELIC_RE.test(flat(query));
 
-  // En eBay se busca solo con las palabras importantes (sin "rookie", "/299"…), y la numeración se filtra aquí
-  const items = await searchEbay(words.join(" "), { limit: 200 });
+  // En eBay se busca con las palabras importantes (sin "rookie"…); si es numerada, primero con el número
+  // ("bellingham topps chrome 299"), que trae justo esas; luego sin él. La numeración se comprueba aquí.
+  const base = words.join(" ");
+  const items = await searchMany([...runs.map((r) => `${base} ${r}`), base]);
   // Con 4 o más palabras se permite que falte una (p. ej. el nombre de pila: "Bellingham" sin "Jude")
   const allowMissing = words.length >= 4 ? 1 : 0;
   const comps: Comparable[] = [];
@@ -169,11 +184,17 @@ async function loadComparables(db: SupabaseClient, ref: ResolvedReference): Prom
 }
 
 /** Búsqueda en directo en eBay de "jugador + producto"; guarda los anuncios reconocidos en listings. */
-async function liveEbayForCard(db: SupabaseClient, card: CatalogCard): Promise<string | null> {
+async function liveEbayForCard(
+  db: SupabaseClient,
+  card: CatalogCard,
+  parallel: string | null,
+): Promise<string | null> {
   const product = ebayProduct(card) ?? normalize(setBySlug.get(card.set_slug)?.name ?? "");
   if (!product) return null;
   const q = `${normalize(card.player)} ${product}`;
-  const items = await searchEbay(q, { limit: 200 });
+  // Numerada: primero "jugador + producto + número" (trae justo esa paralela), luego la búsqueda general
+  const run = printRun(parallel);
+  const items = await searchMany(run ? [`${q} ${run}`, q] : [q]);
   const now = new Date().toISOString();
   const rows = [];
   for (const it of items) {
@@ -208,7 +229,7 @@ export async function valuate(db: SupabaseClient, title: string, customQuery?: s
     // Sin referencia exacta: buscar en eBay ahora mismo y volver a calcular
     if (!ref || ref.level > 1) {
       try {
-        const q = await liveEbayForCard(db, card);
+        const q = await liveEbayForCard(db, card, match.parallel);
         if (q) {
           searched.push(q);
           ref = resolveReference(await loadReferences(db, ids), card, match.parallel);
