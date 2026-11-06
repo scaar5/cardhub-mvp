@@ -1,10 +1,9 @@
 name: ebay-sold
 
 # Ventas reales de eBay.es (filtro "Artículos vendidos") → precio de referencia del sniper.
-# Cada 6 horas (las ventas cambian despacio) y a mano desde la pestaña Actions.
+# DESACTIVADO el automático: eBay devuelve 403 a GitHub Actions y a Vercel (IPs de centro de datos).
+# Solo a mano desde la pestaña Actions. Para reactivarlo: añadir  schedule: - cron: "17 */6 * * *"
 on:
-  schedule:
-    - cron: "17 */6 * * *"
   workflow_dispatch:
 
 jobs:
