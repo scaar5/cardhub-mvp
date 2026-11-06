@@ -1,0 +1,35 @@
+name: probe
+on: workflow_dispatch
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: |
+          cat > p.mjs <<'JS'
+          const UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36";
+          const H={"User-Agent":UA,"Accept-Language":"es-ES,es;q=0.9",Accept:"text/html,application/json"};
+          const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+          const home=await fetch("https://www.vinted.es/",{headers:H});
+          const cookie=(home.headers.getSetCookie?.()??[]).map(c=>c.split(";")[0]).join("; ");
+          console.log("HOME",home.status,"cookies",cookie.split("; ").map(c=>c.split("=")[0]).join(","));
+          const s=await (await fetch("https://www.vinted.es/catalog?order=newest_first&search_text=topps%20merlin",{headers:H})).text();
+          const ids=[...new Set([...s.matchAll(/product-item-id-(\d+)/g)].map(m=>m[1]))].slice(0,2);
+          for (const id of ["10566626602",...ids]) {
+            await sleep(2000);
+            const r=await fetch(`https://www.vinted.es/items/${id}`,{headers:{...H,Cookie:cookie}});
+            const h=await r.text();
+            const pick=(re)=>{const m=h.match(re);return m?m[0].slice(0,160):null};
+            console.log("ITEM",id,r.status,h.length,JSON.stringify({
+              title:pick(/<title>[^<]*/),
+              is_closed:pick(/\\?"is_closed\\?":\s*\w+/), is_reserved:pick(/\\?"is_reserved\\?":\s*\w+/),
+              status:pick(/\\?"(?:item_)?closing_action\\?":[^,]*/), vendido:(h.match(/Vendido/g)||[]).length,
+              sold_word:(h.match(/\bsold\b/gi)||[]).length, price:pick(/\\?"price\\?":\s*\{[^}]*\}|\\?"price\\?":\s*"?[\d.]+/)}));
+            await sleep(2000);
+            const a=await fetch(`https://www.vinted.es/api/v2/items/${id}`,{headers:{...H,Accept:"application/json",Cookie:cookie}});
+            const t=await a.text();
+            console.log("API",id,a.status,t.length,(t.match(/"is_closed":\w+|"is_reserved":\w+|"price":\{[^}]*\}|"status":"[^"]*"|"code":\w+|"message":"[^"]*"/g)||[]).slice(0,6).join(" "));
+          }
+          JS
+          node p.mjs
