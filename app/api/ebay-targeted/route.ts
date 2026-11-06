@@ -5,6 +5,7 @@ import { MIN_PRICE } from "@/lib/config";
 import { ebayConfigured, searchEbay } from "@/lib/ebay";
 import { recognize } from "@/lib/recognize";
 import { loadReferences, resolveReference } from "@/lib/reference";
+import { ebayProduct } from "@/lib/valuation";
 import { getSupabaseAdmin } from "@/lib/supabase-admin";
 
 export const dynamic = "force-dynamic";
@@ -17,15 +18,6 @@ const VINTED_DAYS = 7;
 
 const cardById = new Map(CARDS.map((c) => [c.id, c]));
 
-/** Producto en palabras que salen en casi todos los títulos ("topps chrome", "prizm world cup"…). */
-function product(card: CatalogCard): string | null {
-  const s = card.set_slug;
-  if (s.startsWith("topps-chrome-")) return "topps chrome";
-  if (s.startsWith("topps-merlin-")) return "topps merlin";
-  if (s.startsWith("topps-finest-")) return "topps finest";
-  if (s.startsWith("panini-prizm-world-cup-")) return "prizm world cup";
-  return null;
-}
 
 /**
  * GET /api/ebay-targeted   (cabecera x-alert-secret: <ALERT_SECRET>)
@@ -62,7 +54,7 @@ export async function GET(req: Request) {
   // Una búsqueda por jugador + producto; primero los que más anuncios tienen sin referencia
   const queries = new Map<string, number>();
   for (const { card } of missing) {
-    const p = product(card);
+    const p = ebayProduct(card);
     if (!p) continue;
     const q = `${normalize(card.player)} ${p}`;
     queries.set(q, (queries.get(q) ?? 0) + 1);

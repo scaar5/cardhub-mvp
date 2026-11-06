@@ -2,17 +2,52 @@
 
 import { useEffect, useState } from "react";
 
+interface Comparable {
+  title: string;
+  price: number;
+  url: string | null;
+  date: string | null;
+  platform: "vinted_sold" | "ebay";
+}
+
 interface Result {
   ok: boolean;
   error?: string;
-  query?: string;
-  market_value?: number;
+  card?: string | null;
+  confidence?: "alta" | "media" | null;
+  approximate?: boolean;
+  searched?: string[];
+  comparables?: Comparable[];
+  market_value?: number | null;
+  reason?: string;
   sample?: number;
-  reliable?: boolean;
+  source?: "vinted_sold" | "ebay";
+  level?: 1 | 2 | 3 | null;
+  based_on?: string | null;
   pct?: number;
+  verdict?: "chollo" | "buen-precio" | "normal" | "caro" | "sospechoso";
+  verdict_note?: string | null;
   saved?: boolean;
   alerted?: boolean;
   excluded?: string | null;
+}
+
+const VERDICT: Record<string, { text: string; cls: string }> = {
+  chollo: { text: "Es un chollo", cls: "bg-good-soft text-good" },
+  "buen-precio": { text: "Buen precio", cls: "bg-warn-soft text-warn" },
+  normal: { text: "Precio normal", cls: "bg-canvas text-muted" },
+  caro: { text: "Caro", cls: "bg-bad-soft text-bad" },
+  sospechoso: { text: "Revisar: demasiado barato", cls: "bg-warn-soft text-warn" },
+};
+
+const shortDate = (d: string | null) =>
+  d ? new Date(d).toLocaleDateString("es-ES", { day: "numeric", month: "short" }) : null;
+
+function sourceText(r: Result): string {
+  const n = r.sample ?? 0;
+  if (r.source === "vinted_sold") return `Mediana de ${n} ventas reales en Vinted (últimos 90 días).`;
+  const how = n >= 4 ? "precio bajo (percentil 25)" : "el más barato";
+  return `Basado en ${n} anuncios en venta en eBay España: ${how}, porque son precios pedidos, no vendidos.`;
 }
 
 const EXCLUDED_LABEL: Record<string, string> = {
@@ -59,6 +94,7 @@ export default function ValorarForm() {
   async function send(save: boolean) {
     setBusy(true);
     setRes(null);
+    setShowAll(false);
     try {
       try {
         localStorage.setItem("scards-key", key);
@@ -78,12 +114,10 @@ export default function ValorarForm() {
 
   const ready = !busy && title && price && key;
   const pct = res?.pct ?? 0;
-  const verdict =
-    pct >= 30
-      ? { text: "Es un chollo", cls: "bg-good-soft text-good" }
-      : pct >= 15
-        ? { text: "Buen precio", cls: "bg-warn-soft text-warn" }
-        : { text: "No es chollo", cls: "bg-bad-soft text-bad" };
+  const verdict = VERDICT[res?.verdict ?? "normal"] ?? VERDICT.normal;
+  const [showAll, setShowAll] = useState(false);
+  const comps = res?.comparables ?? [];
+  const visible = showAll ? comps : comps.slice(0, 6);
 
   return (
     <div className="mt-8 space-y-5">
@@ -123,9 +157,9 @@ export default function ValorarForm() {
               <input className={input} value={url} onChange={(e) => setUrl(e.target.value)}
                 placeholder="https://www.vinted.es/items/…" />
             </Field>
-            <Field label="Buscar en eBay como… (opcional)">
+            <Field label="Buscar en eBay como… (opcional, solo si no reconozco la carta)">
               <input className={input} value={query} onChange={(e) => setQuery(e.target.value)}
-                placeholder="Si lo dejas vacío uso el título" />
+                placeholder="Ej.: Topps Chrome UCC 2020-21 Bellingham /299" />
             </Field>
           </>
         ) : (
@@ -159,45 +193,125 @@ export default function ValorarForm() {
             <p className="text-[15px] text-bad">{res.error}</p>
           ) : (
             <>
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <p className="text-sm text-muted">Valor de mercado</p>
-                  <p className="tabular mt-1 text-4xl font-semibold tracking-tight">
-                    {eur.format(res.market_value ?? 0)}
-                  </p>
-                </div>
-                <span className={`rounded-full px-3 py-1.5 text-sm font-semibold ${verdict.cls}`}>
-                  {verdict.text}
-                </span>
-              </div>
-
-              <div className="mt-5 grid grid-cols-2 gap-3">
-                <div className="rounded-2xl bg-canvas p-4">
-                  <p className="text-xs text-muted">Precio del anuncio</p>
-                  <p className="tabular mt-1 text-lg font-semibold">
-                    {eur.format(Number(price.replace(",", ".")) || 0)}
-                  </p>
-                </div>
-                <div className="rounded-2xl bg-canvas p-4">
-                  <p className="text-xs text-muted">{pct >= 0 ? "Descuento" : "Sobreprecio"}</p>
-                  <p className={`tabular mt-1 text-lg font-semibold ${pct >= 15 ? "text-good" : pct < 0 ? "text-bad" : ""}`}>
-                    {pct >= 0 ? `−${pct}%` : `+${-pct}%`}
-                  </p>
-                </div>
-              </div>
-
-              <p className="mt-4 text-xs text-faint">
-                Basado en {res.sample} anuncios de eBay para “{res.query}”.
-                {!res.reliable && " Pocos comparables: prueba una búsqueda más general."}
+              {/* Carta reconocida */}
+              <p className="text-xs font-medium uppercase tracking-wide text-faint">Carta</p>
+              <p className="mt-1 text-[15px] font-semibold text-ink">
+                {res.card ?? "No está en el catálogo"}
               </p>
+              {!res.card && (
+                <p className="mt-1 text-xs text-muted">
+                  Busco en eBay con el título tal cual, contando solo anuncios con las mismas palabras y la misma
+                  numeración.
+                </p>
+              )}
+
+              {res.market_value == null ? (
+                <div className="mt-5 rounded-2xl bg-canvas p-4">
+                  <p className="text-[15px] font-semibold text-ink">No puedo valorarla con fiabilidad</p>
+                  <p className="mt-1 text-sm text-muted">{res.reason}</p>
+                  <p className="mt-2 text-xs text-faint">
+                    Prueba a poner en el título la colección y la temporada (p. ej. “Topps Chrome UCC 2020-21”) o
+                    usa “Buscar en eBay como…”.
+                  </p>
+                </div>
+              ) : (
+                <>
+                  <div className="mt-5 flex items-start justify-between gap-4">
+                    <div>
+                      <p className="text-sm text-muted">
+                        Valor de referencia{res.approximate ? " (aproximado)" : ""}
+                      </p>
+                      <p className="tabular mt-1 text-4xl font-semibold tracking-tight">
+                        {eur.format(res.market_value ?? 0)}
+                      </p>
+                    </div>
+                    <span className={`rounded-full px-3 py-1.5 text-sm font-semibold ${verdict.cls}`}>
+                      {verdict.text}
+                    </span>
+                  </div>
+
+                  <div className="mt-5 grid grid-cols-2 gap-3">
+                    <div className="rounded-2xl bg-canvas p-4">
+                      <p className="text-xs text-muted">Precio del anuncio</p>
+                      <p className="tabular mt-1 text-lg font-semibold">
+                        {eur.format(Number(price.replace(",", ".")) || 0)}
+                      </p>
+                    </div>
+                    <div className="rounded-2xl bg-canvas p-4">
+                      <p className="text-xs text-muted">{pct >= 0 ? "Descuento" : "Sobreprecio"}</p>
+                      <p className={`tabular mt-1 text-lg font-semibold ${pct >= 25 ? "text-good" : pct < 0 ? "text-bad" : ""}`}>
+                        {pct >= 0 ? `−${pct}%` : `+${-pct}%`}
+                      </p>
+                    </div>
+                  </div>
+
+                  <p className="mt-4 text-xs text-muted">{sourceText(res)}</p>
+                  {res.based_on && (
+                    <p className="mt-1 text-xs text-warn">
+                      Estimado con {res.based_on}, porque no hay datos de esta paralela exacta.
+                    </p>
+                  )}
+                  {res.approximate && (
+                    <p className="mt-1 text-xs text-warn">
+                      Aproximado: la carta no está en el catálogo y los anuncios pueden ser de otra temporada.
+                      Revisa los enlaces de abajo.
+                    </p>
+                  )}
+                  {res.verdict === "sospechoso" && res.verdict_note && (
+                    <p className="mt-1 text-xs text-warn">Descuento sospechoso ({res.verdict_note}).</p>
+                  )}
+                  {res.verdict_note && /menos de/.test(res.verdict_note) && (
+                    <p className="mt-1 text-xs text-muted">Carta de poco valor ({res.verdict_note}).</p>
+                  )}
+                </>
+              )}
+
+              {/* Comparables con enlace */}
+              {comps.length > 0 && (
+                <div className="mt-6">
+                  <p className="text-sm font-semibold text-ink">
+                    {res.market_value == null ? "Lo que he encontrado" : "De dónde sale el precio"}
+                    <span className="ml-1.5 font-normal text-faint">({comps.length})</span>
+                  </p>
+                  <ul className="mt-2 divide-y divide-line">
+                    {visible.map((c, i) => (
+                      <li key={i} className="flex items-center gap-3 py-2.5">
+                        <span className={`shrink-0 rounded-full px-2 py-0.5 text-[11px] font-semibold ${
+                          c.platform === "vinted_sold" ? "bg-good-soft text-good" : "bg-canvas text-muted"
+                        }`}>
+                          {c.platform === "vinted_sold" ? "Vendida Vinted" : "eBay"}
+                        </span>
+                        <span className="min-w-0 flex-1 truncate text-sm text-ink" title={c.title}>
+                          {c.url ? (
+                            <a href={c.url} target="_blank" rel="noopener noreferrer" className="hover:text-accent hover:underline">
+                              {c.title}
+                            </a>
+                          ) : (
+                            c.title
+                          )}
+                        </span>
+                        {shortDate(c.date) && <span className="shrink-0 text-xs text-faint">{shortDate(c.date)}</span>}
+                        <span className="tabular shrink-0 text-sm font-semibold">{eur.format(c.price)}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  {comps.length > 6 && (
+                    <button type="button" onClick={() => setShowAll(!showAll)}
+                      className="mt-2 text-sm font-medium text-accent hover:underline">
+                      {showAll ? "Ver menos" : `Ver las ${comps.length}`}
+                    </button>
+                  )}
+                </div>
+              )}
+
               {res.excluded && (
-                <p className="mt-2 text-xs font-medium text-bad">
-                  Ojo: parece {EXCLUDED_LABEL[res.excluded] ?? "un anuncio especial"}. El valor de mercado
+                <p className="mt-4 text-xs font-medium text-bad">
+                  Ojo: parece {EXCLUDED_LABEL[res.excluded] ?? "un anuncio especial"}. El valor de referencia
                   es de cartas sueltas normales, así que la comparación puede no ser justa.
                 </p>
               )}
               {res.saved && (
-                <p className="mt-2 text-sm font-medium text-good">
+                <p className="mt-3 text-sm font-medium text-good">
                   ✓ Guardado{res.alerted ? " · alerta enviada a Telegram" : ""}
                 </p>
               )}

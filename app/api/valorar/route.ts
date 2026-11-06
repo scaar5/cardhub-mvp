@@ -1,18 +1,21 @@
 import { NextResponse } from "next/server";
 import { authorized } from "@/lib/auth";
-import { ALERT_THRESHOLD } from "@/lib/config";
+import { ALERT_THRESHOLD, SAVE_THRESHOLD } from "@/lib/config";
+import { judgeDeal } from "@/lib/deals";
 import { ebayConfigured } from "@/lib/ebay";
 import { excludedReason } from "@/lib/filters";
-import { estimateMarketValue } from "@/lib/market";
 import { getSupabaseAdmin } from "@/lib/supabase-admin";
 import { dealMessage, sendTelegram } from "@/lib/telegram";
+import { valuate } from "@/lib/valuation";
 
 export const dynamic = "force-dynamic";
+export const maxDuration = 60;
 
 /**
  * POST /api/valorar   (cabecera x-alert-secret: <ALERT_SECRET>)
  * Body: { title, platform: "vinted"|"wallapop", price, url?, query?, save? }
- * Calcula el valor de mercado con eBay.es y, si save=true, lo guarda (y avisa si es chollo).
+ * Valora el anuncio con el mismo sistema que las alertas (lib/valuation.ts) y,
+ * si save=true, lo guarda (y avisa por Telegram si es chollo).
  */
 export async function POST(req: Request) {
   if (!authorized(req)) {
@@ -21,6 +24,8 @@ export async function POST(req: Request) {
   if (!ebayConfigured()) {
     return NextResponse.json({ ok: false, error: "eBay no configurado" }, { status: 503 });
   }
+  const db = getSupabaseAdmin();
+  if (!db) return NextResponse.json({ ok: false, error: "Falta SUPABASE_SECRET_KEY" }, { status: 503 });
 
   const body = (await req.json().catch(() => ({}))) as {
     title?: string;
@@ -37,48 +42,92 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: false, error: "Faltan título o precio" }, { status: 400 });
   }
 
-  const query = body.query?.trim() || title;
-  const market = await estimateMarketValue(query);
-  if (!market.value) {
-    return NextResponse.json({ ok: false, error: "No hay anuncios comparables en eBay para esa búsqueda" });
+  let v;
+  try {
+    v = await valuate(db, title, body.query?.trim() || undefined);
+  } catch (e) {
+    return NextResponse.json({ ok: false, error: e instanceof Error ? e.message : String(e) }, { status: 500 });
   }
-  const pct = Math.round((1 - price / market.value) * 100);
+
+  const base = {
+    ok: true,
+    card: v.label,
+    confidence: v.recognition?.confidence ?? null,
+    approximate: v.approximate,
+    searched: v.searched,
+    comparables: v.comparables.slice(0, 30),
+    excluded: excludedReason(title),
+  };
+
+  if (!v.ref) {
+    return NextResponse.json({ ...base, market_value: null, reason: v.reason, saved: false, alerted: false });
+  }
+
+  const ref = v.ref;
+  const pct = Math.round((1 - price / ref.value) * 100);
+  // Mismas reglas que el sniper (judgeDeal) para decir si es chollo
+  const verdict = judgeDeal(price, { ...ref, level: ref.level ?? 3, cardId: ref.cardId ?? "" });
+  const isDeal = "pct" in verdict && !v.approximate;
+  const label = isDeal
+    ? pct >= ALERT_THRESHOLD
+      ? "chollo"
+      : "buen-precio"
+    : "reject" in verdict && /anuncios de eBay/.test(verdict.reject)
+      ? "sospechoso"
+      : pct >= SAVE_THRESHOLD
+        ? "buen-precio"
+        : pct >= 0
+          ? "normal"
+          : "caro";
 
   let saved = false;
   let alerted = false;
   if (body.save) {
-    const db = getSupabaseAdmin();
-    if (!db) {
-      return NextResponse.json({ ok: false, error: "Falta SUPABASE_SECRET_KEY" }, { status: 503 });
-    }
     const url = body.url?.trim() || null;
     const row = {
       external_id: url ? `${platform}:${url}` : null,
       title,
       platform,
       price,
-      market_value: market.value,
+      market_value: ref.value,
       url,
-      query,
+      query: v.searched[0] ?? null,
+      card_id: v.recognition?.card.id ?? null,
+      parallel: v.recognition?.parallel ?? null,
+      ref_source: ref.source,
+      ref_sample: ref.sample,
+      ref_level: ref.level,
     };
     const { error } = await db.from("deals").upsert(row, { onConflict: "external_id" });
     if (error) return NextResponse.json({ ok: false, error: error.message }, { status: 500 });
     saved = true;
-    if (pct >= ALERT_THRESHOLD) {
-      await sendTelegram(dealMessage(row));
+    if (isDeal && pct >= ALERT_THRESHOLD) {
+      await sendTelegram(
+        dealMessage({
+          ...row,
+          card: v.label ?? undefined,
+          sample: ref.sample,
+          source: ref.source,
+          note: ref.basedOn
+            ? `Precio estimado basado en ${ref.basedOn}, al no haber ventas exactas de ${v.label}`
+            : undefined,
+        }),
+      );
       alerted = true;
     }
   }
 
   return NextResponse.json({
-    ok: true,
-    query,
-    market_value: market.value,
-    sample: market.sample,
-    reliable: market.reliable,
+    ...base,
+    market_value: ref.value,
+    sample: ref.sample,
+    source: ref.source,
+    level: ref.level,
+    based_on: ref.basedOn ?? null,
     pct,
+    verdict: label,
+    verdict_note: "reject" in verdict ? verdict.reject : null,
     saved,
     alerted,
-    excluded: excludedReason(title),
   });
 }
