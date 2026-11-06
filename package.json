@@ -3,7 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "catalog": "node scripts/build-catalog.mjs",
+    "predev": "node scripts/build-catalog.mjs",
     "dev": "next dev",
+    "prebuild": "node scripts/build-catalog.mjs",
     "build": "next build",
     "start": "next start"
   },

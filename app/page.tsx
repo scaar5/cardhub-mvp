@@ -67,6 +67,12 @@ export default async function Home() {
             >
               Valorar un anuncio
             </Link>
+            <Link
+              href="/cartas"
+              className="rounded-full bg-white/10 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-white/20"
+            >
+              Catálogo de cartas
+            </Link>
             <a
               href="#chollos"
               className="rounded-full bg-white/10 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-white/20"
@@ -113,7 +119,7 @@ export default async function Home() {
           )}
         </section>
 
-        <footer className="mt-14 text-center text-xs text-faint">sCARDs · v0.3</footer>
+        <footer className="mt-14 text-center text-xs text-faint">sCARDs · v0.4</footer>
       </main>
     </>
   );

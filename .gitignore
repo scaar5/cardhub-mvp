@@ -147,3 +147,6 @@ vite.config.ts.timestamp-*
 
 # Turbo Repo
 .turbo
+
+# Catálogo generado (se crea con npm run catalog / build)
+lib/catalog-data.json

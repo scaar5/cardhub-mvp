@@ -1,0 +1,456 @@
+## Base
+1|Arsenal Badge|Arsenal|
+2|David Raya|Arsenal|
+3|William Saliba|Arsenal|
+4|Gabriel Magalhães|Arsenal|
+5|Jurriën Timber|Arsenal|
+6|Mikel Merino|Arsenal|
+7|Thomas Partey|Arsenal|
+8|Declan Rice|Arsenal|
+9|Myles Lewis-Skelly|Arsenal|
+10|Martin Ødegaard|Arsenal|
+11|Ethan Nwaneri|Arsenal|
+12|Bukayo Saka|Arsenal|
+13|Gabriel Martinelli|Arsenal|
+14|Leandro Trossard|Arsenal|
+15|Kai Havertz|Arsenal|
+16|Gabriel Martinelli GN|Arsenal|
+17|Jurriën Timber FF|Arsenal|
+18|Myles Lewis-Skelly BB|Arsenal|
+19|Aston Villa Badge|Aston Villa|
+20|Emiliano Martínez|Aston Villa|
+21|Pau Torres|Aston Villa|
+22|Ezri Konsa|Aston Villa|
+23|Matty Cash|Aston Villa|
+24|Lucas Digne|Aston Villa|
+25|Boubacar Kamara|Aston Villa|
+26|Amadou Onana|Aston Villa|
+27|John McGinn|Aston Villa|
+28|Youri Tielemans|Aston Villa|
+29|Jacob Ramsey|Aston Villa|
+30|Morgan Rogers|Aston Villa|
+31|Louie Barry|Aston Villa|RC
+32|Donyell Malen|Aston Villa|
+33|Ollie Watkins|Aston Villa|
+34|Boubacar Kamara GN|Aston Villa|
+35|John McGinn FF|Aston Villa|
+36|Donyell Malen TK|Aston Villa|
+37|AFC Bournemouth Badge|AFC Bournemouth|
+38|Kepa Arrizabalaga|AFC Bournemouth|
+39|Illia Zabarnyi|AFC Bournemouth|
+40|Dean Huijsen|AFC Bournemouth|
+41|Julio Soler|AFC Bournemouth|RC
+42|Milos Kerkez|AFC Bournemouth|
+43|Tyler Adams|AFC Bournemouth|
+44|Lewis Cook|AFC Bournemouth|
+45|Ryan Christie|AFC Bournemouth|
+46|Luis Sinisterra|AFC Bournemouth|
+47|Antoine Semenyo|AFC Bournemouth|
+48|Justin Kluivert|AFC Bournemouth|
+49|Eli Junior Kroupi|AFC Bournemouth|
+50|Dango Ouattara|AFC Bournemouth|
+51|Evanilson|AFC Bournemouth|
+52|Milos Kerkez GN|AFC Bournemouth|
+53|Illia Zabarnyi FF|AFC Bournemouth|
+54|Justin Kluivert TK|AFC Bournemouth|
+55|Brentford Badge|Brentford|
+56|Mark Flekken|Brentford|
+57|Nathan Collins|Brentford|
+58|Sepp van den Berg|Brentford|
+59|Michael Kayode|Brentford|
+60|Christian Nørgaard|Brentford|
+61|Mathias Jensen|Brentford|
+62|Vitaly Janelt|Brentford|
+63|Mikkel Damsgaard|Brentford|
+64|Fábio Carvalho|Brentford|
+65|Kevin Schade|Brentford|
+66|Keane Lewis-Potter|Brentford|
+67|Gustavo Nunes|Brentford|RC
+68|Bryan Mbeumo|Brentford|
+69|Yoane Wissa|Brentford|
+70|Fábio Carvalho GN|Brentford|
+71|Gustavo Nunes FF|Brentford|
+72|Kevin Schade TK|Brentford|
+73|Brighton Badge|Brighton & Hove Albion|
+74|Bart Verbruggen|Brighton & Hove Albion|
+75|Jan Paul van Hecke|Brighton & Hove Albion|
+76|Pervis Estupiñán|Brighton & Hove Albion|
+77|Lewis Dunk|Brighton & Hove Albion|
+78|Jack Hinshelwood|Brighton & Hove Albion|
+79|Yankuba Minteh|Brighton & Hove Albion|
+80|Carlos Baleba|Brighton & Hove Albion|
+81|Yoon Do-young|Brighton & Hove Albion|RC
+82|Yasin Ayari|Brighton & Hove Albion|RC
+83|Kaoru Mitoma|Brighton & Hove Albion|
+84|Stefanos Tzimas|Brighton & Hove Albion|RC
+85|Danny Welbeck|Brighton & Hove Albion|
+86|Georginio Rutter|Brighton & Hove Albion|
+87|João Pedro|Brighton & Hove Albion|
+88|Matt O'Riley GN|Brighton & Hove Albion|
+89|Carlos Baleba FF|Brighton & Hove Albion|
+90|Matt O'Riley TK|Brighton & Hove Albion|
+91|Chelsea Badge|Chelsea|
+92|Robert Sánchez|Chelsea|
+93|Levi Colwill|Chelsea|
+94|Tosin Adarabioyo|Chelsea|
+95|Reece James|Chelsea|
+96|Marc Cucurella|Chelsea|
+97|Harrison Murray-Campbell|Chelsea|RC
+98|Moisés Caicedo|Chelsea|
+99|Enzo Fernández|Chelsea|
+100|Cole Palmer|Chelsea|
+101|Kendry Páez|Chelsea|RC
+102|Pedro Neto|Chelsea|
+103|Noni Madueke|Chelsea|
+104|Nicolas Jackson|Chelsea|
+105|Estêvão Willian|Chelsea|RC
+106|Levi Colwill GN|Chelsea|
+107|Marc Cucurella FF|Chelsea|
+108|Noni Madueke TK|Chelsea|
+109|Crystal Palace Badge|Crystal Palace|
+110|Dean Henderson|Crystal Palace|
+111|Tyrick Mitchell|Crystal Palace|
+112|Chadi Riad|Crystal Palace|
+113|Maxence Lacroix|Crystal Palace|
+114|Marc Guéhi|Crystal Palace|
+115|Chris Richards|Crystal Palace|
+116|Daniel Muñoz|Crystal Palace|
+117|Adam Wharton|Crystal Palace|
+118|Romain Esse|Crystal Palace|RC
+119|Daichi Kamada|Crystal Palace|
+120|Eberechi Eze|Crystal Palace|
+121|Ismaïla Sarr|Crystal Palace|
+122|Eddie Nketiah|Crystal Palace|
+123|Jean-Philippe Mateta|Crystal Palace|
+124|Marc Guéhi GN|Crystal Palace|
+125|Tyrick Mitchell FF|Crystal Palace|
+126|Ismaïla Sarr TK|Crystal Palace|
+127|Everton Badge|Everton|
+128|Jordan Pickford|Everton|
+129|James Tarkowski|Everton|
+130|Jarrad Branthwaite|Everton|
+131|Vitalii Mykolenko|Everton|
+132|Jake O'Brien|Everton|
+133|Nathan Patterson|Everton|
+134|Roman Dixon|Everton|RC
+135|Tim Iroegbunam|Everton|
+136|Harrison Armstrong|Everton|RC
+137|James Garner|Everton|
+138|Dwight McNeil|Everton|
+139|Iliman Ndiaye|Everton|
+140|Beto|Everton|
+141|Youssef Chermiti|Everton|
+142|Iliman Ndiaye GN|Everton|
+143|Vitalii Mykolenko FF|Everton|
+144|Iliman Ndiaye TK|Everton|
+145|Fulham Badge|Fulham|
+146|Bernd Leno|Fulham|
+147|Calvin Bassey|Fulham|
+148|Joachim Andersen|Fulham|
+149|Sander Berge|Fulham|
+150|Antonee Robinson|Fulham|
+151|Saša Lukić|Fulham|
+152|Josh King|Fulham|RC
+153|Andreas Pereira|Fulham|
+154|Alex Iwobi|Fulham|
+155|Emile Smith Rowe|Fulham|
+156|Harry Wilson|Fulham|
+157|Adama Traoré|Fulham|
+158|Rodrigo Muniz|Fulham|
+159|Raúl Jiménez|Fulham|
+160|Rodrigo Muniz GN|Fulham|
+161|Calvin Bassey FF|Fulham|
+162|Josh King BB|Fulham|
+163|Liverpool Badge PL Champions|Liverpool FC|
+164|Alisson Becker|Liverpool FC|
+165|Virgil van Dijk|Liverpool FC|
+166|Ibrahima Konaté|Liverpool FC|
+167|Andy Robertson|Liverpool FC|
+168|Conor Bradley|Liverpool FC|
+169|Ryan Gravenberch|Liverpool FC|
+170|Alexis Mac Allister|Liverpool FC|
+171|Dominik Szoboszlai|Liverpool FC|
+172|Rio Ngumoha|Liverpool FC|RC
+173|Luis Díaz|Liverpool FC|
+174|Mohamed Salah|Liverpool FC|
+175|Cody Gakpo|Liverpool FC|
+176|Diogo Jota|Liverpool FC|
+177|Darwin Núñez|Liverpool FC|
+178|Dominik Szoboszlai GN|Liverpool FC|
+179|Darwin Núñez FF|Liverpool FC|
+180|Luis Díaz TK|Liverpool FC|
+181|Manchester City Badge|Manchester City|
+182|Ederson|Manchester City|
+183|Rúben Dias|Manchester City|
+184|Joško Gvardiol|Manchester City|
+185|Vitor Reis|Manchester City|RC
+186|Divine Mukasa|Manchester City|RC
+187|Nico González|Manchester City|
+188|Rodri|Manchester City|
+189|Jérémy Doku|Manchester City|
+190|Phil Foden|Manchester City|
+191|Bernardo Silva|Manchester City|
+192|Savinho|Manchester City|
+193|Reigan Heskey|Manchester City|RC
+194|Omar Marmoush|Manchester City|
+195|Erling Haaland|Manchester City|
+196|Jérémy Doku GN|Manchester City|
+197|Joško Gvardiol FF|Manchester City|
+198|Savinho TK|Manchester City|
+199|Manchester United Badge|Manchester United|
+200|André Onana|Manchester United|
+201|Matthijs de Ligt|Manchester United|
+202|Leny Yoro|Manchester United|
+203|Lisandro Martínez|Manchester United|
+204|Diogo Dalot|Manchester United|
+205|Sékou Koné|Manchester United|RC
+206|Kobbie Mainoo|Manchester United|
+207|Manuel Ugarte|Manchester United|
+208|Bruno Fernandes|Manchester United|
+209|Shea Lacey|Manchester United|RC
+210|Alejandro Garnacho|Manchester United|
+211|Amad|Manchester United|
+212|Joshua Zirkzee|Manchester United|
+213|Rasmus Højlund|Manchester United|
+214|Kobbie Mainoo GN|Manchester United|
+215|Manuel Ugarte FF|Manchester United|
+216|Patrick Dorgu BB|Manchester United|
+217|Newcastle Badge|Newcastle United|
+218|Nick Pope|Newcastle United|
+219|Dan Burn|Newcastle United|
+220|Sven Botman|Newcastle United|
+221|Fabian Schär|Newcastle United|
+222|Tino Livramento|Newcastle United|
+223|Lewis Hall|Newcastle United|
+224|Lewis Miley|Newcastle United|
+225|Sandro Tonali|Newcastle United|
+226|Joelinton|Newcastle United|
+227|Bruno Guimarães|Newcastle United|
+228|Jacob Murphy|Newcastle United|
+229|Harvey Barnes|Newcastle United|
+230|Anthony Gordon|Newcastle United|
+231|Alexander Isak|Newcastle United|
+232|Tino Livramento GN|Newcastle United|
+233|Joelinton FF|Newcastle United|
+234|Lewis Miley BB|Newcastle United|
+235|Nottingham Forest Badge|Nottingham Forest|
+236|Matz Sels|Nottingham Forest|
+237|Nikola Milenković|Nottingham Forest|
+238|Ola Aina|Nottingham Forest|
+239|Murillo|Nottingham Forest|
+240|Neco Williams|Nottingham Forest|
+241|Zach Abbott|Nottingham Forest|RC
+242|Ryan Yates|Nottingham Forest|
+243|Ibrahim Sangaré|Nottingham Forest|
+244|Elliot Anderson|Nottingham Forest|
+245|Morgan Gibbs-White|Nottingham Forest|
+246|Callum Hudson-Odoi|Nottingham Forest|
+247|Anthony Elanga|Nottingham Forest|
+248|Taiwo Awoniyi|Nottingham Forest|
+249|Chris Wood|Nottingham Forest|
+250|Murillo GN|Nottingham Forest|
+251|Ola Aina FF|Nottingham Forest|
+252|Anthony Elanga TK|Nottingham Forest|
+253|Tottenham Badge|Tottenham Hotspur|
+254|Antonín Kinský|Tottenham Hotspur|RC
+255|Pedro Porro|Tottenham Hotspur|
+256|Micky van de Ven|Tottenham Hotspur|
+257|Cristian Romero|Tottenham Hotspur|
+258|Destiny Udogie|Tottenham Hotspur|
+259|Archie Gray|Tottenham Hotspur|
+260|Dejan Kulusevski|Tottenham Hotspur|
+261|Lucas Bergvall|Tottenham Hotspur|
+262|James Maddison|Tottenham Hotspur|
+263|Will Lankshear|Tottenham Hotspur|RC
+264|Heung-min Son|Tottenham Hotspur|
+265|Brennan Johnson|Tottenham Hotspur|
+266|Mikey Moore|Tottenham Hotspur|
+267|Dominic Solanke|Tottenham Hotspur|
+268|Lucas Bergvall GN|Tottenham Hotspur|
+269|Mikey Moore FF|Tottenham Hotspur|
+270|Archie Gray BB|Tottenham Hotspur|
+271|West Ham Badge|West Ham United|
+272|Alphonse Areola|West Ham United|
+273|Jean-Clair Todibo|West Ham United|
+274|Maximilian Kilman|West Ham United|
+275|Aaron Wan-Bissaka|West Ham United|
+276|Emerson Palmieri|West Ham United|
+277|Oliver Scarles|West Ham United|
+278|Tomáš Souček|West Ham United|
+279|Edson Álvarez|West Ham United|
+280|Guido Rodríguez|West Ham United|
+281|Mohammed Kudus|West Ham United|
+282|Niclas Füllkrug|West Ham United|
+283|Crysencio Summerville|West Ham United|
+284|Jarrod Bowen|West Ham United|
+285|Luis Guilherme|West Ham United|RC
+286|Crysencio Summerville GN|West Ham United|
+287|Aaron Wan-Bissaka FF|West Ham United|
+288|Luis Guilherme BB|West Ham United|
+289|Wolves Badge|Wolverhampton Wanderers|
+290|José Sá|Wolverhampton Wanderers|
+291|Nélson Semedo|Wolverhampton Wanderers|
+292|Nasser Djiga|Wolverhampton Wanderers|RC
+293|Emmanuel Agbadou|Wolverhampton Wanderers|
+294|Toti Gomes|Wolverhampton Wanderers|
+295|Rayan Aït-Nouri|Wolverhampton Wanderers|
+296|Marshall Munetsi|Wolverhampton Wanderers|
+297|André|Wolverhampton Wanderers|
+298|João Gomes|Wolverhampton Wanderers|
+299|Rodrigo Gomes|Wolverhampton Wanderers|
+300|Gonçalo Guedes|Wolverhampton Wanderers|
+301|Hwang Hee-chan|Wolverhampton Wanderers|
+302|Jørgen Strand Larsen|Wolverhampton Wanderers|
+303|Matheus Cunha|Wolverhampton Wanderers|
+304|João Gomes GN|Wolverhampton Wanderers|
+305|Nasser Djiga FF|Wolverhampton Wanderers|
+306|André BB|Wolverhampton Wanderers|
+307|Burnley Badge|Burnley FC|
+308|James Trafford|Burnley FC|
+309|Maxime Estève|Burnley FC|
+310|Bashir Humphreys|Burnley FC|RC
+311|Connor Roberts|Burnley FC|
+312|Lucas Pires|Burnley FC|
+313|Josh Laurent|Burnley FC|RC
+314|Josh Cullen|Burnley FC|
+315|Josh Brownhill|Burnley FC|
+316|Hannibal|Burnley FC|
+317|Marcus Edwards|Burnley FC|
+318|Lyle Foster|Burnley FC|
+319|Luca Koleosho|Burnley FC|
+320|Jaidon Anthony|Burnley FC|
+321|Jaydon Banel|Burnley FC|RC
+322|Lucas Pires GN|Burnley FC|
+323|Josh Cullen FF|Burnley FC|
+324|Luca Koleosho BB|Burnley FC|
+325|Leeds Badge|Leeds United|
+326|Illan Meslier|Leeds United|
+327|Joe Rodon|Leeds United|
+328|Pascal Struijk|Leeds United|
+329|Jayden Bogle|Leeds United|
+330|Ethan Ampadu|Leeds United|
+331|Ao Tanaka|Leeds United|
+332|Brenden Aaronson|Leeds United|
+333|Ilia Gruev|Leeds United|
+334|Harry Gray|Leeds United|RC
+335|Mateo Joseph|Leeds United|RC
+336|Wilfried Gnonto|Leeds United|
+337|Daniel James|Leeds United|
+338|Patrick Bamford|Leeds United|
+339|Joël Piroe|Leeds United|RC
+340|Mateo Joseph GN|Leeds United|
+341|Pascal Struijk FF|Leeds United|
+342|Harry Gray BB|Leeds United|
+343|Sunderland Badge|Sunderland|
+344|Anthony Patterson|Sunderland|RC
+345|Trai Hume|Sunderland|RC
+346|Dennis Cirkin|Sunderland|RC
+347|Luke O'Nien|Sunderland|RC
+348|Daniel Ballard|Sunderland|RC
+349|Chris Rigg|Sunderland|RC
+350|Dan Neil|Sunderland|RC
+351|Alan Browne|Sunderland|RC
+352|Jobe Bellingham|Sunderland|RC
+353|Enzo Le Fée|Sunderland|
+354|Romaine Mundle|Sunderland|RC
+355|Patrick Roberts|Sunderland|
+356|Eliezer Mayenda|Sunderland|RC
+357|Wilson Isidor|Sunderland|RC
+358|Jobe Bellingham GN|Sunderland|
+359|Wilson Isidor FF|Sunderland|
+360|Chris Rigg BB|Sunderland|
+## Pro Partnership
+361|William Saliba / Gabriel Magalhães|Arsenal|
+362|Amadou Onana / Youri Tielemans|Aston Villa|
+363|Antoine Semenyo / Dango Ouattara|AFC Bournemouth|
+364|Nathan Collins / Sepp van den Berg|Brentford|
+365|Kaoru Mitoma / Simon Adingra|Brighton & Hove Albion|
+366|Ricardo Carvalho / John Terry|Chelsea|
+367|Moisés Caicedo / Enzo Fernández|Chelsea|
+368|Daichi Kamada / Adam Wharton|Crystal Palace|
+369|James Tarkowski / Jarrad Branthwaite|Everton|
+370|Enzo Le Fée / Patrick Roberts|Sunderland|
+371|Ryan Gravenberch / Alexis Mac Allister|Liverpool FC|
+372|Phil Foden / Bernardo Silva|Manchester City|
+373|Bruno Fernandes / Rasmus Højlund|Manchester United|
+374|Bruno Guimarães / Joelinton|Newcastle United|
+375|Ola Aina / Callum Hudson-Odoi|Nottingham Forest|
+376|Brennan Johnson / Dejan Kulusevski|Tottenham Hotspur|
+377|Darren Anderton / Teddy Sheringham|Tottenham Hotspur|
+378|Gonçalo Guedes / Jørgen Strand Larsen|Wolverhampton Wanderers|
+379|Maxime Estève / Lucas Pires|Burnley FC|
+380|Joe Rodon / Ethan Ampadu|Leeds United|
+## Retro Threads
+381|Ian Wright|Arsenal|
+382|Stiliyan Petrov|Aston Villa|
+383|Simon Francis|AFC Bournemouth|
+384|Eric Cantona|Manchester United|
+385|Christian Nørgaard|Brentford|
+386|Glenn Murray|Brighton & Hove Albion|
+387|Frank Lampard|Chelsea|
+388|Andrew Johnson|Crystal Palace|
+389|Joleon Lescott|Everton|
+390|Louis Saha|Fulham|
+391|Jamie Carragher|Liverpool FC|
+392|Micah Richards|Manchester City|
+393|Gary Neville|Manchester United|
+394|Faustino Asprilla|Newcastle United|
+395|Stan Collymore|Nottingham Forest|
+396|Robbie Keane|Tottenham Hotspur|
+397|Mark Noble|West Ham United|
+398|Kevin Doyle|Wolverhampton Wanderers|
+399|Aaron Lennon|Burnley FC|
+400|Jimmy Floyd Hasselbaink|Leeds United|
+## Pro Precision
+401|Kai Havertz|Arsenal|
+402|Ollie Watkins|Aston Villa|
+403|Dango Ouattara|AFC Bournemouth|
+404|Mikkel Damsgaard|Brentford|
+405|Danny Welbeck|Brighton & Hove Albion|
+406|Nicolas Jackson|Chelsea|
+407|Eddie Nketiah|Crystal Palace|
+408|Beto|Everton|
+409|Robbie Fowler|Liverpool FC|
+410|Diogo Jota|Liverpool FC|
+411|Phil Foden|Manchester City|
+412|Bruno Fernandes|Manchester United|
+413|Wayne Rooney|Manchester United|
+414|Anthony Gordon|Newcastle United|
+415|Taiwo Awoniyi|Nottingham Forest|
+416|Brennan Johnson|Tottenham Hotspur|
+417|Mohammed Kudus|West Ham United|
+418|Jørgen Strand Larsen|Wolverhampton Wanderers|
+419|Josh Brownhill|Burnley FC|
+420|Patrick Bamford|Leeds United|
+## Beast Mode
+421|Declan Rice|Arsenal|
+422|Morgan Rogers|Aston Villa|
+423|Evanilson|AFC Bournemouth|
+424|Yoane Wissa|Brentford|
+425|Georginio Rutter|Brighton & Hove Albion|
+426|Enzo Fernández|Chelsea|
+427|Jean-Philippe Mateta|Crystal Palace|
+428|Beto|Everton|
+429|Ibrahima Konaté|Liverpool FC|
+430|Virgil van Dijk|Liverpool FC|
+431|Rodri|Manchester City|
+432|Alejandro Garnacho|Manchester United|
+433|Sandro Tonali|Newcastle United|
+434|Chris Wood|Nottingham Forest|
+435|Ledley King|Tottenham Hotspur|
+436|Dominic Solanke|Tottenham Hotspur|
+437|Emerson Palmieri|West Ham United|
+438|Hwang Hee-chan|Wolverhampton Wanderers|
+439|Hannibal|Burnley FC|
+440|Daniel James|Leeds United|
+## Headlines
+441|Martin Ødegaard|Arsenal|
+442|Emiliano Martínez|Aston Villa|
+443|Kevin Schade|Brentford|
+444|Pedro Neto|Chelsea|
+445|Jordan Pickford|Everton|
+446|Cody Gakpo|Liverpool FC|
+447|Jérémy Doku|Manchester City|
+448|Amad|Manchester United|
+449|Jacob Murphy|Newcastle United|
+450|James Maddison|Tottenham Hotspur|

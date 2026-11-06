@@ -1,0 +1,627 @@
+## Golden Baller
+1|Lionel Messi|Argentina|
+2|Vini Jr.|Brazil|
+3|Mohamed Salah|Egypt|
+4|Harry Kane|England|
+5|Kylian Mbappé|France|
+6|Son Heung-min|Korea Republic|
+7|Erling Haaland|Norway|
+8|Cristiano Ronaldo|Portugal|
+9|Lamine Yamal|Spain|
+## Base
+10|Rayan Aït-Nouri|Algeria|
+11|Algeria Crest|Algeria|
+12|Riyad Mahrez|Algeria|
+13|Alexis Guendouz|Algeria|
+14|Ramy Bensebaini|Algeria|
+15|Yousef Atal|Algeria|
+16|Aissa Mandi|Algeria|
+17|Nabil Bentaleb|Algeria|
+18|Said Benrahma|Algeria|
+19|Amine Gouiri|Algeria|
+20|Mohamed Amoura|Algeria|
+21|Baghdad Bounedjah|Algeria|
+22|Julián Álvarez|Argentina|
+23|Argentina Crest|Argentina|
+24|Lionel Messi|Argentina|
+25|Emiliano Martínez|Argentina|
+26|Nahuel Molina|Argentina|
+27|Cristian Romero|Argentina|
+28|Nicolás Otamendi|Argentina|
+29|Enzo Fernández|Argentina|
+30|Alexis Mac Allister|Argentina|
+31|Rodrigo De Paul|Argentina|
+32|Giuliano Simeone|Argentina|
+33|Lautaro Martínez|Argentina|
+34|Harry Souttar|Australia|
+35|Australia Crest|Australia|
+36|Mathew Ryan|Australia|
+37|Alessandro Circati|Australia|
+38|Jordan Bos|Australia|
+39|Lewis Miller|Australia|
+40|Milos Degenek|Australia|
+41|Jackson Irvine|Australia|
+42|Riley McGree|Australia|
+43|Aiden O'Neill|Australia|
+44|Connor Metcalfe|Australia|
+45|Craig Goodwin|Australia|
+46|Marko Arnautović|Austria|
+47|Austria Crest|Austria|
+48|David Alaba|Austria|
+49|Alexander Schlager|Austria|
+50|Kevin Danso|Austria|
+51|Philipp Lienhart|Austria|
+52|Konrad Laimer|Austria|
+53|Nicolas Seiwald|Austria|
+54|Marcel Sabitzer|Austria|
+55|Florian Grillitsch|Austria|
+56|Christoph Baumgartner|Austria|
+57|Michael Gregoritsch|Austria|
+58|Youri Tielemans|Belgium|
+59|Belgium Crest|Belgium|
+60|Kevin De Bruyne|Belgium|
+61|Thibaut Courtois|Belgium|
+62|Arthur Theate|Belgium|
+63|Timothy Castagne|Belgium|
+64|Maxim De Cuyper|Belgium|
+65|Amadou Onana|Belgium|
+66|Jérémy Doku|Belgium|
+67|Charles De Ketelaere|Belgium|
+68|Leandro Trossard|Belgium|
+69|Romelu Lukaku|Belgium|
+70|Marquinhos|Brazil|
+71|Brazil Crest|Brazil|
+72|Vini Jr.|Brazil|
+73|Alisson|Brazil|
+74|Danilo|Brazil|
+75|Éder Militão|Brazil|
+76|Gabriel Magalhães|Brazil|
+77|Casemiro|Brazil|
+78|Bruno Guimarães|Brazil|
+79|Rodrygo|Brazil|
+80|Matheus Cunha|Brazil|
+81|Raphinha|Brazil|
+82|Jonathan David|Canada|
+83|Canada Crest|Canada|
+84|Alphonso Davies|Canada|
+85|Dayne St. Clair|Canada|
+86|Richie Laryea|Canada|
+87|Derek Cornelius|Canada|
+88|Stephen Eustáquio|Canada|
+89|Ismaël Koné|Canada|
+90|Jonathan Osorio|Canada|
+91|Jacob Shaffelburg|Canada|
+92|Tajon Buchanan|Canada|
+93|Cyle Larin|Canada|
+94|Vozinha|Cape Verde|
+95|Cape Verde Crest|Cape Verde|
+96|Ryan Mendes|Cape Verde|
+97|Logan Costa|Cape Verde|
+98|Pico|Cape Verde|
+99|Steven Moreira|Cape Verde|
+100|João Paulo|Cape Verde|
+101|Kevin Pina|Cape Verde|
+102|Jamiro Monteiro|Cape Verde|
+103|Yannick Semedo|Cape Verde|
+104|Jovane Cabral|Cape Verde|
+105|Dailon Livramento|Cape Verde|
+106|Luis Díaz|Colombia|
+107|Colombia Crest|Colombia|
+108|James Rodríguez|Colombia|
+109|Camilo Vargas|Colombia|
+110|Davinson Sánchez|Colombia|
+111|Yerry Mina|Colombia|
+112|Daniel Muñoz|Colombia|
+113|Jefferson Lerma|Colombia|
+114|Richard Ríos|Colombia|
+115|Juan Fernando Quintero|Colombia|
+116|Jhon Arias|Colombia|
+117|Luis Suárez (COL)|Colombia|
+118|Ivan Perišić|Croatia|
+119|Croatia Crest|Croatia|
+120|Luka Modrić|Croatia|
+121|Dominik Livaković|Croatia|
+122|Duje Ćaleta-Car|Croatia|
+123|Joško Gvardiol|Croatia|
+124|Josip Stanišić|Croatia|
+125|Mateo Kovačić|Croatia|
+126|Lovro Majer|Croatia|
+127|Mario Pašalić|Croatia|
+128|Ante Budimir|Croatia|
+129|Andrej Kramarić|Croatia|
+130|Jurien Gaari|Curaçao|
+131|Curaçao Crest|Curaçao|
+132|Leandro Bacuna|Curaçao|
+133|Eloy Room|Curaçao|
+134|Sherel Floranus|Curaçao|
+135|Roshon van Eijma|Curaçao|
+136|Armando Obispo|Curaçao|
+137|Livano Comenencia|Curaçao|
+138|Juninho Bacuna|Curaçao|
+139|Kenji Gorré|Curaçao|
+140|Sontje Hansen|Curaçao|
+141|Jearl Margaritha|Curaçao|
+142|Moisés Caicedo|Ecuador|
+143|Ecuador Crest|Ecuador|
+144|Enner Valencia|Ecuador|
+145|Hernán Galíndez|Ecuador|
+146|Piero Hincapié|Ecuador|
+147|Pervis Estupiñán|Ecuador|
+148|Willian Pacho|Ecuador|
+149|Ángelo Preciado|Ecuador|
+150|Joel Ordóñez|Ecuador|
+151|Alan Franco|Ecuador|
+152|Gonzalo Plata|Ecuador|
+153|Kevin Rodríguez|Ecuador|
+154|Omar Marmoush|Egypt|
+155|Egypt Crest|Egypt|
+156|Mohamed Salah|Egypt|
+157|Mohamed El Shenawy|Egypt|
+158|Mohamed Hany|Egypt|
+159|Mohamed Abdelmonem|Egypt|
+160|Ramy Rabia|Egypt|
+161|Marwan Attia|Egypt|
+162|Zizo|Egypt|
+163|Hamdy Fathy|Egypt|
+164|Mostafa Mohamed|Egypt|
+165|Trézéguet|Egypt|
+166|Jude Bellingham|England|
+167|England Crest|England|
+168|Harry Kane|England|
+169|Jordan Pickford|England|
+170|Reece James|England|
+171|John Stones|England|
+172|Declan Rice|England|
+173|Jordan Henderson|England|
+174|Phil Foden|England|
+175|Bukayo Saka|England|
+176|Cole Palmer|England|
+177|Marcus Rashford|England|
+178|Ousmane Dembélé|France|
+179|France Crest|France|
+180|Kylian Mbappé|France|
+181|Mike Maignan|France|
+182|William Saliba|France|
+183|Jules Koundé|France|
+184|Theo Hernández|France|
+185|Aurélien Tchouaméni|France|
+186|Eduardo Camavinga|France|
+187|Bradley Barcola|France|
+188|Marcus Thuram|France|
+189|Randal Kolo Muani|France|
+190|Jamal Musiala|Germany|
+191|Germany Crest|Germany|
+192|Joshua Kimmich|Germany|
+193|Marc-André ter Stegen|Germany|
+194|Antonio Rüdiger|Germany|
+195|Jonathan Tah|Germany|
+196|Felix Nmecha|Germany|
+197|Leon Goretzka|Germany|
+198|Florian Wirtz|Germany|
+199|Serge Gnabry|Germany|
+200|Kai Havertz|Germany|
+201|Leroy Sané|Germany|
+202|Thomas Partey|Ghana|
+203|Ghana Crest|Ghana|
+204|Mohammed Kudus|Ghana|
+205|Lawrence Ati-Zigi|Ghana|
+206|Alidu Seidu|Ghana|
+207|Alexander Djiku|Ghana|
+208|Gideon Mensah|Ghana|
+209|Caleb Yirenkyi|Ghana|
+210|Abdul Fatawu Issahaku|Ghana|
+211|Kamaldeen Sulemana|Ghana|
+212|Jordan Ayew|Ghana|
+213|Antoine Semenyo|Ghana|
+214|Frantzdy Pierrot|Haiti|
+215|Haiti Crest|Haiti|
+216|Duckens Nazon|Haiti|
+217|Johny Placide|Haiti|
+218|Ricardo Adé|Haiti|
+219|Carlens Arcus|Haiti|
+220|Hannes Delcroix|Haiti|
+221|Leverton Pierre|Haiti|
+222|Danley Jean Jacques|Haiti|
+223|Jean-Ricner Bellegarde|Haiti|
+224|Ruben Providence|Haiti|
+225|Don Deedson Louicius|Haiti|
+226|Mehdi Taremi|Iran|
+227|Iran Crest|Iran|
+228|Sardar Azmoun|Iran|
+229|Alireza Beiranvand|Iran|
+230|Shoja Khalilzadeh|Iran|
+231|Milad Mohammadi|Iran|
+232|Ramin Rezaeian|Iran|
+233|Hossein Kanaani|Iran|
+234|Saeid Ezatolahi|Iran|
+235|Saman Ghoddos|Iran|
+236|Mohammad Mohebi|Iran|
+237|Alireza Jahanbakhsh|Iran|
+238|Franck Kessié|Ivory Coast|
+239|Ivory Coast Crest|Ivory Coast|
+240|Sébastien Haller|Ivory Coast|
+241|Yahia Fofana|Ivory Coast|
+242|Ghislain Konan|Ivory Coast|
+243|Odilon Kossounou|Ivory Coast|
+244|Evan Ndicka|Ivory Coast|
+245|Wilfried Singo|Ivory Coast|
+246|Ibrahim Sangaré|Ivory Coast|
+247|Nicolas Pépé|Ivory Coast|
+248|Simon Adingra|Ivory Coast|
+249|Oumar Diakité|Ivory Coast|
+250|Takumi Minamino|Japan|
+251|Japan Crest|Japan|
+252|Takefusa Kubo|Japan|
+253|Zion Suzuki|Japan|
+254|Tsuyoshi Watanabe|Japan|
+255|Kaishu Sano|Japan|
+256|Ao Tanaka|Japan|
+257|Daichi Kamada|Japan|
+258|Ritsu Doan|Japan|
+259|Keito Nakamura|Japan|
+260|Shuto Machino|Japan|
+261|Ayase Ueda|Japan|
+262|Yazan Al-Naimat|Jordan|
+263|Jordan Crest|Jordan|
+264|Musa Al-Taamari|Jordan|
+265|Yazeed Abulaila|Jordan|
+266|Mohammad Abu Hashish|Jordan|
+267|Yazan Al-Arab|Jordan|
+268|Abdallah Nasib|Jordan|
+269|Ibrahim Saadeh|Jordan|
+270|Nizar Al-Rashdan|Jordan|
+271|Noor Al-Rawabdeh|Jordan|
+272|Mahmoud Al-Mardi|Jordan|
+273|Ali Olwan|Jordan|
+274|Kim Min-jae|Korea Republic|
+275|Korea Republic Crest|Korea Republic|
+276|Son Heung-min|Korea Republic|
+277|Jo Hyeon-woo|Korea Republic|
+278|Seol Young-woo|Korea Republic|
+279|Cho Yu-min|Korea Republic|
+280|Lee Tae-seok|Korea Republic|
+281|Hwang In-beom|Korea Republic|
+282|Lee Jae-sung|Korea Republic|
+283|Lee Kang-in|Korea Republic|
+284|Oh Hyeon-gyu|Korea Republic|
+285|Hwang Hee-chan|Korea Republic|
+286|Edson Álvarez|Mexico|
+287|Mexico Crest|Mexico|
+288|Raúl Jiménez|Mexico|
+289|Luis Malagón|Mexico|
+290|Israel Reyes|Mexico|
+291|Johan Vásquez|Mexico|
+292|César Montes|Mexico|
+293|Jesús Gallardo|Mexico|
+294|Carlos Rodríguez|Mexico|
+295|Orbelín Pineda|Mexico|
+296|Hirving Lozano|Mexico|
+297|Santiago Giménez|Mexico|
+298|Youssef En-Nesyri|Morocco|
+299|Morocco Crest|Morocco|
+300|Achraf Hakimi|Morocco|
+301|Yassine Bounou|Morocco|
+302|Noussair Mazraoui|Morocco|
+303|Nayef Aguerd|Morocco|
+304|Sofyan Amrabat|Morocco|
+305|Eliesse Ben Seghir|Morocco|
+306|Ismael Saibari|Morocco|
+307|Brahim Díaz|Morocco|
+308|Abde Ezzalzouli|Morocco|
+309|Ayoub El Kaabi|Morocco|
+310|Memphis Depay|Netherlands|
+311|Netherlands Crest|Netherlands|
+312|Virgil van Dijk|Netherlands|
+313|Bart Verbruggen|Netherlands|
+314|Nathan Aké|Netherlands|
+315|Jeremie Frimpong|Netherlands|
+316|Denzel Dumfries|Netherlands|
+317|Tijjani Reijnders|Netherlands|
+318|Ryan Gravenberch|Netherlands|
+319|Cody Gakpo|Netherlands|
+320|Donyell Malen|Netherlands|
+321|Wout Weghorst|Netherlands|
+322|Marko Stamenić|New Zealand|
+323|New Zealand Crest|New Zealand|
+324|Chris Wood|New Zealand|
+325|Max Crocombe|New Zealand|
+326|Michael Boxall|New Zealand|
+327|Liberato Cacace|New Zealand|
+328|Tim Payne|New Zealand|
+329|Finn Surman|New Zealand|
+330|Joe Bell|New Zealand|
+331|Sarpreet Singh|New Zealand|
+332|Matt Garbett|New Zealand|
+333|Elijah Just|New Zealand|
+334|Martin Ødegaard|Norway|
+335|Norway Crest|Norway|
+336|Erling Haaland|Norway|
+337|Ørjan Nyland|Norway|
+338|Julian Ryerson|Norway|
+339|Kristoffer Ajer|Norway|
+340|David Møller Wolfe|Norway|
+341|Sander Berge|Norway|
+342|Patrick Berg|Norway|
+343|Antonio Nusa|Norway|
+344|Oscar Bobb|Norway|
+345|Alexander Sørloth|Norway|
+346|Michael Amir Murillo|Panama|
+347|Panama Crest|Panama|
+348|Aníbal Godoy|Panama|
+349|Orlando Mosquera|Panama|
+350|Andrés Andrade|Panama|
+351|Fidel Escobar|Panama|
+352|Cristian Martínez|Panama|
+353|Adalberto Carrasquilla|Panama|
+354|Édgar Bárcenas|Panama|
+355|José Fajardo|Panama|
+356|Ismael Díaz|Panama|
+357|José Luis Rodríguez|Panama|
+358|Gustavo Gómez|Paraguay|
+359|Paraguay Crest|Paraguay|
+360|Miguel Almirón|Paraguay|
+361|Roberto Fernández|Paraguay|
+362|Juan José Cáceres|Paraguay|
+363|Omar Alderete|Paraguay|
+364|Júnior Alonso|Paraguay|
+365|Andrés Cubas|Paraguay|
+366|Mathías Villasanti|Paraguay|
+367|Julio Enciso|Paraguay|
+368|Ramón Sosa|Paraguay|
+369|Antonio Sanabria|Paraguay|
+370|Vitinha|Portugal|
+371|Portugal Crest|Portugal|
+372|Cristiano Ronaldo|Portugal|
+373|Diogo Costa|Portugal|
+374|Rúben Dias|Portugal|
+375|Nuno Mendes|Portugal|
+376|Bernardo Silva|Portugal|
+377|Bruno Fernandes|Portugal|
+378|Rúben Neves|Portugal|
+379|Francisco Conceição|Portugal|
+380|Pedro Neto|Portugal|
+381|Rafael Leão|Portugal|
+382|Almoez Ali|Qatar|
+383|Qatar Crest|Qatar|
+384|Hassan Al-Haydos|Qatar|
+385|Meshaal Barsham|Qatar|
+386|Boualem Khoukhi|Qatar|
+387|Lucas Mendes|Qatar|
+388|Pedro Miguel|Qatar|
+389|Homam Al-Amin|Qatar|
+390|Ahmed Fathi|Qatar|
+391|Edmilson Junior|Qatar|
+392|Ahmed Al-Ganehi|Qatar|
+393|Akram Afif|Qatar|
+394|Feras Al-Buraikan|Saudi Arabia|
+395|Saudi Arabia Crest|Saudi Arabia|
+396|Salem Al-Dawsari|Saudi Arabia|
+397|Nawaf Al-Aqidi|Saudi Arabia|
+398|Hassan Al-Tambakti|Saudi Arabia|
+399|Jehad Thikri|Saudi Arabia|
+400|Saud Abdulhamid|Saudi Arabia|
+401|Nasser Al-Dawsari|Saudi Arabia|
+402|Abdullah Al-Khaibari|Saudi Arabia|
+403|Musab Al-Juwayr|Saudi Arabia|
+404|Saleh Abu Al-Shamat|Saudi Arabia|
+405|Saleh Al-Shehri|Saudi Arabia|
+406|Scott McTominay|Scotland|
+407|Scotland Crest|Scotland|
+408|Andrew Robertson|Scotland|
+409|Angus Gunn|Scotland|
+410|Kieran Tierney|Scotland|
+411|Grant Hanley|Scotland|
+412|Billy Gilmour|Scotland|
+413|Lewis Ferguson|Scotland|
+414|Ryan Christie|Scotland|
+415|John McGinn|Scotland|
+416|Ben Gannon-Doak|Scotland|
+417|Che Adams|Scotland|
+418|Kalidou Koulibaly|Senegal|
+419|Senegal Crest|Senegal|
+420|Sadio Mané|Senegal|
+421|Édouard Mendy|Senegal|
+422|Moussa Niakhaté|Senegal|
+423|El Hadji Malick Diouf|Senegal|
+424|Idrissa Gana Gueye|Senegal|
+425|Pape Matar Sarr|Senegal|
+426|Iliman Ndiaye|Senegal|
+427|Krépin Diatta|Senegal|
+428|Ismaïla Sarr|Senegal|
+429|Nicolas Jackson|Senegal|
+430|Lyle Foster|South Africa|
+431|South Africa Crest|South Africa|
+432|Ronwen Williams|South Africa|
+433|Siyabonga Ngezana|South Africa|
+434|Aubrey Modiba|South Africa|
+435|Mbekezeli Mbokazi|South Africa|
+436|Khuliso Mudau|South Africa|
+437|Teboho Mokoena|South Africa|
+438|Yaya Sithole|South Africa|
+439|Themba Zwane|South Africa|
+440|Oswin Appollis|South Africa|
+441|Iqraam Rayners|South Africa|
+442|Lamine Yamal|Spain|
+443|Spain Crest|Spain|
+444|Rodri|Spain|
+445|Unai Simón|Spain|
+446|Robin Le Normand|Spain|
+447|Dean Huijsen|Spain|
+448|Marc Cucurella|Spain|
+449|Martín Zubimendi|Spain|
+450|Pedri|Spain|
+451|Fabián Ruiz|Spain|
+452|Nico Williams|Spain|
+453|Mikel Oyarzabal|Spain|
+454|Manuel Akanji|Switzerland|
+455|Switzerland Crest|Switzerland|
+456|Granit Xhaka|Switzerland|
+457|Gregor Kobel|Switzerland|
+458|Nico Elvedi|Switzerland|
+459|Ricardo Rodríguez|Switzerland|
+460|Silvan Widmer|Switzerland|
+461|Denis Zakaria|Switzerland|
+462|Remo Freuler|Switzerland|
+463|Breel Embolo|Switzerland|
+464|Ruben Vargas|Switzerland|
+465|Dan Ndoye|Switzerland|
+466|Ferjani Sassi|Tunisia|
+467|Tunisia Crest|Tunisia|
+468|Ellyes Skhiri|Tunisia|
+469|Aymen Dahmen|Tunisia|
+470|Montassar Talbi|Tunisia|
+471|Yassine Meriah|Tunisia|
+472|Ali Abdi|Tunisia|
+473|Aïssa Laïdouni|Tunisia|
+474|Hannibal Mejbri|Tunisia|
+475|Naïm Sliti|Tunisia|
+476|Elias Achouri|Tunisia|
+477|Hazem Mastouri|Tunisia|
+478|Weston McKennie|United States|
+479|United States Crest|United States|
+480|Christian Pulisic|United States|
+481|Matt Freese|United States|
+482|Chris Richards|United States|
+483|Tim Ream|United States|
+484|Antonee Robinson|United States|
+485|Tanner Tessmann|United States|
+486|Tyler Adams|United States|
+487|Timothy Weah|United States|
+488|Malik Tillman|United States|
+489|Folarin Balogun|United States|
+490|José María Giménez|Uruguay|
+491|Uruguay Crest|Uruguay|
+492|Federico Valverde|Uruguay|
+493|Sergio Rochet|Uruguay|
+494|Ronald Araújo|Uruguay|
+495|Sebastián Cáceres|Uruguay|
+496|Mathías Olivera|Uruguay|
+497|Nahitan Nández|Uruguay|
+498|Rodrigo Bentancur|Uruguay|
+499|Manuel Ugarte|Uruguay|
+500|Facundo Pellistri|Uruguay|
+501|Darwin Núñez|Uruguay|
+502|Abdukodir Khusanov|Uzbekistan|
+503|Uzbekistan Crest|Uzbekistan|
+504|Eldor Shomurodov|Uzbekistan|
+505|Utkir Yusupov|Uzbekistan|
+506|Farrukh Sayfiev|Uzbekistan|
+507|Sherzod Nasrullaev|Uzbekistan|
+508|Husniddin Aliqulov|Uzbekistan|
+509|Rustam Ashurmatov|Uzbekistan|
+510|Khojiakbar Alijonov|Uzbekistan|
+511|Odiljon Hamrobekov|Uzbekistan|
+512|Otabek Shukurov|Uzbekistan|
+513|Abbosbek Fayzullaev|Uzbekistan|
+## Contenders
+520|Morten Hjulmand|Denmark|
+521|Pierre-Emile Højbjerg|Denmark|
+522|Christian Eriksen|Denmark|
+523|Mikkel Damsgaard|Denmark|
+524|Rasmus Højlund|Denmark|
+525|Gianluigi Donnarumma|Italy|
+526|Alessandro Bastoni|Italy|
+527|Sandro Tonali|Italy|
+528|Nicolò Barella|Italy|
+529|Moise Kean|Italy|
+530|Andre Blake|Jamaica|
+531|Ethan Pinnock|Jamaica|
+532|Demarai Gray|Jamaica|
+533|Leon Bailey|Jamaica|
+534|Shamar Nicholson|Jamaica|
+535|Matty Cash|Poland|
+536|Jakub Kiwior|Poland|
+537|Piotr Zieliński|Poland|
+538|Sebastian Szymański|Poland|
+539|Robert Lewandowski|Poland|
+540|Isak Hien|Sweden|
+541|Dejan Kulusevski|Sweden|
+542|Anthony Elanga|Sweden|
+543|Viktor Gyökeres|Sweden|
+544|Alexander Isak|Sweden|
+545|Çağlar Söyüncü|Turkey|
+546|Hakan Çalhanoğlu|Turkey|
+547|Arda Güler|Turkey|
+548|Kenan Yildiz|Turkey|
+549|Kerem Aktürkoğlu|Turkey|
+## Top Keepers
+550|Emiliano Martínez|Argentina|
+551|Thibaut Courtois|Belgium|
+552|Alisson|Brazil|
+553|Mike Maignan|France|
+554|Zion Suzuki|Japan|
+555|Yassine Bounou|Morocco|
+556|Diogo Costa|Portugal|
+557|Unai Simón|Spain|
+558|Gregor Kobel|Switzerland|
+## Defensive Rocks
+559|Éder Militão|Brazil|
+560|Alphonso Davies|Canada|
+561|William Saliba|France|
+562|Antonio Rüdiger|Germany|
+563|Kim Min-jae|Korea Republic|
+564|Achraf Hakimi|Morocco|
+565|Virgil van Dijk|Netherlands|
+566|Nuno Mendes|Portugal|
+567|Dean Huijsen|Spain|
+## Midfield Maestros
+568|Enzo Fernández|Argentina|
+569|Kevin De Bruyne|Belgium|
+570|Casemiro|Brazil|
+571|Luka Modrić|Croatia|
+572|Moisés Caicedo|Ecuador|
+573|Jude Bellingham|England|
+574|Aurélien Tchouaméni|France|
+575|Florian Wirtz|Germany|
+576|Sofyan Amrabat|Morocco|
+577|Tijjani Reijnders|Netherlands|
+578|Martin Ødegaard|Norway|
+579|Vitinha|Portugal|
+580|Scott McTominay|Scotland|
+581|Rodri|Spain|
+582|Pedri|Spain|
+583|Granit Xhaka|Switzerland|
+584|Tyler Adams|United States|
+585|Federico Valverde|Uruguay|
+## Goal Machines
+586|Julián Álvarez|Argentina|
+587|Romelu Lukaku|Belgium|
+588|Raphinha|Brazil|
+589|Jonathan David|Canada|
+590|Luis Díaz|Colombia|
+591|Andrej Kramarić|Croatia|
+592|Enner Valencia|Ecuador|
+593|Omar Marmoush|Egypt|
+594|Marcus Rashford|England|
+595|Randal Kolo Muani|France|
+596|Kai Havertz|Germany|
+597|Sébastien Haller|Ivory Coast|
+598|Raúl Jiménez|Mexico|
+599|Youssef En-Nesyri|Morocco|
+600|Cody Gakpo|Netherlands|
+601|Chris Wood|New Zealand|
+602|Alexander Sørloth|Norway|
+603|Nicolas Jackson|Senegal|
+604|Mikel Oyarzabal|Spain|
+605|Breel Embolo|Switzerland|
+606|Christian Pulisic|United States|
+607|Darwin Núñez|Uruguay|
+## Master Rookies
+608|Nico Paz|Argentina|
+609|Franco Mastantuono|Argentina|
+610|Zeno Debast|Belgium|
+611|Wesley|Brazil|
+612|Estêvão Willian|Brazil|
+613|Petar Sučić|Croatia|
+614|Kendry Páez|Ecuador|
+615|Morgan Rogers|England|
+616|Désiré Doué|France|
+617|Bradley Barcola|France|
+618|Nick Woltemade|Germany|
+619|Xavi Simons|Netherlands|
+620|Andreas Schjelderup|Norway|
+621|Gustavo Gómez|Paraguay|
+622|João Neves|Portugal|
+623|Pau Cubarsí|Spain|
+## Ultra Rare
+624|Official Emblem|FIFA World Cup 2026|

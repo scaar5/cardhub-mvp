@@ -1,0 +1,27 @@
+name: catalog-import
+
+# Copia el catálogo de cartas a Supabase.
+# - Automático: cada vez que Vercel termina un despliegue de producción.
+# - Manual: pestaña Actions → catalog-import → Run workflow.
+on:
+  deployment_status:
+  workflow_dispatch:
+
+jobs:
+  import:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.deployment_status.state == 'success' &&
+       github.event.deployment.environment == 'Production')
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Llamar a /api/catalog/import
+        env:
+          ALERT_SECRET: ${{ secrets.ALERT_SECRET }}
+          APP_URL: ${{ vars.APP_URL || 'https://scaard5-analytics.vercel.app' }}
+        run: |
+          SECRET="$(printf '%s' "$ALERT_SECRET" | tr -d '\r\n' | sed 's/^ *//;s/ *$//')"
+          curl -sS --fail-with-body -m 90 -X POST \
+            -H "x-alert-secret: $SECRET" \
+            "$APP_URL/api/catalog/import"

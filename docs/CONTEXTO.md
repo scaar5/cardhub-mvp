@@ -2,7 +2,7 @@
 
 > Documento para retomar el proyecto en otra conversación con Claude.
 > Última actualización: 6 de noviembre de 2026.
-> El trabajo descrito aquí se hizo desde la extensión Claude in Chrome, con acceso al navegador del usuario.
+> Pasos 1–9: extensión Claude in Chrome. Pasos 10–11: sesión de Claude con el repositorio conectado (push directo a `main`).
 
 ## 1. Qué es
 
@@ -11,6 +11,7 @@
 - Un **sniper automático** revisa eBay cada 30 minutos y guarda los anuncios con descuento.
 - Una página **"Valorar"** sirve para pegar a mano anuncios de **Vinted y Wallapop** y saber si son chollo.
 - Los chollos (≥30 % de descuento) llegan como **alerta por Telegram**.
+- Un **catálogo de 5.094 cartas** (11 colecciones de Topps y Panini) en `/cartas`, base para valorar carta por carta.
 
 **Sobre el usuario:** no es programador. Prefiere que Claude lo haga todo y que, cuando tenga que hacer algo él, se le den pasos muy concretos ("pulsa este botón", "pega aquí"). Escribe en español.
 
@@ -21,9 +22,9 @@
 | Web publicada | https://scaard5-analytics.vercel.app |
 | Código (GitHub) | https://github.com/scaar5/cardhub-mvp (rama `main`) |
 | Hosting | Vercel, equipo `s-card5-analytics`, proyecto `scaard5-analytics` (plan Hobby). Cada push a `main` se publica solo |
-| Base de datos | Supabase, proyecto "sCaard5 Analytics", ref `scuhirjstndmhgfavbim`, tabla `public.deals` |
+| Base de datos | Supabase, proyecto "sCaard5 Analytics", ref `scuhirjstndmhgfavbim`. Tablas `deals`, y (tras migración 003) `sets`, `cards`, `listings` |
 | Alertas | Bot de Telegram propio del usuario (creado con @BotFather) |
-| Ejecución periódica | GitHub Actions, `.github/workflows/sniper.yml`, cada 30 min + botón manual "Run workflow" |
+| Ejecución periódica | GitHub Actions: `sniper.yml` (cada 30 min) y `catalog-import.yml` (tras cada despliegue de producción y a mano) |
 | Datos de mercado | eBay Browse API oficial (marketplace `EBAY_ES`). **Cuenta de desarrollador pendiente de aprobación** |
 
 Stack: Next.js 16 (App Router) · React 19 · Tailwind CSS v4 · Supabase JS · TypeScript.
@@ -63,6 +64,7 @@ Importante:
 8. **El sniper no falla sin eBay:** responde `ok` con `skipped`, para que GitHub no envíe emails de error cada 30 min (`f4db3e0`).
 9. **Rediseño v0.3** (`0a2eca4`): estilo minimalista tipo Revolut. Tema claro, tipografía Inter (autoalojada con `@fontsource-variable/inter`), tarjeta negra con el "ahorro potencial", cifras en tarjetas blancas y lista de chollos tipo "movimientos bancarios".
 10. **Filtros de valoración** (`lib/filters.ts`, commit `4cfd0f9`): lotes, graduadas, réplicas, "elige tu carta" y accesorios no cuentan para el valor de mercado ni se guardan como chollo. "Valorar" avisa si el anuncio pegado es de ese tipo.
+11. **Catálogo de cartas v0.4**: 5.094 cartas (base + inserts, sin autógrafos ni paralelos como cartas aparte) de Topps UCC 25-26, Chrome UCC 25-26 y 24-25, Summer Signings 26-27, Match Attax 26-27, Topps Premier League / Chrome / Finest / Merlin 25-26, Adrenalyn XL LaLiga 25-26 y Adrenalyn XL Mundial 2026. Las variantes (Refractor, /99...) NO son cartas aparte: se detectarán en el título del anuncio y se guardarán en `listings.parallel`. Página `/cartas` con buscador. Migración `003_catalogo.sql` (tablas `sets`, `cards`, `listings`; columnas `card_id` y `parallel` en `deals`). Ruta `POST /api/catalog/import` + workflow `catalog-import.yml`.
 
 ## 5. Cómo funciona el código
 
@@ -85,10 +87,16 @@ lib/
   telegram.ts             Envío de mensajes y formato de la alerta
   supabase.ts             Cliente de solo lectura (clave pública)
   supabase-admin.ts       Cliente con escritura (SUPABASE_SECRET_KEY)
+  catalog.ts              Carga el catálogo (lib/catalog-data.json, generado) y búsqueda simple
   filters.ts              Excluye lotes, graduadas, réplicas, "elige tu carta" y accesorios
   auth.ts                 Comprueba x-alert-secret contra ALERT_SECRET (ignora espacios en los extremos)
-supabase/schema.sql, supabase/migrations/002_sniper.sql
-.github/workflows/sniper.yml
+app/cartas/page.tsx       Catálogo con buscador y filtro por colección
+app/api/catalog/import    POST · x-alert-secret · copia el catálogo a Supabase (sets + cards)
+data/catalog/*.txt        Listados de cartas, uno por colección ("número|jugador|equipo|RC", secciones "## Subserie")
+data/sets.json            Ficha de cada colección: nombre, marca, temporada, palabras clave y paralelos
+scripts/build-catalog.mjs Genera lib/catalog-data.json (se ejecuta solo antes de dev y build; valida duplicados)
+supabase/schema.sql, supabase/migrations/002_sniper.sql, 003_catalogo.sql
+.github/workflows/sniper.yml, catalog-import.yml
 ```
 
 **Flujo del sniper**, para cada búsqueda de `lib/config.ts`:
@@ -109,9 +117,17 @@ Búsquedas actuales: `panini adrenalyn`, `topps chrome futbol`, `panini prizm fu
   4. GitHub → Actions → sniper → **Run workflow** y revisar el log: debe salir `"ok":true` con un `report` por búsqueda.
   5. Probar `/valorar` con un anuncio real.
 
+**Catálogo (pendiente del usuario)**
+- [ ] Ejecutar `supabase/migrations/003_catalogo.sql` en Supabase → SQL Editor.
+- [ ] GitHub → Actions → catalog-import → Run workflow. Debe responder `{"ok":true,"sets":11,"cards":5094}`.
+
+**Siguiente desarrollo**
+- [ ] Reconocedor de anuncios (`lib/catalog-match.ts`): título → colección (palabras clave + temporada) → carta (número o jugador) → paralelo (Refractor, /99...).
+- [ ] Sniper por colección: buscar en eBay por colección, guardar TODOS los anuncios reconocidos en `listings` y calcular el valor por carta+paralelo (mediana de sus propios anuncios) en vez de por búsqueda genérica.
+- [ ] Ampliar catálogo: Megacracks 25-26 y 26-27, Adrenalyn LaLiga 26-27, Topps UCC 26-27 y Chrome UCC 26-27 cuando salgan sus listados, Finest UCC 25-26, Gold UCC 25-26.
+
 **Después de los primeros resultados**
 - [x] Excluir de la valoración lotes, graduadas, réplicas, "elige tu carta" y accesorios (`lib/filters.ts`).
-- [ ] Pasar de búsquedas genéricas a **búsquedas por carta concreta** en `lib/config.ts`: con "panini adrenalyn" la mediana mezcla cartas distintas y cualquier carta barata parece chollo.
 - [ ] Revisar umbrales en `lib/config.ts` con datos reales. Ahora se usan precios *pedidos*, no *vendidos*, así que habrá algún falso chollo.
 - [ ] El usuario activa en las apps de Vinted y Wallapop las alertas de búsqueda guardada.
 
@@ -122,7 +138,6 @@ Búsquedas actuales: `panini adrenalyn`, `topps chrome futbol`, `panini prizm fu
 **Ideas opcionales**
 - Parte de "Analytics": evolución de precios por carta o jugador.
 - Filtros en la lista (plataforma, descuento, búsqueda).
-- Valoración por carta concreta (jugador, colección, paralelo o numeración).
 - Modo oscuro o logo propio.
 
 ## 7. Notas para el siguiente Claude
@@ -130,4 +145,5 @@ Búsquedas actuales: `panini adrenalyn`, `topps chrome futbol`, `panini prizm fu
 - **Hacer cambios en el código:** las sesiones de Claude con el repo conectado (`scaar5/cardhub-mvp`) pueden hacer commit y push directamente a `main`. Sin acceso al repo, entrega un ZIP o los archivos cambiados. El usuario los sube a GitHub y Vercel publica solo. La extensión de Chrome sí puede hacer push, porque la app de Claude está instalada en el repo.
 - **Probar sin conocer la contraseña:** lanza el workflow en GitHub Actions y lee el log. `401 No autorizado` significa que la contraseña no coincide entre GitHub y Vercel.
 - **Nunca** pongas `SUPABASE_SECRET_KEY` ni las claves de eBay en variables `NEXT_PUBLIC_`.
+- **Añadir una colección al catálogo:** crear `data/catalog/<slug>.txt` y su ficha en `data/sets.json`; `npm run catalog` valida. Fuentes que funcionaron con WebFetch: beckett.com/news, checklistinsider.com, cartophilic-info-exch.blogspot.com, diamondcardsonline.com/blog. La terminal no tiene acceso a esas webs.
 - Vercel Hobby solo permite un cron diario; por eso la programación cada 30 min va por GitHub Actions.

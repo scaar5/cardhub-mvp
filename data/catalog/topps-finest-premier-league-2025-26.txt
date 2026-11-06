@@ -1,0 +1,529 @@
+## Base Common
+1|Antoine Semenyo|AFC Bournemouth|
+2|Julio Soler|AFC Bournemouth|RC
+3|Eli Junior Kroupi|AFC Bournemouth|
+4|Amine Adli|AFC Bournemouth|
+5|Leandro Trossard|Arsenal|
+6|Jurriën Timber|Arsenal|
+7|Riccardo Calafiori|Arsenal|
+8|Noni Madueke|Arsenal|
+9|Ben Broggio|Aston Villa|RC
+10|Rory Wilson|Aston Villa|RC
+11|Jamaldeen Jimoh-Aloba|Aston Villa|RC
+12|Mikkel Damsgaard|Brentford|
+13|Kevin Schade|Brentford|
+14|Michael Kayode|Brentford|
+15|Dango Ouattara|Brentford|
+16|Tom Watson|Brighton & Hove Albion|RC
+17|Kaoru Mitoma|Brighton & Hove Albion|
+18|Yasin Ayari|Brighton & Hove Albion|RC
+19|Harry Howell|Brighton & Hove Albion|RC
+20|Jaidon Anthony|Burnley FC|
+21|Lyle Foster|Burnley FC|
+22|Lesley Ugochukwu|Burnley FC|
+23|Jaydon Banel|Burnley FC|RC
+24|Bashir Humphreys|Burnley FC|RC
+25|Zian Flemming|Burnley FC|RC
+26|Kyle Walker|Burnley FC|
+27|Josh Laurent|Burnley FC|RC
+28|Estêvão Willian|Chelsea|RC
+29|Cole Palmer|Chelsea|
+30|Josh Acheampong|Chelsea|
+31|Shumaira Mheuka|Chelsea|RC
+32|Harrison Murray-Campbell|Chelsea|RC
+33|Romain Esse|Crystal Palace|RC
+34|Zach Marsh|Crystal Palace|RC
+35|Max Dowman|Arsenal|RC
+36|Justin Devenny|Crystal Palace|RC
+37|Yéremy Pino|Crystal Palace|
+38|Jack Grealish|Everton|
+39|Kiernan Dewsbury-Hall|Everton|
+40|Tyler Dibling|Everton|
+41|Roman Dixon|Everton|RC
+42|Charly Alcaraz|Everton|
+43|Jonah Kusi-Asare|Fulham|RC
+44|Samuel Chukwueze|Fulham|
+45|Kevin|Fulham|
+46|Josh King|Fulham|RC
+47|Gabriel Gudmundsson|Leeds United|
+48|Noah Okafor|Leeds United|
+49|Anton Stach|Leeds United|
+50|Dominic Calvert-Lewin|Leeds United|
+51|Harry Gray|Leeds United|RC
+52|Alfie Cresswell|Leeds United|RC
+53|Sean Longstaff|Leeds United|
+54|Virgil van Dijk|Liverpool FC|
+55|Rio Ngumoha|Liverpool FC|RC
+56|Mohamed Salah|Liverpool FC|
+57|Alexander Isak|Liverpool FC|
+58|Hugo Ekitike|Liverpool FC|
+59|Trent Koné-Doherty|Liverpool FC|RC
+60|Giovanni Leoni|Liverpool FC|RC
+61|Erling Haaland|Manchester City|
+62|Rayan Cherki|Manchester City|
+63|Rodri|Manchester City|
+64|Tijjani Reijnders|Manchester City|
+65|Divine Mukasa|Manchester City|RC
+66|Gianluigi Donnarumma|Manchester City|
+67|Benjamin Šeško|Manchester United|
+68|Matheus Cunha|Manchester United|
+69|Amir Ibragimov|Manchester United|RC
+70|Bruno Fernandes|Manchester United|
+71|Bendito Mantato|Manchester United|RC
+72|Joelinton|Newcastle United|
+73|Sandro Tonali|Newcastle United|
+74|Bruno Guimarães|Newcastle United|
+75|Anthony Gordon|Newcastle United|
+76|Seung-Soo Park|Newcastle United|RC
+77|Nick Woltemade|Newcastle United|
+78|Morgan Gibbs-White|Nottingham Forest|
+79|James McAtee|Nottingham Forest|
+80|Igor Jesus|Nottingham Forest|RC
+81|Zach Abbott|Nottingham Forest|RC
+82|Jair|Nottingham Forest|RC
+83|Chris Rigg|Sunderland|RC
+84|Noah Sadiki|Sunderland|RC
+85|Eliezer Mayenda|Sunderland|RC
+86|Wilson Isidor|Sunderland|RC
+87|Simon Adingra|Sunderland|
+88|Lucas Bergvall|Tottenham Hotspur|
+89|Djed Spence|Tottenham Hotspur|
+90|João Palhinha|Tottenham Hotspur|
+91|Xavi Simons|Tottenham Hotspur|
+92|Kōta Takai|Tottenham Hotspur|RC
+93|Crysencio Summerville|West Ham United|
+94|Lucas Paquetá|West Ham United|
+95|El Hadji Malick Diouf|West Ham United|RC
+96|Freddie Potts|West Ham United|RC
+97|Callum Marshall|West Ham United|
+98|Fer López|Wolverhampton Wanderers|RC
+99|Enso González|Wolverhampton Wanderers|RC
+100|Wesley Okoduwa|Wolverhampton Wanderers|RC
+## Base Uncommon
+101|Antoine Semenyo|AFC Bournemouth|
+102|Justin Kluivert|AFC Bournemouth|
+103|Tyler Adams|AFC Bournemouth|
+104|Eli Junior Kroupi|AFC Bournemouth|
+105|Evanilson|AFC Bournemouth|
+106|Bukayo Saka|Arsenal|
+107|Gabriel Magalhães|Arsenal|
+108|Max Dowman|Arsenal|RC
+109|Viktor Gyökeres|Arsenal|
+110|Jaydee Canvot|Crystal Palace|RC
+111|Cristhian Mosquera|Arsenal|
+112|William Saliba|Arsenal|
+113|Piero Hincapié|Arsenal|
+114|Igor Thiago|Brentford|
+115|Ollie Watkins|Aston Villa|
+116|Ben Broggio|Aston Villa|RC
+117|Morgan Rogers|Aston Villa|
+118|Youri Tielemans|Aston Villa|
+119|John McGinn|Aston Villa|
+120|Jamaldeen Jimoh-Aloba|Aston Villa|RC
+121|Jair|Nottingham Forest|RC
+122|Mikkel Damsgaard|Brentford|
+123|Dango Ouattara|Brentford|
+124|Gustavo Nunes|Brentford|RC
+125|Nathan Collins|Brentford|
+126|Romelle Donovan|Brentford|RC
+127|Jordan Henderson|Brentford|
+128|Antoni Milambo|Brentford|
+129|Kaoru Mitoma|Brighton & Hove Albion|
+130|Stefanos Tzimas|Brighton & Hove Albion|RC
+131|Brajan Gruda|Brighton & Hove Albion|
+132|Yasin Ayari|Brighton & Hove Albion|RC
+133|Yankuba Minteh|Brighton & Hove Albion|
+134|Josh Laurent|Burnley FC|RC
+135|Estêvão Willian|Chelsea|RC
+136|Cole Palmer|Chelsea|
+137|Moisés Caicedo|Chelsea|
+138|Enzo Fernández|Chelsea|
+139|Alejandro Garnacho|Chelsea|
+140|Jean-Philippe Mateta|Crystal Palace|
+141|Christantus Uche|Crystal Palace|
+142|Yéremy Pino|Crystal Palace|
+143|Jack Grealish|Everton|
+144|Charly Alcaraz|Everton|
+145|Iliman Ndiaye|Everton|
+146|Dwight McNeil|Everton|
+147|Jarrad Branthwaite|Everton|
+148|Thierno Barry|Everton|
+149|Emile Smith Rowe|Fulham|
+150|Kevin|Fulham|
+151|Josh King|Fulham|RC
+152|Raúl Jiménez|Fulham|
+153|Brenden Aaronson|Leeds United|
+154|Alexander Isak|Liverpool FC|
+155|Rio Ngumoha|Liverpool FC|RC
+156|Mohamed Salah|Liverpool FC|
+157|Virgil van Dijk|Liverpool FC|
+158|Florian Wirtz|Liverpool FC|
+159|Hugo Ekitike|Liverpool FC|
+160|Erling Haaland|Manchester City|
+161|Rayan Cherki|Manchester City|
+162|Rodri|Manchester City|
+163|Omar Marmoush|Manchester City|
+164|Tijjani Reijnders|Manchester City|
+165|Divine Mukasa|Manchester City|RC
+166|Reigan Heskey|Manchester City|RC
+167|Phil Foden|Manchester City|
+168|Benjamin Šeško|Manchester United|
+169|Bryan Mbeumo|Manchester United|
+170|Matheus Cunha|Manchester United|
+171|Bruno Fernandes|Manchester United|
+172|Shea Lacey|Manchester United|RC
+173|Fabian Schär|Newcastle United|
+174|Bruno Guimarães|Newcastle United|
+175|Anthony Gordon|Newcastle United|
+176|Nick Woltemade|Newcastle United|
+177|Morgan Gibbs-White|Nottingham Forest|
+178|James McAtee|Nottingham Forest|
+179|Chris Rigg|Sunderland|RC
+180|Granit Xhaka|Sunderland|
+181|Noah Sadiki|Sunderland|RC
+182|Eliezer Mayenda|Sunderland|RC
+183|Enzo Le Fée|Sunderland|
+184|Simon Adingra|Sunderland|
+185|Wilson Odobert|Tottenham Hotspur|
+186|Pape Matar Sarr|Tottenham Hotspur|
+187|Pedro Porro|Tottenham Hotspur|
+188|Xavi Simons|Tottenham Hotspur|
+189|Mohammed Kudus|Tottenham Hotspur|
+190|Crysencio Summerville|West Ham United|
+191|Lucas Paquetá|West Ham United|
+192|El Hadji Malick Diouf|West Ham United|RC
+193|Freddie Potts|West Ham United|RC
+194|Luis Guilherme|West Ham United|RC
+195|Ollie Scarles|West Ham United|
+196|Jørgen Strand Larsen|Wolverhampton Wanderers|
+197|André|Wolverhampton Wanderers|
+198|João Gomes|Wolverhampton Wanderers|
+199|Jhon Arias|Wolverhampton Wanderers|
+200|Tolu Arokodare|Wolverhampton Wanderers|RC
+## Base Rare
+201|Antoine Semenyo|AFC Bournemouth|
+202|Amine Adli|AFC Bournemouth|
+203|Tyler Adams|AFC Bournemouth|
+204|Eli Junior Kroupi|AFC Bournemouth|
+205|Evanilson|AFC Bournemouth|
+206|Veljko Milosavljević|AFC Bournemouth|RC
+207|Bukayo Saka|Arsenal|
+208|Viktor Gyökeres|Arsenal|
+209|Maxim De Cuyper|Brighton & Hove Albion|RC
+210|Martin Ødegaard|Arsenal|
+211|Martín Zubimendi|Arsenal|
+212|Declan Rice|Arsenal|
+213|Max Dowman|Arsenal|RC
+214|Myles Lewis-Skelly|Arsenal|
+215|Jamaldeen Jimoh-Aloba|Aston Villa|RC
+216|Morgan Rogers|Aston Villa|
+217|Ollie Watkins|Aston Villa|
+218|Youri Tielemans|Aston Villa|
+219|Kevin Schade|Brentford|
+220|Dango Ouattara|Brentford|
+221|Romelle Donovan|Brentford|RC
+222|Kaoru Mitoma|Brighton & Hove Albion|
+223|Harry Howell|Brighton & Hove Albion|RC
+224|Brajan Gruda|Brighton & Hove Albion|
+225|Stefanos Tzimas|Brighton & Hove Albion|RC
+226|Yasin Ayari|Brighton & Hove Albion|RC
+227|Tom Watson|Brighton & Hove Albion|RC
+228|Quilindschy Hartman|Burnley FC|
+229|Estêvão Willian|Chelsea|RC
+230|Cole Palmer|Chelsea|
+231|Moisés Caicedo|Chelsea|
+232|Enzo Fernández|Chelsea|
+233|Jorrel Hato|Chelsea|
+234|Liam Delap|Chelsea|
+235|João Pedro|Chelsea|
+236|Adam Wharton|Crystal Palace|
+237|Jean-Philippe Mateta|Crystal Palace|
+238|Chris Richards|Crystal Palace|
+239|Daichi Kamada|Crystal Palace|
+240|Daniel Muñoz|Crystal Palace|
+241|Yéremy Pino|Crystal Palace|
+242|Christantus Uche|Crystal Palace|
+243|Jack Grealish|Everton|
+244|Tyler Dibling|Everton|
+245|Charly Alcaraz|Everton|
+246|Iliman Ndiaye|Everton|
+247|Thierno Barry|Everton|
+248|Emile Smith Rowe|Fulham|
+249|Raúl Jiménez|Fulham|
+250|Alex Iwobi|Fulham|
+251|Rodrigo Muniz|Fulham|
+252|Adama Traoré|Fulham|
+253|Reggie Walsh|Chelsea|RC
+254|Harry Gray|Leeds United|RC
+255|Ao Tanaka|Leeds United|
+256|Jayden Bogle|Leeds United|
+257|Rio Ngumoha|Liverpool FC|RC
+258|Mohamed Salah|Liverpool FC|
+259|Virgil van Dijk|Liverpool FC|
+260|Florian Wirtz|Liverpool FC|
+261|Hugo Ekitike|Liverpool FC|
+262|Alexis Mac Allister|Liverpool FC|
+263|Alexander Isak|Liverpool FC|
+264|Erling Haaland|Manchester City|
+265|Rodri|Manchester City|
+266|Omar Marmoush|Manchester City|
+267|Tijjani Reijnders|Manchester City|
+268|Phil Foden|Manchester City|
+269|Benjamin Šeško|Manchester United|
+270|Bryan Mbeumo|Manchester United|
+271|Amir Ibragimov|Manchester United|RC
+272|Matheus Cunha|Manchester United|
+273|Bruno Fernandes|Manchester United|
+274|Shea Lacey|Manchester United|RC
+275|Bruno Guimarães|Newcastle United|
+276|Anthony Gordon|Newcastle United|
+277|Joelinton|Newcastle United|
+278|Sandro Tonali|Newcastle United|
+279|Seung-Soo Park|Newcastle United|RC
+280|Anthony Elanga|Newcastle United|
+281|James McAtee|Nottingham Forest|
+282|Igor Jesus|Nottingham Forest|RC
+283|Callum Hudson-Odoi|Nottingham Forest|
+284|Morgan Gibbs-White|Nottingham Forest|
+285|Murillo|Nottingham Forest|
+286|Chris Rigg|Sunderland|RC
+287|Eliezer Mayenda|Sunderland|RC
+288|Xavi Simons|Tottenham Hotspur|
+289|Mohammed Kudus|Tottenham Hotspur|
+290|Dominic Solanke|Tottenham Hotspur|
+291|Archie Gray|Tottenham Hotspur|
+292|Lucas Bergvall|Tottenham Hotspur|
+293|Micky van de Ven|Tottenham Hotspur|
+294|Lucas Paquetá|West Ham United|
+295|Jarrod Bowen|West Ham United|
+296|João Gomes|Wolverhampton Wanderers|
+297|André|Wolverhampton Wanderers|
+298|Jørgen Strand Larsen|Wolverhampton Wanderers|
+299|Jhon Arias|Wolverhampton Wanderers|
+300|Enso González|Wolverhampton Wanderers|RC
+## Arrivals
+AV-1|Chris Rigg|Sunderland|
+AV-2|Josh King|Fulham|
+AV-3|Reggie Walsh|Chelsea|
+AV-4|Shea Lacey|Manchester United|
+AV-5|Harry Gray|Leeds United|
+AV-6|Max Dowman|Arsenal|
+AV-7|Rio Ngumoha|Liverpool FC|
+AV-8|Jaydee Canvot|Crystal Palace|
+AV-9|Tom Watson|Brighton & Hove Albion|
+AV-10|Estêvão Willian|Chelsea|
+## Aura
+AU-1|Mario Balotelli|Manchester City|
+AU-2|Gianfranco Zola|Chelsea|
+AU-3|Phil Foden|Manchester City|
+AU-4|Paul Gascoigne|Everton|
+AU-5|Jack Grealish|Everton|
+AU-6|Declan Rice|Arsenal|
+AU-7|Fernandinho|Manchester City|
+AU-8|Claude Makélélé|Chelsea|
+AU-9|Roy Keane|Manchester United|
+AU-10|William Saliba|Arsenal|
+AU-11|Bukayo Saka|Arsenal|
+AU-12|Wayne Rooney|Manchester United|
+AU-13|Alexander Isak|Liverpool FC|
+AU-14|Steven Gerrard|Liverpool FC|
+AU-15|Estêvão Willian|Chelsea|
+AU-16|Mohamed Salah|Liverpool FC|
+AU-17|Florian Wirtz|Liverpool FC|
+AU-18|Thierry Henry|Arsenal|
+AU-19|Harry Kane|Tottenham Hotspur|
+AU-20|Didier Drogba|Chelsea|
+## Clean
+CN-1|Virgil van Dijk|Liverpool FC|
+CN-2|Riccardo Calafiori|Arsenal|
+CN-3|David Raya|Arsenal|
+CN-4|Dan Burn|Newcastle United|
+CN-5|Micky van de Ven|Tottenham Hotspur|
+CN-6|Jorrel Hato|Chelsea|
+CN-7|Nathan Collins|Brentford|
+CN-8|Murillo|Nottingham Forest|
+CN-9|Gianluigi Donnarumma|Manchester City|
+CN-10|Lewis Dunk|Brighton & Hove Albion|
+## Expected Brilliance
+XB-1|Evanilson|AFC Bournemouth|
+XB-2|Antoine Semenyo|AFC Bournemouth|
+XB-3|Eberechi Eze|Arsenal|
+XB-4|Viktor Gyökeres|Arsenal|
+XB-5|Ollie Watkins|Aston Villa|
+XB-6|Harvey Elliott|Aston Villa|
+XB-7|Dango Ouattara|Brentford|
+XB-8|Mikkel Damsgaard|Brentford|
+XB-9|Charalampos Kostoulas|Brighton & Hove Albion|
+XB-10|Stefanos Tzimas|Brighton & Hove Albion|
+XB-11|Armando Broja|Burnley FC|
+XB-12|Jaidon Anthony|Burnley FC|
+XB-13|Facundo Buonanotte|Chelsea|
+XB-14|João Pedro|Chelsea|
+XB-15|Jean-Philippe Mateta|Crystal Palace|
+XB-16|Yéremy Pino|Crystal Palace|
+XB-17|Charly Alcaraz|Everton|
+XB-18|Thierno Barry|Everton|
+XB-19|Jonah Kusi-Asare|Fulham|
+XB-20|Kevin|Fulham|
+XB-21|Harry Gray|Leeds United|
+XB-22|Wilfried Gnonto|Leeds United|
+XB-23|Alexander Isak|Liverpool FC|
+XB-24|Hugo Ekitike|Liverpool FC|
+XB-25|Erling Haaland|Manchester City|
+XB-26|Omar Marmoush|Manchester City|
+XB-27|Bryan Mbeumo|Manchester United|
+XB-28|Matheus Cunha|Manchester United|
+XB-29|Nick Woltemade|Newcastle United|
+XB-30|Sandro Tonali|Newcastle United|
+XB-31|Chris Wood|Nottingham Forest|
+XB-32|Arnaud Kalimuendo|Nottingham Forest|
+XB-33|Eliezer Mayenda|Sunderland|
+XB-34|Habib Diarra|Sunderland|
+XB-35|Xavi Simons|Tottenham Hotspur|
+XB-36|Randal Kolo Muani|Tottenham Hotspur|
+XB-37|El Hadji Malick Diouf|West Ham United|
+XB-38|Mateus Fernandes|West Ham United|
+XB-39|Tolu Arokodare|Wolverhampton Wanderers|
+XB-40|Fer López|Wolverhampton Wanderers|
+## Finest Idols
+FI-1|Steven Gerrard|Liverpool FC|
+FI-2|Frank Lampard|Chelsea|
+FI-3|Sergio Agüero|Manchester City|
+FI-4|Harry Kane|Tottenham Hotspur|
+FI-5|Wayne Rooney|Manchester United|
+## Gusto
+GO-1|Kai Havertz|Arsenal|
+GO-2|Benjamin Šeško|Manchester United|
+GO-3|Jarrod Bowen|West Ham United|
+GO-4|Diego León|Manchester United|
+GO-5|Heung-min Son|Tottenham Hotspur|
+GO-6|Martín Zubimendi|Arsenal|
+GO-7|Yaya Touré|Manchester City|
+GO-8|Shea Lacey|Manchester United|
+GO-9|Anthony Gordon|Newcastle United|
+GO-10|Declan Rice|Arsenal|
+GO-11|Alexis Mac Allister|Liverpool FC|
+GO-12|Hugo Ekitike|Liverpool FC|
+GO-13|Dominik Szoboszlai|Liverpool FC|
+GO-14|Mohammed Kudus|Tottenham Hotspur|
+GO-15|Bruno Guimarães|Newcastle United|
+GO-16|Chris Rigg|Sunderland|
+GO-17|Enzo Fernández|Chelsea|
+GO-18|João Pedro|Chelsea|
+GO-19|Malo Gusto|Chelsea|
+GO-20|Divine Mukasa|Manchester City|
+## Headliners
+HS-1|Mohammed Kudus|Tottenham Hotspur|
+HS-2|Bruno Fernandes|Manchester United|
+HS-3|Phil Foden|Manchester City|
+HS-4|Martin Ødegaard|Arsenal|
+HS-5|Rodri|Manchester City|
+HS-6|Hugo Ekitike|Liverpool FC|
+HS-7|Declan Rice|Arsenal|
+HS-8|Anthony Gordon|Newcastle United|
+HS-9|Bryan Mbeumo|Manchester United|
+HS-10|Morgan Gibbs-White|Nottingham Forest|
+## Main Attraction
+MA-1|Antoine Semenyo|AFC Bournemouth|
+MA-2|Florian Wirtz|Liverpool FC|
+MA-3|Rodri|Manchester City|
+MA-4|Cole Palmer|Chelsea|
+MA-5|Gareth Bale|Tottenham Hotspur|
+MA-6|Martín Zubimendi|Arsenal|
+MA-7|Mohamed Salah|Liverpool FC|
+MA-8|Matheus Cunha|Manchester United|
+MA-9|Bruno Fernandes|Manchester United|
+MA-10|Kaoru Mitoma|Brighton & Hove Albion|
+MA-11|David Silva|Manchester City|
+MA-12|Ethan Nwaneri|Arsenal|
+MA-13|Virgil van Dijk|Liverpool FC|
+MA-14|Andy Cole|Manchester United|
+MA-15|Morgan Rogers|Aston Villa|
+MA-16|Estêvão Willian|Chelsea|
+MA-17|Moisés Caicedo|Chelsea|
+MA-18|Carlos Tevez|Manchester City|
+MA-19|Kevin|Fulham|
+MA-20|Luka Modrić|Tottenham Hotspur|
+## Nightmare Fuel
+NF-1|Benjamin Šeško|Manchester United|
+NF-2|Mohamed Salah|Liverpool FC|
+NF-3|Viktor Gyökeres|Arsenal|
+NF-4|Carlos Tevez|Manchester City|
+NF-5|Estêvão Willian|Chelsea|
+NF-6|Rio Ngumoha|Liverpool FC|
+NF-7|Wayne Rooney|Manchester United|
+NF-8|Harry Kane|Tottenham Hotspur|
+NF-9|Fernando Torres|Liverpool FC|
+NF-10|Dennis Bergkamp|Arsenal|
+NF-11|Erling Haaland|Manchester City|
+NF-12|Didier Drogba|Chelsea|
+NF-13|Robbie Fowler|Liverpool FC|
+NF-14|Eric Cantona|Manchester United|
+NF-15|Bukayo Saka|Arsenal|
+NF-16|Alexander Isak|Liverpool FC|
+NF-17|Sergio Agüero|Manchester City|
+NF-18|Thierry Henry|Arsenal|
+NF-19|Ian Wright|Arsenal|
+NF-20|Alan Shearer|Newcastle United|
+## Polka
+PK-1|David Beckham|Manchester United|
+PK-2|Mohamed Salah|Liverpool FC|
+PK-3|Erling Haaland|Manchester City|
+PK-4|Rio Ngumoha|Liverpool FC|
+PK-5|Kevin De Bruyne|Manchester City|
+PK-6|Gareth Bale|Tottenham Hotspur|
+PK-7|Harry Kane|Tottenham Hotspur|
+PK-8|Bukayo Saka|Arsenal|
+PK-9|Eden Hazard|Chelsea|
+PK-10|Nick Woltemade|Newcastle United|
+PK-11|Heung-min Son|Tottenham Hotspur|
+PK-12|Alan Shearer|Newcastle United|
+PK-13|Thierry Henry|Arsenal|
+PK-14|Wayne Rooney|Manchester United|
+PK-15|Max Dowman|Arsenal|
+PK-16|Frank Lampard|Chelsea|
+PK-17|Steven Gerrard|Liverpool FC|
+PK-18|Paul Scholes|Manchester United|
+PK-19|Dennis Bergkamp|Arsenal|
+PK-20|Sergio Agüero|Manchester City|
+## Swerve
+SV-1|Justin Kluivert|AFC Bournemouth|
+SV-2|Amine Adli|AFC Bournemouth|
+SV-3|Max Dowman|Arsenal|
+SV-4|Ethan Nwaneri|Arsenal|
+SV-5|Morgan Rogers|Aston Villa|
+SV-6|Youri Tielemans|Aston Villa|
+SV-7|Antoni Milambo|Brentford|
+SV-8|Romelle Donovan|Brentford|
+SV-9|Yasin Ayari|Brighton & Hove Albion|
+SV-10|Brajan Gruda|Brighton & Hove Albion|
+SV-11|Lesley Ugochukwu|Burnley FC|
+SV-12|Quilindschy Hartman|Burnley FC|
+SV-13|Dário Essugo|Chelsea|
+SV-14|Alejandro Garnacho|Chelsea|
+SV-15|Ismaïla Sarr|Crystal Palace|
+SV-16|Romain Esse|Crystal Palace|
+SV-17|Kiernan Dewsbury-Hall|Everton|
+SV-18|Tyler Dibling|Everton|
+SV-19|Josh King|Fulham|
+SV-20|Emile Smith Rowe|Fulham|
+SV-21|Brenden Aaronson|Leeds United|
+SV-22|Ao Tanaka|Leeds United|
+SV-23|Alexis Mac Allister|Liverpool FC|
+SV-24|Rio Ngumoha|Liverpool FC|
+SV-25|Tijjani Reijnders|Manchester City|
+SV-26|Jérémy Doku|Manchester City|
+SV-27|Bruno Fernandes|Manchester United|
+SV-28|Benjamin Šeško|Manchester United|
+SV-29|Sandro Tonali|Newcastle United|
+SV-30|Tino Livramento|Newcastle United|
+SV-31|Arnaud Kalimuendo|Nottingham Forest|
+SV-32|Ryan Yates|Nottingham Forest|
+SV-33|Granit Xhaka|Sunderland|
+SV-34|Enzo Le Fée|Sunderland|
+SV-35|João Palhinha|Tottenham Hotspur|
+SV-36|Lucas Bergvall|Tottenham Hotspur|
+SV-37|Lucas Paquetá|West Ham United|
+SV-38|Luis Guilherme|West Ham United|
+SV-39|Jhon Arias|Wolverhampton Wanderers|
+SV-40|João Gomes|Wolverhampton Wanderers|

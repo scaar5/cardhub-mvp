@@ -1,0 +1,134 @@
+## Base
+1|Óscar Mingueza|Crystal Palace|
+2|Fran García|Real Betis Balompié|
+3|Facundo Bernal|Real Betis Balompié|
+4|Eliezer Mayenda|Stade Rennais|
+5|Nathaniel Brown|FC Bayern München|
+6|Jeff Ekhator|Juventus|
+7|Ismael Saibari|FC Bayern München|
+8|Alejandro Grimaldo|Atlético de Madrid|
+9|Gonçalo Ramos|AC Milan|
+10|João Gomes|Aston Villa|
+11|Gabriel Jesus|FC Barcelona|
+12|Johan Manzambi|Aston Villa|
+13|Álvaro Rodríguez|AFC Bournemouth|
+14|Luka Vušković|Brighton & Hove Albion|
+15|John Stones|FC Internazionale Milano|
+16|Santiago Castro|AS Roma|
+17|Kang-in Lee|Atlético de Madrid|
+18|Christos Tzolis|Arsenal FC|
+19|Konstantinos Karetsas|Borussia Dortmund|
+20|Kerim Alajbegović|Juventus|
+21|António Silva|AFC Bournemouth|
+22|Mathis Abline|AS Monaco|
+23|Karim Adeyemi|FC Barcelona|
+24|Miguel Gutiérrez|Bayer 04 Leverkusen|
+25|Nestory Irankunda|Sporting Clube de Portugal|
+26|Alejandro Garnacho|Aston Villa|
+27|Marc-André ter Stegen|AFC Ajax|
+28|Aleksandar Stanković|FC Internazionale Milano|
+29|Trevoh Chalobah|Como 1907|
+30|Mattia Liberali|Como 1907|
+31|Ronald Araújo|Liverpool FC|
+32|Marten de Roon|AS Roma|
+33|Leonardo Balerdi|AS Roma|
+34|Djed Spence|FC Internazionale Milano|
+35|Nahuel Molina|AS Roma|
+36|Zion Suzuki|Aston Villa|
+37|Curtis Jones|FC Internazionale Milano|
+38|Matteo Ruggeri|Aston Villa|
+39|Troy Parrott|Real Betis Balompié|RC
+40|Diego Moreira|AC Milan|
+41|Jofre Torrents|AFC Ajax|
+42|Giannis Konstantelias|Borussia Dortmund|
+43|Andrey Santos|Manchester United|
+44|Leo Sauer|VfB Stuttgart|
+45|Víctor Muñoz|Liverpool FC|
+46|Promise David|Brighton & Hove Albion|
+47|Zavier Gozo|Crystal Palace|
+48|Rodrigo Mora|AS Roma|
+49|Joey Veerman|Borussia Dortmund|
+50|Guglielmo Vicario|Juventus|
+51|Carlos Baleba|Manchester United|
+52|João Palhinha|SL Benfica|
+53|Aaron Wan-Bissaka|Aston Villa|
+54|Lucas Digne|Paris Saint-Germain|
+55|Nicolas Jackson|Aston Villa|
+56|Benoît Badiashile|SSC Napoli|
+57|Leon Goretzka|Aston Villa|
+58|Ivan Provedel|FC Internazionale Milano|
+59|Omari Hutchinson|AC Milan|
+60|Moussa Diaby|Bayer 04 Leverkusen|
+61|Nick Woltemade|Juventus|
+62|Marc Guiu|RB Leipzig|
+63|Ethan Nwaneri|Borussia Dortmund|
+64|Santiago Giménez|FC Porto|
+65|Hamza Abdelkarim|FC Barcelona|RC
+66|Zadok Yohanna|Brighton & Hove Albion|RC
+67|Jérémy Jacquet|Liverpool FC|RC
+68|Jesse Derry|Sporting Clube de Portugal|RC
+69|Tynan Thompson|Manchester United|RC
+70|Brian Madjo|Aston Villa|RC
+71|Gonçalo Oliveira|Stade Rennais|RC
+72|Andrej Vasović|Club Brugge|RC
+73|Cheveyo Tsawa|Club Brugge|RC
+74|Jesse Bisiwu|FC Barcelona|RC
+75|Kauã Prates|Borussia Dortmund|RC
+76|Bara Sapoko Ndiaye|FC Bayern München|RC
+77|Alessandro Longoni|Paris Saint-Germain|RC
+78|Allan|Manchester City|RC
+79|Sergio Martínez|Real Madrid C.F.|RC
+80|Anthony Gordon|FC Barcelona|
+81|Marc Cucurella|Real Madrid C.F.|
+82|Bernardo Silva|Real Madrid C.F.|
+83|Elliot Anderson|Manchester City|
+84|Youri Tielemans|Manchester United|
+85|Bruno Guimarães|Arsenal FC|
+86|Yan Diomande|Real Madrid C.F.|
+87|Ferran Torres|Paris Saint-Germain|
+88|Ayyoub Bouaddi|Manchester City|
+89|Maghnes Akliouche|Paris Saint-Germain|
+90|Rodri|FC Barcelona|
+91|Cristian Romero|Atlético de Madrid|
+92|Mika Godts|Paris Saint-Germain|
+93|Ibrahima Konaté|Real Madrid C.F.|
+94|Denzel Dumfries|Real Madrid C.F.|
+95|Ezri Konsa|Arsenal FC|
+96|Bradley Barcola|Liverpool FC|
+97|Enzo Fernández|Manchester City|
+98|Iliman Ndiaye|Manchester City|
+99|Ibrahim Mbaye|Aston Villa|
+100|Anthony Gordon|FC Barcelona|
+101|Elliot Anderson|Manchester City|
+102|Nathaniel Brown|FC Bayern München|
+103|Bruno Guimarães|Arsenal FC|
+104|Yan Diomande|Real Madrid C.F.|
+105|Hamza Abdelkarim|FC Barcelona|
+106|Maghnes Akliouche|Paris Saint-Germain|
+107|Bernardo Silva|Real Madrid C.F.|
+108|Ayyoub Bouaddi|Manchester City|
+109|Ferran Torres|Paris Saint-Germain|
+110|Rodri|FC Barcelona|
+111|Luka Vušković|Brighton & Hove Albion|
+112|Kang-in Lee|Atlético de Madrid|
+113|Ibrahima Konaté|Real Madrid C.F.|
+114|Karim Adeyemi|FC Barcelona|
+## Done Deal
+DD-1|Ferran Torres|Paris Saint-Germain|
+DD-2|John Stones|FC Internazionale Milano|
+DD-3|Alejandro Garnacho|Aston Villa|
+DD-4|Rodri|FC Barcelona|
+DD-5|Bruno Guimarães|Arsenal FC|
+DD-6|Nathaniel Brown|FC Bayern München|
+DD-7|Christos Tzolis|Arsenal FC|
+DD-8|Víctor Muñoz|Liverpool FC|
+DD-9|Djed Spence|FC Internazionale Milano|
+DD-10|Maghnes Akliouche|Paris Saint-Germain|
+DD-11|Carlos Baleba|Manchester United|
+DD-12|Yan Diomande|Real Madrid C.F.|
+## Rise To Stardom
+RS-1|Kerim Alajbegović|Juventus|
+RS-2|Allan|Manchester City|
+RS-3|Jérémy Jacquet|Liverpool FC|
+RS-4|Jesse Bisiwu|FC Barcelona|
+RS-5|Johan Manzambi|Aston Villa|
