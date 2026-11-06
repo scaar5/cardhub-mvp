@@ -1,0 +1,23 @@
+name: vinted-probe
+
+# Prueba temporal: ¿responde Vinted a una petición normal desde un servidor?
+on:
+  workflow_dispatch:
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Probar Vinted
+        run: |
+          UA="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36"
+          echo "== portada =="
+          curl -sS -c jar.txt -A "$UA" -o home.html -w "HTTP %{http_code}\n" https://www.vinted.es/ || true
+          grep -o 'access_token_web[^;]*' jar.txt | cut -c1-25 || echo "sin cookie de sesion"
+          echo "== busqueda =="
+          curl -sS -b jar.txt -A "$UA" -H "Accept: application/json" \
+            -o search.json -w "HTTP %{http_code}\n" \
+            "https://www.vinted.es/api/v2/catalog/items?search_text=adrenalyn%202025&order=newest_first&per_page=20" || true
+          head -c 600 search.json; echo
+          python3 -c "import json;d=json.load(open('search.json'));print(len(d.get('items',[])),'anuncios');[print(i['price'],'|',i['title']) for i in d.get('items',[])[:10]]" || true
