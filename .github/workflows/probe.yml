@@ -16,20 +16,14 @@ jobs:
           console.log("HOME",home.status,"cookies",cookie.split("; ").map(c=>c.split("=")[0]).join(","));
           const s=await (await fetch("https://www.vinted.es/catalog?order=newest_first&search_text=topps%20merlin",{headers:H})).text();
           const ids=[...new Set([...s.matchAll(/product-item-id-(\d+)/g)].map(m=>m[1]))].slice(0,2);
-          for (const id of ["10566626602",...ids]) {
+          for (const id of ["10566626602",...ids.slice(0,1)]) {
             await sleep(2000);
-            const r=await fetch(`https://www.vinted.es/items/${id}`,{headers:{...H,Cookie:cookie}});
-            const h=await r.text();
-            const pick=(re)=>{const m=h.match(re);return m?m[0].slice(0,160):null};
-            console.log("ITEM",id,r.status,h.length,JSON.stringify({
-              title:pick(/<title>[^<]*/),
-              is_closed:pick(/\\?"is_closed\\?":\s*\w+/), is_reserved:pick(/\\?"is_reserved\\?":\s*\w+/),
-              status:pick(/\\?"(?:item_)?closing_action\\?":[^,]*/), vendido:(h.match(/Vendido/g)||[]).length,
-              sold_word:(h.match(/\bsold\b/gi)||[]).length, price:pick(/\\?"price\\?":\s*\{[^}]*\}|\\?"price\\?":\s*"?[\d.]+/)}));
-            await sleep(2000);
-            const a=await fetch(`https://www.vinted.es/api/v2/items/${id}`,{headers:{...H,Accept:"application/json",Cookie:cookie}});
-            const t=await a.text();
-            console.log("API",id,a.status,t.length,(t.match(/"is_closed":\w+|"is_reserved":\w+|"price":\{[^}]*\}|"status":"[^"]*"|"code":\w+|"message":"[^"]*"/g)||[]).slice(0,6).join(" "));
+            const h=await (await fetch(`https://www.vinted.es/items/${id}`,{headers:{...H,Cookie:cookie}})).text();
+            const i=h.indexOf('is_reserved');
+            const w=h.slice(Math.max(0,i-2500),i+1500).replace(/\\"/g,'"');
+            const keys=[...new Set([...w.matchAll(/"([a-z_]+)":(true|false|null|-?\d+|"[^"]{0,40}")/g)].map(m=>m[1]+"="+m[2]))];
+            console.log("KEYS",id,keys.join(" ").slice(0,2500));
+            console.log("BTN",id,[...new Set((h.match(/(Comprar|Vendido|Reservado|Hacer una oferta|Este artículo[^<"]{0,60})/g)||[]))].join(" | "));
           }
           JS
           node p.mjs
