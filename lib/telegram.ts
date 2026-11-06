@@ -25,6 +25,8 @@ export function dealMessage(d: {
   url: string | null;
   card?: string;
   sample?: number;
+  /** Aclaración cuando la referencia viene de otra colección o numeración (fallback). */
+  note?: string;
 }) {
   const pct = Math.round((1 - d.price / d.market_value) * 100);
   const where = d.platform === "vinted" ? "Vinted" : d.platform === "wallapop" ? "Wallapop" : d.platform;
@@ -32,9 +34,10 @@ export function dealMessage(d: {
     `🔥 Chollo -${pct}% en ${where}`,
     d.card ? `🃏 ${d.card}` : null,
     d.title,
-    `Precio: ${d.price.toFixed(2)} € · Referencia eBay: ${d.market_value.toFixed(2)} €${
+    `Precio: ${d.price.toFixed(2)} € · Referencia eBay${d.note ? " (estimada)" : ""}: ${d.market_value.toFixed(2)} €${
       d.sample ? ` (${d.sample} anuncios)` : ""
     }`,
+    d.note ? `ℹ️ ${d.note}` : null,
     d.url ?? "",
   ]
     .filter(Boolean)

@@ -1,9 +1,8 @@
 import { NextResponse } from "next/server";
 import { authorized } from "@/lib/auth";
-import { setBySlug } from "@/lib/catalog";
 import { ALERT_THRESHOLD, MIN_PRICE, SAVE_THRESHOLD } from "@/lib/config";
 import { recognize } from "@/lib/recognize";
-import { loadReferences, refKey } from "@/lib/reference";
+import { candidateCardIds, cardLabel, loadReferences, resolveReference } from "@/lib/reference";
 import { VINTED_SEARCHES } from "@/lib/set-rules";
 import { getSupabaseAdmin } from "@/lib/supabase-admin";
 import { dealMessage, sendTelegram } from "@/lib/telegram";
@@ -83,13 +82,18 @@ export async function POST(req: Request) {
   }
 
   // 3) Comparar con la referencia de eBay
-  const refs = await loadReferences(db, recognized.map((r) => r.match.card.id));
+  //    En cascada: exacta → colección hermana (misma /N) → misma colección (numeración cercana)
+  const refs = await loadReferences(db, candidateCardIds(recognized.map((r) => r.match.card)));
   let withRef = 0;
+  const byLevel = { exact: 0, sibling: 0, nearby: 0 };
   const deals = [];
   for (const { it, match } of recognized) {
-    const ref = refs.get(refKey(match.card.id, match.parallel));
+    const ref = resolveReference(refs, match.card, match.parallel);
     if (!ref) continue;
     withRef++;
+    if (ref.level === 1) byLevel.exact++;
+    else if (ref.level === 2) byLevel.sibling++;
+    else byLevel.nearby++;
     const pct = Math.round((1 - it.price / ref.value) * 100);
     if (pct < SAVE_THRESHOLD) continue;
     deals.push({
@@ -127,14 +131,16 @@ export async function POST(req: Request) {
   let alerts = 0;
   for (const d of deals) {
     if (!inserted.has(d.row.external_id) || d.pct < ALERT_THRESHOLD) continue;
-    const set = setBySlug.get(d.match.setSlug);
+    const card = cardLabel(d.match.card, d.match.parallel);
     await sendTelegram(
       dealMessage({
         ...d.row,
-        card: `${d.match.card.player} · ${set?.name ?? d.match.setSlug} #${d.match.card.number}${
-          d.match.card.subset !== "Base" ? ` (${d.match.card.subset})` : ""
-        }${d.match.parallel ? ` · ${d.match.parallel}` : ""}`,
+        card,
         sample: d.ref.sample,
+        note:
+          d.ref.level > 1
+            ? `Precio estimado basado en ${d.ref.basedOn}, al no haber ventas exactas de ${card}`
+            : undefined,
       }),
     );
     alerts++;
@@ -146,6 +152,7 @@ export async function POST(req: Request) {
     unique: seen.size,
     recognized: recognized.length,
     with_reference: withRef,
+    reference_levels: byLevel,
     deals: deals.length,
     new_deals: inserted.size,
     alerts,
