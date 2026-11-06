@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { authorized } from "@/lib/auth";
-import { ALERT_THRESHOLD, EXTREME_MIN_SAMPLE, EXTREME_PCT, MIN_PRICE, SAVE_THRESHOLD } from "@/lib/config";
+import { ALERT_THRESHOLD, MIN_PRICE } from "@/lib/config";
+import { judgeDeal } from "@/lib/deals";
 import { recognize } from "@/lib/recognize";
 import { candidateCardIds, cardLabel, loadReferences, resolveReference } from "@/lib/reference";
 import { VINTED_SEARCHES } from "@/lib/set-rules";
@@ -94,10 +95,9 @@ export async function POST(req: Request) {
     if (ref.level === 1) byLevel.exact++;
     else if (ref.level === 2) byLevel.sibling++;
     else byLevel.nearby++;
-    const pct = Math.round((1 - it.price / ref.value) * 100);
-    if (pct < SAVE_THRESHOLD) continue;
-    // Descuento extremo con pocos anuncios de eBay detrás: casi siempre es la referencia la que está inflada
-    if (pct >= EXTREME_PCT && ref.source === "ebay" && ref.sample < EXTREME_MIN_SAMPLE) continue;
+    const verdict = judgeDeal(it.price, ref);
+    if (!("pct" in verdict)) continue;
+    const pct = verdict.pct;
     deals.push({
       row: {
         external_id: `vinted:${it.id}`,
@@ -109,6 +109,9 @@ export async function POST(req: Request) {
         query: it.set ?? null,
         card_id: match.card.id,
         parallel: match.parallel,
+        ref_source: ref.source,
+        ref_sample: ref.sample,
+        ref_level: ref.level,
       },
       pct,
       ref,
@@ -145,6 +148,7 @@ export async function POST(req: Request) {
             ? `Precio estimado basado en ${d.ref.basedOn}, al no haber ventas exactas de ${card}`
             : undefined,
       }),
+      { dealId: d.row.external_id },
     );
     alerts++;
   }

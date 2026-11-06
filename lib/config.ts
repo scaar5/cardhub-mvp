@@ -12,6 +12,9 @@
 /** Descuento mínimo (%) frente a la referencia para guardar un anuncio de Vinted como chollo. */
 export const SAVE_THRESHOLD = 25;
 
+/** Valor mínimo de la carta (€, precio de referencia): por debajo no interesa como chollo. */
+export const MIN_REF_VALUE = 10;
+
 /** Descuento mínimo (%) para mandar alerta por Telegram. */
 export const ALERT_THRESHOLD = 35;
 

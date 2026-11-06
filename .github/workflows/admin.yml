@@ -1,0 +1,34 @@
+name: admin
+
+# A mano: llama a un endpoint de mantenimiento de la web y enseña la respuesta.
+#   telegram-setup   → conecta los botones de las alertas (una vez)
+#   deals-recheck    → enseña qué chollos guardados ya no lo son (sin tocar nada)
+#   deals-recheck-apply → los borra / actualiza
+#   feedback         → resumen de tus votos ✅/❌
+on:
+  workflow_dispatch:
+    inputs:
+      action:
+        description: "telegram-setup | deals-recheck | deals-recheck-apply | feedback"
+        required: true
+        default: feedback
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - env:
+          ALERT_SECRET: ${{ secrets.ALERT_SECRET }}
+          ACTION: ${{ inputs.action }}
+        run: |
+          SECRET="$(printf '%s' "$ALERT_SECRET" | tr -d '\r\n' | sed 's/^ *//;s/ *$//')"
+          BASE="https://scaard5-analytics.vercel.app/api"
+          case "$ACTION" in
+            telegram-setup) URL="$BASE/telegram/setup" ;;
+            deals-recheck) URL="$BASE/deals-recheck" ;;
+            deals-recheck-apply) URL="$BASE/deals-recheck?apply=1" ;;
+            feedback) URL="$BASE/feedback" ;;
+            *) echo "Acción desconocida: $ACTION"; exit 1 ;;
+          esac
+          curl -sS -m 90 -H "x-alert-secret: $SECRET" "$URL"
