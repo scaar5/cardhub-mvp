@@ -1,0 +1,609 @@
+## Base
+1|Ángel Di María|Argentina|
+2|Emiliano Martínez|Argentina|
+3|Gonzalo Montiel|Argentina|
+4|Julián Álvarez|Argentina|
+5|Lautaro Martínez|Argentina|
+6|Leandro Paredes|Argentina|
+7|Lionel Messi|Argentina|
+8|Lucas Martínez Quarta|Argentina|
+9|Nahuel Molina|Argentina|
+10|Nicolás González|Argentina|
+11|Nicolás Otamendi|Argentina|
+12|Rodrigo De Paul|Argentina|
+13|Albert Sambi Lokonga|Belgium|
+14|Arthur Theate|Belgium|
+15|Charles De Ketelaere|Belgium|
+16|Eden Hazard|Belgium|
+17|Jan Vertonghen|Belgium|
+18|Jérémy Doku|Belgium|
+19|Kevin De Bruyne|Belgium|
+20|Romelu Lukaku|Belgium|
+21|Thibaut Courtois|Belgium|
+22|Thorgan Hazard|Belgium|
+23|Timothy Castagne|Belgium|
+24|Youri Tielemans|Belgium|
+25|Alisson|Brazil|
+26|Antony|Brazil|
+27|Bruno Guimarães|Brazil|
+28|Casemiro|Brazil|
+29|Gabriel Martinelli|Brazil|
+30|Lucas Paquetá|Brazil|
+31|Marquinhos|Brazil|
+32|Neymar Jr|Brazil|
+33|Philippe Coutinho|Brazil|
+34|Richarlison|Brazil|
+35|Thiago Silva|Brazil|
+36|Vini Jr.|Brazil|
+37|André Onana|Cameroon|
+38|André-Frank Zambo Anguissa|Cameroon|
+39|Collins Fai|Cameroon|
+40|Eric Maxim Choupo-Moting|Cameroon|
+41|Karl Toko Ekambi|Cameroon|
+42|Martin Hongla|Cameroon|
+43|Michael Ngadeu|Cameroon|
+44|Vincent Aboubakar|Cameroon|
+45|Alistair Johnston|Canada|
+46|Alphonso Davies|Canada|
+47|Cyle Larin|Canada|
+48|Ike Ugbo|Canada|
+49|Jonathan David|Canada|
+50|Jonathan Osorio|Canada|
+51|Mark-Anthony Kaye|Canada|
+52|Milan Borjan|Canada|
+53|Stephen Eustáquio|Canada|
+54|Tajon Buchanan|Canada|
+55|Borna Sosa|Croatia|
+56|Dominik Livaković|Croatia|
+57|Ivan Perišić|Croatia|
+58|Josip Stanišić|Croatia|
+59|Joško Gvardiol|Croatia|
+60|Lovro Majer|Croatia|
+61|Luka Modrić|Croatia|
+62|Luka Sučić|Croatia|
+63|Marcelo Brozović|Croatia|
+64|Mario Pašalić|Croatia|
+65|Mateo Kovačić|Croatia|
+66|Andreas Skov Olsen|Denmark|
+67|Christian Eriksen|Denmark|
+68|Jesper Lindstrøm|Denmark|
+69|Joachim Andersen|Denmark|
+70|Joakim Mæhle|Denmark|
+71|Kasper Dolberg|Denmark|
+72|Kasper Schmeichel|Denmark|
+73|Mikkel Damsgaard|Denmark|
+74|Mohamed Daramy|Denmark|
+75|Pierre-Emile Højbjerg|Denmark|
+76|Yussuf Poulsen|Denmark|
+77|Enner Valencia|Ecuador|
+78|Félix Torres|Ecuador|
+79|Gonzalo Plata|Ecuador|
+80|Jeremy Sarmiento|Ecuador|
+81|Moisés Caicedo|Ecuador|
+82|Pervis Estupiñán|Ecuador|
+83|Piero Hincapié|Ecuador|
+84|Bukayo Saka|England|
+85|Declan Rice|England|
+86|Harry Kane|England|
+87|Jack Grealish|England|
+88|John Stones|England|
+89|Jordan Pickford|England|
+90|Jude Bellingham|England|
+91|Kyle Walker|England|
+92|Mason Mount|England|
+93|Phil Foden|England|
+94|Raheem Sterling|England|
+95|Adrien Rabiot|France|
+96|Antoine Griezmann|France|
+97|Aurélien Tchouaméni|France|
+98|Hugo Lloris|France|
+99|Karim Benzema|France|
+100|Kingsley Coman|France|
+101|Kylian Mbappé|France|
+102|N'Golo Kanté|France|
+103|Paul Pogba|France|
+104|Presnel Kimpembe|France|
+105|Raphaël Varane|France|
+106|William Saliba|France|
+107|David Raum|Germany|
+108|Jamal Musiala|Germany|
+109|Joshua Kimmich|Germany|
+110|Kai Havertz|Germany|
+111|Karim Adeyemi|Germany|
+112|Leon Goretzka|Germany|
+113|Leroy Sané|Germany|
+114|Manuel Neuer|Germany|
+115|Niklas Süle|Germany|
+116|Robin Gosens|Germany|
+117|Serge Gnabry|Germany|
+118|Thilo Kehrer|Germany|
+119|Ali Gholizadeh|Iran|
+120|Alireza Beiranvand|Iran|
+121|Alireza Jahanbakhsh|Iran|
+122|Mehdi Taremi|Iran|
+123|Saeid Ezatolahi|Iran|
+124|Saman Ghoddos|Iran|
+125|Sardar Azmoun|Iran|
+126|Yuta Nakayama|Japan|
+127|Junya Ito|Japan|
+128|Kyogo Furuhashi|Japan|
+129|Maya Yoshida|Japan|
+130|Ao Tanaka|Japan|
+131|Shuichi Gonda|Japan|
+132|Yuto Nagatomo|Japan|
+133|Takumi Minamino|Japan|
+134|Hwang Hee-chan|Korea Republic|
+135|Son Heung-min|Korea Republic|
+136|Lee Jae-sung|Korea Republic|
+137|Kim Min-jae|Korea Republic|
+138|Song Min-kyu|Korea Republic|
+139|Kim Seung-gyu|Korea Republic|
+140|Hwang Ui-jo|Korea Republic|
+141|Jeong Woo-yeong|Korea Republic|
+142|Alexis Vega|Mexico|
+143|Carlos Rodríguez|Mexico|
+144|Edson Álvarez|Mexico|
+145|Gerardo Arteaga|Mexico|
+146|Marcelo Flores|Mexico|
+147|Héctor Herrera|Mexico|
+148|Jesús Manuel Corona|Mexico|
+149|Johan Vásquez|Mexico|
+150|Erick Gutiérrez|Mexico|
+151|Uriel Antuna|Mexico|
+152|Arnaut Danjuma|Netherlands|
+153|Cody Gakpo|Netherlands|RC
+154|Denzel Dumfries|Netherlands|
+155|Frenkie de Jong|Netherlands|
+156|Jurriën Timber|Netherlands|RC
+157|Justin Bijlow|Netherlands|
+158|Matthijs de Ligt|Netherlands|
+159|Memphis Depay|Netherlands|
+160|Noa Lang|Netherlands|
+161|Ryan Gravenberch|Netherlands|
+162|Teun Koopmeiners|Netherlands|
+163|Virgil van Dijk|Netherlands|
+164|Adam Buksa|Poland|
+165|Jakub Kamiński|Poland|
+166|Jan Bednarek|Poland|
+167|Kacper Kozłowski|Poland|
+168|Matty Cash|Poland|
+169|Piotr Zieliński|Poland|
+170|Robert Lewandowski|Poland|
+171|Sebastian Szymański|Poland|
+172|Wojciech Szczęsny|Poland|
+173|Bernardo Silva|Portugal|
+174|Bruno Fernandes|Portugal|
+175|Cristiano Ronaldo|Portugal|
+176|Diogo Costa|Portugal|
+177|Diogo Jota|Portugal|
+178|João Cancelo|Portugal|
+179|João Félix|Portugal|
+180|Nuno Mendes|Portugal|
+181|Rafael Leão|Portugal|
+182|Renato Sanches|Portugal|
+183|Rúben Dias|Portugal|
+184|Abdulkarim Hassan|Qatar|
+185|Abdulaziz Hatem|Qatar|
+186|Akram Afif|Qatar|
+187|Almoez Ali|Qatar|
+188|Hassan Al-Haydos|Qatar|
+189|Pedro Miguel|Qatar|
+190|Saad Al Sheeb|Qatar|
+191|Aïssa Laïdouni|Tunisia|
+192|Anis Ben Slimane|Tunisia|
+193|Montassar Talbi|Tunisia|
+194|Ellyes Skhiri|Tunisia|
+195|Hannibal Mejbri|Tunisia|
+196|Naïm Sliti|Tunisia|
+197|Wahbi Khazri|Tunisia|
+198|Youssef Msakni|Tunisia|
+199|Antonee Robinson|United States|
+200|Brenden Aaronson|United States|
+201|Christian Pulisic|United States|
+202|Gianluca Busio|United States|
+203|Giovanni Reyna|United States|
+204|Matt Turner|United States|
+205|Ricardo Pepi|United States|
+206|Sergiño Dest|United States|
+207|Timothy Weah|United States|
+208|Tyler Adams|United States|
+209|Weston McKennie|United States|
+210|Yunus Musah|United States|
+211|Abdulelah Al-Malki|Saudi Arabia|
+212|Abdulrahman Ghareeb|Saudi Arabia|
+213|Fahad Al-Muwallad|Saudi Arabia|
+214|Mohamed Kanno|Saudi Arabia|
+215|Salem Al-Dawsari|Saudi Arabia|
+216|Sultan Al-Ghannam|Saudi Arabia|
+217|Yasser Al-Shahrani|Saudi Arabia|
+218|Aymeric Laporte|Spain|
+219|Carlos Soler|Spain|
+220|Dani Olmo|Spain|
+221|Eric García|Spain|
+222|Ferran Torres|Spain|
+223|Gavi|Spain|
+224|Mikel Oyarzabal|Spain|
+225|Pau Torres|Spain|
+226|Pedri|Spain|
+227|Rodri|Spain|
+228|Unai Simón|Spain|
+229|Yéremy Pino|Spain|
+230|Alexander Djiku|Ghana|
+231|Felix Afena-Gyan|Ghana|
+232|Iddrisu Baba|Ghana|
+233|Kamaldeen Sulemana|Ghana|
+234|Mohammed Kudus|Ghana|
+235|Thomas Partey|Ghana|
+236|Achraf Hakimi|Morocco|
+237|Adam Masina|Morocco|
+238|Bono|Morocco|
+239|Imran Louza|Morocco|
+240|Romain Saïss|Morocco|
+241|Ryan Mmaee|Morocco|
+242|Sofiane Boufal|Morocco|
+243|Sofyan Amrabat|Morocco|
+244|Youssef En-Nesyri|Morocco|
+245|Bamba Dieng|Senegal|
+246|Boulaye Dia|Senegal|
+247|Édouard Mendy|Senegal|
+248|Idrissa Gueye|Senegal|
+249|Ismaïla Sarr|Senegal|
+250|Kalidou Koulibaly|Senegal|
+251|Abdou Diallo|Senegal|
+252|Sadio Mané|Senegal|
+253|Aleksandar Mitrović|Serbia|
+254|Dušan Tadić|Serbia|
+255|Dušan Vlahović|Serbia|
+256|Filip Kostić|Serbia|
+257|Nikola Milenković|Serbia|
+258|Predrag Rajković|Serbia|
+259|Saša Lukić|Serbia|
+260|Sergej Milinković-Savić|Serbia|
+261|Strahinja Pavlović|Serbia|
+262|Breel Embolo|Switzerland|
+263|Haris Seferović|Switzerland|
+264|Granit Xhaka|Switzerland|
+265|Djibril Sow|Switzerland|
+266|Manuel Akanji|Switzerland|
+267|Nico Elvedi|Switzerland|
+268|Noah Okafor|Switzerland|
+269|Remo Freuler|Switzerland|
+270|Ruben Vargas|Switzerland|
+271|Xherdan Shaqiri|Switzerland|
+272|Yann Sommer|Switzerland|
+273|Darwin Núñez|Uruguay|
+274|Edinson Cavani|Uruguay|
+275|Facundo Pellistri|Uruguay|
+276|Lucas Torreira|Uruguay|
+277|Federico Valverde|Uruguay|
+278|Giorgian de Arrascaeta|Uruguay|
+279|José María Giménez|Uruguay|
+280|Luis Suárez|Uruguay|
+281|Matías Viña|Uruguay|
+282|Ronald Araújo|Uruguay|
+283|Ajdin Hrustić|Australia|
+284|Jackson Irvine|Australia|
+285|Martin Boyle|Australia|
+286|Mathew Ryan|Australia|
+287|Tom Rogic|Australia|
+288|Trent Sainsbury|Australia|
+289|Anthony Contreras|Costa Rica|
+290|Celso Borges|Costa Rica|
+291|Francisco Calvo|Costa Rica|
+292|Jewison Bennette|Costa Rica|
+293|Joel Campbell|Costa Rica|
+294|Keylor Navas|Costa Rica|
+295|Aaron Ramsey|Wales|
+296|Daniel James|Wales|
+297|Ethan Ampadu|Wales|
+298|Gareth Bale|Wales|
+299|Joe Allen|Wales|
+300|Joe Rodon|Wales|
+## Color Wheel
+1|Lionel Messi|Argentina|
+2|Kevin De Bruyne|Belgium|
+3|Vini Jr.|Brazil|
+4|Alphonso Davies|Canada|
+5|Luka Modrić|Croatia|
+6|Bukayo Saka|England|
+7|Kylian Mbappé|France|
+8|Florian Wirtz|Germany|
+9|Cristiano Ronaldo|Portugal|
+10|David Beckham|England|
+## Connections
+1|Ángel Di María / Lionel Messi|Argentina|
+2|Eden Hazard / Thorgan Hazard|Belgium|
+3|Matthijs de Ligt / Virgil van Dijk|Netherlands|
+4|Jeremy Sarmiento / Moisés Caicedo|Ecuador|
+5|Bukayo Saka / Jude Bellingham|England|
+6|Dani Alves / Thiago Silva|Brazil|
+7|Bruno Fernandes / Cristiano Ronaldo|Portugal|
+8|Paul Pogba / Raphaël Varane|France|
+9|Gavi / Pedri|Spain|
+10|Joshua Kimmich / Leon Goretzka|Germany|
+11|Christian Pulisic / Giovanni Reyna|United States|
+12|Declan Rice / Kalvin Phillips|England|
+13|Romelu Lukaku / Thibaut Courtois|Belgium|
+14|Sergiño Dest / Yunus Musah|United States|
+15|Daichi Kamada / Daizen Maeda|Japan|
+16|Alisson / Ederson|Brazil|
+17|Christian Eriksen / Kasper Schmeichel|Denmark|
+18|Lucas Hernández / Theo Hernández|France|
+19|Edinson Cavani / Luis Suárez|Uruguay|
+20|Mason Mount / Phil Foden|England|
+21|Frenkie de Jong / Ryan Gravenberch|Netherlands|
+22|Leandro Paredes / Rodrigo De Paul|Argentina|
+23|Ivan Perišić / Marcelo Brozović|Croatia|
+24|João Félix / Rafael Leão|Portugal|
+25|Jonas Hofmann / Matthias Ginter|Germany|
+26|Gianluca Busio / Ricardo Pepi|United States|
+27|Alex Sandro / Danilo|Brazil|
+28|Koke / Sergio Busquets|Spain|
+29|Kevin De Bruyne / Youri Tielemans|Belgium|
+30|Dušan Vlahović / Sergej Milinković-Savić|Serbia|
+## Global Reach
+1|Philippe Coutinho|Brazil|
+2|Marc-André ter Stegen|Germany|
+3|Alphonso Davies|Canada|
+4|Steven Berghuis|Netherlands|
+5|Romelu Lukaku|Belgium|
+6|Hwang In-beom|Korea Republic|
+7|Trent Alexander-Arnold|England|
+8|Moussa Diaby|France|
+9|André Onana|Cameroon|
+10|Lionel Messi|Argentina|
+11|Federico Valverde|Uruguay|
+12|Lucas Hernández|France|
+13|Filip Kostić|Serbia|
+14|Fabinho|Brazil|
+15|Rodri|Spain|
+16|Youri Tielemans|Belgium|
+17|Cristiano Ronaldo|Portugal|
+18|Jonathan Tah|Germany|
+19|Luka Modrić|Croatia|
+20|Ederson|Brazil|
+21|Thomas Partey|Ghana|
+22|Joaquín Correa|Argentina|
+23|Wataru Endo|Japan|
+24|Munir|Morocco|
+25|İlkay Gündoğan|Germany|
+26|Andreas Christensen|Denmark|
+27|Georginio Wijnaldum|Netherlands|
+28|Thibaut Courtois|Belgium|
+29|Mason Mount|England|
+30|Josip Brekalo|Croatia|
+31|Zack Steffen|United States|
+32|Paulo Dybala|Argentina|
+33|Jadon Sancho|England|
+34|Jonathan David|Canada|
+## Manga
+1|Julián Álvarez|Argentina|
+2|Jérémy Doku|Belgium|
+3|Charles De Ketelaere|Belgium|
+4|Gabriel Martinelli|Brazil|
+5|Mason Mount|England|
+6|Phil Foden|England|
+7|Bukayo Saka|England|
+8|Paulo Dybala|Argentina|
+9|Manuel Neuer|Germany|
+10|Karim Adeyemi|Germany|
+11|Son Heung-min|Korea Republic|
+12|Hirving Lozano|Mexico|
+13|Matthijs de Ligt|Netherlands|
+14|Virgil van Dijk|Netherlands|
+15|Robert Lewandowski|Poland|
+16|Diogo Jota|Portugal|
+17|Dušan Vlahović|Serbia|
+18|Pedri|Spain|
+19|Gavi|Spain|
+20|Mikel Oyarzabal|Spain|
+21|Christian Pulisic|United States|
+22|Ricardo Pepi|United States|
+23|Weston McKennie|United States|
+24|Darwin Núñez|Uruguay|
+25|Jürgen Klinsmann|Germany|
+## National Landmarks
+1|Lautaro Martínez|Argentina|
+2|Romelu Lukaku|Belgium|
+3|Vini Jr.|Brazil|
+4|André-Frank Zambo Anguissa|Cameroon|
+5|Alphonso Davies|Canada|
+6|Ivan Perišić|Croatia|
+7|Kasper Schmeichel|Denmark|
+8|Enner Valencia|Ecuador|
+9|Harry Kane|England|
+11|Kai Havertz|Germany|
+12|Thomas Partey|Ghana|
+13|Sardar Azmoun|Iran|
+14|Takumi Minamino|Japan|
+15|Hwang Hee-chan|Korea Republic|
+16|Guillermo Ochoa|Mexico|
+17|Achraf Hakimi|Morocco|
+18|Frenkie de Jong|Netherlands|
+19|Piotr Zieliński|Poland|
+20|Bruno Fernandes|Portugal|
+21|Almoez Ali|Qatar|
+22|Salem Al-Dawsari|Saudi Arabia|
+23|Sadio Mané|Senegal|
+24|Sergej Milinković-Savić|Serbia|
+25|Pedri|Spain|
+26|Yann Sommer|Switzerland|
+27|Ellyes Skhiri|Tunisia|
+28|Christian Pulisic|United States|
+29|Federico Valverde|Uruguay|
+30|Mathew Ryan|Australia|
+31|Keylor Navas|Costa Rica|
+32|Gareth Bale|Wales|
+## National Pride
+1|Lionel Messi|Argentina|
+2|Youri Tielemans|Belgium|
+3|Neymar Jr|Brazil|
+4|Eric Maxim Choupo-Moting|Cameroon|
+5|Jonathan David|Canada|
+6|Luka Modrić|Croatia|
+7|Christian Eriksen|Denmark|
+8|Pervis Estupiñán|Ecuador|
+9|Phil Foden|England|
+10|Christopher Nkunku|France|
+11|Thomas Müller|Germany|
+12|Felix Afena-Gyan|Ghana|
+13|Mehdi Taremi|Iran|
+14|Yuto Nagatomo|Japan|
+15|Son Heung-min|Korea Republic|
+16|Raúl Jiménez|Mexico|
+17|Youssef En-Nesyri|Morocco|
+18|Virgil van Dijk|Netherlands|
+19|Robert Lewandowski|Poland|
+20|Cristiano Ronaldo|Portugal|
+21|Akram Afif|Qatar|
+22|Fahad Al-Muwallad|Saudi Arabia|
+23|Kalidou Koulibaly|Senegal|
+24|Dušan Vlahović|Serbia|
+25|Ferran Torres|Spain|
+26|Xherdan Shaqiri|Switzerland|
+27|Wahbi Khazri|Tunisia|
+28|Giovanni Reyna|United States|
+29|Edinson Cavani|Uruguay|
+30|Jackson Irvine|Australia|
+31|Joel Campbell|Costa Rica|
+32|Daniel James|Wales|
+## New Era
+1|Charles De Ketelaere|Belgium|
+2|Darwin Núñez|Uruguay|
+3|Lukas Nmecha|Germany|
+4|Ricardo Pepi|United States|
+5|Cristian Romero|Argentina|
+6|Conor Gallagher|England|
+7|Ko Itakura|Japan|
+8|Matheus Cunha|Brazil|
+9|Alexis Saelemaekers|Belgium|
+10|Mike Maignan|France|
+11|Yéremy Pino|Spain|
+12|Emile Smith Rowe|England|
+13|Éder Militão|Brazil|
+14|Kamal Miller|Canada|
+15|Nico Schlotterbeck|Germany|
+16|Julián Álvarez|Argentina|
+17|Nuno Mendes|Portugal|
+18|Pedri|Spain|
+19|Gabriel Martinelli|Brazil|
+20|Tyrell Malacia|Netherlands|
+21|Noah Okafor|Switzerland|
+22|Eduardo Camavinga|France|
+23|Moisés Caicedo|Ecuador|
+24|Luka Ivanušec|Croatia|
+25|Hannibal Mejbri|Tunisia|
+26|Gregor Kobel|Switzerland|
+27|Jonas Wind|Denmark|
+28|Reece James|England|
+29|Lisandro Martínez|Argentina|
+30|Jesús Ferreira|United States|
+31|Anton Stach|Germany|
+32|Gavi|Spain|
+33|Nicola Zalewski|Poland|
+34|Jules Koundé|France|
+35|Diogo Costa|Portugal|
+36|Jérémy Doku|Belgium|
+37|Diego Lainez|Mexico|
+38|Aaron Ramsdale|England|
+39|Jamal Musiala|Germany|
+40|Raphinha|Brazil|
+## Phenomenon
+1|Steven Bergwijn|Netherlands|
+2|Piero Hincapié|Ecuador|
+3|Ángel Correa|Argentina|
+4|Bruno Fernandes|Portugal|
+5|Mateo Kovačić|Croatia|
+6|Christopher Nkunku|France|
+7|Raphinha|Brazil|
+8|Ismaïla Sarr|Senegal|
+9|Bukayo Saka|England|
+10|Florian Wirtz|Germany|
+11|Alphonso Davies|Canada|
+12|Felix Afena-Gyan|Ghana|
+13|Andrés Guardado|Mexico|
+14|Vini Jr.|Brazil|
+15|Lautaro Martínez|Argentina|
+16|Donyell Malen|Netherlands|
+17|Kevin De Bruyne|Belgium|
+18|Hwang Hee-chan|Korea Republic|
+19|Dušan Vlahović|Serbia|
+20|Jude Bellingham|England|
+21|Christian Eriksen|Denmark|
+22|Bernardo Silva|Portugal|
+23|Thomas Müller|Germany|
+24|Achraf Hakimi|Morocco|
+25|Pedri|Spain|
+26|Jérémy Doku|Belgium|
+27|Christian Pulisic|United States|
+28|Antony|Brazil|
+29|Darwin Núñez|Uruguay|
+30|Julián Álvarez|Argentina|
+31|Maya Yoshida|Japan|
+32|Phil Foden|England|
+33|Brenden Aaronson|United States|
+34|Moussa Diaby|France|
+## Scorers Club
+1|Neymar Jr|Brazil|
+2|Eden Hazard|Belgium|
+3|Genki Haraguchi|Japan|
+4|Kasper Dolberg|Denmark|
+5|Rogelio Funes Mori|Mexico|
+6|Olivier Giroud|France|
+7|Cristiano Ronaldo|Portugal|
+8|Raheem Sterling|England|
+9|Robert Lewandowski|Poland|
+10|Lionel Messi|Argentina|
+11|Timo Werner|Germany|
+12|Son Heung-min|Korea Republic|
+13|Jonathan David|Canada|
+14|Sadio Mané|Senegal|
+15|Richarlison|Brazil|
+16|Michael Estrada|Ecuador|
+17|Donyell Malen|Netherlands|
+18|Kingsley Coman|France|
+19|Luis Suárez|Uruguay|
+20|Harry Kane|England|
+21|Lautaro Martínez|Argentina|
+22|Christian Pulisic|United States|
+23|Vincent Aboubakar|Cameroon|
+24|Andrej Kramarić|Croatia|
+25|Romelu Lukaku|Belgium|
+26|Dušan Vlahović|Serbia|
+27|Marco Reus|Germany|
+28|Gabriel Jesus|Brazil|
+29|Edinson Cavani|Uruguay|
+30|Youssef En-Nesyri|Morocco|
+## Team Badges
+1|Argentina Badge|Argentina|
+2|Belgium Badge|Belgium|
+3|Brazil Badge|Brazil|
+4|Cameroon Badge|Cameroon|
+5|Canada Badge|Canada|
+6|Croatia Badge|Croatia|
+7|Denmark Badge|Denmark|
+8|Ecuador Badge|Ecuador|
+9|England Badge|England|
+10|France Badge|France|
+11|Germany Badge|Germany|
+12|Ghana Badge|Ghana|
+13|Iran Badge|Iran|
+14|Japan Badge|Japan|
+15|Korea Republic Badge|Korea Republic|
+16|Mexico Badge|Mexico|
+17|Morocco Badge|Morocco|
+18|Netherlands Badge|Netherlands|
+19|Poland Badge|Poland|
+20|Portugal Badge|Portugal|
+21|Qatar Badge|Qatar|
+22|Saudi Arabia Badge|Saudi Arabia|
+23|Senegal Badge|Senegal|
+24|Serbia Badge|Serbia|
+25|Spain Badge|Spain|
+26|Switzerland Badge|Switzerland|
+27|Tunisia Badge|Tunisia|
+28|United States Badge|United States|
+29|Uruguay Badge|Uruguay|
+30|Australia Badge|Australia|
+31|Costa Rica Badge|Costa Rica|
+32|Wales Badge|Wales|

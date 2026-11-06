@@ -1,0 +1,324 @@
+## Base
+1|Rodri|Manchester City|
+2|Timothy Weah|Juventus|
+3|Viktor Gyökeres|Sporting Clube de Portugal|
+4|Marcus Thuram|FC Internazionale Milano|
+5|Jude Bellingham|Real Madrid C.F.|
+6|Dušan Vlahović|Juventus|
+7|Vini Jr.|Real Madrid C.F.|
+8|Martin Ødegaard|Arsenal FC|
+9|Kylian Mbappé|Real Madrid C.F.|
+10|Luka Modrić|Real Madrid C.F.|
+11|Rodrygo|Real Madrid C.F.|
+12|Yoram Zague|Paris Saint-Germain|RC
+13|Oscar Gloukh|FC Salzburg|
+14|Luis Díaz|Liverpool FC|
+15|Lucas Bergvall|Tottenham Hotspur|RC
+16|Noah Darvich|FC Barcelona|RC
+17|Kevin De Bruyne|Manchester City|
+18|Conrad Harder|Sporting Clube de Portugal|RC
+19|Robert Lewandowski|FC Barcelona|
+20|Cole Palmer|Chelsea FC|
+21|Marco Palestra|Atalanta B.C.|
+22|Karim Adeyemi|Borussia Dortmund|
+23|Douglas Luiz|Juventus|
+24|Jesper Uneken|PSV Eindhoven|RC
+25|Loïs Openda|RB Leipzig|
+26|Gianluca Prestianni|SL Benfica|RC
+27|Florian Wirtz|Bayer 04 Leverkusen|
+28|Tygo Land|PSV Eindhoven|RC
+29|Dan Ndoye|Bologna FC 1909|RC
+30|Ousmane Dembélé|Paris Saint-Germain|
+31|Matty Warhurst|Manchester City|RC
+32|Folarin Balogun|AS Monaco|
+33|Nico O'Reilly|Manchester City|RC
+34|Granit Xhaka|Bayer 04 Leverkusen|
+35|Lautaro Martínez|FC Internazionale Milano|
+36|Conor Gallagher|Atlético de Madrid|
+37|Matías Soulé|AS Roma|
+38|Kjell Wätjen|Borussia Dortmund|RC
+39|Pedro Neto|Chelsea FC|
+40|Georgiy Sudakov|Shakhtar Donetsk|
+41|Declan Rice|Arsenal FC|
+42|Martim Fernandes|FC Porto|RC
+43|Jamie Gittens|Borussia Dortmund|
+44|Samu Aghehowa|FC Porto|
+45|Gavi|FC Barcelona|
+46|Xavi Simons|RB Leipzig|
+47|Phil Foden|Manchester City|
+48|Zeno Debast|Sporting Clube de Portugal|RC
+49|Alejandro Garnacho|Manchester United|
+50|Erling Haaland|Manchester City|
+51|James Maddison|Tottenham Hotspur|
+52|Marlon Gomes|Shakhtar Donetsk|RC
+53|Ethan Nwaneri|Arsenal FC|RC
+54|Senny Mayulu|Paris Saint-Germain|RC
+55|Assan Ouédraogo|RB Leipzig|RC
+56|Chido Obi|Manchester United|RC
+57|Mateo Retegui|Atalanta B.C.|
+58|Cole Campbell|Borussia Dortmund|RC
+59|Mikey Moore|Tottenham Hotspur|RC
+60|Nicolas Kühn|Celtic FC|RC
+61|Hakan Çalhanoğlu|FC Internazionale Milano|
+62|Alessandro Bastoni|FC Internazionale Milano|
+63|Rasmus Højlund|Manchester United|
+64|Oihan Sancet|Athletic Club|
+65|Ian Maatsen|Aston Villa|
+66|Trent Alexander-Arnold|Liverpool FC|
+67|Nicolò Barella|FC Internazionale Milano|
+68|Heung-min Son|Tottenham Hotspur|
+69|Nico Williams|Athletic Club|
+70|Paulo Dybala|AS Roma|
+71|Warren Zaïre-Emery|Paris Saint-Germain|
+72|Vinícius Tobias|Shakhtar Donetsk|RC
+73|Teun Koopmeiners|Juventus|
+74|Adam Daghim|FC Salzburg|RC
+75|Artem Dovbyk|AS Roma|
+76|Christian Pulisic|AC Milan|
+77|Bukayo Saka|Arsenal FC|
+78|Mattia Liberali|AC Milan|RC
+79|Leroy Sané|FC Bayern München|
+80|Rodrigo Mora|FC Porto|RC
+81|Kevin|Shakhtar Donetsk|RC
+82|Serhou Guirassy|Borussia Dortmund|
+83|João Simões|Sporting Clube de Portugal|RC
+84|Benjamín Domínguez|Bologna FC 1909|RC
+85|Álvaro Carreras|SL Benfica|RC
+86|George Ilenikhena|AS Monaco|RC
+87|Pau Víctor|FC Barcelona|RC
+88|Jamal Musiala|FC Bayern München|
+89|Antoine Griezmann|Atlético de Madrid|
+90|Kenan Yildiz|Juventus|
+91|Julián Alvarez|Atlético de Madrid|
+92|Aingeru Olabarrieta|Athletic Club|RC
+93|Marc Bernal|FC Barcelona|RC
+94|Iñaki Williams|Athletic Club|
+95|Bradley Barcola|Paris Saint-Germain|
+96|Tyrique George|Chelsea FC|RC
+97|Khvicha Kvaratskhelia|Paris Saint-Germain|
+98|Kassoum Ouattara|AS Monaco|RC
+99|Lamine Yamal|FC Barcelona|
+100|Endrick|Real Madrid C.F.|RC
+101|Maximilian Beier|Borussia Dortmund|
+102|Archie Gray|Tottenham Hotspur|RC
+103|Ibrahim Mbaye|Paris Saint-Germain|RC
+104|João Palhinha|FC Bayern München|
+105|Karim Konaté|FC Salzburg|
+106|Henrikh Mkhitaryan|FC Internazionale Milano|
+107|Harry Kane|FC Bayern München|
+108|Omar Marmoush|Manchester City|
+109|Santiago Castro|Bologna FC 1909|RC
+110|Emiliano Martínez|Aston Villa|
+111|Daizen Maeda|Celtic FC|
+112|Justin Oboavwoduo|Manchester City|RC
+113|Mika Biereth|AS Monaco|RC
+114|Trey Nyoni|Liverpool FC|RC
+115|Maghnes Akliouche|AS Monaco|
+116|Geovany Quenda|Sporting Clube de Portugal|RC
+117|Samuel Mbangula|Juventus|RC
+118|Ricardo Pepi|PSV Eindhoven|
+119|Alejandro Grimaldo|Bayer 04 Leverkusen|
+120|Virgil van Dijk|Liverpool FC|
+121|Takumi Minamino|AS Monaco|
+122|Ollie Watkins|Aston Villa|
+123|Toni Fernández|FC Barcelona|RC
+124|Jan Oblak|Atlético de Madrid|
+125|Myles Lewis-Skelly|Arsenal FC|RC
+126|Ángel Di María|SL Benfica|
+127|Marcos Llorente|Atlético de Madrid|
+128|Hendry Blank|FC Salzburg|RC
+129|Nicolò Savona|Juventus|RC
+130|Michael Olise|FC Bayern München|
+131|Federico Valverde|Real Madrid C.F.|
+132|Raphinha|FC Barcelona|
+133|Jeremie Frimpong|Bayer 04 Leverkusen|
+134|Bruno Fernandes|Manchester United|
+135|João Neves|Paris Saint-Germain|
+136|Pedri|FC Barcelona|
+137|Ademola Lookman|Atalanta B.C.|
+138|Nicolas Jackson|Chelsea FC|
+139|Harry Amass|Manchester United|RC
+140|Cameron Carter-Vickers|Celtic FC|
+141|Thomas Müller|FC Bayern München|
+142|Omari Kellyman|Chelsea FC|RC
+143|Theo Hernández|AC Milan|
+144|Joshua Kimmich|FC Bayern München|
+145|Kai Havertz|Arsenal FC|
+146|Benjamin Šeško|RB Leipzig|
+147|Alexander Sørloth|Atlético de Madrid|
+148|Rafael Leão|AC Milan|
+149|Johan Bakayoko|PSV Eindhoven|
+150|Mohamed Salah|Liverpool FC|
+151|Viggo Gebel|RB Leipzig|RC
+152|Moussa Yeo|FC Salzburg|RC
+153|Ryan Flamingo|PSV Eindhoven|RC
+154|Toby Collyer|Manchester United|RC
+155|Daniel Yáñez|Real Madrid C.F.|RC
+156|Kaden Braithwaite|Manchester City|RC
+157|Álex Jiménez|AC Milan|RC
+158|Edmund Baidoo|FC Salzburg|RC
+159|Deniz Gül|FC Porto|RC
+160|Vasilije Adžić|Juventus|RC
+## Total Football
+FF-1|Mohamed Salah|Liverpool FC|
+FF-2|Vini Jr.|Real Madrid C.F.|
+FF-3|Jude Bellingham|Real Madrid C.F.|
+FF-4|Bukayo Saka|Arsenal FC|
+FF-5|Kevin De Bruyne|Manchester City|
+FF-6|Cole Palmer|Chelsea FC|
+FF-7|Kylian Mbappé|Real Madrid C.F.|
+FF-8|Antoine Griezmann|Atlético de Madrid|
+FF-9|Florian Wirtz|Bayer 04 Leverkusen|
+FF-10|Lamine Yamal|FC Barcelona|
+FF-11|Harry Kane|FC Bayern München|
+FF-12|Thomas Müller|FC Bayern München|
+FF-13|Dušan Vlahović|Juventus|
+FF-14|Robert Lewandowski|FC Barcelona|
+FF-15|Rafael Leão|AC Milan|
+FF-16|Warren Zaïre-Emery|Paris Saint-Germain|
+FF-17|Jamal Musiala|FC Bayern München|
+FF-18|Lautaro Martínez|FC Internazionale Milano|
+FF-19|Viktor Gyökeres|Sporting Clube de Portugal|
+FF-20|Christian Pulisic|AC Milan|
+FF-21|Virgil van Dijk|Liverpool FC|
+FF-22|Gavi|FC Barcelona|
+FF-23|Erling Haaland|Manchester City|
+FF-24|Endrick|Real Madrid C.F.|
+## Top of the World
+TW-1|Ibrahim Mbaye|Paris Saint-Germain|
+TW-2|Lamine Yamal|FC Barcelona|
+TW-3|Jude Bellingham|Real Madrid C.F.|
+TW-4|Bukayo Saka|Arsenal FC|
+TW-5|Rasmus Højlund|Manchester United|
+TW-6|Cole Palmer|Chelsea FC|
+TW-7|Johan Bakayoko|PSV Eindhoven|
+TW-8|Bradley Barcola|Paris Saint-Germain|
+TW-9|Georgiy Sudakov|Shakhtar Donetsk|
+TW-10|João Neves|Paris Saint-Germain|
+TW-11|Jamie Gittens|Borussia Dortmund|
+TW-12|George Ilenikhena|AS Monaco|
+TW-13|Kenan Yildiz|Juventus|
+TW-14|Aleksandar Pavlović|FC Bayern München|
+TW-15|Karim Konaté|FC Salzburg|
+TW-16|William Saliba|Arsenal FC|
+TW-17|Kobbie Mainoo|Manchester United|
+TW-18|Folarin Balogun|AS Monaco|
+TW-19|Chido Obi|Manchester United|
+TW-20|Julián Alvarez|Atlético de Madrid|
+TW-21|Fermín López|FC Barcelona|
+TW-22|Pau Cubarsí|FC Barcelona|
+TW-23|Viktor Gyökeres|Sporting Clube de Portugal|
+TW-24|Jeremie Frimpong|Bayer 04 Leverkusen|
+TW-25|Geovany Quenda|Sporting Clube de Portugal|
+TW-26|Nico Williams|Athletic Club|
+TW-27|Dominik Szoboszlai|Liverpool FC|
+TW-28|Gianluca Prestianni|SL Benfica|
+TW-29|Pedri|FC Barcelona|
+TW-30|Endrick|Real Madrid C.F.|
+TW-31|Mikey Moore|Tottenham Hotspur|
+TW-32|Samuel Mbangula|Juventus|
+TW-33|Xavi Simons|RB Leipzig|
+TW-34|Conrad Harder|Sporting Clube de Portugal|
+TW-35|Kjell Wätjen|Borussia Dortmund|
+## Prized Footballers
+PF-1|Lionel Messi|FC Barcelona|
+PF-2|Jérémy Doku|Manchester City|
+PF-3|Martin Ødegaard|Arsenal FC|
+PF-4|Rodrygo|Real Madrid C.F.|
+PF-5|Alejandro Grimaldo|Bayer 04 Leverkusen|
+PF-6|Zinédine Zidane|Real Madrid C.F.|
+PF-7|Neymar Jr|FC Barcelona|
+PF-8|Ruud Gullit|AC Milan|
+PF-9|Kaká|AC Milan|
+PF-10|Kenny Dalglish|Liverpool FC|
+PF-11|Florian Wirtz|Bayer 04 Leverkusen|
+PF-12|Michael Olise|FC Bayern München|
+PF-13|Kylian Mbappé|Real Madrid C.F.|
+PF-14|Samuel Mbangula|Juventus|
+PF-15|Sergio Busquets|FC Barcelona|
+PF-16|Endrick|Real Madrid C.F.|
+PF-17|Andrea Pirlo|AC Milan|
+PF-18|Eden Hazard|Chelsea FC|
+PF-19|Robin van Persie|Feyenoord|
+PF-20|Lautaro Martínez|FC Internazionale Milano|
+PF-21|Gianluca Prestianni|SL Benfica|
+PF-22|Erling Haaland|Manchester City|
+PF-23|George Best|Manchester United|
+PF-24|Ethan Nwaneri|Arsenal FC|
+PF-25|Zlatan Ibrahimović|AC Milan|
+## Finest Skillset
+SK-1|Bradley Barcola|Paris Saint-Germain|
+SK-2|George Ilenikhena|AS Monaco|
+SK-3|Lamine Yamal|FC Barcelona|
+SK-4|Endrick|Real Madrid C.F.|
+SK-5|Santiago Castro|Bologna FC 1909|
+SK-6|Geovany Quenda|Sporting Clube de Portugal|
+SK-7|Archie Gray|Tottenham Hotspur|
+SK-8|Samuel Mbangula|Juventus|
+SK-9|Lucas Bergvall|Tottenham Hotspur|
+SK-10|Noah Darvich|FC Barcelona|
+SK-11|Ethan Nwaneri|Arsenal FC|
+SK-12|Kjell Wätjen|Borussia Dortmund|
+SK-13|Rodrigo Mora|FC Porto|
+SK-14|Gianluca Prestianni|SL Benfica|
+SK-15|Kevin|Shakhtar Donetsk|
+## Finest Symphony
+SY-1|Ronaldinho|FC Barcelona|
+SY-2|Lionel Messi|FC Barcelona|
+SY-3|Kaká|AC Milan|
+SY-4|Andrea Pirlo|AC Milan|
+SY-5|Franck Ribéry|FC Bayern München|
+SY-6|Florian Wirtz|Bayer 04 Leverkusen|
+SY-7|Ronaldo|FC Internazionale Milano|
+SY-8|Paulo Dybala|AS Roma|
+SY-9|Jamal Musiala|FC Bayern München|
+SY-10|Phil Foden|Manchester City|
+SY-11|Mohamed Salah|Liverpool FC|
+SY-12|Vini Jr.|Real Madrid C.F.|
+SY-13|Jude Bellingham|Real Madrid C.F.|
+SY-14|Rafael Leão|AC Milan|
+SY-15|Ousmane Dembélé|Paris Saint-Germain|
+SY-16|Neymar Jr|FC Barcelona|
+SY-17|Zinédine Zidane|Real Madrid C.F.|
+SY-18|Luis Suárez|FC Barcelona|
+SY-19|Lamine Yamal|FC Barcelona|
+SY-20|Thierry Henry|Arsenal FC|
+SY-21|Dennis Bergkamp|Arsenal FC|
+SY-22|Andrés Iniesta|FC Barcelona|
+SY-23|Antoine Griezmann|Atlético de Madrid|
+SY-24|Ángel Di María|SL Benfica|
+SY-25|Alessandro Del Piero|Juventus|
+## The Man
+TM-1|Lamine Yamal|FC Barcelona|
+TM-2|Vini Jr.|Real Madrid C.F.|
+TM-3|Kylian Mbappé|Real Madrid C.F.|
+TM-4|Harry Kane|FC Bayern München|
+TM-5|Bukayo Saka|Arsenal FC|
+TM-6|Ronaldo|PSV Eindhoven|
+TM-7|Robert Lewandowski|FC Barcelona|
+TM-8|Franck Ribéry|FC Bayern München|
+TM-9|Archie Gray|Tottenham Hotspur|
+TM-10|Warren Zaïre-Emery|Paris Saint-Germain|
+TM-11|Lautaro Martínez|FC Internazionale Milano|
+TM-12|Virgil van Dijk|Liverpool FC|
+TM-13|Zlatan Ibrahimović|AC Milan|
+TM-14|Ronaldinho|FC Barcelona|
+TM-15|Johan Cruyff|FC Barcelona|
+TM-16|Cole Palmer|Chelsea FC|
+TM-17|Zinédine Zidane|Real Madrid C.F.|
+TM-18|Lionel Messi|FC Barcelona|
+TM-19|Endrick|Real Madrid C.F.|
+TM-20|Diego Maradona|FC Barcelona|
+## Finest Idols
+FI-1|Thierry Henry|Arsenal FC|
+FI-2|Robert Lewandowski|FC Barcelona|
+FI-3|Mohamed Salah|Liverpool FC|
+FI-4|Kevin De Bruyne|Manchester City|
+FI-5|Ronaldo|Real Madrid C.F.|
+FI-6|Paolo Maldini|AC Milan|
+FI-7|Johan Cruyff|FC Barcelona|
+FI-8|Gerd Müller|FC Bayern München|
+FI-9|Didier Drogba|Chelsea FC|
+FI-10|Francesco Totti|AS Roma|
+## The Grail
+G-2|Lionel Messi|FC Barcelona|

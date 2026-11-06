@@ -1,0 +1,489 @@
+## Base
+1|Tottenham Hotspur Badge|Tottenham Hotspur|
+2|Guglielmo Vicario|Tottenham Hotspur|
+3|Micky van de Ven|Tottenham Hotspur|
+4|Cristian Romero|Tottenham Hotspur|
+5|Destiny Udogie|Tottenham Hotspur|
+6|James Maddison|Tottenham Hotspur|
+7|Heung-min Son|Tottenham Hotspur|
+8|Brennan Johnson|Tottenham Hotspur|
+9|Dominic Solanke|Tottenham Hotspur|
+10|Liverpool FC Badge|Liverpool FC|
+11|Alisson Becker|Liverpool FC|
+12|Virgil van Dijk|Liverpool FC|
+13|Ibrahima Konaté|Liverpool FC|
+14|Jeremie Frimpong|Liverpool FC|
+15|Andy Robertson|Liverpool FC|
+16|Milos Kerkez|Liverpool FC|
+17|Conor Bradley|Liverpool FC|
+18|Joe Gomez|Liverpool FC|
+19|Dominik Szoboszlai|Liverpool FC|
+20|Alexis Mac Allister|Liverpool FC|
+21|Ryan Gravenberch|Liverpool FC|
+22|Florian Wirtz|Liverpool FC|
+23|Curtis Jones|Liverpool FC|
+24|Wataru Endo|Liverpool FC|
+25|Luis Díaz|Liverpool FC|
+26|Mohamed Salah|Liverpool FC|
+27|Cody Gakpo|Liverpool FC|
+28|Arsenal FC Badge|Arsenal FC|
+29|David Raya|Arsenal FC|
+30|William Saliba|Arsenal FC|
+31|Ben White|Arsenal FC|
+32|Gabriel Magalhães|Arsenal FC|
+33|Riccardo Calafiori|Arsenal FC|
+34|Jurriën Timber|Arsenal FC|
+35|Myles Lewis-Skelly|Arsenal FC|
+36|Martín Zubimendi|Arsenal FC|
+37|Martin Ødegaard|Arsenal FC|
+38|Declan Rice|Arsenal FC|
+39|Mikel Merino|Arsenal FC|
+40|Ethan Nwaneri|Arsenal FC|
+41|Kai Havertz|Arsenal FC|
+42|Bukayo Saka|Arsenal FC|
+43|Leandro Trossard|Arsenal FC|
+44|Gabriel Martinelli|Arsenal FC|
+45|Noni Madueke|Arsenal FC|
+46|Manchester City Badge|Manchester City|
+47|Ederson|Manchester City|
+48|Rúben Dias|Manchester City|
+49|John Stones|Manchester City|
+50|Joško Gvardiol|Manchester City|
+51|Manuel Akanji|Manchester City|
+52|Nathan Aké|Manchester City|
+53|Abdukodir Khusanov|Manchester City|
+54|Vitor Reis|Manchester City|
+55|Bernardo Silva|Manchester City|
+56|Claudio Echeverri|Manchester City|
+57|Phil Foden|Manchester City|
+58|Rodri|Manchester City|
+59|Nico González|Manchester City|
+60|Jérémy Doku|Manchester City|
+61|Savinho|Manchester City|
+62|Omar Marmoush|Manchester City|
+63|Erling Haaland|Manchester City|
+64|Chelsea FC Badge|Chelsea FC|
+65|Robert Sánchez|Chelsea FC|
+66|Reece James|Chelsea FC|
+67|Tosin Adarabioyo|Chelsea FC|
+68|Enzo Fernández|Chelsea FC|
+69|Moisés Caicedo|Chelsea FC|
+70|Estêvão Willian|Chelsea FC|
+71|Liam Delap|Chelsea FC|
+72|Cole Palmer|Chelsea FC|
+73|Newcastle United Badge|Newcastle United|
+74|Nick Pope|Newcastle United|
+75|Lewis Hall|Newcastle United|
+76|Dan Burn|Newcastle United|
+77|Bruno Guimarães|Newcastle United|
+78|Sandro Tonali|Newcastle United|
+79|Joelinton|Newcastle United|
+80|Alexander Isak|Newcastle United|
+81|Anthony Gordon|Newcastle United|
+82|Aston Villa Badge|Aston Villa|
+83|Emiliano Martínez|Aston Villa|
+84|Ezri Konsa|Aston Villa|
+85|Pau Torres|Aston Villa|
+86|John McGinn|Aston Villa|
+87|Youri Tielemans|Aston Villa|
+88|Morgan Rogers|Aston Villa|
+89|Ollie Watkins|Aston Villa|
+90|Donyell Malen|Aston Villa|
+91|Nottingham Forest Badge|Nottingham Forest|
+92|Matz Sels|Nottingham Forest|
+93|Nikola Milenković|Nottingham Forest|
+94|Murillo|Nottingham Forest|
+95|Ola Aina|Nottingham Forest|
+96|Morgan Gibbs-White|Nottingham Forest|
+97|Ryan Yates|Nottingham Forest|
+98|Chris Wood|Nottingham Forest|
+99|Callum Hudson-Odoi|Nottingham Forest|
+100|FC Barcelona Badge|FC Barcelona|
+101|Íñigo Martínez|FC Barcelona|
+102|Ronald Araújo|FC Barcelona|
+103|Jules Koundé|FC Barcelona|
+104|Pau Cubarsí|FC Barcelona|
+105|Alejandro Balde|FC Barcelona|
+106|Marc Bernal|FC Barcelona|
+107|Frenkie de Jong|FC Barcelona|
+108|Fermín López|FC Barcelona|
+109|Pedri|FC Barcelona|
+110|Gavi|FC Barcelona|
+111|Marc Casadó|FC Barcelona|
+112|Dani Olmo|FC Barcelona|
+113|Lamine Yamal|FC Barcelona|
+114|Robert Lewandowski|FC Barcelona|
+115|Ferran Torres|FC Barcelona|
+116|Pau Víctor|FC Barcelona|
+117|Raphinha|FC Barcelona|
+118|Real Madrid C.F. Badge|Real Madrid C.F.|
+119|Thibaut Courtois|Real Madrid C.F.|
+120|Antonio Rüdiger|Real Madrid C.F.|
+121|Éder Militão|Real Madrid C.F.|
+122|Dani Carvajal|Real Madrid C.F.|
+123|Trent Alexander-Arnold|Real Madrid C.F.|
+124|Ferland Mendy|Real Madrid C.F.|
+125|Dean Huijsen|Real Madrid C.F.|
+126|David Alaba|Real Madrid C.F.|
+127|Aurélien Tchouaméni|Real Madrid C.F.|
+128|Eduardo Camavinga|Real Madrid C.F.|
+129|Federico Valverde|Real Madrid C.F.|
+130|Jude Bellingham|Real Madrid C.F.|
+131|Arda Güler|Real Madrid C.F.|
+132|Kylian Mbappé|Real Madrid C.F.|
+133|Rodrygo|Real Madrid C.F.|
+134|Endrick|Real Madrid C.F.|
+135|Vini Jr.|Real Madrid C.F.|
+136|Atlético de Madrid Badge|Atlético de Madrid|
+137|Jan Oblak|Atlético de Madrid|
+138|José María Giménez|Atlético de Madrid|
+139|Koke|Atlético de Madrid|
+140|Conor Gallagher|Atlético de Madrid|
+141|Pablo Barrios|Atlético de Madrid|
+142|Marcos Llorente|Atlético de Madrid|
+143|Antoine Griezmann|Atlético de Madrid|
+144|Julián Alvarez|Atlético de Madrid|
+145|VfB Stuttgart Badge|VfB Stuttgart|
+146|Alexander Nübel|VfB Stuttgart|
+147|Josha Vagnoman|VfB Stuttgart|
+148|Maximilian Mittelstädt|VfB Stuttgart|
+149|Jeff Chabot|VfB Stuttgart|
+150|Atakan Karazor|VfB Stuttgart|
+151|Angelo Stiller|VfB Stuttgart|
+152|Deniz Undav|VfB Stuttgart|
+153|Ermedin Demirović|VfB Stuttgart|
+154|FC Bayern München Badge|FC Bayern München|
+155|Manuel Neuer|FC Bayern München|
+156|Josip Stanišić|FC Bayern München|
+157|Minjae Kim|FC Bayern München|
+158|Alphonso Davies|FC Bayern München|
+159|Dayot Upamecano|FC Bayern München|
+160|Raphaël Guerreiro|FC Bayern München|
+161|Jonathan Tah|FC Bayern München|
+162|Hiroki Ito|FC Bayern München|
+163|Joshua Kimmich|FC Bayern München|
+164|João Palhinha|FC Bayern München|
+165|Konrad Laimer|FC Bayern München|
+166|Aleksandar Pavlović|FC Bayern München|
+167|Leon Goretzka|FC Bayern München|
+168|Michael Olise|FC Bayern München|
+169|Jamal Musiala|FC Bayern München|
+170|Serge Gnabry|FC Bayern München|
+171|Harry Kane|FC Bayern München|
+172|Bayer 04 Leverkusen Badge|Bayer 04 Leverkusen|
+173|Lukáš Hrádecký|Bayer 04 Leverkusen|
+174|Alejandro Grimaldo|Bayer 04 Leverkusen|
+175|Piero Hincapié|Bayer 04 Leverkusen|
+176|Robert Andrich|Bayer 04 Leverkusen|
+177|Exequiel Palacios|Bayer 04 Leverkusen|
+178|Granit Xhaka|Bayer 04 Leverkusen|
+179|Aleix García|Bayer 04 Leverkusen|
+180|Patrik Schick|Bayer 04 Leverkusen|
+181|Eintracht Frankfurt Badge|Eintracht Frankfurt|
+182|Kevin Trapp|Eintracht Frankfurt|
+183|Robin Koch|Eintracht Frankfurt|
+184|Rasmus Kristensen|Eintracht Frankfurt|
+185|Arthur Theate|Eintracht Frankfurt|
+186|Mario Götze|Eintracht Frankfurt|
+187|Hugo Larsson|Eintracht Frankfurt|
+188|Ellyes Skhiri|Eintracht Frankfurt|
+189|Hugo Ekitike|Eintracht Frankfurt|
+190|Borussia Dortmund Badge|Borussia Dortmund|
+191|Gregor Kobel|Borussia Dortmund|
+192|Nico Schlotterbeck|Borussia Dortmund|
+193|Waldemar Anton|Borussia Dortmund|
+194|Marcel Sabitzer|Borussia Dortmund|
+195|Emre Can|Borussia Dortmund|
+196|Julian Brandt|Borussia Dortmund|
+197|Maximilian Beier|Borussia Dortmund|
+198|Serhou Guirassy|Borussia Dortmund|
+199|Sporting Clube de Portugal Badge|Sporting Clube de Portugal|
+200|Ousmane Diomande|Sporting Clube de Portugal|
+201|Zeno Debast|Sporting Clube de Portugal|
+202|Gonçalo Inácio|Sporting Clube de Portugal|
+203|Morten Hjulmand|Sporting Clube de Portugal|
+204|Pedro Gonçalves|Sporting Clube de Portugal|
+205|Viktor Gyökeres|Sporting Clube de Portugal|
+206|Francisco Trincão|Sporting Clube de Portugal|
+207|Geovany Quenda|Sporting Clube de Portugal|
+208|SL Benfica Badge|SL Benfica|
+209|António Silva|SL Benfica|
+210|Nicolás Otamendi|SL Benfica|
+211|Gianluca Prestianni|SL Benfica|
+212|Fredrik Aursnes|SL Benfica|
+213|Florentino|SL Benfica|
+214|Andreas Schjelderup|SL Benfica|
+215|Kerem Aktürkoğlu|SL Benfica|
+216|Vangelis Pavlidis|SL Benfica|
+217|AFC Ajax Badge|AFC Ajax|
+218|Remko Pasveer|AFC Ajax|
+219|Jorrel Hato|AFC Ajax|
+220|Youri Baas|AFC Ajax|
+221|Youri Regeer|AFC Ajax|
+222|Davy Klaassen|AFC Ajax|
+223|Kenneth Taylor|AFC Ajax|
+224|Brian Brobbey|AFC Ajax|
+225|Mika Godts|AFC Ajax|
+226|Paris Saint-Germain Badge|Paris Saint-Germain|
+227|Gianluigi Donnarumma|Paris Saint-Germain|
+228|Marquinhos|Paris Saint-Germain|
+229|Willian Pacho|Paris Saint-Germain|
+230|Nuno Mendes|Paris Saint-Germain|
+231|Lucas Beraldo|Paris Saint-Germain|
+232|Achraf Hakimi|Paris Saint-Germain|
+233|Lucas Hernández|Paris Saint-Germain|
+234|João Neves|Paris Saint-Germain|
+235|Warren Zaïre-Emery|Paris Saint-Germain|
+236|Vitinha|Paris Saint-Germain|
+237|Fabián Ruiz|Paris Saint-Germain|
+238|Kang-in Lee|Paris Saint-Germain|
+239|Désiré Doué|Paris Saint-Germain|
+240|Bradley Barcola|Paris Saint-Germain|
+241|Khvicha Kvaratskhelia|Paris Saint-Germain|
+242|Ousmane Dembélé|Paris Saint-Germain|
+243|Gonçalo Ramos|Paris Saint-Germain|
+244|SSC Napoli Badge|SSC Napoli|
+245|Alex Meret|SSC Napoli|
+246|Giovanni Di Lorenzo|SSC Napoli|
+247|Alessandro Buongiorno|SSC Napoli|
+248|Billy Gilmour|SSC Napoli|
+249|André-Frank Zambo Anguissa|SSC Napoli|
+250|Scott McTominay|SSC Napoli|
+251|Romelu Lukaku|SSC Napoli|
+252|Matteo Politano|SSC Napoli|
+253|FC Internazionale Milano Badge|FC Internazionale Milano|
+254|Yann Sommer|FC Internazionale Milano|
+255|Alessandro Bastoni|FC Internazionale Milano|
+256|Federico Dimarco|FC Internazionale Milano|
+257|Denzel Dumfries|FC Internazionale Milano|
+258|Nicolò Barella|FC Internazionale Milano|
+259|Hakan Çalhanoğlu|FC Internazionale Milano|
+260|Lautaro Martínez|FC Internazionale Milano|
+261|Marcus Thuram|FC Internazionale Milano|
+262|Juventus Badge|Juventus|
+263|Michele Di Gregorio|Juventus|
+264|Pierre Kalulu|Juventus|
+265|Andrea Cambiaso|Juventus|
+266|Manuel Locatelli|Juventus|
+267|Teun Koopmeiners|Juventus|
+268|Weston McKennie|Juventus|
+269|Khéphren Thuram|Juventus|
+270|Kenan Yildiz|Juventus|
+271|Bologna FC 1909 Badge|Bologna FC 1909|
+272|Łukasz Skorupski|Bologna FC 1909|
+273|Juan Miranda|Bologna FC 1909|
+274|Lewis Ferguson|Bologna FC 1909|
+275|Remo Freuler|Bologna FC 1909|
+276|Jens Odgaard|Bologna FC 1909|
+277|Dan Ndoye|Bologna FC 1909|
+278|Riccardo Orsolini|Bologna FC 1909|
+279|Santiago Castro|Bologna FC 1909|
+280|ACF Fiorentina Badge|ACF Fiorentina|
+281|David de Gea|ACF Fiorentina|
+282|Luca Ranieri|ACF Fiorentina|
+283|Dodô|ACF Fiorentina|
+284|Pietro Comuzzo|ACF Fiorentina|
+285|Rolando Mandragora|ACF Fiorentina|
+286|Nicolò Fagioli|ACF Fiorentina|
+287|Cher Ndour|ACF Fiorentina|
+288|Moise Kean|ACF Fiorentina|
+289|FC Salzburg Badge|FC Salzburg|
+290|Alexander Schlager|FC Salzburg|
+291|Samson Baidoo|FC Salzburg|
+292|Aleksa Terzić|FC Salzburg|
+293|Mads Bidstrup|FC Salzburg|
+294|Oscar Gloukh|FC Salzburg|
+295|Bobby Clark|FC Salzburg|
+296|Dorgeles Nene|FC Salzburg|
+297|Karim Konaté|FC Salzburg|
+298|Celtic FC Badge|Celtic FC|
+299|Kasper Schmeichel|Celtic FC|
+300|Cameron Carter-Vickers|Celtic FC|
+301|Callum McGregor|Celtic FC|
+302|Daizen Maeda|Celtic FC|
+303|Athletic Club Badge|Athletic Club|
+304|Unai Simón|Athletic Club|
+305|Dani Vivian|Athletic Club|
+306|Iñaki Williams|Athletic Club|
+307|Rangers F.C. Badge|Rangers F.C.|
+308|Jack Butland|Rangers F.C.|
+309|James Tavernier|Rangers F.C.|
+310|Robin Pröpper|Rangers F.C.|
+311|Nedim Bajrami|Rangers F.C.|
+312|FC Porto Badge|FC Porto|
+313|Diogo Costa|FC Porto|
+314|Alan Varela|FC Porto|
+315|Samu Aghehowa|FC Porto|
+## Man of the Match
+316|Jeremie Frimpong|Liverpool FC|
+317|William Saliba|Arsenal FC|
+318|Joško Gvardiol|Manchester City|
+319|Reece James|Chelsea FC|
+320|Dan Burn|Newcastle United|
+321|Pau Torres|Aston Villa|
+322|Elliot Anderson|Nottingham Forest|
+323|Pedro Porro|Tottenham Hotspur|
+324|Pedri|FC Barcelona|
+325|Jude Bellingham|Real Madrid C.F.|
+326|José María Giménez|Atlético de Madrid|
+327|Oihan Sancet|Athletic Club|
+328|Gorka Guruzeta|Athletic Club|
+329|Alphonso Davies|FC Bayern München|
+330|Alejandro Grimaldo|Bayer 04 Leverkusen|
+331|Emre Can|Borussia Dortmund|
+332|Nuno Mendes|Paris Saint-Germain|
+333|Zeno Debast|Sporting Clube de Portugal|
+334|João Mário|FC Porto|
+335|Youri Baas|AFC Ajax|
+336|David Neres|SSC Napoli|
+337|Federico Dimarco|FC Internazionale Milano|
+338|Michele Di Gregorio|Juventus|
+339|Juan Miranda|Bologna FC 1909|
+340|Dodô|ACF Fiorentina|
+341|Arthur Theate|Eintracht Frankfurt|
+342|Cyriel Dessers|Rangers F.C.|
+## Cup Champions
+343|Virgil van Dijk|Liverpool FC|
+344|Xabi Alonso|Liverpool FC|
+345|Rúben Dias|Manchester City|
+346|Ashley Cole|Arsenal FC|
+347|Frank Lampard|Chelsea FC|
+348|Fernando Torres|Chelsea FC|
+349|Xavi Hernández|FC Barcelona|
+350|Andrés Iniesta|FC Barcelona|
+351|Lionel Messi|FC Barcelona|
+352|Dani Carvajal|Real Madrid C.F.|
+353|Toni Kroos|Real Madrid C.F.|
+354|Raúl|Real Madrid C.F.|
+355|Diego Godín|Atlético de Madrid|
+356|Antoine Griezmann|Atlético de Madrid|
+357|Manuel Neuer|FC Bayern München|
+358|Bastian Schweinsteiger|FC Bayern München|
+359|Samuel Eto'o|FC Internazionale Milano|
+360|Alessandro Del Piero|Juventus|
+## All-Action Hero
+361|Ryan Gravenberch|Liverpool FC|
+362|Mikel Merino|Arsenal FC|
+363|Rodri|Manchester City|
+364|Tosin Adarabioyo|Chelsea FC|
+365|Chris Wood|Nottingham Forest|
+366|Brennan Johnson|Tottenham Hotspur|
+367|Frenkie de Jong|FC Barcelona|
+368|Koke|Atlético de Madrid|
+369|Iñaki Williams|Athletic Club|
+370|Mario Götze|Eintracht Frankfurt|
+371|Marcel Sabitzer|Borussia Dortmund|
+372|Vitinha|Paris Saint-Germain|
+373|Gonçalo Inácio|Sporting Clube de Portugal|
+374|Kenneth Taylor|AFC Ajax|
+375|Weston McKennie|Juventus|
+376|Riccardo Orsolini|Bologna FC 1909|
+377|Daizen Maeda|Celtic FC|
+378|Mohamed Diomandé|Rangers F.C.|
+## Heritage
+379|Ibrahima Konaté|Liverpool FC|
+380|Nicolas Jackson|Chelsea FC|
+381|Donyell Malen|Aston Villa|
+382|Micky van de Ven|Tottenham Hotspur|
+383|Dani Olmo|FC Barcelona|
+384|Aurélien Tchouaméni|Real Madrid C.F.|
+385|Pepê|FC Porto|
+386|Alessandro Buongiorno|SSC Napoli|
+387|Andrea Cambiaso|Juventus|
+388|David Raya|Arsenal FC|
+389|Jan Oblak|Atlético de Madrid|
+390|Unai Simón|Athletic Club|
+391|Kevin Trapp|Eintracht Frankfurt|
+392|Gregor Kobel|Borussia Dortmund|
+393|Gianluigi Donnarumma|Paris Saint-Germain|
+394|Yann Sommer|FC Internazionale Milano|
+395|Manuel Neuer|FC Bayern München|
+396|Kasper Schmeichel|Celtic FC|
+397|Bruno Guimarães|Newcastle United|
+398|Ryan Yates|Nottingham Forest|
+399|Atakan Karazor|VfB Stuttgart|
+400|Morten Hjulmand|Sporting Clube de Portugal|
+401|Bernardo Silva|Manchester City|
+402|Lewis Ferguson|Bologna FC 1909|
+403|Luca Ranieri|ACF Fiorentina|
+404|Mads Bidstrup|FC Salzburg|
+405|James Tavernier|Rangers F.C.|
+## Counter Attax
+406|Harvey Elliott|Liverpool FC|
+407|Mohamed Salah|Liverpool FC|
+408|Erling Haaland|Manchester City|
+409|Fernando Torres|Atlético de Madrid|
+410|Ollie Watkins|Aston Villa|
+411|Endrick|Real Madrid C.F.|
+412|Julián Alvarez|Atlético de Madrid|
+413|Ousmane Dembélé|Paris Saint-Germain|
+414|Weston McKennie|Juventus|
+## Showboat
+415|Roberto Firmino|Liverpool FC|
+416|Eden Hazard|Chelsea FC|
+417|Ronaldinho|FC Barcelona|
+418|Ronaldo|Real Madrid C.F.|
+419|David Villa|Manchester City|
+420|Franck Ribéry|FC Bayern München|
+421|Dimitar Berbatov|Bayer 04 Leverkusen|
+422|Adriano|FC Internazionale Milano|
+423|Zinédine Zidane|Juventus|
+## Magic Memories
+424|Jerzy Dudek|Liverpool FC|
+425|Rodri|Manchester City|
+426|Didier Drogba|Chelsea FC|
+427|Morgan Rogers|Aston Villa|
+428|Brennan Johnson|Tottenham Hotspur|
+429|David Villa|FC Barcelona|
+430|Lionel Messi|FC Barcelona|
+431|Neymar Jr|FC Barcelona|
+432|Gareth Bale|Real Madrid C.F.|
+433|Rodrygo|Real Madrid C.F.|
+434|Antoine Griezmann|Atlético de Madrid|
+435|Joshua Kimmich|FC Bayern München|
+436|Harry Kane|FC Bayern München|
+437|Patrik Schick|Bayer 04 Leverkusen|
+438|Gianluigi Donnarumma|Paris Saint-Germain|
+439|Francesco Acerbi|FC Internazionale Milano|
+440|Shunsuke Nakamura|Celtic FC|
+441|James Tavernier|Rangers F.C.|
+## Stealth Strike
+442|Cody Gakpo|Liverpool FC|
+443|Kai Havertz|Arsenal FC|
+444|Omar Marmoush|Manchester City|
+445|Cole Palmer|Chelsea FC|
+446|Anthony Gordon|Newcastle United|
+447|Dominic Solanke|Tottenham Hotspur|
+448|Lamine Yamal|FC Barcelona|
+449|Vini Jr.|Real Madrid C.F.|
+450|Antoine Griezmann|Atlético de Madrid|
+451|Nico Williams|Athletic Club|
+452|Michael Olise|FC Bayern München|
+453|Deniz Undav|VfB Stuttgart|
+454|Bradley Barcola|Paris Saint-Germain|
+455|Romelu Lukaku|SSC Napoli|
+456|Denzel Dumfries|FC Internazionale Milano|
+457|Moise Kean|ACF Fiorentina|
+458|Samu Aghehowa|FC Porto|
+459|Conrad Harder|Sporting Clube de Portugal|
+## 100 Club
+460|Gianluigi Donnarumma|Paris Saint-Germain|
+461|Trent Alexander-Arnold|Real Madrid C.F.|
+462|Denzel Dumfries|FC Internazionale Milano|
+463|Declan Rice|Arsenal FC|
+464|Pedri|FC Barcelona|
+465|João Neves|Paris Saint-Germain|
+466|Mohamed Salah|Liverpool FC|
+467|Raphinha|FC Barcelona|
+468|Ousmane Dembélé|Paris Saint-Germain|
+## Ball Master
+BM1|Rodri|Manchester City|
+BM2|Mohamed Salah|Liverpool FC|
+BM3|Vini Jr.|Real Madrid C.F.|
+BM4|Jamal Musiala|FC Bayern München|
+## Black Edge
+BE1|Virgil van Dijk|Liverpool FC|
+BE2|Bukayo Saka|Arsenal FC|
+BE3|Lamine Yamal|FC Barcelona|
+BE4|Rodrygo|Real Madrid C.F.|
+BE5|Julián Alvarez|Atlético de Madrid|

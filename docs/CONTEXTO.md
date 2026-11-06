@@ -11,7 +11,7 @@
 - Un **sniper automático** revisa eBay cada 30 minutos y guarda los anuncios con descuento.
 - Una página **"Valorar"** sirve para pegar a mano anuncios de **Vinted y Wallapop** y saber si son chollo.
 - Los chollos (≥30 % de descuento) llegan como **alerta por Telegram**.
-- Un **catálogo de 5.094 cartas** (11 colecciones de Topps y Panini) en `/cartas`, base para valorar carta por carta.
+- Un **catálogo de 7.604 cartas** (17 colecciones de Topps y Panini) en `/cartas`, base para valorar carta por carta.
 
 **Sobre el usuario:** no es programador. Prefiere que Claude lo haga todo y que, cuando tenga que hacer algo él, se le den pasos muy concretos ("pulsa este botón", "pega aquí"). Escribe en español.
 
@@ -119,7 +119,7 @@ Búsquedas actuales: `panini adrenalyn`, `topps chrome futbol`, `panini prizm fu
 
 **Catálogo (pendiente del usuario)**
 - [ ] Ejecutar `supabase/migrations/003_catalogo.sql` en Supabase → SQL Editor.
-- [ ] GitHub → Actions → catalog-import → Run workflow. Debe responder `{"ok":true,"sets":11,"cards":5094}`.
+- [ ] GitHub → Actions → catalog-import → Run workflow. Debe responder `{"ok":true,"sets":17,"cards":7604}`.
 
 **Siguiente desarrollo**
 - [ ] Reconocedor de anuncios (`lib/catalog-match.ts`): título → colección (palabras clave + temporada) → carta (número o jugador) → paralelo (Refractor, /99...).
@@ -159,4 +159,6 @@ Búsquedas actuales: `panini adrenalyn`, `topps chrome futbol`, `panini prizm fu
   - `/api/sniper`: busca cada colección en eBay y guarda los anuncios reconocidos en `listings` (ya no crea chollos ni alertas).
   - `/api/vinted` + `scripts/vinted-scan.mjs` (ejecutado por `sniper.yml` en GitHub Actions): lee lo más nuevo de Vinted, reconoce cada anuncio, compara con la mediana de eBay de la MISMA carta y variante (≥3 anuncios, últimos 45 días), guarda chollos (≥25 %) y avisa por Telegram (≥35 %).
 - **Bloqueante:** la migración `003_catalogo.sql` nunca se ejecutó → faltan las tablas `sets`, `cards`, `listings`. El SQL quedó pegado en el SQL Editor de Supabase; falta pulsar Run y luego lanzar `catalog-import`. Hasta entonces el sniper falla con "Could not find the table 'public.listings'".
-- **Siguiente paso pedido por el usuario:** ampliar MUCHO el catálogo (más colecciones y temporadas, también Megacracks y Adrenalyn antiguas) antes de cargarlo.
+- **Catálogo v0.6 (ampliación):** 7.604 cartas en 17 colecciones. Nuevas: Megacracks LaLiga 25-26 (503), Topps UCC 24-25 (407), Topps Finest UCC 24-25 (315), Panini Prizm Mundial Qatar 2022 (598), Topps Chrome UCC 23-24 (210), Match Attax UEFA 25-26 (477). Cada una con su ficha en `data/sets.json` y su regla en `lib/set-rules.ts`; reconocedor probado con títulos de ejemplo de cada colección.
+  - `/api/sniper` ahora rota: cada hora empieza por una búsqueda distinta, para que todas las colecciones se repasen aunque no quepan en 50 s.
+  - Candidatas siguientes (no encontradas en texto con WebFetch todavía): Adrenalyn LaLiga 24-25 (cartophilic tiene posts, pero solo parte en texto), Match Attax 24-25 (solo imágenes), Panini Select LaLiga 25-26 (Beckett falla), Megacracks 24-25 (solo TCDB, que no carga).

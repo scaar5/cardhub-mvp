@@ -36,7 +36,12 @@ export async function GET(req: Request) {
   const report: Record<string, unknown>[] = [];
   let total = 0;
 
-  for (const { q, set } of EBAY_SEARCHES) {
+  // Con muchas colecciones no caben todas en 50 s: cada pasada (cada hora) empieza
+  // por una búsqueda distinta, así todas se van repasando a lo largo del día.
+  const start = Math.floor(Date.now() / 3_600_000) % EBAY_SEARCHES.length;
+  const ordered = [...EBAY_SEARCHES.slice(start), ...EBAY_SEARCHES.slice(0, start)];
+
+  for (const { q, set } of ordered) {
     if (Date.now() - started > 50_000) {
       report.push({ q, skipped: "sin tiempo en esta pasada" });
       continue;
