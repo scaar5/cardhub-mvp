@@ -1,6 +1,6 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
 import { CARDS, normalize, setBySlug, type CatalogCard } from "./catalog";
-import { MIN_REF_SAMPLE, REF_DAYS } from "./config";
+import { MIN_REF_SAMPLE, REF_DAYS, RELIABLE_SAMPLE } from "./config";
 import { median } from "./market";
 
 export interface Reference {
@@ -75,6 +75,7 @@ export function candidateCardIds(cards: CatalogCard[]): string[] {
 /**
  * Precios de referencia de eBay agrupados por carta: cardId → [{ parallel, value, sample }].
  * Solo las variantes con al menos MIN_REF_SAMPLE anuncios en los últimos REF_DAYS días.
+ * Valor = precio más bajo si hay menos de RELIABLE_SAMPLE anuncios; si no, la mediana.
  */
 export async function loadReferences(
   db: SupabaseClient,
@@ -105,7 +106,10 @@ export async function loadReferences(
   for (const { cardId, parallel, list } of prices.values()) {
     if (list.length < MIN_REF_SAMPLE) continue;
     const arr = out.get(cardId) ?? [];
-    arr.push({ parallel, value: Math.round(median(list) * 100) / 100, sample: list.length });
+    // Son precios PEDIDOS: con pocos anuncios un vendedor con precio disparatado arrastra la media.
+    // Con menos de RELIABLE_SAMPLE anuncios se usa el más barato (prudente); con más, la mediana.
+    const value = list.length < RELIABLE_SAMPLE ? Math.min(...list) : median(list);
+    arr.push({ parallel, value: Math.round(value * 100) / 100, sample: list.length });
     out.set(cardId, arr);
   }
   return out;

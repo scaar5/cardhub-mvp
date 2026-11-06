@@ -18,6 +18,9 @@ export const ALERT_THRESHOLD = 35;
 /** Nº mínimo de anuncios de eBay de la misma carta y variante para fiarse de la referencia. */
 export const MIN_REF_SAMPLE = 2;
 
+/** A partir de cuántos anuncios se usa la mediana; por debajo, el precio más bajo (más prudente). */
+export const RELIABLE_SAMPLE = 4;
+
 /** Días de anuncios de eBay que cuentan para la referencia. */
 export const REF_DAYS = 45;
 
