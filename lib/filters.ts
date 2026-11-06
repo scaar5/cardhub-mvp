@@ -12,7 +12,7 @@ const RULES: { reason: string; pattern: RegExp }[] = [
   {
     reason: "lote",
     pattern: words([
-      "lote", "lotes", "lot", "pack", "packs", "bundle", "set completo",
+      "lote", "lotes", "lot", "lotto", "set\\s?\\d+", "\\d+\\s*rookie cards", "pack", "packs", "bundle", "set completo",
       "colecci[oó]n completa", "sobre", "sobres", "caja", "box", "blaster",
       "hobby", "starter", "[aá]lbum", "archivador", "binder",
       "\\d+\\s*(cromos|cartas|cards|tarjetas)", "x\\s?\\d+", "\\d+\\s?x",
@@ -20,7 +20,7 @@ const RULES: { reason: string; pattern: RegExp }[] = [
   },
   {
     reason: "graduada",
-    pattern: words(["psa", "bgs", "beckett", "sgc", "cgc", "graded", "gradeada", "graduada"]),
+    pattern: words(["psa", "bgs", "beckett", "sgc", "cgc", "graded", "gradeada", "graduada", "graduado", "sollys"]),
   },
   {
     reason: "réplica",

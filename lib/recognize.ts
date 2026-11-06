@@ -74,8 +74,9 @@ function readSeasons(title: string): SeasonInfo {
 }
 
 /** true = la temporada del título encaja; false = es otra; null = el título no dice temporada. */
-function seasonFits(rule: SetRule, s: SeasonInfo): boolean | null {
+function seasonFits(rule: SetRule, s: SeasonInfo): boolean | "end" | null {
   if (s.pairs.length === 0 && s.years.length === 0) return null;
+  let end = false;
   for (const season of rule.seasons) {
     if (/^\d{4}$/.test(season)) {
       if (s.years.includes(season)) return true;
@@ -83,9 +84,11 @@ function seasonFits(rule: SetRule, s: SeasonInfo): boolean | null {
       if (s.pairs.includes(season)) return true;
       // Un año suelto cuenta como el año de inicio ("Topps Chrome UCC 2025" = 2025-26)
       if (s.pairs.length === 0 && s.years.includes(season.slice(0, 4))) return true;
+      // …o el año de salida ("Topps Merlin UEFA 2022" = 2021-22): solo si lo anterior no encuentra la carta
+      if (s.pairs.length === 0 && s.years.includes(`20${season.slice(5, 7)}`)) end = true;
     }
   }
-  return false;
+  return end ? "end" : false;
 }
 
 // ---------------------------------------------------------------------------
@@ -96,7 +99,14 @@ interface PlayerEntry {
   tokens: string[];
   surname: string;
   subsetTokens: string[];
+  teamTokens: string[];
 }
+
+// Palabras del nombre del club que no sirven para identificarlo
+const TEAM_STOP = new Set(["club", "futbol", "football", "calcio", "sporting", "athletic", "united", "city", "real", "olympique", "borussia", "association", "sport", "clube", "internazionale"]);
+const NAME_ALIASES: [string, string][] = [["vinicius", "vini"], ["junior", "jr"], ["kylian", "mbappe"]];
+// Apodos habituales en los títulos → palabra del nombre oficial del club
+const TEAM_ALIASES: Record<string, string> = { psg: "paris", barca: "barcelona", juve: "juventus", atleti: "atletico", inter: "inter", bayern: "bayern", milan: "milan", spurs: "tottenham", benfica: "benfica" };
 
 const PARTICLES = new Set(["de", "da", "do", "di", "del", "van", "von", "der", "den", "la", "le", "el", "jr", "junior"]);
 
@@ -110,7 +120,8 @@ for (const c of CARDS) {
   const tokens = flat(c.player).split(" ").filter(Boolean);
   const meaningful = tokens.filter((t) => !PARTICLES.has(t));
   const surname = meaningful[meaningful.length - 1] ?? tokens[tokens.length - 1];
-  entry.players.push({ card: c, tokens, surname, subsetTokens: flat(c.subset).split(" ").filter(Boolean) });
+  const teamTokens = flat(c.team ?? "").split(" ").filter((w) => w.length >= 4 && !TEAM_STOP.has(w));
+  entry.players.push({ card: c, tokens, surname, subsetTokens: flat(c.subset).split(" ").filter(Boolean), teamTokens });
 }
 for (const entry of index.values()) {
   const seenPlayers = new Map<string, Set<string>>();
@@ -196,7 +207,7 @@ function detectParallel(setSlug: string, t: string, rawTitle: string, card: Cata
 
 const AUTO_WORDS = [
   "auto", "autos", "autograph", "autographed", "autographs", "autografo", "autografos", "autografiada",
-  "autografato", "firma", "firmada", "signed", "signature",
+  "autografato", "autographe", "autogramm", "firma", "firmada", "signed", "signature",
 ];
 const INSERT_WORDS = ["insert", "inserto", "insertos", "case hit", "ssp", "sp", "short print"];
 const MEMORABILIA = ["relic", "patch", "parche", "memorabilia", "jersey", "camiseta", "shirt"];
@@ -213,24 +224,47 @@ export function recognize(title: string, hint?: string): RecognizeResult {
   const seasons = readSeasons(title);
   const numbers = readNumbers(title);
   const words = new Set(t.split(" "));
+  // Formas habituales de escribir un mismo nombre ("Vinicius Junior" = "Vini Jr.")
+  for (const [a, b] of NAME_ALIASES) if (words.has(a)) words.add(b);
+  const teamWords = new Set([...words].map((w) => TEAM_ALIASES[w] ?? w));
 
   // 1) Colecciones posibles
-  const sets: { rule: SetRule; confidence: Confidence }[] = [];
+  // weak = el título dice la marca y la temporada ("Topps Chrome 2025/26") pero no la competición
+  // (UEFA / Premier League): vale solo si además coincide el número de carta o el club.
+  // tier 2 = temporada leída por el año de salida: solo se usa si el tier 1 no encuentra la carta.
+  type SetCand = { rule: SetRule; confidence: Confidence; weak: boolean; tier: 1 | 2 };
+  const allSets: SetCand[] = [];
   for (const rule of SET_RULES) {
-    if (!rule.any.some((p) => has(t, p))) continue;
+    const anyOk = rule.any.some((p) => has(t, p));
     if (rule.all && !rule.all.every((p) => has(t, p))) continue;
+    if (!anyOk && !rule.all) continue;
     if (rule.forbid.some((p) => has(t, flat(p)))) continue;
     const fits = seasonFits(rule, seasons);
     if (fits === false) continue;
-    if (fits === true) sets.push({ rule, confidence: "alta" });
-    else if (hint === rule.slug) sets.push({ rule, confidence: "media" });
+    if (fits === true || fits === "end") allSets.push({ rule, confidence: "alta", weak: !anyOk, tier: fits === true ? 1 : 2 });
+    else if (hint === rule.slug && anyOk) allSets.push({ rule, confidence: "media", weak: false, tier: 1 });
   }
-  if (sets.length === 0) return { match: null, reason: "colección no reconocida" };
+  if (allSets.length === 0) return { match: null, reason: "colección no reconocida" };
+  // Sin competición en el título solo hay duda si esa marca tiene otra colección esa temporada
+  // (p. ej. Chrome UCC y Chrome Premier League 2025-26); si no, "Topps Finest 2023/24" basta.
+  for (const x of allSets) {
+    if (!x.weak) continue;
+    const brand = x.rule.all?.[0];
+    const siblings = SET_RULES.filter((r) => r !== x.rule && r.all?.[0] === brand && r.seasons.some((se) => x.rule.seasons.includes(se)));
+    if (siblings.length === 0) x.weak = false;
+  }
+  const tier1 = allSets.filter((x) => x.tier === 1);
+  const r1 = tier1.length ? pickCard(tier1) : null;
+  const r = r1 && r1.match ? r1 : (pickCard(allSets.filter((x) => x.tier === 2)) ?? r1)!;
+  return r;
+
+  function pickCard(sets: SetCand[]): RecognizeResult | null {
+  if (sets.length === 0) return null;
 
   // 2) Cartas posibles en esas colecciones
   type Cand = { p: PlayerEntry; score: number; confidence: Confidence; slug: string };
   const cands: Cand[] = [];
-  for (const { rule, confidence } of sets) {
+  for (const { rule, confidence, weak } of sets) {
     const entry = index.get(rule.slug);
     if (!entry) continue;
     const setNumbers = numbersBySet.get(rule.slug) ?? new Set<string>();
@@ -244,7 +278,10 @@ export function recognize(title: string, hint?: string): RecognizeResult {
       // Si el título trae un número de carta (de esta colección) y no es el de esta carta, es otra carta
       if (setNums.length && !numberOk) continue;
       // Solo el apellido no basta (hay "Thiago Silva" e "Igor Thiago"): hace falta también el número
-      if (score === 2 && !numberOk) continue;
+      const teamOk = p.teamTokens.some((w) => teamWords.has(w));
+      // …salvo que coincida el club ("Tchouameni Merlin 2023-24 Real Madrid")
+      if (score === 2 && !numberOk && !teamOk) continue;
+      if (weak && !numberOk && !teamOk) continue;
       if (numberOk) score += 3;
       // Serie base: "Base" a secas gana por defecto; las variantes y niveles de la base
       // ("Base Rare", "Base Rookie Image Variations"...) solo si el título lo dice
@@ -274,6 +311,8 @@ export function recognize(title: string, hint?: string): RecognizeResult {
     return { match: null, reason: "insert que no está en el catálogo" };
   }
   if (isAuto && !/aut|firma|signature/i.test(card.subset)) return { match: null, reason: "autógrafo (no está en el catálogo)" };
+  // Al revés: la carta del catálogo es firmada pero el anuncio no lo dice → seguramente es otra carta (la normal)
+  if (!isAuto && /aut|firma|signature/i.test(card.subset)) return { match: null, reason: "carta firmada pero el anuncio no dice auto" };
   if (isMemorabilia && !/relic|patch|memorabilia|match ball|swatch|jersey/i.test(card.subset)) {
     return { match: null, reason: "memorabilia (no está en el catálogo)" };
   }
@@ -286,4 +325,5 @@ export function recognize(title: string, hint?: string): RecognizeResult {
       confidence: best.confidence,
     },
   };
+  }
 }
