@@ -1,0 +1,27 @@
+name: reference-check
+
+# A mano: explica el precio de referencia de una carta (para revisar chollos raros).
+on:
+  workflow_dispatch:
+    inputs:
+      card:
+        description: "card_id, p. ej. topps-merlin-ucc-2021-22:32"
+        required: true
+      parallel:
+        description: "Variante, p. ej. Purple /275 (vacío = base)"
+        required: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - env:
+          ALERT_SECRET: ${{ secrets.ALERT_SECRET }}
+          CARD: ${{ inputs.card }}
+          PARALLEL: ${{ inputs.parallel }}
+        run: |
+          SECRET="$(printf '%s' "$ALERT_SECRET" | tr -d '\r\n' | sed 's/^ *//;s/ *$//')"
+          curl -sS -G -m 60 -H "x-alert-secret: $SECRET" \
+            --data-urlencode "card=$CARD" --data-urlencode "parallel=$PARALLEL" \
+            "https://scaard5-analytics.vercel.app/api/reference"
