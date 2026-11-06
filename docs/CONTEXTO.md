@@ -147,3 +147,16 @@ Búsquedas actuales: `panini adrenalyn`, `topps chrome futbol`, `panini prizm fu
 - **Nunca** pongas `SUPABASE_SECRET_KEY` ni las claves de eBay en variables `NEXT_PUBLIC_`.
 - **Añadir una colección al catálogo:** crear `data/catalog/<slug>.txt` y su ficha en `data/sets.json`; `npm run catalog` valida. Fuentes que funcionaron con WebFetch: beckett.com/news, checklistinsider.com, cartophilic-info-exch.blogspot.com, diamondcardsonline.com/blog. La terminal no tiene acceso a esas webs.
 - Vercel Hobby solo permite un cron diario; por eso la programación cada 30 min va por GitHub Actions.
+
+## 7. Sesión del 6-nov-2026 por la tarde (extensión de Chrome + repo)
+
+- **eBay en marcha.** Keyset de Production "sCARDs" creado (App ID `scarPrez-sCARDs-PRD-6ae0b1678-fea8e732`), exención de "Marketplace Account Deletion" pedida, `EBAY_CLIENT_ID`/`EBAY_CLIENT_SECRET` en Vercel (hubo que corregirlas una vez) y Redeploy. `/api/health` → `"ebay":true`.
+- **Primera pasada real** (v0.4): 120 "chollos" de eBay y 108 alertas de Telegram, casi todas falsas porque el valor de mercado era la mediana de toda la búsqueda. Esas filas siguen en `deals` pero la portada ya no muestra eBay.
+- **Nuevo enfoque decidido por el usuario:** eBay = solo referencia de precio por carta; los chollos se buscan en **Vinted** (Wallapop más adelante). Se le avisó de que Vinted no tiene API pública y sus condiciones prohíben el acceso automatizado; eligió seguir. Se lee la página pública de resultados, sin saltarse protecciones; si responde 403/429, el script para.
+- **v0.5 (commit `ab114ba`)**:
+  - `lib/recognize.ts`: título → carta del catálogo + variante canónica ("Green /99", "Refractor"...). Confianza "alta" (colección + temporada en el título) o "media" (solo con la pista de la búsqueda; no se usa). Descarta lotes, autógrafos fuera del catálogo, memorabilia, inserts que no están en el catálogo y casos dudosos. Probado con 1.027 títulos reales de Vinted: ~110 reconocidos con confianza alta, sin falsos positivos visibles.
+  - `lib/set-rules.ts`: reglas por colección (frases obligatorias/prohibidas, temporadas) y búsquedas de eBay y Vinted.
+  - `/api/sniper`: busca cada colección en eBay y guarda los anuncios reconocidos en `listings` (ya no crea chollos ni alertas).
+  - `/api/vinted` + `scripts/vinted-scan.mjs` (ejecutado por `sniper.yml` en GitHub Actions): lee lo más nuevo de Vinted, reconoce cada anuncio, compara con la mediana de eBay de la MISMA carta y variante (≥3 anuncios, últimos 45 días), guarda chollos (≥25 %) y avisa por Telegram (≥35 %).
+- **Bloqueante:** la migración `003_catalogo.sql` nunca se ejecutó → faltan las tablas `sets`, `cards`, `listings`. El SQL quedó pegado en el SQL Editor de Supabase; falta pulsar Run y luego lanzar `catalog-import`. Hasta entonces el sniper falla con "Could not find the table 'public.listings'".
+- **Siguiente paso pedido por el usuario:** ampliar MUCHO el catálogo (más colecciones y temporadas, también Megacracks y Adrenalyn antiguas) antes de cargarlo.
