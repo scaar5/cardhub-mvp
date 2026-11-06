@@ -207,7 +207,7 @@ function detectParallel(setSlug: string, t: string, rawTitle: string, card: Cata
 
 const AUTO_WORDS = [
   "auto", "autos", "autograph", "autographed", "autographs", "autografo", "autografos", "autografiada",
-  "autografato", "autographe", "autogramm", "firma", "firmada", "signed", "signature",
+  "autografato", "autographe", "autogramm", "firma", "firmada", "firmado", "autografiado", "autografiada", "signed", "signature",
 ];
 const INSERT_WORDS = ["insert", "inserto", "insertos", "case hit", "ssp", "sp", "short print"];
 const MEMORABILIA = ["relic", "patch", "parche", "memorabilia", "jersey", "camiseta", "shirt"];

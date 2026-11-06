@@ -15,10 +15,23 @@ export const SAVE_THRESHOLD = 25;
 /** Descuento mínimo (%) para mandar alerta por Telegram. */
 export const ALERT_THRESHOLD = 35;
 
-/** Nº mínimo de anuncios de eBay de la misma carta y variante para fiarse de la referencia. */
+/** Nº mínimo de VENTAS reales de Vinted de la misma carta y variante para fiarse de la referencia. */
 export const MIN_REF_SAMPLE = 2;
 
-/** A partir de cuántos anuncios se usa la mediana; por debajo, el precio más bajo (más prudente). */
+/**
+ * Nº mínimo de ANUNCIOS de eBay (precios pedidos) para fiarse de la referencia.
+ * Con 2 no basta: en cartas baratas hay vendedores que piden 10× lo que valen.
+ */
+export const EBAY_MIN_SAMPLE = 3;
+
+/**
+ * Descuentos extremos (≥ este %) con referencia de eBay: solo cuentan si la referencia se apoya en
+ * al menos EXTREME_MIN_SAMPLE anuncios. Un -80 % real es rarísimo; casi siempre es una referencia inflada.
+ */
+export const EXTREME_PCT = 70;
+export const EXTREME_MIN_SAMPLE = 6;
+
+/** A partir de cuántos anuncios se usa el percentil 25 (eBay: precios pedidos, tiran al alza); por debajo, el más bajo. */
 export const RELIABLE_SAMPLE = 4;
 
 /** Días de ventas reales de Vinted que cuentan para la referencia. */

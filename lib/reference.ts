@@ -1,6 +1,6 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
 import { CARDS, normalize, setBySlug, type CatalogCard } from "./catalog";
-import { MIN_REF_SAMPLE, REF_DAYS, RELIABLE_SAMPLE, SOLD_DAYS } from "./config";
+import { EBAY_MIN_SAMPLE, MIN_REF_SAMPLE, REF_DAYS, RELIABLE_SAMPLE, SOLD_DAYS } from "./config";
 import { median } from "./market";
 
 export interface Reference {
@@ -115,8 +115,10 @@ export async function loadReferences(
     let ref: Reference | null = null;
     if (sold.length >= MIN_REF_SAMPLE) {
       ref = { value: round(median(sold)), sample: sold.length, source: "vinted_sold" };
-    } else if (ebay.length >= MIN_REF_SAMPLE) {
-      const value = ebay.length < RELIABLE_SAMPLE ? Math.min(...ebay) : median(ebay);
+    } else if (ebay.length >= EBAY_MIN_SAMPLE) {
+      // Precios PEDIDOS: tiran al alza, así que con pocos el más bajo y con más el percentil 25
+      const sorted = [...ebay].sort((a, b) => a - b);
+      const value = ebay.length < RELIABLE_SAMPLE ? sorted[0] : sorted[Math.floor((sorted.length - 1) * 0.25)];
       ref = { value: round(value), sample: ebay.length, source: "ebay" };
     }
     if (!ref) continue;
