@@ -1,0 +1,32 @@
+name: vinted-dump
+
+# Diagnóstico (a mano): guarda los títulos de Vinted que ve el sniper en la rama "vinted-raw".
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  dump:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/vinted-dump.mjs
+        env:
+          ALERT_SECRET: ${{ secrets.ALERT_SECRET }}
+      - name: Guardar en rama vinted-raw
+        run: |
+          cp out/vinted.json /tmp/vinted.json
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git checkout --orphan vinted-raw
+          git rm -rfq .
+          cp /tmp/vinted.json .
+          git add -A
+          git commit -qm "vinted raw $(date -u +%FT%TZ)"
+          git push -f origin vinted-raw
