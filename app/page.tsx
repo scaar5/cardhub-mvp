@@ -74,6 +74,12 @@ export default async function Home() {
             >
               Catálogo de cartas
             </Link>
+            <Link
+              href="/ventas"
+              className="rounded-full bg-white/10 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-white/20"
+            >
+              Historial de ventas
+            </Link>
             <a
               href="#chollos"
               className="rounded-full bg-white/10 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-white/20"
