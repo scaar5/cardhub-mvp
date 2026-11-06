@@ -18,7 +18,7 @@ export const maxDuration = 60;
  *
  * La lectura de Vinted la hace el workflow de GitHub (scripts/vinted-sold-check.mjs).
  */
-const CHECK_BATCH = 180;
+const CHECK_BATCH = 60;
 const TRACK_DAYS = 30;
 
 const vid = (externalId: string) => externalId.split(":")[1];

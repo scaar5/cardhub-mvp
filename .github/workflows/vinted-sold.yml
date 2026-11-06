@@ -1,10 +1,10 @@
 name: vinted-sold
 
 # Ventas reales en Vinted: revisa los anuncios reconocidos que siguen abiertos y apunta los vendidos.
-# Cada 2 horas y a mano desde la pestaña Actions.
+# Cada hora (60 anuncios por pasada, con pausas: Vinted frena con 429 si se va rápido) y a mano desde la pestaña Actions.
 on:
   schedule:
-    - cron: "43 */2 * * *"
+    - cron: "43 * * * *"
   workflow_dispatch:
 
 jobs:

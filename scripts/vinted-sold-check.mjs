@@ -45,6 +45,7 @@ async function main() {
   const home = await fetch("https://www.vinted.es/", { headers: H });
   const cookie = (home.headers.getSetCookie?.() ?? []).map((c) => c.split(";")[0]).join("; ");
 
+  let retried = false;
   const started = Date.now();
   const results = [];
   const count = { open: 0, sold: 0, gone: 0, reserved: 0, unknown: 0 };
@@ -52,6 +53,14 @@ async function main() {
     if (Date.now() - started > MAX_MS) break;
     const res = await fetch(`https://www.vinted.es/items/${id}`, { headers: { ...H, Cookie: cookie } });
     if (res.status === 403 || res.status === 429) {
+      // Una sola espera larga y reintento; si sigue frenando, se para hasta la próxima pasada
+      if (!retried) {
+        retried = true;
+        console.log(`Vinted ha respondido ${res.status}. Espero 60 s y sigo.`);
+        await sleep(60_000);
+        cfg.ids.push(id);
+        continue;
+      }
       console.log(`Vinted ha respondido ${res.status} (bloqueo o límite). Paro esta pasada.`);
       break;
     }
@@ -63,7 +72,7 @@ async function main() {
     // Los no abiertos se enseñan en el log para poder comprobar que la detección es correcta
     if (r.state !== "open") console.log(`ITEM ${id} ${r.state} ${JSON.stringify(r.raw ?? {})}`);
     results.push({ id, state: r.state, price: r.price });
-    await sleep(1500);
+    await sleep(5000 + Math.random() * 2000);
   }
   console.log(`TOTAL ${JSON.stringify(count)}`);
 
