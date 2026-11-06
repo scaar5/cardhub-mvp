@@ -61,8 +61,8 @@ Importante:
 6. **App de Claude en GitHub** instalada solo en este repo, para poder hacer push.
 7. **GitHub Actions:** secreto `ALERT_SECRET` creado. Hubo un desajuste de contraseña entre GitHub y Vercel; se resolvió poniendo una nueva idéntica en ambos sitios. Ahora la prueba devuelve "eBay no configurado todavía", que es lo esperado.
 8. **El sniper no falla sin eBay:** responde `ok` con `skipped`, para que GitHub no envíe emails de error cada 30 min (`f4db3e0`).
-10. **Filtros de valoración** (`lib/filters.ts`): lotes, graduadas, réplicas, "elige tu carta" y accesorios no cuentan para el valor de mercado ni se guardan como chollo. "Valorar" avisa si el anuncio pegado es de ese tipo.
 9. **Rediseño v0.3** (`0a2eca4`): estilo minimalista tipo Revolut. Tema claro, tipografía Inter (autoalojada con `@fontsource-variable/inter`), tarjeta negra con el "ahorro potencial", cifras en tarjetas blancas y lista de chollos tipo "movimientos bancarios".
+10. **Filtros de valoración** (`lib/filters.ts`, commit `4cfd0f9`): lotes, graduadas, réplicas, "elige tu carta" y accesorios no cuentan para el valor de mercado ni se guardan como chollo. "Valorar" avisa si el anuncio pegado es de ese tipo.
 
 ## 5. Cómo funciona el código
 
@@ -127,7 +127,7 @@ Búsquedas actuales: `panini adrenalyn`, `topps chrome futbol`, `panini prizm fu
 
 ## 7. Notas para el siguiente Claude
 
-- **Hacer cambios en el código:** desde claude.ai, sin acceso al repo, entrega un ZIP o los archivos cambiados. El usuario los sube a GitHub y Vercel publica solo. La extensión de Chrome sí puede hacer push, porque la app de Claude está instalada en el repo.
+- **Hacer cambios en el código:** las sesiones de Claude con el repo conectado (`scaar5/cardhub-mvp`) pueden hacer commit y push directamente a `main`. Sin acceso al repo, entrega un ZIP o los archivos cambiados. El usuario los sube a GitHub y Vercel publica solo. La extensión de Chrome sí puede hacer push, porque la app de Claude está instalada en el repo.
 - **Probar sin conocer la contraseña:** lanza el workflow en GitHub Actions y lee el log. `401 No autorizado` significa que la contraseña no coincide entre GitHub y Vercel.
 - **Nunca** pongas `SUPABASE_SECRET_KEY` ni las claves de eBay en variables `NEXT_PUBLIC_`.
 - Vercel Hobby solo permite un cron diario; por eso la programación cada 30 min va por GitHub Actions.
