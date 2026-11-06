@@ -1,0 +1,30 @@
+name: checklist-fetch
+
+# Temporal: descarga checklists y los guarda en la rama "checklists-raw".
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/checklist-fetch.mjs
+      - name: Guardar en rama checklists-raw
+        run: |
+          mkdir /tmp/raw && cp -r out/* /tmp/raw/
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git checkout --orphan checklists-raw
+          git rm -rfq .
+          cp -r /tmp/raw/* .
+          git add -A
+          git commit -qm "checklists raw"
+          git push -f origin checklists-raw
