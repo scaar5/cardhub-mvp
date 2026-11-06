@@ -40,7 +40,7 @@ async function main() {
   const headers = { "x-alert-secret": SECRET };
   const cfg = await fetch(`${APP_URL}/api/vinted-sold`, { headers }).then((r) => r.json());
   if (!cfg.ok) throw new Error(`No pude leer los anuncios a revisar: ${JSON.stringify(cfg)}`);
-  console.log(`Anuncios abiertos en seguimiento: ${cfg.open}. Reviso ${cfg.ids.length}.`);
+  console.log(`Anuncios abiertos en seguimiento: ${cfg.open} (${cfg.open_10 ?? "?"} de 10 € o más). Reviso ${cfg.ids.length}.`);
 
   const home = await fetch("https://www.vinted.es/", { headers: H });
   const cookie = (home.headers.getSetCookie?.() ?? []).map((c) => c.split(";")[0]).join("; ");

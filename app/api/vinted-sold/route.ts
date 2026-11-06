@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { authorized } from "@/lib/auth";
-import { MIN_PRICE } from "@/lib/config";
+import { MIN_PRICE, MIN_REF_VALUE } from "@/lib/config";
 import { getSupabaseAdmin } from "@/lib/supabase-admin";
 
 export const dynamic = "force-dynamic";
@@ -32,20 +32,28 @@ export async function GET(req: Request) {
 
   const since = new Date(Date.now() - TRACK_DAYS * 86400_000).toISOString();
   const [open, closed] = await Promise.all([
-    db.from("listings").select("external_id").eq("platform", "vinted").gte("seen_at", since).limit(10000),
+    db.from("listings").select("external_id,price").eq("platform", "vinted").gte("seen_at", since).limit(10000),
     db.from("listings").select("external_id").in("platform", ["vinted_sold", "vinted_gone"]).limit(20000),
   ]);
   if (open.error || closed.error) {
     return NextResponse.json({ ok: false, error: open.error?.message ?? closed.error?.message }, { status: 500 });
   }
   const done = new Set((closed.data ?? []).map((r) => vid(r.external_id)));
-  const pending = (open.data ?? []).map((r) => vid(r.external_id)).filter((id) => id && !done.has(id));
+  const pending = (open.data ?? [])
+    .map((r) => ({ id: vid(r.external_id), price: Number(r.price) }))
+    .filter((r) => r.id && !done.has(r.id));
   // Al azar: así, pasada a pasada, se acaban revisando todos
   for (let i = pending.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [pending[i], pending[j]] = [pending[j], pending[i]];
   }
-  return NextResponse.json({ ok: true, open: pending.length, ids: pending.slice(0, CHECK_BATCH) });
+  // Primero los de MIN_REF_VALUE € o más (los baratos no interesan); los baratos solo rellenan huecos
+  const ordered = [
+    ...pending.filter((r) => r.price >= MIN_REF_VALUE),
+    ...pending.filter((r) => !(r.price >= MIN_REF_VALUE)),
+  ].map((r) => r.id);
+  const important = pending.filter((r) => r.price >= MIN_REF_VALUE).length;
+  return NextResponse.json({ ok: true, open: pending.length, open_10: important, ids: ordered.slice(0, CHECK_BATCH) });
 }
 
 interface InResult {
