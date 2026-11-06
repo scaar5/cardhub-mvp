@@ -1,32 +1,163 @@
 [
   {
-    "slug": "topps-ucc-2025-26",
-    "name": "Topps UEFA Club Competitions 2025-26",
+    "slug": "topps-chrome-premier-league-2025-26",
+    "name": "Topps Chrome Premier League 2025-26",
     "brand": "Topps",
     "season": "2025-26",
-    "competition": "UEFA Club Competitions",
+    "competition": "Premier League",
     "keywords": [
-      "topps ucc",
-      "topps uefa",
-      "topps champions league",
-      "topps flagship"
+      "topps chrome premier league",
+      "topps chrome epl",
+      "chrome premier league",
+      "chrome epl",
+      "2026 topps chrome"
     ],
     "parallels": [
-      "Holo Foil",
-      "Aqua Foil",
-      "Raindrops",
-      "Diamante",
-      "FlowFractor",
-      "Yellow /299",
-      "Purple /250",
+      "Refractor",
+      "Geometric",
+      "Prism",
+      "Teal /299",
+      "Yellow /275",
+      "Pink /250",
+      "Aqua /199",
       "Blue /150",
       "Green /99",
-      "Black and White /75",
+      "Retrofractor /92",
+      "Purple /75",
+      "Gold /50",
+      "White /30",
+      "Orange /25",
+      "Black /10",
+      "Purple Mojo /7",
+      "FrozenFractor /5",
+      "Red /5",
+      "Superfractor /1"
+    ]
+  },
+  {
+    "slug": "topps-chrome-ucc-2021-22",
+    "name": "Topps Chrome UEFA Champions League 2021-22",
+    "brand": "Topps",
+    "season": "2021-22",
+    "competition": "UEFA Club Competitions",
+    "keywords": [
+      "topps chrome ucl",
+      "topps chrome uefa",
+      "topps chrome champions league"
+    ],
+    "parallels": [
+      "Refractor",
+      "Speckle",
+      "X-Fractor",
+      "RayWave",
+      "Pulsar",
+      "Prism",
+      "Shimmer",
+      "Aqua /199",
+      "Pink /250",
+      "Neon Green /399",
+      "Blue /150",
+      "Green /99",
+      "Purple /75",
       "Gold /50",
       "Orange /25",
       "Black /10",
       "Red /5",
-      "FoilFractor /1"
+      "Superfractor /1"
+    ]
+  },
+  {
+    "slug": "topps-chrome-ucc-2022-23",
+    "name": "Topps Chrome UEFA Club Competitions 2022-23",
+    "brand": "Topps",
+    "season": "2022-23",
+    "competition": "UEFA Club Competitions",
+    "keywords": [
+      "topps chrome ucc",
+      "topps chrome uefa",
+      "topps chrome champions league"
+    ],
+    "parallels": [
+      "Refractor",
+      "Speckle",
+      "X-Fractor",
+      "RayWave",
+      "Pulsar",
+      "Prism",
+      "Shimmer",
+      "Aqua /199",
+      "Pink /250",
+      "Neon Green /399",
+      "Blue /150",
+      "Green /99",
+      "Purple /75",
+      "Gold /50",
+      "Orange /25",
+      "Black /10",
+      "Red /5",
+      "Superfractor /1"
+    ]
+  },
+  {
+    "slug": "topps-chrome-ucc-2023-24",
+    "name": "Topps Chrome UEFA Club Competitions 2023-24",
+    "brand": "Topps",
+    "season": "2023-24",
+    "competition": "UEFA Club Competitions",
+    "keywords": [
+      "topps chrome ucc",
+      "topps chrome uefa",
+      "topps chrome champions league"
+    ],
+    "parallels": [
+      "Refractor",
+      "Speckle",
+      "Geometric",
+      "Pulsar",
+      "Wave",
+      "RayWave",
+      "Prism",
+      "Neon Pink /175",
+      "Blue /150",
+      "Green /99",
+      "Purple /75",
+      "Gold /50",
+      "Orange /25",
+      "Black /10",
+      "Red /5",
+      "Superfractor /1"
+    ]
+  },
+  {
+    "slug": "topps-chrome-ucc-2024-25",
+    "name": "Topps Chrome UEFA Club Competitions 2024-25",
+    "brand": "Topps",
+    "season": "2024-25",
+    "competition": "UEFA Club Competitions",
+    "keywords": [
+      "topps chrome ucc",
+      "topps chrome uefa",
+      "topps chrome champions league",
+      "chrome ucc",
+      "chrome uefa"
+    ],
+    "parallels": [
+      "Refractor",
+      "Speckle",
+      "Geometric",
+      "Pulsar",
+      "Wave",
+      "RayWave",
+      "Prism",
+      "Neon Pink /175",
+      "Blue /150",
+      "Green /99",
+      "Purple /75",
+      "Gold /50",
+      "Orange /25",
+      "Black /10",
+      "Red /5",
+      "Superfractor /1"
     ]
   },
   {
@@ -68,132 +199,6 @@
     ]
   },
   {
-    "slug": "topps-chrome-ucc-2024-25",
-    "name": "Topps Chrome UEFA Club Competitions 2024-25",
-    "brand": "Topps",
-    "season": "2024-25",
-    "competition": "UEFA Club Competitions",
-    "keywords": [
-      "topps chrome ucc",
-      "topps chrome uefa",
-      "topps chrome champions league",
-      "chrome ucc",
-      "chrome uefa"
-    ],
-    "parallels": [
-      "Refractor",
-      "Speckle",
-      "Geometric",
-      "Pulsar",
-      "Wave",
-      "RayWave",
-      "Prism",
-      "Neon Pink /175",
-      "Blue /150",
-      "Green /99",
-      "Purple /75",
-      "Gold /50",
-      "Orange /25",
-      "Black /10",
-      "Red /5",
-      "Superfractor /1"
-    ]
-  },
-  {
-    "slug": "topps-summer-signings-ucc-2026-27",
-    "name": "Topps Summer Signings UEFA Club Competitions 2026-27",
-    "brand": "Topps",
-    "season": "2026-27",
-    "competition": "UEFA Club Competitions",
-    "keywords": [
-      "summer signings"
-    ],
-    "parallels": [
-      "Purple /75",
-      "Gold /50",
-      "Orange /25",
-      "Black /10",
-      "Red /5",
-      "FoilFractor /1"
-    ]
-  },
-  {
-    "slug": "topps-match-attax-ucc-2026-27",
-    "name": "Topps Match Attax UEFA Club Competitions 2026-27",
-    "brand": "Topps",
-    "season": "2026-27",
-    "competition": "UEFA Club Competitions",
-    "keywords": [
-      "match attax"
-    ],
-    "parallels": [
-      "Crystal",
-      "Limited Edition",
-      "100 Club",
-      "Golden Moments"
-    ]
-  },
-  {
-    "slug": "topps-premier-league-2025-26",
-    "name": "Topps Premier League 2025-26",
-    "brand": "Topps",
-    "season": "2025-26",
-    "competition": "Premier League",
-    "keywords": [
-      "topps premier league",
-      "topps epl",
-      "topps pl flagship"
-    ],
-    "parallels": [
-      "Foil",
-      "Chrome",
-      "Black Edge",
-      "Limited Edition",
-      "Purple /250",
-      "Blue /150",
-      "Green /99",
-      "Gold /50",
-      "Orange /25",
-      "Black /10",
-      "Red /5"
-    ]
-  },
-  {
-    "slug": "topps-chrome-premier-league-2025-26",
-    "name": "Topps Chrome Premier League 2025-26",
-    "brand": "Topps",
-    "season": "2025-26",
-    "competition": "Premier League",
-    "keywords": [
-      "topps chrome premier league",
-      "topps chrome epl",
-      "chrome premier league",
-      "chrome epl",
-      "2026 topps chrome"
-    ],
-    "parallels": [
-      "Refractor",
-      "Geometric",
-      "Prism",
-      "Teal /299",
-      "Yellow /275",
-      "Pink /250",
-      "Aqua /199",
-      "Blue /150",
-      "Green /99",
-      "Retrofractor /92",
-      "Purple /75",
-      "Gold /50",
-      "White /30",
-      "Orange /25",
-      "Black /10",
-      "Purple Mojo /7",
-      "FrozenFractor /5",
-      "Red /5",
-      "Superfractor /1"
-    ]
-  },
-  {
     "slug": "topps-finest-premier-league-2025-26",
     "name": "Topps Finest Premier League 2025-26",
     "brand": "Topps",
@@ -222,127 +227,76 @@
     ]
   },
   {
-    "slug": "topps-merlin-premier-league-2025-26",
-    "name": "Topps Merlin Premier League 2025-26",
+    "slug": "topps-finest-ucc-2021-22",
+    "name": "Topps Finest UEFA Champions League 2021-22",
     "brand": "Topps",
-    "season": "2025-26",
-    "competition": "Premier League",
+    "season": "2021-22",
+    "competition": "UEFA Club Competitions",
     "keywords": [
-      "topps merlin",
-      "merlin premier league",
-      "merlin epl",
-      "merlin chrome"
+      "topps finest ucc",
+      "topps finest uefa",
+      "topps finest champions league"
     ],
     "parallels": [
       "Refractor",
-      "Blue",
-      "Green",
-      "Purple",
-      "Gold",
-      "Orange",
-      "Black",
-      "Red",
-      "Superfractor"
-    ]
-  },
-  {
-    "slug": "panini-adrenalyn-laliga-2025-26",
-    "name": "Panini Adrenalyn XL LaLiga 2025-26",
-    "brand": "Panini",
-    "season": "2025-26",
-    "competition": "LaLiga",
-    "keywords": [
-      "adrenalyn",
-      "adrenalyn xl",
-      "adrenalyn laliga",
-      "adrenalyn liga"
-    ],
-    "parallels": [
-      "Edición Limitada",
-      "Limited Edition",
-      "Momentum",
-      "Firma",
-      "Autógrafo",
-      "Platinum",
-      "Premium Oro"
-    ]
-  },
-  {
-    "slug": "panini-adrenalyn-world-cup-2026",
-    "name": "Panini Adrenalyn XL FIFA World Cup 2026",
-    "brand": "Panini",
-    "season": "2026",
-    "competition": "FIFA World Cup",
-    "keywords": [
-      "adrenalyn world cup",
-      "adrenalyn mundial",
-      "adrenalyn wc",
-      "adrenalyn fifa world cup",
-      "adrenalyn 2026"
-    ],
-    "parallels": [
-      "Limited Edition",
-      "Hologram",
-      "XXL",
-      "Blue",
-      "Green",
-      "Orange",
-      "Silver"
-    ]
-  },
-  {
-    "slug": "topps-ucc-2024-25",
-    "name": "Topps UEFA Club Competitions 2024-25",
-    "brand": "Topps",
-    "season": "2024-25",
-    "competition": "UEFA Club Competitions",
-    "keywords": [
-      "topps ucc",
-      "topps uefa",
-      "topps champions league",
-      "topps flagship"
-    ],
-    "parallels": [
-      "Holo Foil",
-      "Aqua Foil",
-      "Raindrops",
-      "Diamante",
-      "FlowFractor",
-      "Yellow /299",
-      "Purple /250",
+      "Checkerboard",
+      "Vaporwave",
+      "Oil Spill",
+      "Purple /299",
       "Blue /150",
       "Green /99",
-      "Black and White /75",
       "Gold /50",
       "Orange /25",
       "Black /10",
       "Red /5",
-      "FoilFractor /1"
+      "Superfractor /1"
     ]
   },
   {
-    "slug": "topps-chrome-ucc-2023-24",
-    "name": "Topps Chrome UEFA Club Competitions 2023-24",
+    "slug": "topps-finest-ucc-2022-23",
+    "name": "Topps Finest UEFA Club Competitions 2022-23",
+    "brand": "Topps",
+    "season": "2022-23",
+    "competition": "UEFA Club Competitions",
+    "keywords": [
+      "topps finest ucc",
+      "topps finest uefa",
+      "topps finest champions league"
+    ],
+    "parallels": [
+      "Refractor",
+      "Checkerboard",
+      "Vaporwave",
+      "Oil Spill",
+      "Purple /299",
+      "Blue /150",
+      "Green /99",
+      "Gold /50",
+      "Orange /25",
+      "Black /10",
+      "Red /5",
+      "Superfractor /1"
+    ]
+  },
+  {
+    "slug": "topps-finest-ucc-2023-24",
+    "name": "Topps Finest UEFA Club Competitions 2023-24",
     "brand": "Topps",
     "season": "2023-24",
     "competition": "UEFA Club Competitions",
     "keywords": [
-      "topps chrome ucc",
-      "topps chrome uefa",
-      "topps chrome champions league"
+      "topps finest ucc",
+      "topps finest uefa",
+      "topps finest champions league"
     ],
     "parallels": [
       "Refractor",
-      "Speckle",
-      "Geometric",
-      "Pulsar",
-      "Wave",
-      "RayWave",
-      "Prism",
-      "Neon Pink /175",
+      "Checkerboard",
+      "Vaporwave",
+      "Oil Spill",
+      "Purple /299",
       "Blue /150",
       "Green /99",
-      "Purple /75",
       "Gold /50",
       "Orange /25",
       "Black /10",
@@ -377,34 +331,189 @@
     ]
   },
   {
-    "slug": "topps-match-attax-ucc-2025-26",
-    "name": "Topps Match Attax UEFA 2025-26",
+    "slug": "topps-finest-ucc-2025-26",
+    "name": "Topps Finest UEFA Club Competitions 2025-26",
     "brand": "Topps",
     "season": "2025-26",
     "competition": "UEFA Club Competitions",
     "keywords": [
-      "match attax",
-      "match attax 25 26"
+      "topps finest ucc",
+      "topps finest uefa",
+      "topps finest champions league"
     ],
     "parallels": [
-      "Crystal",
-      "Limited Edition",
-      "100 Club",
-      "Golden Moments"
+      "Refractor",
+      "Checkerboard",
+      "Vaporwave",
+      "Oil Spill",
+      "Purple /299",
+      "Blue /150",
+      "Green /99",
+      "Gold /50",
+      "Orange /25",
+      "Black /10",
+      "Red /5",
+      "Superfractor /1"
     ]
   },
   {
-    "slug": "panini-megacracks-2025-26",
-    "name": "Panini Megacracks LaLiga 2025-26",
-    "brand": "Panini",
+    "slug": "topps-merlin-premier-league-2025-26",
+    "name": "Topps Merlin Premier League 2025-26",
+    "brand": "Topps",
     "season": "2025-26",
-    "competition": "LaLiga",
+    "competition": "Premier League",
     "keywords": [
-      "megacracks",
-      "mgk",
-      "megacracks 25 26"
+      "topps merlin",
+      "merlin premier league",
+      "merlin epl",
+      "merlin chrome"
     ],
-    "parallels": []
+    "parallels": [
+      "Refractor",
+      "Blue",
+      "Green",
+      "Purple",
+      "Gold",
+      "Orange",
+      "Black",
+      "Red",
+      "Superfractor"
+    ]
+  },
+  {
+    "slug": "topps-merlin-ucc-2021-22",
+    "name": "Topps Merlin Chrome UEFA Champions League 2021-22",
+    "brand": "Topps",
+    "season": "2021-22",
+    "competition": "UEFA Club Competitions",
+    "keywords": [
+      "topps merlin",
+      "merlin chrome",
+      "merlin ucc",
+      "merlin uefa",
+      "merlin champions league"
+    ],
+    "parallels": [
+      "Refractor",
+      "Aqua Prism",
+      "Vintage Merlin",
+      "Blue /75",
+      "Green /99",
+      "Purple /125",
+      "Gold /50",
+      "Orange /25",
+      "Black /10",
+      "Red /5",
+      "Superfractor /1"
+    ]
+  },
+  {
+    "slug": "topps-merlin-ucc-2022-23",
+    "name": "Topps Merlin Chrome UEFA Club Competitions 2022-23",
+    "brand": "Topps",
+    "season": "2022-23",
+    "competition": "UEFA Club Competitions",
+    "keywords": [
+      "topps merlin",
+      "merlin chrome",
+      "merlin ucc",
+      "merlin uefa",
+      "merlin champions league"
+    ],
+    "parallels": [
+      "Refractor",
+      "Aqua Prism",
+      "Vintage Merlin",
+      "Blue /75",
+      "Green /99",
+      "Purple /125",
+      "Gold /50",
+      "Orange /25",
+      "Black /10",
+      "Red /5",
+      "Superfractor /1"
+    ]
+  },
+  {
+    "slug": "topps-merlin-ucc-2023-24",
+    "name": "Topps Merlin Chrome UEFA Club Competitions 2023-24",
+    "brand": "Topps",
+    "season": "2023-24",
+    "competition": "UEFA Club Competitions",
+    "keywords": [
+      "topps merlin",
+      "merlin chrome",
+      "merlin ucc",
+      "merlin uefa",
+      "merlin champions league"
+    ],
+    "parallels": [
+      "Refractor",
+      "Aqua Prism",
+      "Vintage Merlin",
+      "Blue /75",
+      "Green /99",
+      "Purple /125",
+      "Gold /50",
+      "Orange /25",
+      "Black /10",
+      "Red /5",
+      "Superfractor /1"
+    ]
+  },
+  {
+    "slug": "topps-merlin-ucc-2024-25",
+    "name": "Topps Merlin Chrome UEFA Club Competitions 2024-25",
+    "brand": "Topps",
+    "season": "2024-25",
+    "competition": "UEFA Club Competitions",
+    "keywords": [
+      "topps merlin",
+      "merlin chrome",
+      "merlin ucc",
+      "merlin uefa",
+      "merlin champions league"
+    ],
+    "parallels": [
+      "Refractor",
+      "Aqua Prism",
+      "Vintage Merlin",
+      "Blue /75",
+      "Green /99",
+      "Purple /125",
+      "Gold /50",
+      "Orange /25",
+      "Black /10",
+      "Red /5",
+      "Superfractor /1"
+    ]
+  },
+  {
+    "slug": "topps-merlin-ucc-2025-26",
+    "name": "Topps Merlin Chrome UEFA Club Competitions 2025-26",
+    "brand": "Topps",
+    "season": "2025-26",
+    "competition": "UEFA Club Competitions",
+    "keywords": [
+      "topps merlin",
+      "merlin chrome",
+      "merlin ucc",
+      "merlin uefa",
+      "merlin champions league"
+    ],
+    "parallels": [
+      "Refractor",
+      "Aqua Prism",
+      "Vintage Merlin",
+      "Blue /75",
+      "Green /99",
+      "Purple /125",
+      "Gold /50",
+      "Orange /25",
+      "Black /10",
+      "Red /5",
+      "Superfractor /1"
+    ]
   },
   {
     "slug": "panini-prizm-world-cup-2022",

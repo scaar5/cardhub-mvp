@@ -4,7 +4,7 @@ import type { Deal } from "./types";
 export const demoDeals: Deal[] = [
   {
     id: "demo-1",
-    title: "Panini Adrenalyn XL 24/25 — Lamine Yamal Momentum",
+    title: "Topps Merlin Chrome UCC 23/24 — Lamine Yamal RC #27",
     platform: "wallapop",
     price: 18,
     market_value: 45,
@@ -22,10 +22,10 @@ export const demoDeals: Deal[] = [
   },
   {
     id: "demo-3",
-    title: "Panini Megacracks 25/26 — Lote 120 cromos",
+    title: "Topps Finest UCC 25/26 — Estêvão Willian Gold Refractor /50",
     platform: "vinted",
-    price: 22,
-    market_value: 26,
+    price: 40,
+    market_value: 75,
     url: null,
     created_at: new Date().toISOString(),
   },

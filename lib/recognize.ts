@@ -122,6 +122,23 @@ for (const entry of index.values()) {
   for (const [s, players] of seenPlayers) entry.surnameCount.set(s, players.size);
 }
 
+/** Números de carta que existen en cada colección (para no fiarse de "números" que no lo son). */
+const numbersBySet = new Map<string, Set<string>>();
+for (const c of CARDS) {
+  const set = numbersBySet.get(c.set_slug) ?? new Set<string>();
+  set.add(c.number.toUpperCase());
+  numbersBySet.set(c.set_slug, set);
+}
+
+/** ¿Las palabras de la subserie aparecen en el título? (sin contar "base" y aceptando singular/plural) */
+function subsetInTitle(subsetTokens: string[], words: Set<string>): boolean {
+  const toks = subsetTokens.filter((t) => t !== "base");
+  if (!toks.length) return false;
+  return toks.every((t) => words.has(t) || words.has(t.replace(/s$/, "")) || words.has(`${t}s`));
+}
+
+const PLAIN_AUTO = /^(base |chrome )?autographs?$/i;
+
 const parallelsBySet = new Map(SETS.map((s) => [s.slug, s.parallels]));
 
 // ---------------------------------------------------------------------------
@@ -133,6 +150,8 @@ function readNumbers(title: string): string[] {
   for (const m of t.matchAll(/#\s*([a-z]{0,4}-?\d{1,3}[a-z]?)/g)) out.add(m[1]);
   for (const m of t.matchAll(/\bn[ºo°]\.?\s*(\d{1,3})\b/g)) out.add(m[1]);
   for (const m of t.matchAll(/(?<![a-z0-9])([a-z]{1,4}-\d{1,3})(?![a-z0-9])/g)) out.add(m[1]);
+  // Códigos de autógrafo con letras: "A-LY", "MBS-EH", "PFA-LY" (solo cuentan si existen en la colección)
+  for (const m of t.matchAll(/(?<![a-z0-9])([a-z]{1,4}-[a-z]{1,4}\d?)(?![a-z0-9])/g)) out.add(m[1]);
   return [...out].map((n) => n.toUpperCase().replace(/^0+(?=\d)/, ""));
 }
 
@@ -187,7 +206,8 @@ export function recognize(title: string, hint?: string): RecognizeResult {
   if (why) return { match: null, reason: why };
 
   const t = flat(title);
-  if (MEMORABILIA.some((w) => has(t, w))) return { match: null, reason: "memorabilia" };
+  // Parches y relics solo cuentan si la carta del catálogo es de ese tipo (gama alta)
+  const isMemorabilia = MEMORABILIA.some((w) => has(t, w));
   const isAuto = AUTO_WORDS.some((w) => has(t, w));
 
   const seasons = readSeasons(title);
@@ -213,19 +233,31 @@ export function recognize(title: string, hint?: string): RecognizeResult {
   for (const { rule, confidence } of sets) {
     const entry = index.get(rule.slug);
     if (!entry) continue;
+    const setNumbers = numbersBySet.get(rule.slug) ?? new Set<string>();
+    const setNums = numbers.filter((n) => setNumbers.has(n));
     for (const p of entry.players) {
       let score = 0;
       if (p.tokens.every((tok) => words.has(tok))) score = 3;
       else if (p.surname.length >= 4 && words.has(p.surname) && entry.surnameCount.get(p.surname) === 1) score = 2;
       if (!score) continue;
-      const numberOk = numbers.includes(p.card.number.toUpperCase());
-      // Si el título trae un número de carta y no es el de esta carta, es otra carta
-      if (numbers.length && !numberOk) continue;
+      const numberOk = setNums.includes(p.card.number.toUpperCase());
+      // Si el título trae un número de carta (de esta colección) y no es el de esta carta, es otra carta
+      if (setNums.length && !numberOk) continue;
       // Solo el apellido no basta (hay "Thiago Silva" e "Igor Thiago"): hace falta también el número
       if (score === 2 && !numberOk) continue;
       if (numberOk) score += 3;
-      if (p.subsetTokens.every((tok) => words.has(tok)) && !/^base/.test(p.card.subset.toLowerCase())) score += 2;
-      else if (/^base/i.test(p.card.subset)) score += 1;
+      // Serie base: "Base" a secas gana por defecto; las variantes y niveles de la base
+      // ("Base Rare", "Base Rookie Image Variations"...) solo si el título lo dice
+      const isBaseFamily = /^base/i.test(p.card.subset);
+      if (p.card.subset !== "Base" && subsetInTitle(p.subsetTokens, words)) score += 2;
+      else if (p.card.subset === "Base") score += 1;
+      else if (isBaseFamily) score += 0;
+      // Si el anuncio dice "auto"/"firma", la carta firmada pasa por delante de la normal
+      const subsetIsAuto = /aut|firma|signature/i.test(p.card.subset);
+      if (isAuto && subsetIsAuto) score += 3;
+      // Firma sin más pistas: la serie de autógrafos normal antes que las especiales
+      if (isAuto && PLAIN_AUTO.test(p.card.subset)) score += 1;
+      if (isMemorabilia && /relic|patch|memorabilia|match ball|swatch|jersey/i.test(p.card.subset)) score += 3;
       cands.push({ p, score, confidence, slug: rule.slug });
     }
   }
@@ -241,7 +273,10 @@ export function recognize(title: string, hint?: string): RecognizeResult {
   if (/^base/i.test(card.subset) && INSERT_WORDS.some((w) => has(t, w))) {
     return { match: null, reason: "insert que no está en el catálogo" };
   }
-  if (isAuto && !/aut|firma/i.test(card.subset)) return { match: null, reason: "autógrafo (no está en el catálogo)" };
+  if (isAuto && !/aut|firma|signature/i.test(card.subset)) return { match: null, reason: "autógrafo (no está en el catálogo)" };
+  if (isMemorabilia && !/relic|patch|memorabilia|match ball|swatch|jersey/i.test(card.subset)) {
+    return { match: null, reason: "memorabilia (no está en el catálogo)" };
+  }
 
   return {
     match: {

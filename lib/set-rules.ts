@@ -10,6 +10,9 @@
  *  - seasons:  temporadas que acepta. Si el título trae otra temporada, se descarta.
  *
  * Todo se compara en minúsculas, sin acentos y con "/" "-" "." convertidos en espacios.
+ *
+ * Enfoque del catálogo (v0.7): solo gama alta, media-alta, rookies y torneos de selecciones,
+ * de la temporada 2021-22 en adelante. Nada de Match Attax, Megacracks, Adrenalyn ni flagship.
  */
 export interface SetRule {
   slug: string;
@@ -21,84 +24,91 @@ export interface SetRule {
   seasons: string[]; // "2025-26", o "2026" para un Mundial
 }
 
-// Productos que se parecen a los del catálogo pero son otros
+// Productos de Topps que se parecen a los del catálogo pero son otros (o aún no están en él)
 const OTHER_TOPPS = [
   "stadium club", "stadium", "sapphire", "museum", "pristine", "classics", "cosmic", "x mls", "topps now", "reverence", "carnaval", "simplicidad",
   "total football", "collector tin", "tin", "dynasty", "inception", "deco", "gold premier league",
   "topps gold", "women", "womens", "uwcl", "wsl", "nwsl", "bundesliga", "serie a", "calciatori",
   "liga portugal", "mls", "nba", "nfl", "f1", "formula 1", "uefa euro", "euro 2024", "nations league",
   "club world cup", "mundial de clubes", "eredivisie", "spfl", "j league", "sticker", "stickers", "pokemon",
-];
-const OTHER_PANINI = [
-  "megacracks", "mgk", "prizm", "donruss", "select", "chronicles", "obsidian", "immaculate",
-  "fifa 365", "ligue 1", "champions league", "uefa", "ucl", "premier league", "bundesliga", "calcio",
-  "serie a", "copa america", "euro", "liga este", "liga portugal", "eredivisie", "top class",
-  "sticker", "stickers", "pokemon", "club world cup", "mundial de clubes",
+  "match attax", "heritage", "flashback", "flashbacks", "road to", "knockout", "superstars", "jade", "japan edition",
 ];
 
+const UCC_WORDS = ["ucc", "ucl", "uefa", "champions league", "club competitions"];
+
+/** Topps Chrome UEFA (Champions League en 21-22, Club Competitions desde 22-23). */
+function chromeUcc(season: string, vinted: string[]): SetRule {
+  const [a, b] = season.split("-");
+  return {
+    slug: `topps-chrome-ucc-${season}`,
+    searches: [`topps chrome ucc ${a} ${b}`, `topps chrome champions league ${a} ${b}`],
+    vinted,
+    any: UCC_WORDS,
+    all: ["chrome"],
+    forbid: [...OTHER_TOPPS, "premier league", "epl", "finest", "merlin", "summer signing"],
+    seasons: [season],
+  };
+}
+
+/** Topps Merlin Chrome UEFA. "Merlin Heritage" es otro producto (fase 2). */
+function merlinUcc(season: string, vinted: string[], needUcc = false): SetRule {
+  const [a, b] = season.split("-");
+  return {
+    slug: `topps-merlin-ucc-${season}`,
+    searches: [`topps merlin chrome ${a} ${b}`, `topps merlin uefa ${a} ${b}`],
+    vinted,
+    // En 25-26 también existe Merlin Premier League: ahí se exige que el título diga UEFA/UCC
+    any: needUcc ? UCC_WORDS : ["merlin"],
+    all: needUcc ? ["merlin"] : undefined,
+    forbid: [...OTHER_TOPPS, "premier league", "epl", "finest"],
+    seasons: [season],
+  };
+}
+
+/** Topps Finest UEFA. "Total Football" es un insert de Finest: no se prohíbe aquí. */
+function finestUcc(season: string, vinted: string[]): SetRule {
+  const [a, b] = season.split("-");
+  return {
+    slug: `topps-finest-ucc-${season}`,
+    searches: [`topps finest ucc ${a} ${b}`, `topps finest champions league ${a} ${b}`],
+    vinted,
+    any: UCC_WORDS,
+    all: ["finest"],
+    forbid: [...OTHER_TOPPS.filter((w) => w !== "total football"), "premier league", "epl", "chrome", "merlin", "summer signing"],
+    seasons: [season],
+  };
+}
+
 export const SET_RULES: SetRule[] = [
-  {
-    slug: "topps-ucc-2025-26",
-    searches: ["topps uefa club competitions 2025 26"],
-    vinted: ["topps uefa club competitions 2025", "topps ucc 2025 26"],
-    any: ["topps ucc", "topps uefa", "topps champions league", "club competitions", "flagship ucc"],
-    all: ["topps"],
-    forbid: [...OTHER_TOPPS, "chrome", "finest", "merlin", "match attax", "summer signing", "premier league", "cosmic"],
-    seasons: ["2025-26"],
-  },
-  {
-    slug: "topps-chrome-ucc-2025-26",
-    searches: ["topps chrome ucc 2025 26", "topps chrome champions league 2025 26"],
-    vinted: ["topps chrome ucc 2025", "topps chrome 2025 26"],
-    any: ["ucc", "uefa", "champions league", "club competitions", "ucl"],
-    all: ["chrome"],
-    forbid: [...OTHER_TOPPS, "premier league", "finest", "merlin", "match attax", "summer signing", "cosmic"],
-    seasons: ["2025-26"],
-  },
-  {
-    slug: "topps-chrome-ucc-2024-25",
-    searches: ["topps chrome ucc 2024 25", "topps chrome champions league 2024 25"],
-    vinted: ["topps chrome 2024 25"],
-    any: ["ucc", "uefa", "champions league", "club competitions", "ucl"],
-    all: ["chrome"],
-    forbid: [...OTHER_TOPPS, "premier league", "finest", "merlin", "match attax", "summer signing", "cosmic"],
-    seasons: ["2024-25"],
-  },
-  {
-    slug: "topps-summer-signings-ucc-2026-27",
-    searches: ["topps summer signings 2026 27"],
-    vinted: ["topps summer signings"],
-    any: ["summer signing", "summer signings"],
-    forbid: OTHER_TOPPS,
-    seasons: ["2026-27"],
-  },
-  {
-    slug: "topps-match-attax-ucc-2026-27",
-    searches: ["match attax 2026 27", "match attax 26 27"],
-    vinted: ["match attax 2026", "match attax 26 27"],
-    any: ["match attax"],
-    forbid: [
-      ...OTHER_TOPPS,
-      "premier league", "epl", "extra", "chrome", "101",
-    ],
-    seasons: ["2026-27"],
-  },
-  {
-    slug: "topps-premier-league-2025-26",
-    searches: ["topps premier league 2025 26", "topps flagship premier league 2025"],
-    vinted: ["topps premier league 2025"],
-    any: ["premier league", "epl"],
-    all: ["topps"],
-    forbid: [...OTHER_TOPPS, "chrome", "finest", "merlin", "match attax", "ucc", "uefa", "champions league"],
-    seasons: ["2025-26"],
-  },
+  // --- Topps Chrome UCC ---------------------------------------------------
+  chromeUcc("2025-26", ["topps chrome ucc 2025", "topps chrome 2025 26"]),
+  chromeUcc("2024-25", ["topps chrome 2024 25"]),
+  chromeUcc("2023-24", ["topps chrome 2023 24"]),
+  chromeUcc("2022-23", ["topps chrome 2022 23"]),
+  chromeUcc("2021-22", ["topps chrome 2021 22"]),
+
+  // --- Topps Merlin Chrome UCC -------------------------------------------
+  merlinUcc("2025-26", ["topps merlin 2025 26 uefa", "merlin ucc 2025"], true),
+  merlinUcc("2024-25", ["topps merlin 2024 25"]),
+  merlinUcc("2023-24", ["topps merlin 2023 24"]),
+  merlinUcc("2022-23", ["topps merlin 2022 23"]),
+  merlinUcc("2021-22", ["topps merlin 2021 22"]),
+
+  // --- Topps Finest UCC --------------------------------------------------
+  finestUcc("2025-26", ["topps finest 2025 26"]),
+  finestUcc("2024-25", ["topps finest 2024 25"]),
+  finestUcc("2023-24", ["topps finest 2023 24"]),
+  finestUcc("2022-23", ["topps finest 2022 23"]),
+  finestUcc("2021-22", ["topps finest 2021 22"]),
+
+  // --- Premier League (Topps, solo desde 25-26) --------------------------
   {
     slug: "topps-chrome-premier-league-2025-26",
     searches: ["topps chrome premier league 2025 26"],
     vinted: ["topps chrome premier league"],
     any: ["premier league", "epl"],
     all: ["chrome"],
-    forbid: [...OTHER_TOPPS, "finest", "merlin", "match attax", "ucc", "uefa", "champions league"],
+    forbid: [...OTHER_TOPPS, "finest", "merlin", "ucc", "uefa", "champions league"],
     seasons: ["2025-26"],
   },
   {
@@ -107,78 +117,19 @@ export const SET_RULES: SetRule[] = [
     vinted: ["topps finest premier league"],
     any: ["premier league", "epl", "finest pl"],
     all: ["finest"],
-    forbid: [...OTHER_TOPPS, "merlin", "match attax", "ucc", "uefa", "champions league", "club competitions"],
+    forbid: [...OTHER_TOPPS, "merlin", "ucc", "uefa", "champions league", "club competitions"],
     seasons: ["2025-26"],
   },
   {
     slug: "topps-merlin-premier-league-2025-26",
     searches: ["topps merlin premier league 2025 26"],
-    vinted: ["topps merlin 2025"],
+    vinted: ["topps merlin premier league"],
     any: ["merlin"],
-    forbid: [...OTHER_TOPPS, "finest", "match attax", "ucc", "uefa", "champions league", "club competitions"],
+    forbid: [...OTHER_TOPPS, "finest", "ucc", "uefa", "champions league", "club competitions"],
     seasons: ["2025-26"],
   },
-  {
-    slug: "panini-adrenalyn-laliga-2025-26",
-    searches: ["adrenalyn xl 2025 26", "adrenalyn 25 26 laliga"],
-    vinted: ["adrenalyn 25 26", "adrenalyn 2025 2026"],
-    any: ["adrenalyn"],
-    forbid: [...OTHER_PANINI, "mundial", "world cup", "wc 2026", "fifa world cup"],
-    seasons: ["2025-26"],
-  },
-  {
-    slug: "panini-adrenalyn-world-cup-2026",
-    searches: ["adrenalyn mundial 2026", "adrenalyn world cup 2026"],
-    vinted: ["adrenalyn mundial 2026"],
-    any: ["mundial", "world cup", "wc 2026", "copa del mundo"],
-    all: ["adrenalyn"],
-    forbid: [...OTHER_PANINI.filter((w) => w !== "euro"), "laliga", "la liga", "liga ea"],
-    seasons: ["2026"],
-  },
-  {
-    slug: "topps-ucc-2024-25",
-    searches: ["topps uefa club competitions 2024 25"],
-    vinted: ["topps ucc 2024 25"],
-    any: ["topps ucc", "topps uefa", "topps champions league", "club competitions", "flagship ucc"],
-    all: ["topps"],
-    forbid: [...OTHER_TOPPS, "chrome", "finest", "merlin", "match attax", "summer signing", "premier league", "cosmic"],
-    seasons: ["2024-25"],
-  },
-  {
-    slug: "topps-chrome-ucc-2023-24",
-    searches: ["topps chrome ucc 2023 24", "topps chrome champions league 2023 24"],
-    vinted: ["topps chrome 2023 24"],
-    any: ["ucc", "uefa", "champions league", "club competitions", "ucl"],
-    all: ["chrome"],
-    forbid: [...OTHER_TOPPS, "premier league", "finest", "merlin", "match attax", "summer signing", "cosmic"],
-    seasons: ["2023-24"],
-  },
-  {
-    slug: "topps-finest-ucc-2024-25",
-    searches: ["topps finest ucc 2024 25", "topps finest champions league 2024 25"],
-    vinted: ["topps finest 2024 25"],
-    any: ["ucc", "uefa", "champions league", "club competitions", "ucl"],
-    all: ["finest"],
-    // "Total Football" es un insert de esta colección: no se prohíbe aquí
-    forbid: [...OTHER_TOPPS.filter((w) => w !== "total football"), "premier league", "epl", "chrome", "merlin", "match attax", "summer signing"],
-    seasons: ["2024-25"],
-  },
-  {
-    slug: "topps-match-attax-ucc-2025-26",
-    searches: ["match attax 2025 26", "match attax 25 26"],
-    vinted: ["match attax 2025 2026", "match attax 25 26"],
-    any: ["match attax"],
-    forbid: [...OTHER_TOPPS, "premier league", "epl", "extra", "chrome", "101"],
-    seasons: ["2025-26"],
-  },
-  {
-    slug: "panini-megacracks-2025-26",
-    searches: ["megacracks 2025 26", "megacracks 25 26"],
-    vinted: ["megacracks 25 26", "megacracks 2025"],
-    any: ["megacracks", "mega cracks", "mgk"],
-    forbid: ["adrenalyn", "topps", "prizm", "donruss", "select", "fifa 365", "sticker", "stickers", "pokemon", "mundial", "world cup"],
-    seasons: ["2025-26"],
-  },
+
+  // --- Selecciones -------------------------------------------------------
   {
     slug: "panini-prizm-world-cup-2022",
     searches: ["panini prizm world cup 2022", "prizm qatar 2022"],

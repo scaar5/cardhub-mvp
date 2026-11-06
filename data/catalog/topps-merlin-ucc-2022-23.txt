@@ -1,0 +1,353 @@
+## Base
+1|Sandro Tonali|AC Milan|
+2|Charles De Ketelaere|AC Milan|
+3|Rafael Leão|AC Milan|
+4|Tommaso Pobega|AC Milan|
+5|Nicolás González|ACF Fiorentina|
+6|Luka Jović|ACF Fiorentina|
+7|Alessandro Bianco|ACF Fiorentina|RC
+8|Mohammed Kudus|AFC Ajax|
+9|Youri Baas|AFC Ajax|RC
+10|Youri Regeer|AFC Ajax|RC
+11|Francisco Conceição|AFC Ajax|
+12|Bukayo Saka|Arsenal FC|
+13|Eddie Nketiah|Arsenal FC|
+14|William Saliba|Arsenal FC|
+15|Gabriel Martinelli|Arsenal FC|
+16|Gabriel Jesus|Arsenal FC|
+17|Maghnes Akliouche|AS Monaco|RC
+18|Takumi Minamino|AS Monaco|
+19|Soungoutou Magassa|AS Monaco|RC
+20|Breel Embolo|AS Monaco|
+21|Eliesse Ben Seghir|AS Monaco|RC
+22|Nicola Zalewski|AS Roma|RC
+23|Paulo Dybala|AS Roma|
+24|Lorenzo Pellegrini|AS Roma|
+25|Chris Smalling|AS Roma|
+26|Antoine Griezmann|Atlético de Madrid|
+27|Pablo Barrios|Atlético de Madrid|RC
+28|Jan Oblak|Atlético de Madrid|
+29|Jude Bellingham|Borussia Dortmund|
+30|Giovanni Reyna|Borussia Dortmund|
+31|Jamie Bynoe-Gittens|Borussia Dortmund|RC
+32|Karim Adeyemi|Borussia Dortmund|
+33|Youssoufa Moukoko|Borussia Dortmund|
+34|Matthew O'Riley|Celtic FC|RC
+35|Kyogo Furuhashi|Celtic FC|
+36|Hyeongyu Oh|Celtic FC|RC
+37|Christian Pulisic|Chelsea FC|
+38|Nayef Aguerd|West Ham United FC|
+39|Carney Chukwuemeka|Chelsea FC|RC
+40|Noni Madueke|Chelsea FC|
+41|Mykhailo Mudryk|Chelsea FC|RC
+42|João Félix|Chelsea FC|
+43|Arda Güler|Fenerbahçe S.K.|RC
+44|Andreas Skov Olsen|Club Brugge|
+45|Antonio Nusa|Club Brugge|RC
+46|Abakar Sylla|Club Brugge|RC
+47|Pedri|FC Barcelona|
+48|Gavi|FC Barcelona|
+49|Frenkie de Jong|FC Barcelona|
+50|Marc Casadó|FC Barcelona|RC
+51|Ousmane Dembélé|FC Barcelona|
+52|Pablo Torre|FC Barcelona|RC
+53|Robert Lewandowski|FC Barcelona|
+54|Leroy Sané|FC Bayern München|
+55|Alphonso Davies|FC Bayern München|
+56|Jamal Musiala|FC Bayern München|
+57|João Cancelo|FC Bayern München|
+58|Mathys Tel|FC Bayern München|
+59|Sadio Mané|FC Bayern München|
+60|Roony Bardghji|FC Copenhagen|RC
+61|Ísak Bergmann Jóhannesson|FC Copenhagen|RC
+62|Mohamed Daramy|FC Copenhagen|
+63|Nicolò Barella|FC Internazionale Milano|
+64|Romelu Lukaku|FC Internazionale Milano|
+65|Valentín Carboni|FC Internazionale Milano|RC
+66|Alessandro Bastoni|FC Internazionale Milano|
+67|Lautaro Martínez|FC Internazionale Milano|
+68|Benjamin Sesko|FC Salzburg|
+69|Luka Sucic|FC Salzburg|
+70|Dijon Kameri|FC Salzburg|RC
+71|Lucas Gourna-Douath|FC Salzburg|RC
+72|Omer Atzili|Maccabi Haifa FC|RC
+73|Frantzdy Pierrot|Maccabi Haifa FC|RC
+74|Mohammad Abu Fani|Maccabi Haifa FC|RC
+75|Issa Kaboré|Olympique de Marseille|RC
+76|Vitinha|Olympique de Marseille|RC
+77|Mattéo Guendouzi|Olympique de Marseille|
+78|Fabio Miretti|Juventus|
+79|Nicolò Fagioli|Juventus|RC
+80|Matías Soulé|Juventus|RC
+81|Federico Chiesa|Juventus|
+82|Dušan Vlahović|Juventus|
+83|Samuel Iling-Junior|Juventus|RC
+84|Cody Gakpo|Liverpool FC|
+85|Divin Mubama|West Ham United FC|RC
+86|Darwin Núñez|Liverpool FC|
+87|Harvey Elliott|Liverpool FC|
+88|Mohamed Salah|Liverpool FC|
+89|Virgil van Dijk|Liverpool FC|
+90|Fábio Carvalho|Liverpool FC|RC
+91|Kevin De Bruyne|Manchester City|
+92|Erling Haaland|Manchester City|
+93|Phil Foden|Manchester City|
+94|Julián Álvarez|Manchester City|RC
+95|Jack Grealish|Manchester City|
+96|Alejandro Garnacho|Manchester United|RC
+97|Kobbie Mainoo|Manchester United|RC
+98|Marcus Rashford|Manchester United|
+99|Bruno Fernandes|Manchester United|
+100|Hugo Ekitike|Paris Saint-Germain|RC
+101|Jadon Sancho|Manchester United|
+102|Antony|Manchester United|
+103|Neymar Jr|Paris Saint-Germain|
+104|Lionel Messi|Paris Saint-Germain|
+105|Kylian Mbappé|Paris Saint-Germain|
+106|Sergio Ramos|Paris Saint-Germain|
+107|Xavi Simons|PSV Eindhoven|
+108|Johan Bakayoko|PSV Eindhoven|RC
+109|Sávio|PSV Eindhoven|RC
+110|Evann Guessand|FC Nantes|RC
+111|Quentin Merlin|FC Nantes|RC
+112|Moses Simon|FC Nantes|
+113|Christopher Nkunku|RB Leipzig|
+114|Dominik Szoboszlai|RB Leipzig|
+115|Timo Werner|RB Leipzig|
+116|Joško Gvardiol|RB Leipzig|
+117|Thibaut Courtois|Real Madrid C.F.|
+118|Vini Jr.|Real Madrid C.F.|
+119|Luka Modrić|Real Madrid C.F.|
+120|Karim Benzema|Real Madrid C.F.|
+121|Eduardo Camavinga|Real Madrid C.F.|
+122|Aurélien Tchouaméni|Real Madrid C.F.|
+123|Mohamed-Ali Cho|Real Sociedad de Fútbol|RC
+124|Takefusa Kubo|Real Sociedad de Fútbol|
+125|Mikel Oyarzabal|Real Sociedad de Fútbol|
+126|Marcus Edwards|Sporting Clube de Portugal|RC
+127|Pedro Gonçalves|Sporting Clube de Portugal|
+128|Issahaku Fatawu|Sporting Clube de Portugal|RC
+129|Mario Gila|SS Lazio|RC
+130|Luka Romero|SS Lazio|
+131|Ciro Immobile|SS Lazio|
+132|Matteo Cancellieri|SS Lazio|RC
+133|Désiré Doué|Stade Rennais F.C.|RC
+134|Jarrod Bowen|West Ham United FC|
+135|Amine Gouiri|Stade Rennais F.C.|RC
+136|Arnaud Kalimuendo|Stade Rennais F.C.|RC
+137|Harry Kane|Tottenham Hotspur|
+138|Heung-min Son|Tottenham Hotspur|
+139|Dejan Kulusevski|Tottenham Hotspur|
+140|Oussama El Azzouzi|Union Saint-Gilloise|RC
+141|Simon Adingra|Union Saint-Gilloise|RC
+142|Victor Boniface|Union Saint-Gilloise|RC
+143|Andreas Schjelderup|SL Benfica|RC
+144|Martim Neto|SL Benfica|RC
+145|António Silva|SL Benfica|RC
+146|Reo Hatate|Celtic FC|
+147|Enzo Fernández|Chelsea FC|RC
+148|Nicolas Raskin|Rangers F.C.|RC
+149|Alex Lowry|Rangers F.C.|RC
+150|Malik Tillman|Rangers F.C.|
+## Base Rookie Image Variations
+60|Roony Bardghji|FC Copenhagen|RC
+90|Fábio Carvalho|Liverpool FC|RC
+96|Alejandro Garnacho|Manchester United|RC
+133|Désiré Doué|Stade Rennais F.C.|RC
+147|Enzo Fernández|Chelsea FC|RC
+## Ageless Alchemy
+AA-1|Luís Figo|FC Internazionale Milano|
+AA-2|Ronaldo|FC Internazionale Milano|
+AA-3|Rivaldo|FC Barcelona|
+AA-4|Xavi|FC Barcelona|
+AA-5|Roy Keane|Manchester United|
+AA-6|Pavel Nedvěd|Juventus|
+AA-7|Marco van Basten|AC Milan|
+AA-8|Patrick Kluivert|AFC Ajax|
+AA-9|Dennis Bergkamp|Arsenal FC|
+AA-10|Marcel Desailly|Olympique de Marseille|
+AA-11|Roberto Carlos|Real Madrid C.F.|
+AA-12|Dino Zoff|Juventus|
+AA-13|Kaká|AC Milan|
+AA-14|Lionel Messi|Paris Saint-Germain|
+AA-15|Harry Kewell|Liverpool FC|
+AA-16|Frank Lampard|Chelsea FC|
+AA-17|Andrea Pirlo|AC Milan|
+AA-18|Gabriel Batistuta|ACF Fiorentina|
+AA-19|Hernán Crespo|SS Lazio|
+AA-20|Zinédine Zidane|Juventus|
+## Merlin's Masters
+MM-1|Paulo Dybala|AS Roma|
+MM-2|Mykhailo Mudryk|Chelsea FC|
+MM-3|Robert Lewandowski|FC Barcelona|
+MM-4|Enzo Fernández|Chelsea FC|
+MM-5|Jamal Musiala|FC Bayern München|
+MM-6|Gabriel Martinelli|Arsenal FC|
+MM-7|Mohamed Salah|Liverpool FC|
+MM-8|Kevin De Bruyne|Manchester City|
+MM-9|Cody Gakpo|Liverpool FC|
+MM-10|Antony|Manchester United|
+MM-11|Wayne Rooney|Manchester United|
+MM-12|Frank Rijkaard|AC Milan|
+MM-13|Luka Modrić|Real Madrid C.F.|
+MM-14|Vini Jr.|Real Madrid C.F.|
+MM-15|Harry Kane|Tottenham Hotspur|
+## Renaissance
+R-1|Kylian Mbappé|Paris Saint-Germain|
+R-2|Lionel Messi|Paris Saint-Germain|
+R-3|Heung-min Son|Tottenham Hotspur|
+R-4|Erling Haaland|Manchester City|
+R-5|Phil Foden|Manchester City|
+R-6|Jamal Musiala|FC Bayern München|
+R-7|Jude Bellingham|Borussia Dortmund|
+R-8|Pedri|FC Barcelona|
+R-9|Ronaldo|FC Internazionale Milano|
+R-10|Gavi|FC Barcelona|
+R-11|Alejandro Garnacho|Manchester United|
+R-12|Vini Jr.|Real Madrid C.F.|
+R-13|Cristiano Ronaldo|Real Madrid C.F.|
+R-14|Julián Álvarez|Manchester City|
+R-15|Robert Lewandowski|FC Barcelona|
+## Under 21 Stars
+U21-1|Alejandro Garnacho|Manchester United|
+U21-2|Francisco Conceição|AFC Ajax|
+U21-3|Xavi Simons|PSV Eindhoven|
+U21-4|Alex Lowry|Rangers F.C.|
+U21-5|Andreas Schjelderup|SL Benfica|
+U21-6|Gavi|FC Barcelona|
+U21-7|Mathys Tel|FC Bayern München|
+U21-8|Kobbie Mainoo|Manchester United|
+U21-9|Benjamin Sesko|FC Salzburg|
+U21-10|Luka Sucic|FC Salzburg|
+U21-11|Fabio Miretti|Juventus|
+U21-12|Luka Romero|SS Lazio|
+U21-13|Cole Palmer|Manchester City|
+U21-14|Paul Wanner|FC Bayern München|
+U21-15|Nuno Mendes|Paris Saint-Germain|
+U21-16|Désiré Doué|Stade Rennais F.C.|
+U21-17|Antonio Nusa|Club Brugge|
+U21-18|António Silva|SL Benfica|
+U21-19|Matías Soulé|Juventus|
+U21-20|Eliesse Ben Seghir|AS Monaco|
+## The Grail
+GL-3|Erling Haaland|FC Salzburg|
+GL-6|Erling Haaland|Borussia Dortmund|
+## Base Autographs
+AC-ADP|Alessandro Del Piero|Juventus|
+AC-AF|Ansu Fati|FC Barcelona|
+AC-AG|Alejandro Garnacho|Manchester United|
+AC-AK|Arnaud Kalimuendo|Stade Rennais F.C.|
+AC-AL|Alex Lowry|Rangers F.C.|
+AC-AS|António Silva|SL Benfica|
+AC-BH|Benjamin Henrichs|RB Leipzig|
+AC-CA|Cafu|AC Milan|
+AC-CCV|Cameron Carter-Vickers|Celtic FC|
+AC-CG|Cody Gakpo|Liverpool FC|
+AC-CR|Cristiano Ronaldo|Real Madrid C.F.|
+AC-DB|Dennis Bergkamp|Arsenal FC|
+AC-DU|Dayot Upamecano|FC Bayern München|
+AC-EH|Erling Haaland|Manchester City|
+AC-EM|Eliot Matazo|AS Monaco|
+AC-EZ|Enzo Fernández|Chelsea FC|
+AC-FC|Fábio Carvalho|Liverpool FC|
+AC-FS|Fashion Sakala|Rangers F.C.|
+AC-GB|Gianluigi Buffon|Juventus|
+AC-GC|Giorgio Chiellini|Juventus|
+AC-GR|Giovanni Reyna|Borussia Dortmund|
+AC-GU|Arda Güler|Fenerbahçe S.K.|
+AC-HK|Harry Kane|Tottenham Hotspur|
+AC-HL|Henrik Larsson|Celtic FC|
+AC-IH|Ianis Hagi|Rangers F.C.|
+AC-JC|Jamie Carragher|Liverpool FC|
+AC-JM|Jamal Musiala|FC Bayern München|
+AC-JO|Jota|Celtic FC|
+AC-KC|Kingsley Coman|FC Bayern München|
+AC-KD|Krépin Diatta|AS Monaco|
+AC-KDB|Kevin De Bruyne|Manchester City|
+AC-KH|Kai Havertz|Chelsea FC|
+AC-KM|Kobbie Mainoo|Manchester United|
+AC-KW|Kyle Walker|Manchester City|
+AC-LA|Liel Abada|Celtic FC|
+AC-LM|Luka Modrić|Real Madrid C.F.|
+AC-MC|Marc Casadó|FC Barcelona|
+AC-MG|Matteo Gabbia|AC Milan|
+AC-MM|Mykhailo Mudryk|Chelsea FC|
+AC-MT|Malick Thiaw|AC Milan|
+AC-MV|Marco Verratti|Paris Saint-Germain|
+AC-NJ|Neymar Jr|Paris Saint-Germain|
+AC-NL|Noa Lang|Club Brugge|
+AC-PE|Pedri|FC Barcelona|
+AC-PF|Phil Foden|Manchester City|
+AC-PG|Paul Gascoigne|Rangers F.C.|
+AC-PS|Peter Schmeichel|Manchester United|
+AC-PT|Pablo Torre|FC Barcelona|
+AC-RB|Roony Bardghji|FC Copenhagen|
+AC-RR|Rodrigo Ribeiro|Sporting Clube de Portugal|
+AC-RVP|Robin van Persie|Arsenal FC|
+AC-SB|Stefan Bajcetic|Liverpool FC|
+AC-ST|Sandro Tonali|AC Milan|
+AC-TA|Thiago Alcântara|Liverpool FC|
+AC-TM|Thomas Müller|FC Bayern München|
+AC-TN|Takuhiro Nakai|Real Madrid C.F.|
+AC-TW|Timo Werner|RB Leipzig|
+AC-WR|Wayne Rooney|Manchester United|
+AC-WZE|Warren Zaïre-Emery|Paris Saint-Germain|
+## Ageless Alchemy Autographs
+AA-2|Ronaldo|FC Internazionale Milano|
+AA-4|Xavi|FC Barcelona|
+AA-5|Roy Keane|Manchester United|
+AA-6|Pavel Nedvěd|Juventus|
+AA-7|Marco van Basten|AC Milan|
+AA-8|Patrick Kluivert|AFC Ajax|
+AA-12|Dino Zoff|Juventus|
+AA-15|Harry Kewell|Liverpool FC|
+AA-19|Hernán Crespo|SS Lazio|
+AA-20|Zinédine Zidane|Juventus|
+## Sorcerers Autographs
+SA-AE|Anthony Elanga|Manchester United|
+SA-ANT|Antony|Manchester United|
+SA-CN|Christopher Nkunku|RB Leipzig|
+SA-DJ|Dejan Kulusevski|Tottenham Hotspur|
+SA-FR|Frank Rijkaard|AC Milan|
+SA-GB|Gabriel Batistuta|ACF Fiorentina|
+SA-HE|Harvey Elliott|Liverpool FC|
+SA-JF|João Félix|Chelsea FC|
+SA-JG|Jack Grealish|Manchester City|
+SA-KB|Karim Benzema|Real Madrid C.F.|
+SA-LA|Lautaro Martínez|FC Internazionale Milano|
+SA-LF|Luís Figo|FC Internazionale Milano|
+SA-LM|Lionel Messi|Paris Saint-Germain|
+SA-NEY|Neymar Jr|Paris Saint-Germain|
+SA-RF|Robbie Fowler|Liverpool FC|
+SA-RL|Rafael Leão|AC Milan|
+SA-RON|Cristiano Ronaldo|Real Madrid C.F.|
+SA-TK|Toni Kroos|Real Madrid C.F.|
+SA-TM|Thomas Müller|FC Bayern München|
+SA-VJ|Vini Jr.|Real Madrid C.F.|
+## Under 21 Stars Autographs
+U21-1|Alejandro Garnacho|Manchester United|
+U21-4|Alex Lowry|Rangers F.C.|
+U21-8|Kobbie Mainoo|Manchester United|
+U21-11|Fabio Miretti|Juventus|
+U21-13|Cole Palmer|Manchester City|
+U21-14|Paul Wanner|FC Bayern München|
+U21-15|Nuno Mendes|Paris Saint-Germain|
+U21-17|Antonio Nusa|Club Brugge|
+U21-18|António Silva|SL Benfica|
+U21-19|Matías Soulé|Juventus|
+## Merlin's Match Ball Signatures
+MBS-AD|Alphonso Davies|FC Bayern München|
+MBS-AN|Antony|Manchester United|
+MBS-EH|Erling Haaland|Manchester City|
+MBS-GJ|Gabriel Jesus|Arsenal FC|
+MBS-HS|Heung-min Son|Tottenham Hotspur|
+MBS-JB|Jude Bellingham|Borussia Dortmund|
+MBS-JO|Jorginho|Arsenal FC|
+MBS-KB|Karim Benzema|Real Madrid C.F.|
+MBS-KF|Kyogo Furuhashi|Celtic FC|
+MBS-LM|Lionel Messi|Paris Saint-Germain|
+MBS-MM|Mykhailo Mudryk|Chelsea FC|
+MBS-OD|Ousmane Dembélé|FC Barcelona|
+MBS-PED|Pedri|FC Barcelona|
+MBS-RL|Robert Lewandowski|FC Barcelona|
+MBS-TW|Timo Werner|RB Leipzig|

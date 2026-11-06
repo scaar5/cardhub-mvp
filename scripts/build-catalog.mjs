@@ -22,8 +22,14 @@ const TEAM_ALIASES = {
   "UD Levante": "Levante UD",
   "S.L. Benfica": "SL Benfica",
   "Atletico de Madrid": "Atlético de Madrid",
-  "FC Shakhtar Donetsk": "Shakhtar Donetsk",
   "AS Monaco FC": "AS Monaco",
+  "Real Sociedad": "Real Sociedad de Fútbol",
+  "West Ham United FC": "West Ham United",
+  "Manchester City FC": "Manchester City",
+  "Sporting Clube De Portugal": "Sporting Clube de Portugal",
+  "Galatasaray SK": "Galatasaray",
+  "F.C. Copenhagen": "FC Copenhagen",
+  "FC Shakhtar Donetsk": "Shakhtar Donetsk",
 };
 
 // Sufijos de subserie que algunas fuentes pegan al nombre del jugador (Topps Premier League)
