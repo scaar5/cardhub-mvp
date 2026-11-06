@@ -450,3 +450,432 @@ HG-2|Mohamed Salah|Liverpool FC|
 HG-3|Erling Haaland|Manchester City|
 HG-4|Rio Ngumoha|Liverpool FC|
 HG-5|Estêvão Willian|Chelsea|
+## Chrome Autographs
+CA-AB|Zach Abbott|Nottingham Forest|
+CA-AC|Andy Cole|Manchester United|
+CA-AE|Anthony Elanga|Newcastle United|
+CA-AS|Alan Shearer|Newcastle United|
+CA-AY|Anthony Gordon|Newcastle United|
+CA-BB|Ben Broggio|Aston Villa|
+CA-BF|Bruno Fernandes|Manchester United|
+CA-BG|Bruno Guimarães|Newcastle United|
+CA-BL|Jayden Bogle|Leeds United|
+CA-BM|Bryan Mbeumo|Manchester United|
+CA-BO|Jarrod Bowen|West Ham United|
+CA-BV|Dimitar Berbatov|Manchester United|
+CA-CB|Harrison Murray-Campbell|Chelsea|
+CA-CD|Clint Dempsey|Fulham|
+CA-CF|Cesc Fàbregas|Arsenal|
+CA-CG|Cody Gakpo|Liverpool FC|
+CA-CHO|Callum Hudson-Odoi|Nottingham Forest|
+CA-CL|Joe Cole|West Ham United|
+CA-CM|Claude Makélélé|Chelsea|
+CA-CP|Cole Palmer|Chelsea|
+CA-CR|Chris Rigg|Sunderland|
+CA-CT|Carlos Tevez|West Ham United|
+CA-CW|Chris Wood|Nottingham Forest|
+CA-DD|Didier Drogba|Chelsea|
+CA-DE|Dennis Bergkamp|Arsenal|
+CA-DF|Duncan Ferguson|Everton|
+CA-DM|Divine Mukasa|Manchester City|
+CA-DR|Declan Rice|Arsenal|
+CA-DS|David Silva|Manchester City|
+CA-DY|Dwight Yorke|Manchester United|
+CA-EC|Eric Cantona|Manchester United|
+CA-EM|Emiliano Martínez|Aston Villa|
+CA-ER|Cristian Romero|Tottenham Hotspur|
+CA-ES|Emile Smith Rowe|Fulham|
+CA-EV|Estêvão Willian|Chelsea|
+CA-EZE|Eberechi Eze|Arsenal|
+CA-FA|Faustino Asprilla|Newcastle United|
+CA-FL|Frank Lampard|Chelsea|
+CA-FR|Robbie Fowler|Liverpool FC|
+CA-FT|Fernando Torres|Liverpool FC|
+CA-FW|Florian Wirtz|Liverpool FC|
+CA-GA|Gabriel Agbonlahor|Aston Villa|
+CA-GB|Gareth Bale|Tottenham Hotspur|
+CA-GK|Petr Čech|Chelsea|
+CA-GP|Gustavo Poyet|Chelsea|
+CA-GR|Jack Grealish|Everton|
+CA-GS|Ryan Giggs|Manchester United|
+CA-GX|Granit Xhaka|Sunderland|
+CA-GZ|Gianfranco Zola|Chelsea|
+CA-HE|Hugo Ekitike|Liverpool FC|
+CA-HG|Harry Gray|Leeds United|
+CA-HK|Harry Kane|Tottenham Hotspur|
+CA-HS|Heung-Min Son|Tottenham Hotspur|
+CA-IN|Iliman Ndiaye|Everton|
+CA-JC|Jamie Carragher|Liverpool FC|
+CA-JD|Jermain Defoe|Tottenham Hotspur|
+CA-JO|João Pedro|Chelsea|
+CA-JR|Jacob Ramsey|Newcastle United|
+CA-JS|Jørgen Strand Larsen|Wolverhampton Wanderers|
+CA-JT|John Terry|Chelsea|
+CA-KA|Kanu|Arsenal|
+CA-KDB|Kevin De Bruyne|Manchester City|
+CA-KS|Kevin Schade|Brentford|
+CA-KZ|Milos Kerkez|Liverpool FC|
+CA-LF|Les Ferdinand|Tottenham Hotspur|
+CA-LH|Lewis Hall|Newcastle United|
+CA-LJ|Freddie Ljungberg|Arsenal|
+CA-LM|Luka Modrić|Tottenham Hotspur|
+CA-LP|Lucas Paquetá|West Ham United|
+CA-LS|Luis Suárez|Liverpool FC|
+CA-MA|Mikel Arteta|Arsenal|
+CA-MD|Max Dowman|Arsenal|
+CA-ME|Marcus Edwards|Burnley FC|
+CA-MG|Marc Guiu|Chelsea|
+CA-MI|Randal Kolo Muani|Tottenham Hotspur|
+CA-MK|Mohammed Kudus|Tottenham Hotspur|
+CA-MN|Mark Noble|West Ham United|
+CA-MOU|José Mourinho|Chelsea|
+CA-MS|Mohamed Salah|Liverpool FC|
+CA-MU|Manuel Ugarte|Manchester United|
+CA-MZ|Martín Zubimendi|Arsenal|
+CA-NE|Neville Southall|Everton|
+CA-NM|Nikola Milenković|Nottingham Forest|
+CA-NV|Gary Neville|Manchester United|
+CA-OW|Ollie Watkins|Aston Villa|
+CA-PF|Phil Foden|Manchester City|
+CA-PG|Pep Guardiola|Manchester City|
+CA-PK|Patrick Kluivert|Newcastle United|
+CA-PS|Paul Scholes|Manchester United|
+CA-PV|Patrick Vieira|Arsenal|
+CA-RE|Romain Esse|Crystal Palace|
+CA-RF|Rio Ferdinand|Manchester United|
+CA-RH|Raphinha|Leeds United|
+CA-RI|Chris Richards|Crystal Palace|
+CA-RK|Roy Keane|Manchester United|
+CA-RN|Rio Ngumoha|Liverpool FC|
+CA-RO|Morgan Rogers|Aston Villa|
+CA-RP|Robert Pirès|Arsenal|
+CA-RT|Georginio Rutter|Brighton & Hove Albion|
+CA-RVP|Robin van Persie|Manchester United|
+CA-SA|Sergio Agüero|Manchester City|
+CA-SAF|Sir Alex Ferguson|Manchester United|
+CA-SG|Steven Gerrard|Liverpool FC|
+CA-SH|Peter Schmeichel|Manchester United|
+CA-SL|Shea Lacey|Manchester United|
+CA-SM|Shumaira Mheuka|Chelsea|
+CA-SO|Dominic Solanke|Tottenham Hotspur|
+CA-TD|Tyler Dibling|Everton|
+CA-TH|Thierry Henry|Arsenal|
+CA-TK|Trent Koné-Doherty|Liverpool FC|
+CA-TL|Tino Livramento|Newcastle United|
+CA-TW|Tom Watson|Brighton & Hove Albion|
+CA-UF|El Hadji Malick Diouf|West Ham United|
+CA-VV|Virgil van Dijk|Liverpool FC|
+CA-WH|Adam Wharton|Crystal Palace|
+CA-WR|Wayne Rooney|Manchester United|
+CA-XS|Xavi Simons|Tottenham Hotspur|
+CA-YA|Yaya Touré|Manchester City|
+CA-YI|Yasin Ayari|Brighton & Hove Albion|
+CA-YM|Yankuba Minteh|Brighton & Hove Albion|
+CA-YT|Youri Tielemans|Aston Villa|
+CA-ZI|Zlatan Ibrahimović|Manchester United|
+## Chrome Dual Autographs
+CDA-BP|Stiliyan Petrov/Gareth Barry|Aston Villa|
+CDA-CY|Andy Cole/Dwight Yorke|Manchester United|
+CDA-DK|Jermain Defoe/Robbie Keane|Tottenham Hotspur|
+CDA-DM|Clint Dempsey/Brian McBride|Fulham|
+CDA-GA|Steven Gerrard/Xabi Alonso|Liverpool FC|
+CDA-GD|Jack Grealish/Tyler Dibling|Everton|
+CDA-GE|Anthony Gordon/Anthony Elanga|Newcastle United|
+CDA-GS|Gabriel Magalhães/William Saliba|Arsenal|
+CDA-GT|Fernando Torres/Steven Gerrard|Liverpool FC|
+CDA-HA|Sergio Agüero/Erling Haaland|Manchester City|
+CDA-HB|Dennis Bergkamp/Thierry Henry|Arsenal|
+CDA-KG|Cody Gakpo/Dirk Kuyt|Liverpool FC|
+CDA-KS|Harry Kane/Heung-Min Son|Tottenham Hotspur|
+CDA-MC|Harrison Murray-Campbell/Shumaira Mheuka|Chelsea|
+CDA-ME|Claude Makélélé/Michael Essien|Chelsea|
+CDA-MF|Sir Alex Ferguson/José Mourinho|Manchester United|
+CDA-NB|Mark Noble/Jarrod Bowen|West Ham United|
+CDA-RF|Wayne Rooney/Duncan Ferguson|Everton|
+CDA-RP|Wayne Rooney/Robin van Persie|Manchester United|
+CDA-SH|Bukayo Saka/Thierry Henry|Arsenal|
+CDA-SN|Ethan Nwaneri/Myles Lewis-Skelly|Arsenal|
+CDA-SS|David Silva/Bernardo Silva|Manchester City|
+CDA-TL|Frank Lampard/John Terry|Chelsea|
+CDA-VR|Patrick Vieira/Declan Rice|Arsenal|
+CDA-ZB|Yannick Bolasie/Wilfried Zaha|Crystal Palace|
+## Chrome Triple Autographs
+CT-BKS|Heung-Min Son/Gareth Bale/Harry Kane|Tottenham Hotspur|
+CT-DLT|John Terry/Didier Drogba/Frank Lampard|Chelsea|
+CT-GHZ|Eiður Guðjohnsen/Gianfranco Zola/Jimmy-Floyd Hasselbaink|Chelsea|
+CT-HBW|Ian Wright/Thierry Henry/Dennis Bergkamp|Arsenal|
+CT-KCG|Roy Keane/Eric Cantona/Ryan Giggs|Manchester United|
+CT-MFC|Matheus Cunha/Bruno Fernandes/Bryan Mbeumo|Manchester United|
+CT-SGS|Luis Suárez/Steven Gerrard/Mohamed Salah|Liverpool FC|
+CT-SPK|Stuart Pearce/Teddy Sheringham/Roy Keane|Nottingham Forest|
+CT-SRG|Viktor Gyökeres/Declan Rice/Bukayo Saka|Arsenal|
+CT-VFL|Patrick Vieira/Robert Pirès/Freddie Ljungberg|Arsenal|
+CT-YAD|David Silva/Yaya Touré/Sergio Agüero|Manchester City|
+CT-YAW|Gabriel Agbonlahor/Dwight Yorke/Ollie Watkins|Aston Villa|
+## Cold Battle FrozenFractor Autographs
+FF-CP|Cole Palmer|Chelsea|
+FF-MR|Morgan Rogers|Aston Villa|
+FF-PR|Morgan Rogers/Cole Palmer|Aston Villa/Chelsea|
+## Kings of the Premier League Quad Autographs
+KING-QUAD|Cole Palmer|Chelsea|
+## Retro Rookies Autographs
+RR-BB|Ben Broggio|Aston Villa|
+RR-DM|Divine Mukasa|Manchester City|
+RR-ES|Estêvão Willian|Chelsea|
+RR-HG|Harry Gray|Leeds United|
+RR-KD|Trent Koné-Doherty|Liverpool FC|
+RR-RN|Rio Ngumoha|Liverpool FC|
+RR-ZA|Zach Abbott|Nottingham Forest|
+## Superstar Sensations Autographs
+SUP-BF|Bruno Fernandes|Manchester United|
+SUP-BS|Bukayo Saka|Arsenal|
+SUP-CP|Cole Palmer|Chelsea|
+SUP-DR|Declan Rice|Arsenal|
+SUP-EH|Erling Haaland|Manchester City|
+SUP-GO|Anthony Gordon|Newcastle United|
+SUP-JB|Jarrod Bowen|West Ham United|
+SUP-JG|Jack Grealish|Everton|
+SUP-KO|Benjamin Šeško|Manchester United|
+SUP-KS|Cristian Romero|Tottenham Hotspur|
+SUP-LM|Matheus Cunha|Manchester United|
+SUP-MD|Matthijs De Ligt|Manchester United|
+SUP-MK|Mohammed Kudus|Tottenham Hotspur|
+SUP-MO|Martin Ødegaard|Arsenal|
+SUP-MS|Mohamed Salah|Liverpool FC|
+SUP-PF|Phil Foden|Manchester City|
+SUP-VV|Virgil van Dijk|Liverpool FC|
+## Winners Enclosure Autographs
+WIN-DR|David Raya|Arsenal|
+WIN-MS|Matz Sels|Nottingham Forest|
+WIN-MSB|Mohamed Salah|Liverpool FC|
+WIN-MSP|Mohamed Salah|Liverpool FC|
+## Winners Enclosure Quad Autographs
+WIN-QUAD|Mohamed Salah|Liverpool FC|
+## Zero Hours Autographs
+ZH-AY|Tosin Adarabioyo|Chelsea|
+ZH-BF|Bruno Fernandes|Manchester United|
+ZH-BG|Bruno Guimarães|Newcastle United|
+ZH-DF|Jermain Defoe|Sunderland|
+ZH-GB|Gareth Bale|Tottenham Hotspur|
+ZH-LS|Myles Lewis-Skelly|Arsenal|
+ZH-MC|Matheus Cunha|Manchester United|
+ZH-MS|Mohamed Salah|Liverpool FC|
+ZH-SL|Jørgen Strand Larsen|Wolverhampton Wanderers|
+ZH-TH|Thierry Henry|Arsenal|
+ZH-WR|Wayne Rooney|Manchester United|
+## Lightning Chrome
+LC-1|Adama Traoré|Fulham|
+LC-2|Gabriel Martinelli|Arsenal|
+LC-3|Micky van de Ven|Tottenham Hotspur|
+LC-4|Erling Haaland|Manchester City|
+LC-5|Mohamed Salah|Liverpool FC|
+LC-6|Anthony Gordon|Newcastle United|
+LC-7|Anthony Elanga|Newcastle United|
+LC-8|Donyell Malen|Aston Villa|
+LC-9|Cole Palmer|Chelsea|
+LC-10|Ryan Giggs|Manchester United|
+LC-11|Daniel James|Leeds United|
+LC-12|Daichi Kamada|Crystal Palace|
+LC-13|Kaoru Mitoma|Brighton & Hove Albion|
+LC-14|Omar Marmoush|Manchester City|
+LC-15|Simon Adingra|Sunderland|
+LC-16|Marcus Edwards|Burnley FC|
+LC-17|Eli Junior Kroupi|AFC Bournemouth|
+LC-18|Jarrad Branthwaite|Everton|
+LC-19|Gustavo Nunes|Brentford|
+LC-20|Fer López|Wolverhampton Wanderers|
+LC-21|Kyle Walker|Burnley FC|
+LC-22|Gareth Bale|Tottenham Hotspur|
+LC-23|Arjen Robben|Chelsea|
+LC-24|Elliot Anderson|Nottingham Forest|
+LC-25|Frank Lampard|Chelsea|
+LC-26|Steven Gerrard|Liverpool FC|
+LC-27|Rio Ferdinand|Manchester United|
+LC-28|Gabriel Agbonlahor|Aston Villa|
+LC-29|Myles Lewis-Skelly|Arsenal|
+LC-30|Emile Heskey|Liverpool FC|
+## Locked In
+LI-1|Richarlison|Tottenham Hotspur|
+LI-2|Gianluigi Donnarumma|Manchester City|
+LI-3|Bukayo Saka|Arsenal|
+LI-4|Patrick Vieira|Arsenal|
+LI-5|Viktor Gyökeres|Arsenal|
+LI-6|Tolu Arokodare|Wolverhampton Wanderers|
+LI-7|Youri Tielemans|Aston Villa|
+LI-8|Gustavo Nunes|Brentford|
+LI-9|Antoine Semenyo|AFC Bournemouth|
+LI-10|Charalampos Kostoulas|Brighton & Hove Albion|
+LI-11|Stefanos Tzimas|Brighton & Hove Albion|
+LI-12|Zian Flemming|Burnley FC|
+LI-13|Josh Acheampong|Chelsea|
+LI-14|Eden Hazard|Chelsea|
+LI-15|Estêvão Willian|Chelsea|
+LI-16|Frank Lampard|Chelsea|
+LI-17|Jean-Philippe Mateta|Crystal Palace|
+LI-18|Romain Esse|Crystal Palace|
+LI-19|Thierno Barry|Everton|
+LI-20|Duncan Ferguson|Everton|
+LI-21|Emile Smith Rowe|Fulham|
+LI-22|Josh King|Fulham|
+LI-23|Harry Gray|Leeds United|
+LI-24|Anthony Gordon|Newcastle United|
+LI-25|Florian Wirtz|Liverpool FC|
+LI-26|Rio Ngumoha|Liverpool FC|
+LI-27|Luis Suárez|Liverpool FC|
+LI-28|Steven Gerrard|Liverpool FC|
+LI-29|Rayan Aït-Nouri|Manchester City|
+LI-30|Rodri|Manchester City|
+LI-31|Reigan Heskey|Manchester City|
+LI-32|Divine Mukasa|Manchester City|
+LI-33|Yaya Touré|Manchester City|
+LI-34|Bruno Fernandes|Manchester United|
+LI-35|Eric Cantona|Manchester United|
+LI-36|Shea Lacey|Manchester United|
+LI-37|Roy Keane|Manchester United|
+LI-39|Bruno Guimarães|Newcastle United|
+LI-40|Alexander Isak|Liverpool FC|
+LI-41|Murillo|Nottingham Forest|
+LI-42|Igor Jesus|Nottingham Forest|
+LI-43|Chris Rigg|Sunderland|
+LI-44|Eliezer Mayenda|Sunderland|
+LI-45|Xavi Simons|Tottenham Hotspur|
+LI-46|Mohammed Kudus|Tottenham Hotspur|
+LI-47|Gareth Bale|Tottenham Hotspur|
+LI-48|Luis Guilherme|West Ham United|
+LI-49|Hwang Hee-Chan|Wolverhampton Wanderers|
+LI-50|João Pedro|Chelsea|
+## Monday Night Lights
+MNL-1|Sandro Tonali|Newcastle United|
+MNL-2|Lewis Miley|Newcastle United|
+MNL-3|Dominik Szoboszlai|Liverpool FC|
+MNL-4|Curtis Jones|Liverpool FC|
+MNL-5|Ethan Nwaneri|Arsenal|
+MNL-6|Eberechi Eze|Arsenal|
+MNL-7|Rayan Cherki|Manchester City|
+MNL-8|Divine Mukasa|Manchester City|
+MNL-9|Enzo Fernández|Chelsea|
+MNL-10|Estêvão Willian|Chelsea|
+MNL-11|Morgan Rogers|Aston Villa|
+MNL-12|Evann Guessand|Aston Villa|
+MNL-13|Jair|Nottingham Forest|
+MNL-14|Callum Hudson-Odoi|Nottingham Forest|
+MNL-15|Stefanos Tzimas|Brighton & Hove Albion|
+MNL-16|Yankuba Minteh|Brighton & Hove Albion|
+MNL-17|Julio Soler|AFC Bournemouth|
+MNL-18|Evanilson|AFC Bournemouth|
+MNL-19|Yehor Yarmolyuk|Brentford|
+MNL-20|Gustavo Nunes|Brentford|
+MNL-21|Adama Traoré|Fulham|
+MNL-22|Joachim Andersen|Fulham|
+MNL-23|Ismaïla Sarr|Crystal Palace|
+MNL-24|Jean-Philippe Mateta|Crystal Palace|
+MNL-25|Dwight McNeil|Everton|
+MNL-26|Adam Aznou|Everton|
+MNL-27|Lucas Paquetá|West Ham United|
+MNL-28|Mateus Fernandes|West Ham United|
+MNL-29|Leny Yoro|Manchester United|
+MNL-30|Patrick Dorgu|Manchester United|
+MNL-31|Jhon Arias|Wolverhampton Wanderers|
+MNL-32|João Gomes|Wolverhampton Wanderers|
+MNL-33|Jamie Gittens|Chelsea|
+MNL-34|Brennan Johnson|Tottenham Hotspur|
+MNL-35|Jayden Bogle|Leeds United|
+MNL-36|Sean Longstaff|Leeds United|
+MNL-37|Enzo Le Fée|Sunderland|
+MNL-38|Chris Rigg|Sunderland|
+MNL-39|Hannibal|Burnley FC|
+MNL-40|Kyle Walker|Burnley FC|
+## Stoppage Time Heartbreaker
+STH-1|Stan Collymore|Liverpool FC|
+STH-2|Sergio Agüero|Manchester City|
+STH-3|Gareth Bale|Tottenham Hotspur|
+STH-4|Cole Palmer|Chelsea|
+STH-5|Reiss Nelson|Arsenal|
+STH-6|Alisson|Liverpool FC|
+STH-7|Rodrigo Muniz|Fulham|
+STH-8|Steve Bruce|Manchester United|
+STH-9|Oscar Bobb|Manchester City|
+STH-10|Robin van Persie|Manchester United|
+STH-11|Michael Owen|Manchester United|
+STH-12|Sadio Mané|Liverpool FC|
+STH-13|Paul Scholes|Manchester United|
+STH-14|Steven Gerrard|Liverpool FC|
+STH-15|Dirk Kuyt|Liverpool FC|
+STH-16|Alex Iwobi|Fulham|
+STH-17|Federico Macheda|Manchester United|
+STH-18|Danny Welbeck|Arsenal|
+STH-19|Declan Rice|Arsenal|
+STH-20|Dejan Kulusevski|Tottenham Hotspur|
+## That's His Job
+THJ-1|Tyler Adams|AFC Bournemouth|
+THJ-2|Lewis Dunk|Brighton & Hove Albion|
+THJ-3|William Saliba|Arsenal|
+THJ-4|Ollie Watkins|Aston Villa|
+THJ-5|Nathan Collins|Brentford|
+THJ-6|Maxime Estève|Burnley FC|
+THJ-7|Moisés Caicedo|Chelsea|
+THJ-8|Jean-Philippe Mateta|Crystal Palace|
+THJ-9|James Tarkowski|Everton|
+THJ-10|Raúl Jiménez|Fulham|
+THJ-11|Habib Diarra|Sunderland|
+THJ-12|Virgil van Dijk|Liverpool FC|
+THJ-13|Erling Haaland|Manchester City|
+THJ-14|Bruno Fernandes|Manchester United|
+THJ-15|Dan Burn|Newcastle United|
+THJ-16|Chris Wood|Nottingham Forest|
+THJ-17|Anton Stach|Leeds United|
+THJ-18|João Palhinha|Tottenham Hotspur|
+THJ-19|João Gomes|Wolverhampton Wanderers|
+THJ-20|Jørgen Strand Larsen|Wolverhampton Wanderers|
+## The Streets Won't Forget
+SWF-1|Harry Kewell|Liverpool FC|
+SWF-2|Eiður Guðjohnsen|Chelsea|
+SWF-3|Elano|Manchester City|
+SWF-4|Aaron Lennon|Tottenham Hotspur|
+SWF-5|Yakubu|Everton|
+SWF-6|Andy Johnson|Crystal Palace|
+SWF-7|Papiss Cissé|Newcastle United|
+SWF-8|Yannick Bolasie|Crystal Palace|
+SWF-9|Bobby Zamora|Fulham|
+SWF-10|Niko Kranjčar|Tottenham Hotspur|
+SWF-11|Stephen Ireland|Manchester City|
+SWF-12|John Arne Riise|Liverpool FC|
+SWF-13|Nolberto Solano|Newcastle United|
+SWF-14|Zoltán Gera|Fulham|
+SWF-15|Abou Diaby|Arsenal|
+SWF-16|Georgi Kinkladze|Manchester City|
+SWF-17|Tony Yeboah|Leeds United|
+SWF-18|Faustino Asprilla|Newcastle United|
+SWF-19|Gabriel Agbonlahor|Aston Villa|
+SWF-20|Kevin Phillips|Sunderland|
+## Triple Platinum Stainless Steel
+TP-1|Cole Palmer|Chelsea|
+TP-2|Virgil van Dijk|Liverpool FC|
+TP-3|Bruno Fernandes|Manchester United|
+TP-4|Bukayo Saka|Arsenal|
+TP-5|Martin Ødegaard|Arsenal|
+TP-6|Mohamed Salah|Liverpool FC|
+TP-7|Erling Haaland|Manchester City|
+TP-8|Phil Foden|Manchester City|
+TP-9|Alexander Isak|Liverpool FC|
+TP-10|Rodri|Manchester City|
+TP-11|Kaoru Mitoma|Brighton & Hove Albion|
+TP-12|Estêvão Willian|Chelsea|
+TP-13|Benjamin Šeško|Manchester United|
+TP-14|Alexis Mac Allister|Liverpool FC|
+TP-15|Chris Wood|Nottingham Forest|
+TP-16|Viktor Gyökeres|Arsenal|
+TP-17|Eberechi Eze|Arsenal|
+TP-18|Declan Rice|Arsenal|
+TP-19|Moisés Caicedo|Chelsea|
+TP-20|Bruno Guimarães|Newcastle United|
+TP-21|Florian Wirtz|Liverpool FC|
+TP-22|Morgan Rogers|Aston Villa|
+TP-23|Matheus Cunha|Manchester United|
+TP-24|Enzo Fernández|Chelsea|
+TP-25|Jarrod Bowen|West Ham United|
+## Winners Enclosure
+WE-1|Mohamed Salah|Liverpool FC (Golden Boot)|
+WE-2|David Raya|Arsenal (Golden Glove)|
+WE-3|Matz Sels|Nottingham Forest (Golden Glove)|
+WE-4|Mohamed Salah|Liverpool FC (Playmaker)|

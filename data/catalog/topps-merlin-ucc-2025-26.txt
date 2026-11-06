@@ -764,3 +764,33 @@ MBS-FM|Franco Mastantuono|Real Madrid C.F.|
 MBS-HK|Harry Kane|FC Bayern München|
 MBS-JA|Julián Álvarez|Atlético de Madrid|
 MBS-JM|Jamal Musiala|FC Bayern München|
+## Merlins Match Ball Signatures
+MBS-JOB|Jobe Bellingham|Borussia Dortmund|
+MBS-JPM|Jean-Philippe Mateta|Crystal Palace|
+MBS-JUB|Jude Bellingham|Real Madrid C.F.|
+MBS-KA|Karim Adeyemi|Borussia Dortmund|
+MBS-KDB|Kevin de Bruyne|SSC Napoli|
+MBS-KK|Khvicha Kvaratskhelia|Paris Saint-Germain|
+MBS-KY|Kenan Yildiz|Juventus|
+MBS-LD|Luis Díaz|FC Bayern München|
+MBS-LK|Lennart Karl|FC Bayern München|
+MBS-LM|Lautaro Martínez|FC Internazionale Milano|
+MBS-LY|Lamine Yamal|FC Barcelona|
+MBS-MD|Max Dowman|Arsenal FC|
+MBS-MO|Martin Ødegaard|Arsenal FC|
+MBS-MS|Mohamed Salah|Liverpool FC|
+MBS-MSA|Mahamadou Sangaré|Manchester City|
+MBS-NM|Nuno Mendes|Paris Saint-Germain|
+MBS-OD|Ousmane Dembélé|Paris Saint-Germain|
+MBS-PE|Pedri|FC Barcelona|
+MBS-QN|Quentin Ndjantou|Paris Saint-Germain|
+MBS-RH|Reigan Heskey|Manchester City|
+MBS-RL|Robert Lewandowski|FC Barcelona|
+MBS-RN|Rio Ngumoha|Liverpool FC|
+MBS-RW|Reggie Walsh|Chelsea FC|
+MBS-SM|Shumaira Mheuka|Chelsea FC|
+MBS-TKD|Trent Koné-Doherty|Liverpool FC|
+MBS-VD|Viktor Dadason|F.C. Copenhagen|
+MBS-VI|Vini Jr.|Real Madrid C.F.|
+MBS-VO|Victor Ozhianvuna|Shamrock Rovers FC|
+MBS-WM|Wisdom Mike|FC Bayern München|

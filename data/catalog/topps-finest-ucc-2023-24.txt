@@ -403,3 +403,26 @@ MA-RC|Roberto Carlos|Real Madrid C.F.|
 ## Top of the World Autographs
 TWA-EH|Erling Haaland|Manchester City|
 TWA-GM|Gabriel Martinelli|Arsenal FC|
+## Finest First Class Rookies Yearbook Autographs
+RYA-1|Lamine Yamal|FC Barcelona|
+## Prized Footballers Fusion Variations
+PFF-1|Rafael Leão|AC Milan|
+PFF-2|Bukayo Saka|Arsenal FC|
+PFF-3|Cristiano Ronaldo|Real Madrid C.F.|
+PFF-4|Paulo Dybala|AS Roma|
+PFF-5|Julien Duranville|Borussia Dortmund|
+PFF-6|Kaoru Mitoma|Brighton & Hove Albion FC|
+PFF-7|Pedri|FC Barcelona|
+PFF-8|Lamine Yamal|FC Barcelona|
+PFF-9|Thomas Müller|FC Bayern München|
+PFF-10|Santiago Giménez|Feyenoord|
+PFF-11|Mohamed Salah|Liverpool FC|
+PFF-12|Ronaldinho|FC Barcelona|
+PFF-13|Gonçalo Ramos|Paris Saint-Germain|
+PFF-14|Alexander Isak|Newcastle United|
+PFF-15|Vini Jr.|Real Madrid C.F.|
+PFF-16|Victor Osimhen|SSC Napoli|
+PFF-17|Wayne Rooney|Manchester United|
+PFF-18|Harry Kane|FC Bayern München|
+PFF-19|Ronaldo|FC Internazionale Milano|
+PFF-20|Jude Bellingham|Real Madrid C.F.|

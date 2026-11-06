@@ -469,3 +469,262 @@ MG-17|Frank Lampard|Chelsea|
 MG-18|Kevin De Bruyne|Manchester City|
 MG-19|Heung-min Son|Tottenham Hotspur|
 MG-20|Martín Zubimendi|Arsenal|
+## Autographs
+MV-AE|André|Wolverhampton Wanderers|
+MV-AG|Alejandro Garnacho|Chelsea|
+MV-AI|Alexander Isak|Liverpool FC|
+MV-AS|Antoine Semenyo|Manchester City|
+MV-AX|Alex Scott|AFC Bournemouth|
+MV-BG|Bruno Guimarães|Newcastle United|
+MV-BM|Bryan Mbeumo|Manchester United|
+MV-BS|Benjamin Šeško|Manchester United|
+MV-BU|Bukayo Saka|Arsenal|
+MV-BW|Jarrod Bowen|West Ham United|
+MV-BY|Conor Bradley|Liverpool FC|
+MV-CG|Cody Gakpo|Liverpool FC|
+MV-CM|Casemiro|Manchester United|
+MV-CO|Moisés Caicedo|Chelsea|
+MV-CP|Cole Palmer|Chelsea|
+MV-CR|Chris Rigg|Sunderland|
+MV-CT|Chemsdine Talbi|Sunderland|
+MV-CU|Matheus Cunha|Manchester United|
+MV-DJ|Daniel James|Leeds United|
+MV-DL|Matthijs De Ligt|Manchester United|
+MV-DN|Kevin Danso|Tottenham Hotspur|
+MV-DR|Declan Rice|Arsenal|
+MV-DS|Dominic Solanke|Tottenham Hotspur|
+MV-DW|Max Dowman|Arsenal|
+MV-EH|Erling Haaland|Manchester City|
+MV-EJ|Junior Kroupi|AFC Bournemouth|
+MV-EN|Evanilson|AFC Bournemouth|
+MV-EO|Estêvão Willian|Chelsea|
+MV-ESR|Emile Smith Rowe|Fulham|
+MV-EZE|Eberechi Eze|Arsenal|
+MV-FC|Federico Chiesa|Liverpool FC|
+MV-FW|Florian Wirtz|Liverpool FC|
+MV-GR|Conor Gallagher|Tottenham Hotspur|
+MV-GX|Granit Xhaka|Sunderland|
+MV-GY|Archie Gray|Tottenham Hotspur|
+MV-IN|Iliman Ndiaye|Everton|
+MV-IV|Amir Ibragimov|Manchester United|
+MV-JD|Jérémy Doku|Manchester City|
+MV-JG|Jack Grealish|Everton|
+MV-JH|Jordan Henderson|Brentford|
+MV-JY|Jayden Bogle|Leeds United|
+MV-KD|Mohammed Kudus|Tottenham Hotspur|
+MV-KDH|Kiernan Dewsbury-Hall|Everton|
+MV-KM|Konstantinos Mavropanos|West Ham United|
+MV-KS|Kevin Schade|Brentford|
+MV-KT|Kieran Trippier|Newcastle United|
+MV-KW|Kyle Walker|Burnley FC|
+MV-LD|Lewis Dunk|Brighton & Hove Albion|
+MV-LN|Lukas Nmecha|Leeds United|
+MV-LY|Leny Yoro|Manchester United|
+MV-MC|Matty Cash|Aston Villa|
+MV-MD|El Hadji Malick Diouf|West Ham United|
+MV-MK|Divine Mukasa|Manchester City|
+MV-MM|Mikel Merino|Arsenal|
+MV-MO|Mohamed Salah|Liverpool FC|
+MV-MP|Jacob Murphy|Newcastle United|
+MV-MT|Malick Thiaw|Newcastle United|
+MV-NC|Nathan Collins|Brentford|
+MV-OW|Ollie Watkins|Aston Villa|
+MV-PA|João Palhinha|Tottenham Hotspur|
+MV-PD|Jordan Pickford|Everton|
+MV-PF|Phil Foden|Manchester City|
+MV-RD|Rúben Dias|Manchester City|
+MV-RI|Rodri|Manchester City|
+MV-RJ|Reece James|Chelsea|
+MV-RN|Rio Ngumoha|Liverpool FC|
+MV-RS|Ryan Sessegnon|Fulham|
+MV-SB|Sven Botman|Newcastle United|
+MV-SL|Shea Lacey|Manchester United|
+MV-ST|Sandro Tonali|Newcastle United|
+MV-TD|Tyler Dibling|Everton|
+MV-TR|Tijjani Reijnders|Manchester City|
+MV-TW|Tom Watson|Brighton & Hove Albion|
+MV-VM|Vitaliy Mykolenko|Everton|
+MV-VVD|Virgil van Dijk|Liverpool FC|
+MV-WT|Nick Woltemade|Newcastle United|
+MV-YA|Yasin Ayari|Brighton & Hove Albion|
+MV-YY|Yehor Yarmolyuk|Brentford|
+MV-ZA|Zach Abbott|Nottingham Forest|
+## Enchanted Pen
+EP-CP|Cole Palmer|Chelsea|
+EP-CT|Carlos Tevez|West Ham United|
+EP-DL|David Luiz|Chelsea|
+EP-DR|Declan Rice|Arsenal|
+EP-EA|Emmanuel Adebayor|Tottenham Hotspur|
+EP-EH|Erling Haaland|Manchester City|
+EP-EO|Estêvão Willian|Chelsea|
+EP-EZE|Eberechi Eze|Arsenal|
+EP-FC|Federico Chiesa|Liverpool FC|
+EP-GZ|Gianfranco Zola|Chelsea|
+EP-JG|Jack Grealish|Everton|
+EP-KP|Junior Kroupi|AFC Bournemouth|
+EP-MM|Mikel Merino|Arsenal|
+EP-MT|Mason Mount|Manchester United|
+EP-RD|Rafael van der Vaart|Tottenham Hotspur|
+EP-RM|Riyad Mahrez|Manchester City|
+EP-RN|Rio Ngumoha|Liverpool FC|
+EP-TR|Tijjani Reijnders|Manchester City|
+## Merlin's Magical Ink
+MI-AS|Alan Shearer|Newcastle United|
+MI-BM|David Beckham|Manchester United|
+MI-CO|Moisés Caicedo|Chelsea|
+MI-DB|Dennis Bergkamp|Arsenal|
+MI-EH|Erling Haaland|Manchester City|
+MI-FL|Frank Lampard|Chelsea|
+MI-GB|Gareth Bale|Tottenham Hotspur|
+MI-GZ|Gianfranco Zola|Chelsea|
+MI-HZ|Eden Hazard|Chelsea|
+MI-IW|Ian Wright|Arsenal|
+MI-JC|Joe Cole|West Ham United|
+MI-JF|Jimmy Floyd Hasselbaink|Leeds United|
+MI-MD|Max Dowman|Arsenal|
+MI-MK|Mohammed Kudus|Tottenham Hotspur|
+MI-MO|Mohamed Salah|Liverpool FC|
+MI-PI|Paul Ince|Manchester United|
+MI-PS|Paul Scholes|Manchester United|
+MI-RN|Rio Ngumoha|Liverpool FC|
+MI-SG|Steven Gerrard|Liverpool FC|
+MI-SL|Shea Lacey|Manchester United|
+MI-SON|Heung-Min Son|Tottenham Hotspur|
+MI-TH|Thierry Henry|Arsenal|
+MI-TW|Tom Watson|Brighton & Hove Albion|
+MI-WR|Wayne Rooney|Manchester United|
+MI-ZI|Zlatan Ibrahimović|Manchester United|
+## Mystic Afternoons Autographs
+MY-AW|Adam Wharton|Crystal Palace|
+MY-EN|Evanilson|AFC Bournemouth|
+MY-EO|Estêvão Willian|Chelsea|
+MY-ERL|Erling Haaland|Manchester City|
+MY-KS|Kevin Schade|Brentford|
+MY-KW|Kyle Walker|Burnley FC|
+MY-MK|Mohammed Kudus|Tottenham Hotspur|
+MY-OW|Ollie Watkins|Aston Villa|
+MY-RN|Rio Ngumoha|Liverpool FC|
+MY-YA|Yasin Ayari|Brighton & Hove Albion|
+## Spellbinding Trios Autographs
+ST-ABY|Gareth Barry|Aston Villa|
+ST-DSS|Jérémy Doku|Manchester City|
+ST-PSH|Philippe Coutinho|Liverpool FC|
+ST-SCS|Teddy Sheringham|Manchester United|
+ST-SKS|Alex Scott|AFC Bournemouth|
+## Merlin's Match Ball Signatures
+MB-AR|Antonee Robinson|Fulham|
+MB-AS|Alex Scott|AFC Bournemouth|
+MB-BA|Brenden Aaronson|Leeds United|
+MB-BB|Bradley Burrowes|Aston Villa|
+MB-BF|Bruno Fernandes|Manchester United|
+MB-BG|Bruno Guimarães|Newcastle United|
+MB-BM|Bryan Mbeumo|Manchester United|
+MB-BS|Benjamin Šeško|Manchester United|
+MB-CR|Cristian Romero|Tottenham Hotspur|
+MB-DM|Divine Mukasa|Manchester City|
+MB-DW|Danny Welbeck|Brighton & Hove Albion|
+MB-EH|Erling Haaland|Manchester City|
+MB-EM|Emiliano Martínez|Aston Villa|
+MB-EZE|Eberechi Eze|Arsenal|
+MB-GR|Georginio Rutter|Brighton & Hove Albion|
+MB-JZ|Joshua Zirkzee|Manchester United|
+MB-KS|Kevin Schade|Brentford|
+MB-MC|Matheus Cunha|Manchester United|
+MB-MS|Mohamed Salah|Liverpool FC|
+MB-MT|Mathys Tel|Tottenham Hotspur|
+MB-NM|Nikola Milenković|Nottingham Forest|
+MB-OW|Ollie Watkins|Aston Villa|
+MB-PF|Phil Foden|Manchester City|
+MB-PK|Jordan Pickford|Everton|
+MB-RG|Chris Rigg|Sunderland|
+MB-RIO|Rio Ngumoha|Liverpool FC|
+MB-SE|Antoine Semenyo|Manchester City|
+MB-SL|Shea Lacey|Manchester United|
+MB-SV|Savinho|Manchester City|
+MB-TI|Sandro Tonali|Newcastle United|
+MB-TR|Tijjani Reijnders|Manchester City|
+MB-VVD|Virgil van Dijk|Liverpool FC|
+## Mask On/Mask Off
+MO-1|Viktor Gyökeres|Arsenal|
+## Rainbow Flick
+RB-1|Matheus Cunha|Manchester United|
+RB-2|Tyler Dibling|Everton|
+RB-3|Chemsdine Talbi|Sunderland|
+RB-4|Ryan Gravenberch|Liverpool FC|
+RB-5|Gabriel Martinelli|Arsenal|
+RB-6|Savinho|Manchester City|
+RB-7|Brajan Gruda|Brighton & Hove Albion|
+RB-8|Jordan Henderson|Brentford|
+RB-9|Anthony Gordon|Newcastle United|
+RB-10|Kevin|Fulham|
+RB-11|Yéremy Pino|Crystal Palace|
+RB-12|Wilfried Gnonto|Leeds United|
+RB-13|Omari Hutchinson|Nottingham Forest|
+RB-14|Wilson Odobert|Tottenham Hotspur|
+RB-15|Max Dowman|Arsenal|
+RB-16|Fer López|Wolverhampton Wanderers|
+RB-17|David Ginola|Aston Villa|
+RB-18|Justin Kluivert|AFC Bournemouth|
+RB-19|Lesley Ugochukwu|Burnley FC|
+RB-20|João Pedro|Chelsea|
+RB-21|Harry Kane|Tottenham Hotspur|
+RB-22|Philippe Coutinho|Liverpool FC|
+RB-23|Henrik Larsson|Manchester United|
+RB-24|Joe Cole|West Ham United|
+RB-25|Hernán Crespo|Chelsea|
+RB-26|Sergio Agüero|Manchester City|
+RB-27|Leon Osman|Everton|
+RB-28|Daniel Sturridge|Liverpool FC|
+RB-29|Wayne Rooney|Manchester United|
+RB-30|Santi Cazorla|Arsenal|
+## Ta-Da
+TD-1|Julio Soler|AFC Bournemouth|
+TD-2|Tyler Adams|AFC Bournemouth|
+TD-3|Cristhian Mosquera|Arsenal|
+TD-4|Declan Rice|Arsenal|
+TD-5|Tony Adams|Arsenal|
+TD-6|Youri Tielemans|Aston Villa|
+TD-7|Lucas Digne|Aston Villa|
+TD-8|Gareth Barry|Aston Villa|
+TD-9|Vitaly Janelt|Brentford|
+TD-10|Mathias Jensen|Brentford|
+TD-11|Charalampos Kostoulas|Brighton & Hove Albion|
+TD-12|James Milner|Brighton & Hove Albion|
+TD-13|Josh Cullen|Burnley FC|
+TD-14|Zian Flemming|Burnley FC|
+TD-15|Malo Gusto|Chelsea|
+TD-16|Alejandro Garnacho|Chelsea|
+TD-17|Ashley Cole|Chelsea|
+TD-18|Jaydee Canvot|Crystal Palace|
+TD-19|João Gomes|Wolverhampton Wanderers|
+TD-20|Yannick Bolasie|Crystal Palace|
+TD-21|Charly Alcaraz|Everton|
+TD-22|Jake O'Brien|Everton|
+TD-23|Neville Southall|Everton|
+TD-24|Tom Cairney|Fulham|
+TD-25|Sander Berge|Fulham|
+TD-26|Anton Stach|Leeds United|
+TD-27|Joe Rodon|Leeds United|
+TD-28|Alexander Isak|Liverpool FC|
+TD-29|Virgil van Dijk|Liverpool FC|
+TD-30|Fernando Torres|Liverpool FC|
+TD-31|Jérémy Doku|Manchester City|
+TD-32|Gianluigi Donnarumma|Manchester City|
+TD-33|Yaya Touré|Manchester City|
+TD-34|Benjamin Šeško|Manchester United|
+TD-35|Bryan Mbeumo|Manchester United|
+TD-36|Robin van Persie|Manchester United|
+TD-37|Jacob Murphy|Newcastle United|
+TD-38|Sandro Tonali|Newcastle United|
+TD-39|Andy Cole|Newcastle United|
+TD-40|Nicolò Savona|Nottingham Forest|
+TD-41|Ryan Yates|Nottingham Forest|
+TD-42|Enzo Le Fée|Sunderland|
+TD-43|Robin Roefs|Sunderland|
+TD-44|João Palhinha|Tottenham Hotspur|
+TD-45|Lucas Bergvall|Tottenham Hotspur|
+TD-46|Edgar Davids|Tottenham Hotspur|
+TD-47|Callum Wilson|West Ham United|
+TD-48|Mateus Fernandes|West Ham United|
+TD-49|Matt Doherty|Wolverhampton Wanderers|
+TD-50|Hwang Hee-Chan|Wolverhampton Wanderers|

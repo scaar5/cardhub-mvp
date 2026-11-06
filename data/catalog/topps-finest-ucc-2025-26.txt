@@ -993,3 +993,29 @@ PFA-LY|Lamine Yamal|FC Barcelona|
 PFA-MD|Max Dowman|Arsenal FC|
 PFA-RN|Rio Ngumoha|Liverpool FC|
 PFA-RO|Ronaldo|Real Madrid C.F.|
+## Prized Footballers Fusion Variations
+PFF-1|George Weah|Paris Saint-Germain|
+PFF-2|Gareth Bale|Real Madrid C.F.|
+PFF-3|Thierry Henry|Arsenal FC|
+PFF-4|Diego Maradona|SSC Napoli|
+PFF-5|Johan Cruyff|FC Barcelona|
+PFF-6|Francesco Totti|AS Roma|
+PFF-7|Luís Figo|Real Madrid C.F.|
+PFF-8|Luis Suárez|FC Barcelona|
+PFF-9|Rio Ngumoha|Liverpool FC|
+PFF-10|Max Dowman|Arsenal FC|
+PFF-11|Lennart Karl|FC Bayern München|
+PFF-12|Konstantinos Karetsas|KRC Genk|
+PFF-13|Estêvão Willian|Chelsea FC|
+PFF-14|Franco Mastantuono|Real Madrid C.F.|
+PFF-15|Jobe Bellingham|Borussia Dortmund|
+PFF-16|Raphinha|FC Barcelona|
+PFF-17|Lamine Yamal|FC Barcelona|
+PFF-18|Ronaldo|Real Madrid C.F.|
+PFF-19|Cole Palmer|Chelsea FC|
+PFF-20|Alexander Isak|Liverpool FC|
+PFF-21|Désiré Doué|Paris Saint-Germain|
+PFF-22|Khvicha Kvaratskhelia|Paris Saint-Germain|
+PFF-23|Ousmane Dembélé|Paris Saint-Germain|
+PFF-24|Julián Alvarez|Atlético de Madrid|
+PFF-25|Viktor Gyökeres|Arsenal FC|

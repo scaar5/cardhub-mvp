@@ -441,3 +441,418 @@ CA-4|Estêvão Willian|Chelsea FC|
 CA-5|Désiré Doué|Paris Saint-Germain|
 CA-6|Rio Ngumoha|Liverpool FC|
 CA-7|Florian Wirtz|Liverpool FC|
+## Chrome Autographs
+CA-A|Antony|Real Betis Balompié|
+CA-AB|Alessandro Bastoni|FC Internazionale Milano|
+CA-AD|Alphonso Davies|FC Bayern München|
+CA-AE|Anthony Elanga|Newcastle United|
+CA-AG|Antoine Griezmann|Atlético de Madrid|
+CA-AJ|Alistair Johnston|Celtic FC|
+CA-AK|Arnaud Kalimuendo|Nottingham Forest|
+CA-AL|Julián Alvarez|Atlético de Madrid|
+CA-AR|Arda Güler|Real Madrid C.F.|
+CA-AS|Alejo Sarco|Bayer 04 Leverkusen|
+CA-AT|Aurélien Tchouaméni|Real Madrid C.F.|
+CA-BB|Bradley Barcola|Paris Saint-Germain|
+CA-BG|Bruno Guimarães|Newcastle United|
+CA-BJ|Brennan Johnson|Tottenham Hotspur|
+CA-BR|Julian Brandt|Borussia Dortmund|
+CA-BS|Bukayo Saka|Arsenal FC|
+CA-CCV|Cameron Carter-Vickers|Celtic FC|
+CA-CG|Cody Gakpo|Liverpool FC|
+CA-CP|Cole Palmer|Chelsea FC|
+CA-CW|Chris Wood|Nottingham Forest|
+CA-DH|Dean Huijsen|Real Madrid C.F.|
+CA-DK|Don-Angelo Konadu|AFC Ajax|
+CA-DM|Donyell Malen|Aston Villa|
+CA-DO|Dani Olmo|FC Barcelona|
+CA-DR|Declan Rice|Arsenal FC|
+CA-DS|Dominic Solanke|Tottenham Hotspur|
+CA-DU|Destiny Udogie|Tottenham Hotspur|
+CA-DV|Dušan Vlahović|Juventus|
+CA-DZ|Daizen Maeda|Celtic FC|
+CA-EC|Eduardo Camavinga|Real Madrid C.F.|
+CA-EH|Erling Haaland|Manchester City|
+CA-EL|Elye Wahi|Eintracht Frankfurt|
+CA-EM|Emiliano Martínez|Aston Villa|
+CA-EN|Arne Engels|Celtic FC|
+CA-EW|Estêvão Willian|Chelsea FC|
+CA-FB|Folarin Balogun|AS Monaco|
+CA-FC|Francisco Conceição|Juventus|
+CA-FM|Franco Mastantuono|Real Madrid C.F.|
+CA-FT|Ferran Torres|FC Barcelona|
+CA-FV|Federico Valverde|Real Madrid C.F.|
+CA-G|Gavi|FC Barcelona|
+CA-GF|Guille Fernández|FC Barcelona|
+CA-GL|Giovanni Leoni|Liverpool FC|
+CA-GM|Gabriel Martinelli|Arsenal FC|
+CA-GO|Anthony Gordon|Newcastle United|
+CA-GU|Serhou Guirassy|Borussia Dortmund|
+CA-HA|Reo Hatate|Celtic FC|
+CA-HB|Héctor Bellerín|Real Betis Balompié|
+CA-HE|Hugo Ekitike|Liverpool FC|
+CA-HK|Harry Kane|FC Bayern München|
+CA-IK|Ibrahima Konaté|Liverpool FC|
+CA-IS|Isco|Real Betis Balompié|
+CA-JA|Jamal Musiala|FC Bayern München|
+CA-JB|Jobe Bellingham|Borussia Dortmund|
+CA-JF|Jeremie Frimpong|Liverpool FC|
+CA-JM|John McGinn|Aston Villa|
+CA-JN|João Neves|Paris Saint-Germain|
+CA-JP|João Pedro|Chelsea FC|
+CA-JU|Jude Bellingham|Real Madrid C.F.|
+CA-KDB|Kevin De Bruyne|SSC Napoli|
+CA-KH|Khvicha Kvaratskhelia|Paris Saint-Germain|
+CA-KI|Joshua Kimmich|FC Bayern München|
+CA-KK|Konstantinos Karetsas|KRC Genk|
+CA-KP|Kendry Páez|RC Strasbourg Alsace|
+CA-KY|Kenan Yildiz|Juventus|
+CA-LK|Lennart Karl|FC Bayern München|
+CA-LM|Lautaro Martínez|FC Internazionale Milano|
+CA-LO|Loïs Openda|Juventus|
+CA-LY|Lamine Yamal|FC Barcelona|
+CA-MB|Maximilian Beier|Borussia Dortmund|
+CA-MD|Max Dowman|Arsenal FC|
+CA-MG|Marc Guiu|Chelsea FC|
+CA-MI|Michael Olise|FC Bayern München|
+CA-MK|Mohammed Kudus|Tottenham Hotspur|
+CA-MN|Manuel Neuer|FC Bayern München|
+CA-MO|Martin Ødegaard|Arsenal FC|
+CA-MR|Morgan Rogers|Aston Villa|
+CA-MS|Mohamed Salah|Liverpool FC|
+CA-MT|Mario Götze|Eintracht Frankfurt|
+CA-MU|Divine Mukasa|Manchester City|
+CA-MZ|Milos Kerkez|Liverpool FC|
+CA-NI|Nico Williams|Athletic Club|
+CA-NM|Nuno Mendes|Paris Saint-Germain|
+CA-OB|Oscar Bobb|Manchester City|
+CA-OD|Ousmane Dembélé|Paris Saint-Germain|
+CA-OG|Oscar Gloukh|AFC Ajax|
+CA-OW|Ollie Watkins|Aston Villa|
+CA-P|Pedri|FC Barcelona|
+CA-PA|Pablo Barrios|Atlético de Madrid|
+CA-PB|Paris Brunner|AS Monaco|
+CA-PF|Phil Foden|Manchester City|
+CA-PG|Pablo García|Real Betis Balompié|
+CA-QJ|Quim Junyent|FC Barcelona|
+CA-QN|Quentin Ndjantou|Paris Saint-Germain|
+CA-RD|Rodrygo|Real Madrid C.F.|
+CA-RH|Rasmus Højlund|SSC Napoli|
+CA-RHE|Reigan Heskey|Manchester City|
+CA-RL|Robert Lewandowski|FC Barcelona|
+CA-RN|Rio Ngumoha|Liverpool FC|
+CA-RW|Reggie Walsh|Chelsea FC|
+CA-S|Savinho|Manchester City|
+CA-ST|Sandro Tonali|Newcastle United|
+CA-TR|Tijjani Reijnders|Manchester City|
+CA-VJ|Vini Jr.|Real Madrid C.F.|
+CA-VVD|Virgil van Dijk|Liverpool FC|
+CA-WP|Willian Pacho|Paris Saint-Germain|
+CA-WS|William Saliba|Arsenal FC|
+CA-XS|Xavi Simons|Tottenham Hotspur|
+## Chrome Legends Autographs
+CA-IA|Adriano|FC Internazionale Milano|
+CLA-ADP|Alessandro Del Piero|Juventus|
+CLA-AI|Andrés Iniesta|FC Barcelona|
+CLA-AP|Andrea Pirlo|AC Milan|
+CLA-AS|Alan Shearer|Newcastle United|
+CLA-BA|Roberto Baggio|Juventus|
+CLA-BS|Bastian Schweinsteiger|FC Bayern München|
+CLA-CT|Carlos Tevez|Juventus|
+CLA-CV|Christian Vieri|FC Internazionale Milano|
+CLA-DA|Daniel Sturridge|Liverpool FC|
+CLA-DS|David Silva|Manchester City|
+CLA-DT|David Trezeguet|Juventus|
+CLA-EH|Eden Hazard|Chelsea FC|
+CLA-FI|Filippo Inzaghi|AC Milan|
+CLA-FL|Frank Lampard|Chelsea FC|
+CLA-FR|Franck Ribéry|FC Bayern München|
+CLA-FT|Fernando Torres|Liverpool FC|
+CLA-G|Guti|Real Madrid C.F.|
+CLA-GB|Gareth Bale|Tottenham Hotspur|
+CLA-GN|Gary Neville|Manchester United|
+CLA-HL|Henrik Larsson|Celtic FC|
+CLA-IC|Iker Casillas|Real Madrid C.F.|
+CLA-IW|Ian Wright|Arsenal FC|
+CLA-JC|Jamie Carragher|Liverpool FC|
+CLA-JM|Juan Mata|Chelsea FC|
+CLA-JT|John Terry|Chelsea FC|
+CLA-KK|Kaká|AC Milan|
+CLA-LM|Lionel Messi|FC Barcelona|
+CLA-LO|Lothar Matthäus|FC Internazionale Milano|
+CLA-LS|Luis Suárez|FC Barcelona|
+CLA-MD|Luka Modrić|Tottenham Hotspur|
+CLA-MK|Miroslav Klose|FC Bayern München|
+CLA-MO|Mesut Özil|Real Madrid C.F.|
+CLA-MR|Marco Reus|Borussia Dortmund|
+CLA-NJ|Neymar Jr|Paris Saint-Germain|
+CLA-PL|Philipp Lahm|FC Bayern München|
+CLA-PM|Paolo Maldini|AC Milan|
+CLA-PN|Pavel Nedvěd|Juventus|
+CLA-PS|Paul Scholes|Manchester United|
+CLA-R|Rivaldo|FC Barcelona|
+CLA-R10|Ronaldinho|FC Barcelona|
+CLA-R9|Ronaldo|FC Internazionale Milano|
+CLA-RA|Raúl|Real Madrid C.F.|
+CLA-RG|Ryan Giggs|Manchester United|
+CLA-RM|Riyad Mahrez|Manchester City|
+CLA-RO|Romário|FC Barcelona|
+CLA-RVP|Robin van Persie|Manchester United|
+CLA-SA|Sergio Agüero|Manchester City|
+CLA-SAF|Sir Alex Ferguson|Manchester United|
+CLA-SB|Sergio Busquets|FC Barcelona|
+CLA-SC|Santi Cazorla|Arsenal FC|
+CLA-SDB|David Beckham|Real Madrid C.F.|
+CLA-SE|Samuel Eto'o|FC Internazionale Milano|
+CLA-SH|Andriy Shevchenko|AC Milan|
+CLA-SK|Shinji Kagawa|Borussia Dortmund|
+CLA-SM|Sadio Mané|Liverpool FC|
+CLA-TH|Thierry Henry|Arsenal FC|
+CLA-TK|Toni Kroos|Real Madrid C.F.|
+CLA-TS|Thiago Silva|Paris Saint-Germain|
+CLA-WR|Wayne Rooney|Manchester United|
+CLA-WS|Wesley Sneijder|FC Internazionale Milano|
+CLA-XH|Xavi Hernández|FC Barcelona|
+CLA-YT|Yaya Touré|Manchester City|
+CLA-ZI|Zlatan Ibrahimović|Paris Saint-Germain|
+CLA-ZZ|Zinédine Zidane|Real Madrid C.F.|
+## Black Lazer Autographs
+BLA-ADP|Alessandro Del Piero|Juventus|
+BLA-BS|Bastian Schweinsteiger|FC Bayern München|
+BLA-DM|Daizen Maeda|Celtic FC|
+BLA-DV|Dušan Vlahović|Juventus|
+BLA-EH|Erling Haaland|Manchester City|
+BLA-EW|Estêvão Willian|Chelsea FC|
+BLA-FB|Franck Ribéry|FC Bayern München|
+BLA-FL|Frank Lampard|Chelsea FC|
+BLA-FM|Franco Mastantuono|Real Madrid C.F.|
+BLA-GB|Gareth Bale|Tottenham Hotspur|
+BLA-HK|Harry Kane|FC Bayern München|
+BLA-JA|Julián Alvarez|Atlético de Madrid|
+BLA-JM|Jamal Musiala|FC Bayern München|
+BLA-JU|Jude Bellingham|Real Madrid C.F.|
+BLA-KA|Kaká|AC Milan|
+BLA-KDB|Kevin De Bruyne|SSC Napoli|
+BLA-KK|Konstantinos Karetsas|KRC Genk|
+BLA-LK|Lennart Karl|FC Bayern München|
+BLA-LM|Lionel Messi|FC Barcelona|
+BLA-LY|Lamine Yamal|FC Barcelona|
+BLA-MA|Lautaro Martínez|FC Internazionale Milano|
+BLA-MD|Max Dowman|Arsenal FC|
+BLA-MK|Mohammed Kudus|Tottenham Hotspur|
+BLA-MO|Martin Ødegaard|Arsenal FC|
+BLA-MS|Mohamed Salah|Liverpool FC|
+BLA-NJ|Neymar Jr|Paris Saint-Germain|
+BLA-OD|Ousmane Dembélé|Paris Saint-Germain|
+BLA-P|Pedri|FC Barcelona|
+BLA-PF|Phil Foden|Manchester City|
+BLA-PM|Paolo Maldini|AC Milan|
+BLA-R10|Ronaldinho|FC Barcelona|
+BLA-R9|Ronaldo|FC Internazionale Milano|
+BLA-RA|Raúl|Real Madrid C.F.|
+BLA-RL|Robert Lewandowski|FC Barcelona|
+BLA-RN|Rio Ngumoha|Liverpool FC|
+BLA-RW|Reggie Walsh|Chelsea FC|
+BLA-SC|Santi Cazorla|Arsenal FC|
+BLA-SDB|David Beckham|Real Madrid C.F.|
+BLA-SE|Samuel Eto'o|FC Internazionale Milano|
+BLA-SK|Shinji Kagawa|Borussia Dortmund Legend|
+BLA-SM|Sadio Mané|Liverpool FC|
+BLA-TH|Thierry Henry|Arsenal FC|
+BLA-WR|Wayne Rooney|Manchester United|
+BLA-XS|Xavi Simons|Tottenham Hotspur|
+BLA-ZZ|Zinédine Zidane|Real Madrid C.F.|
+## Bowman UEFA Youth League Autographs
+BYA-MA|Mathis Albert|Borussia Dortmund|
+BYA-SI|Samuele Inacio|Borussia Dortmund|
+BYA-LWB|Lucá Williams-Barnett|Tottenham Hotspur|
+BYA-TL|Teddie Lamb|Manchester City|
+## Future Stars Autographs
+FSA-E|Endrick|Real Madrid C.F.|
+FSA-GQ|Geovany Quenda|Sporting Clube de Portugal|
+FSA-MLS|Myles Lewis-Skelly|Arsenal FC|
+FSA-MM|Mikey Moore|Rangers F.C.|
+FSA-RM|Rodrigo Mora|FC Porto|
+FSA-SM|Senny Mayulu|Paris Saint-Germain|
+## Global Attraction Summer of 2026 Autographs
+GA26-AD|Alphonso Davies|FC Bayern München|
+GA26-CG|Cody Gakpo|Liverpool FC|
+GA26-DM|Daizen Maeda|Celtic FC|
+GA26-DR|Declan Rice|Arsenal FC|
+GA26-EH|Erling Haaland|Manchester City|
+GA26-EW|Estêvão Willian|Chelsea FC|
+GA26-FB|Folarin Balogun|AS Monaco|
+GA26-FM|Franco Mastantuono|Real Madrid C.F.|
+GA26-HK|Harry Kane|FC Bayern München|
+GA26-JA|Julián Alvarez|Atlético de Madrid|
+GA26-JB|Jude Bellingham|Real Madrid C.F.|
+GA26-JM|Jamal Musiala|FC Bayern München|
+GA26-KDB|Kevin De Bruyne|SSC Napoli|
+GA26-LM|Lionel Messi|FC Barcelona|
+GA26-LY|Lamine Yamal|FC Barcelona|
+GA26-MK|Mohammed Kudus|Tottenham Hotspur|
+GA26-MO|Luka Modrić|Tottenham Hotspur|
+GA26-MS|Mohamed Salah|Liverpool FC|
+GA26-OD|Ousmane Dembélé|Paris Saint-Germain|
+GA26-OM|Martin Ødegaard|Arsenal FC|
+GA26-P|Pedri|FC Barcelona|
+GA26-VJ|Vini Jr.|Real Madrid C.F.|
+GA26-VVD|Virgil van Dijk|Liverpool FC|
+GA26-WM|Weston McKennie|Juventus|
+## Marks of Excellence
+ME-AG3|Arda Güler|Real Madrid C.F.|
+ME-BB1|Bradley Barcola|Paris Saint-Germain|
+ME-CP1|Cole Palmer|Chelsea FC|
+ME-HK1|Harry Kane|FC Bayern München|
+ME-LM1|Lionel Messi|FC Barcelona|
+ME-MS1|Mohamed Salah|Liverpool FC|
+ME-SAF1|Sir Alex Ferguson|Manchester United|
+ME-TO1|Fernando Torres|Chelsea FC|
+## Road to Glory Autographs
+RTG-AD|Alessandro Del Piero|Juventus|
+RTG-ADM|Ángel Di María|Real Madrid C.F.|
+RTG-AG|Arda Güler|Real Madrid C.F.|
+RTG-AI|Andrés Iniesta|FC Barcelona|
+RTG-AP|Andrea Pirlo|AC Milan|
+RTG-AS|Andriy Shevchenko|AC Milan|
+RTG-BB|Bradley Barcola|Paris Saint-Germain|
+RTG-CS|Clarence Seedorf|AC Milan|
+RTG-CT|Carlos Tevez|Manchester United|
+RTG-DA|Alphonso Davies|FC Bayern München|
+RTG-EH|Erling Haaland|Manchester City|
+RTG-FI|Filippo Inzaghi|AC Milan|
+RTG-FL|Frank Lampard|Chelsea FC|
+RTG-FM|Fernando Morientes|Real Madrid C.F.|
+RTG-FR|Franck Ribéry|FC Bayern München|
+RTG-FV|Federico Valverde|Real Madrid C.F.|
+RTG-GB|Gareth Bale|Real Madrid C.F.|
+RTG-GG|Gennaro Gattuso|AC Milan|
+RTG-JB|Jude Bellingham|Real Madrid C.F.|
+RTG-JC|Jamie Carragher|Liverpool FC|
+RTG-JK|Joshua Kimmich|FC Bayern München|
+RTG-JM|Javier Mascherano|FC Barcelona|
+RTG-JN|João Neves|Paris Saint-Germain|
+RTG-JU|Juan Mata|Chelsea FC|
+RTG-KA|Kaká|AC Milan|
+RTG-KD|Kenny Dalglish|Liverpool FC|
+RTG-LM|Lionel Messi|FC Barcelona|
+RTG-LS|Luis Suárez|FC Barcelona|
+RTG-MN|Manuel Neuer|FC Bayern München|
+RTG-MS|Matthias Sammer|Borussia Dortmund|
+RTG-MU|Jamal Musiala|FC Bayern München|
+RTG-MVB|Marco van Basten|AC Milan|
+RTG-NV|Nemanja Vidić|Manchester United|
+RTG-OD|Ousmane Dembélé|Paris Saint-Germain|
+RTG-PC|Petr Cech|Chelsea FC|
+RTG-PF|Phil Foden|Manchester City|
+RTG-PK|Patrick Kluivert|AFC Ajax|
+RTG-PL|Philipp Lahm|FC Bayern München|
+RTG-PM|Paolo Maldini|AC Milan|
+RTG-PS|Paul Scholes|Manchester United|
+RTG-R10|Ronaldinho|FC Barcelona|
+RTG-RA|Raúl|Real Madrid C.F.|
+RTG-RB|Roberto Firmino|Liverpool FC|
+RTG-RC|Roberto Carlos|Real Madrid C.F.|
+RTG-RD|Rodrygo|Real Madrid C.F.|
+RTG-RG|Ryan Giggs|Manchester United|
+RTG-RI|Frank Rijkaard|AFC Ajax|
+RTG-RK|Ronald Koeman|FC Barcelona|
+RTG-RM|Riyad Mahrez|Manchester City|
+RTG-SA|Mohamed Salah|Liverpool FC|
+RTG-SB|Sergio Busquets|FC Barcelona|
+RTG-SC|Bastian Schweinsteiger|FC Bayern München|
+RTG-SDB|David Beckham|Manchester United|
+RTG-SE|Samuel Eto'o|FC Internazionale Milano|
+RTG-SM|Sadio Mané|Liverpool FC|
+RTG-TK|Toni Kroos|Real Madrid C.F.|
+RTG-TM|Thomas Müller|FC Bayern München|
+RTG-VD|Virgil van Dijk|Liverpool FC|
+RTG-VJ|Vini Jr.|Real Madrid C.F.|
+RTG-WR|Wayne Rooney|Manchester United|
+RTG-WS|Wesley Sneijder|FC Internazionale Milano|
+RTG-XH|Xavi Hernández|FC Barcelona|
+RTG-ZZ|Zinédine Zidane|Real Madrid C.F.|
+## Superior Signatures Legends
+SSL-AI|Andrés Iniesta|FC Barcelona|
+SSL-BG|Dennis Bergkamp|Arsenal FC|
+SSL-GB|Gareth Bale|Real Madrid C.F.|
+SSL-LJ|Freddie Ljungberg|Arsenal FC|
+SSL-LM|Lionel Messi|FC Barcelona|
+SSL-RB|Roberto Baggio|FC Internazionale Milano|
+SSL-TH|Thierry Henry|Arsenal FC|
+## Superior Signatures Veterans & Rookies
+SSV-AG|Antoine Griezmann|Atlético de Madrid|
+SSV-DM|Divine Mukasa|Manchester City|
+SSV-HK|Harry Kane|FC Bayern München|
+SSV-JA|Julián Alvarez|Atlético de Madrid|
+SSV-JB|Jude Bellingham|Real Madrid C.F.|
+SSV-JM|Jamal Musiala|FC Bayern München|
+SSV-LK|Lennart Karl|FC Bayern München|
+SSV-MD|Max Dowman|Arsenal FC|
+SSV-QJ|Quim Junyent|FC Barcelona|
+SSV-RN|Rio Ngumoha|Liverpool FC|
+SSV-V|Vini Jr.|Real Madrid C.F.|
+## UCL Final Performers Autographs
+UFH-CB|Colin Brittain|Linkin Park|
+UFH-DF|Dave "Phoenix" Farrell|Linkin Park|
+UFH-EA|Emily Armstrong|Linkin Park|
+UFH-JH|Joe Hahn|Linkin Park|
+UFH-MS|Mike Shinoda|Linkin Park|
+## UCL Final Performers Dual Autographs
+LPDA-SA|Mike Shinoda/Emily Armstrong|Linkin Park|
+## Chrome Dual Autographs
+CDA-BF|David Beckham|Manchester United|
+CDA-BM|Bastian Schweinsteiger|FC Bayern München|
+CDA-CL|Cole Palmer|Chelsea FC|
+CDA-GA|Antoine Griezmann|Atlético de Madrid|
+CDA-HF|Erling Haaland|Manchester City|
+CDA-HN|Reo Hatate|Celtic FC|
+CDA-IR|Zlatan Ibrahimović|FC Internazionale Milano|
+CDA-KB|Konstantinos Karetsas|KRC Genk|
+CDA-KP|Kaká|AC Milan|
+CDA-KR|Shinji Kagawa|Borussia Dortmund|
+CDA-MB|Luka Modrić|Tottenham Hotspur|
+CDA-OR|Martin Ødegaard|Arsenal FC|
+CDA-PB|Alessandro Del Piero|Juventus|
+CDA-PG|Paul Scholes|Manchester United|
+CDA-PI|Pedri|FC Barcelona|
+CDA-RA|Ronaldo|FC Internazionale Milano|
+CDA-RE|Ronaldinho|FC Barcelona|
+CDA-RL|Raphinha|FC Barcelona|
+CDA-RV|Rio Ferdinand|Manchester United|
+CDA-SG|Mohamed Salah|Liverpool FC|
+CDA-SH|Bukayo Saka|Arsenal FC|
+CDA-SK|Xavi Simons|Tottenham Hotspur|
+CDA-WP|Wayne Rooney|Manchester United|
+CDA-YM|Lamine Yamal|FC Barcelona|
+CDA-YN|Lamine Yamal|FC Barcelona|
+CDA-ZR|Zinédine Zidane|Real Madrid C.F.|
+## Chrome Triple Autographs
+CTA-BSG|David Beckham|Manchester United|
+CTA-CBB|Giorgio Chiellini|Juventus|
+CTA-CBN|Petr Cech|Chelsea FC|
+CTA-KGS|Kevin Keegan|Newcastle United|
+CTA-KPG|Kaká|AC Milan|
+CTA-KSR|Patrick Kluivert|AFC Ajax|
+CTA-MND|Paolo Maldini|AC Milan|
+CTA-MSN|Lionel Messi|FC Barcelona|
+CTA-NRR|Neymar Jr|FC Barcelona|
+CTA-PGL|Pedri|FC Barcelona|
+CTA-SFM|Mohamed Salah|Liverpool FC|
+CTA-SGR|William Saliba|Arsenal FC|
+CTA-TAG|Fernando Torres|Atlético de Madrid|
+CTA-ZBP|Zinédine Zidane|Juventus|
+## Chrome Quad Autographs
+QA-2024|Vini Jr.|Real Madrid C.F.|
+QA-JOGA|Ronaldo|FC Internazionale Milano|
+QA-MASIA|Lionel Messi|FC Barcelona|
+## Piece of Club History Autograph Book
+CH-1900|Franz Beckenbauer|FC Bayern München|
+CH-BARCA|Ronaldinho|FC Barcelona|
+CH-COYG|Tony Adams|Arsenal FC|
+CH-FORZA|Franco Baresi|AC Milan|
+CH-YNWA|Kevin Keegan|Liverpool FC|
+## Hidden Gems Emerald Green
+HG-2|Rio Ngumoha|Liverpool|
+HG-4|Desire Doue|Paris Saint Germain|
+HG-5|Thierry Henry|Arsenal FC|
