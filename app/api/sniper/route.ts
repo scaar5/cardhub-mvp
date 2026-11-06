@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { authorized } from "@/lib/auth";
 import { ALERT_THRESHOLD, MIN_PRICE, MIN_SAMPLE, SAVE_THRESHOLD, SEARCHES } from "@/lib/config";
 import { ebayConfigured, searchEbay } from "@/lib/ebay";
+import { isComparable } from "@/lib/filters";
 import { marketValueFrom } from "@/lib/market";
 import { getSupabaseAdmin } from "@/lib/supabase-admin";
 import { dealMessage, sendTelegram } from "@/lib/telegram";
@@ -49,7 +50,7 @@ export async function GET(req: Request) {
       }
 
       const rows = newest
-        .filter((it) => it.price >= MIN_PRICE)
+        .filter((it) => it.price >= MIN_PRICE && isComparable(it.title))
         .map((it) => ({
           external_id: `ebay:${it.id}`,
           title: it.title,

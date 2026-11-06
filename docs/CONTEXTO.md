@@ -61,6 +61,7 @@ Importante:
 6. **App de Claude en GitHub** instalada solo en este repo, para poder hacer push.
 7. **GitHub Actions:** secreto `ALERT_SECRET` creado. Hubo un desajuste de contraseña entre GitHub y Vercel; se resolvió poniendo una nueva idéntica en ambos sitios. Ahora la prueba devuelve "eBay no configurado todavía", que es lo esperado.
 8. **El sniper no falla sin eBay:** responde `ok` con `skipped`, para que GitHub no envíe emails de error cada 30 min (`f4db3e0`).
+10. **Filtros de valoración** (`lib/filters.ts`): lotes, graduadas, réplicas, "elige tu carta" y accesorios no cuentan para el valor de mercado ni se guardan como chollo. "Valorar" avisa si el anuncio pegado es de ese tipo.
 9. **Rediseño v0.3** (`0a2eca4`): estilo minimalista tipo Revolut. Tema claro, tipografía Inter (autoalojada con `@fontsource-variable/inter`), tarjeta negra con el "ahorro potencial", cifras en tarjetas blancas y lista de chollos tipo "movimientos bancarios".
 
 ## 5. Cómo funciona el código
@@ -84,6 +85,7 @@ lib/
   telegram.ts             Envío de mensajes y formato de la alerta
   supabase.ts             Cliente de solo lectura (clave pública)
   supabase-admin.ts       Cliente con escritura (SUPABASE_SECRET_KEY)
+  filters.ts              Excluye lotes, graduadas, réplicas, "elige tu carta" y accesorios
   auth.ts                 Comprueba x-alert-secret contra ALERT_SECRET (ignora espacios en los extremos)
 supabase/schema.sql, supabase/migrations/002_sniper.sql
 .github/workflows/sniper.yml
@@ -108,7 +110,9 @@ Búsquedas actuales: `panini adrenalyn`, `topps chrome futbol`, `panini prizm fu
   5. Probar `/valorar` con un anuncio real.
 
 **Después de los primeros resultados**
-- [ ] Afinar la valoración: excluir lotes ("lote", "pack", "set") y graduadas ("PSA", "BGS") o tratarlas aparte, y revisar las búsquedas y los umbrales en `lib/config.ts`. Ahora se usan precios *pedidos*, no *vendidos*, así que habrá algún falso chollo.
+- [x] Excluir de la valoración lotes, graduadas, réplicas, "elige tu carta" y accesorios (`lib/filters.ts`).
+- [ ] Pasar de búsquedas genéricas a **búsquedas por carta concreta** en `lib/config.ts`: con "panini adrenalyn" la mediana mezcla cartas distintas y cualquier carta barata parece chollo.
+- [ ] Revisar umbrales en `lib/config.ts` con datos reales. Ahora se usan precios *pedidos*, no *vendidos*, así que habrá algún falso chollo.
 - [ ] El usuario activa en las apps de Vinted y Wallapop las alertas de búsqueda guardada.
 
 **Recomendado**

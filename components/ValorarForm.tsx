@@ -12,7 +12,16 @@ interface Result {
   pct?: number;
   saved?: boolean;
   alerted?: boolean;
+  excluded?: string | null;
 }
+
+const EXCLUDED_LABEL: Record<string, string> = {
+  lote: "un lote o pack",
+  graduada: "una carta graduada (PSA/BGS)",
+  "réplica": "una réplica o custom",
+  "elige-tu-carta": "un anuncio de “elige tu carta”",
+  accesorio: "un accesorio, no una carta",
+};
 
 type Platform = "vinted" | "wallapop";
 
@@ -181,6 +190,12 @@ export default function ValorarForm() {
                 Basado en {res.sample} anuncios de eBay para “{res.query}”.
                 {!res.reliable && " Pocos comparables: prueba una búsqueda más general."}
               </p>
+              {res.excluded && (
+                <p className="mt-2 text-xs font-medium text-bad">
+                  Ojo: parece {EXCLUDED_LABEL[res.excluded] ?? "un anuncio especial"}. El valor de mercado
+                  es de cartas sueltas normales, así que la comparación puede no ser justa.
+                </p>
+              )}
               {res.saved && (
                 <p className="mt-2 text-sm font-medium text-good">
                   ✓ Guardado{res.alerted ? " · alerta enviada a Telegram" : ""}

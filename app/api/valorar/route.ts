@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { authorized } from "@/lib/auth";
 import { ALERT_THRESHOLD } from "@/lib/config";
 import { ebayConfigured } from "@/lib/ebay";
+import { excludedReason } from "@/lib/filters";
 import { estimateMarketValue } from "@/lib/market";
 import { getSupabaseAdmin } from "@/lib/supabase-admin";
 import { dealMessage, sendTelegram } from "@/lib/telegram";
@@ -78,5 +79,6 @@ export async function POST(req: Request) {
     pct,
     saved,
     alerted,
+    excluded: excludedReason(title),
   });
 }

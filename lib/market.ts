@@ -1,5 +1,6 @@
 import { MIN_PRICE, MIN_SAMPLE } from "./config";
 import { searchEbay, type EbayItem } from "./ebay";
+import { isComparable } from "./filters";
 
 export function median(values: number[]): number {
   if (values.length === 0) return 0;
@@ -10,10 +11,13 @@ export function median(values: number[]): number {
 
 /**
  * Valor de mercado = mediana de precios de anuncios comparables en eBay.es.
- * Se recortan el 10 % más barato y el 10 % más caro para quitar extremos.
+ * Se descartan lotes, graduadas, réplicas y "elige tu carta" (lib/filters.ts)
+ * y se recortan el 10 % más barato y el 10 % más caro para quitar extremos.
  */
 export function marketValueFrom(items: EbayItem[]): { value: number; sample: number } {
-  const prices = items.map((i) => i.price).filter((p) => p >= MIN_PRICE).sort((a, b) => a - b);
+  const prices = items
+    .filter((i) => isComparable(i.title))
+    .map((i) => i.price).filter((p) => p >= MIN_PRICE).sort((a, b) => a - b);
   const cut = Math.floor(prices.length * 0.1);
   const trimmed = prices.slice(cut, prices.length - cut || undefined);
   return { value: Math.round(median(trimmed) * 100) / 100, sample: trimmed.length };
