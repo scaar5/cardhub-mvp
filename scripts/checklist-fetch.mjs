@@ -38,7 +38,9 @@ const index = [];
 for (const [slug, q] of Object.entries(QUERIES)) {
   try {
     const r = await fetch(`${API}?search=${encodeURIComponent(q)}&per_page=10&_fields=id,link,title`, { headers: UA });
-    const list = await r.json();
+    const raw = await r.text();
+    let list; try { list = JSON.parse(raw); } catch { list = null; }
+    if (!Array.isArray(list)) { index.push(`${slug}: HTTP ${r.status} ${raw.slice(0, 200).replace(/\s+/g, " ")}`); continue; }
     const titles = list.map((p) => decode(p.title.rendered));
     const ok = list.filter((p, i) => titles[i].toLowerCase().startsWith(q.toLowerCase()) && !BAD.test(titles[i]));
     index.push(`${slug} <- ${q}\n   candidatos: ${titles.join(" || ")}`);
