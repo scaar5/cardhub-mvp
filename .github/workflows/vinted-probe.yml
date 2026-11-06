@@ -26,6 +26,7 @@ jobs:
               items = re.findall(r'data-testid="product-item-id-(\d+)--overlay-link" title="([^"]*)"', body)
               out[q] = [html.unescape(t) for _, t in items]
               print("Q", q, len(items))
+              for _, t in items: print("T|" + q + "|" + html.unescape(t))
               time.sleep(2)
           json.dump(out, open("titles.json", "w"), ensure_ascii=False)
           PY
