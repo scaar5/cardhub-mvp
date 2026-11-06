@@ -17,6 +17,7 @@ async function loadDeals(): Promise<{ deals: Deal[]; live: boolean }> {
   const { data, error } = await supabase
     .from("deals")
     .select("id,title,platform,price,market_value,url,created_at")
+    .neq("platform", "ebay") // eBay solo sirve de referencia de precio
     .order("created_at", { ascending: false })
     .limit(50);
 
@@ -58,7 +59,7 @@ export default async function Home() {
             {eur.format(savings)}
           </p>
           <p className="mt-3 max-w-md text-sm text-white/60">
-            Cartas y cromos de fútbol por debajo de su valor de mercado en eBay, Vinted y Wallapop.
+            Cartas y cromos de fútbol en Vinted por debajo de su precio en eBay, comparando cada carta con sus propios anuncios.
           </p>
           <div className="mt-7 flex flex-wrap gap-3">
             <Link
@@ -87,7 +88,7 @@ export default async function Home() {
           <Stat label="Chollos" value={String(hot.length)} hint={`≥ ${ALERT_THRESHOLD}% de descuento`} />
           <Stat label="Anuncios" value={String(deals.length)} hint="últimos detectados" />
           <Stat label="Descuento medio" value={`${avg}%`} />
-          <Stat label="Fuentes" value="3" hint="eBay · Vinted · Wallapop" />
+          <Stat label="Fuentes" value="2" hint="Vinted · referencia eBay" />
         </section>
 
         {/* Lista */}
@@ -106,8 +107,8 @@ export default async function Home() {
             <div className="rounded-3xl bg-card px-6 py-14 text-center shadow-card">
               <p className="text-base font-medium">Todavía no hay anuncios</p>
               <p className="mx-auto mt-1 max-w-sm text-sm text-muted">
-                El sniper revisa eBay cada 30 minutos y los irá añadiendo aquí en cuanto encuentre
-                chollos.
+                El sniper revisa Vinted cada 30 minutos y compara cada carta con su precio en eBay.
+                Los chollos irán apareciendo aquí.
               </p>
               <Link
                 href="/valorar"
@@ -119,7 +120,7 @@ export default async function Home() {
           )}
         </section>
 
-        <footer className="mt-14 text-center text-xs text-faint">sCARDs · v0.4</footer>
+        <footer className="mt-14 text-center text-xs text-faint">sCARDs · v0.5</footer>
       </main>
     </>
   );

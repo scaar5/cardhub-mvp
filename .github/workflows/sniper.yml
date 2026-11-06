@@ -1,6 +1,8 @@
 name: sniper
 
-# Ejecuta el sniper de eBay cada 30 minutos (y a mano desde la pestaña Actions).
+# Cada 30 minutos (y a mano desde la pestaña Actions):
+#   1. eBay → guarda precios de referencia por carta (/api/sniper)
+#   2. Vinted → lee los anuncios nuevos y busca chollos frente a esa referencia (/api/vinted)
 on:
   schedule:
     - cron: "*/30 * * * *"
@@ -9,14 +11,25 @@ on:
 jobs:
   run:
     runs-on: ubuntu-latest
-    timeout-minutes: 3
+    timeout-minutes: 6
+    env:
+      ALERT_SECRET: ${{ secrets.ALERT_SECRET }}
+      APP_URL: ${{ vars.APP_URL || 'https://scaard5-analytics.vercel.app' }}
     steps:
-      - name: Llamar a /api/sniper
-        env:
-          ALERT_SECRET: ${{ secrets.ALERT_SECRET }}
-          APP_URL: ${{ vars.APP_URL || 'https://scaard5-analytics.vercel.app' }}
+      - name: eBay → precios de referencia
         run: |
           SECRET="$(printf '%s' "$ALERT_SECRET" | tr -d '\r\n' | sed 's/^ *//;s/ *$//')"
           curl -sS --fail-with-body -m 90 \
             -H "x-alert-secret: $SECRET" \
             "$APP_URL/api/sniper"
+
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: scripts
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Vinted → chollos
+        run: node scripts/vinted-scan.mjs
