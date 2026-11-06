@@ -4,7 +4,7 @@ import { mkdirSync, writeFileSync } from "node:fs";
 
 const CI = "https://www.checklistinsider.com/";
 const BK = "https://www.beckett.com/news/";
-const DONE = new Set(["topps-chrome-ucc-2023-24","topps-chrome-ucc-2024-25","topps-chrome-premier-league-2025-26","topps-finest-ucc-2024-25","topps-merlin-ucc-2024-25","topps-merlin-premier-league-2025-26"]);
+const DONE = new Set(["topps-chrome-ucc-2025-26","topps-finest-ucc-2023-24","topps-merlin-ucc-2023-24","topps-merlin-ucc-2025-26","topps-chrome-ucc-2023-24","topps-chrome-ucc-2024-25","topps-chrome-premier-league-2025-26","topps-finest-ucc-2024-25","topps-merlin-ucc-2024-25","topps-merlin-premier-league-2025-26"]);
 const SLUGS = ["chrome","finest","merlin"].flatMap((b) => ["2021-22","2022-23","2023-24","2024-25","2025-26"].map((y) => `topps-${b}-ucc-${y}`))
   .concat(["topps-chrome-premier-league-2025-26","topps-finest-premier-league-2025-26","topps-merlin-premier-league-2025-26","panini-prizm-world-cup-2022"]);
 function candidates(slug) {
@@ -39,6 +39,26 @@ const toText = (html) =>
 
 mkdirSync("out", { recursive: true });
 const index = [];
+// Direcciones reales sacadas del sitemap de la web
+const SITE = [];
+try {
+  const idx = await (await fetch(CI + "sitemap_index.xml", { headers: UA })).text();
+  const maps = [...idx.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]).filter((u) => /post|page/i.test(u));
+  for (const m of maps) {
+    const x = await (await fetch(m, { headers: UA })).text();
+    SITE.push(...[...x.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]));
+  }
+} catch (e) { index.push("sitemap ERROR " + e.message); }
+index.push(`sitemap: ${SITE.length} urls`);
+for (const slug of Object.keys(URLS)) {
+  const brand = slug.split("-")[1];
+  const y = slug.match(/(\d{4})(?:-(\d{2}))?$/);
+  const yy = y[2] ? `${y[1]}-${y[2]}` : y[1];
+  const comp = slug.includes("premier") ? /premier|epl/ : slug.includes("world-cup") ? /world-cup/ : /uefa|ucc|champions/;
+  const extra = SITE.filter((u) => u.includes(yy) && u.includes(brand) && comp.test(u) && !/sapphire|logofractor|japan|stadium|women/.test(u));
+  index.push(`${slug} sitemap: ${extra.join(" ")}`);
+  URLS[slug] = [...new Set([...extra.map((u) => u.replace(/\/$/, "")), ...URLS[slug]])];
+}
 for (const [slug, urls] of Object.entries(URLS)) {
   const tried = [];
   let done = false;
@@ -53,7 +73,7 @@ for (const [slug, urls] of Object.entries(URLS)) {
       const brand = slug.split("-")[1];
       const year = (slug.match(/\d{4}/) || [""])[0];
       tried.push(`   título: ${head}`);
-      const valid = head.toLowerCase().includes(brand) && head.includes(year) && !/sapphire|logofractor|japan/i.test(head) && txt.includes("## Base Checklist");
+      const valid = head.toLowerCase().includes(brand) && head.includes(year) && !/sapphire|logofractor|japan/i.test(head) && /^## Base[^\n]*Checklist$/m.test(txt);
       if (r.ok && autos > 0 && valid) {
         writeFileSync(`out/${slug}.txt`, `# ${u}\n${txt}\n`);
         index.push(`${slug}: OK ${txt.split("\n").length} líneas <- ${u}`);
