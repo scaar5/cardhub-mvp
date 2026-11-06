@@ -22,6 +22,29 @@ export async function GET(req: Request) {
   if (!authorized(req)) {
     return NextResponse.json({ ok: false, error: "No autorizado" }, { status: 401 });
   }
+  // ?probe=1 → comprueba si eBay.es deja leer la página de vendidos desde Vercel
+  if (new URL(req.url).searchParams.get("probe")) {
+    const res = await fetch(
+      "https://www.ebay.es/sch/i.html?_nkw=topps+chrome+ucc&LH_Sold=1&LH_Complete=1&_ipg=60",
+      {
+        headers: {
+          "User-Agent":
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36",
+          Accept: "text/html,application/xhtml+xml",
+          "Accept-Language": "es-ES,es;q=0.9",
+        },
+      },
+    );
+    const html = await res.text();
+    return NextResponse.json({
+      ok: true,
+      status: res.status,
+      length: html.length,
+      page: html.match(/<title>([^<]*)/)?.[1] ?? "",
+      items: (html.match(/\/itm\/\d{10,}/g) ?? []).length,
+      sold: (html.match(/Vendido/g) ?? []).length,
+    });
+  }
   return NextResponse.json({ ok: true, searches: EBAY_SEARCHES });
 }
 

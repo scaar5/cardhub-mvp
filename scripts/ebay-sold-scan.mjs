@@ -121,6 +121,8 @@ async function main() {
     if (!res.ok || /Pardon Our Interruption|captcha|Disculpa la interrupción/i.test(html)) {
       summary.push({ q, status: res.status, blocked: true, page: html.match(/<title>([^<]*)/)?.[1] ?? "" });
       console.log(`eBay ha respondido ${res.status} o con un bloqueo. Paro esta pasada.`);
+      const probe = await fetch(`${APP_URL}/api/ebay-sold?probe=1`, { headers }).then((r) => r.json()).catch((e) => String(e));
+      console.log(`PROBE_VERCEL ${JSON.stringify(probe)}`);
       break;
     }
     firstHtml ??= html;
