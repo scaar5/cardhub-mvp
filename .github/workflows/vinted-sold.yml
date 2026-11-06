@@ -1,0 +1,27 @@
+name: vinted-sold
+
+# Ventas reales en Vinted: revisa los anuncios reconocidos que siguen abiertos y apunta los vendidos.
+# Cada 2 horas y a mano desde la pestaña Actions.
+on:
+  schedule:
+    - cron: "43 */2 * * *"
+  workflow_dispatch:
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      ALERT_SECRET: ${{ secrets.ALERT_SECRET }}
+      APP_URL: ${{ vars.APP_URL || 'https://scaard5-analytics.vercel.app' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: scripts
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Vinted → ventas
+        run: node scripts/vinted-sold-check.mjs

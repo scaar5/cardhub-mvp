@@ -137,6 +137,7 @@ export async function POST(req: Request) {
         ...d.row,
         card,
         sample: d.ref.sample,
+        source: d.ref.source,
         note:
           d.ref.level > 1
             ? `Precio estimado basado en ${d.ref.basedOn}, al no haber ventas exactas de ${card}`

@@ -21,6 +21,9 @@ export const MIN_REF_SAMPLE = 2;
 /** A partir de cuántos anuncios se usa la mediana; por debajo, el precio más bajo (más prudente). */
 export const RELIABLE_SAMPLE = 4;
 
+/** Días de ventas reales de Vinted que cuentan para la referencia. */
+export const SOLD_DAYS = 90;
+
 /** Días de anuncios de eBay que cuentan para la referencia. */
 export const REF_DAYS = 45;
 

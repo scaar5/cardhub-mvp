@@ -25,6 +25,8 @@ export function dealMessage(d: {
   url: string | null;
   card?: string;
   sample?: number;
+  /** De dónde sale la referencia: ventas reales en Vinted o anuncios de eBay. */
+  source?: "vinted_sold" | "ebay";
   /** Aclaración cuando la referencia viene de otra colección o numeración (fallback). */
   note?: string;
 }) {
@@ -34,8 +36,10 @@ export function dealMessage(d: {
     `🔥 Chollo -${pct}% en ${where}`,
     d.card ? `🃏 ${d.card}` : null,
     d.title,
-    `Precio: ${d.price.toFixed(2)} € · Referencia eBay${d.note ? " (estimada)" : ""}: ${d.market_value.toFixed(2)} €${
-      d.sample ? ` (${d.sample} anuncios)` : ""
+    `Precio: ${d.price.toFixed(2)} € · ${d.source === "vinted_sold" ? "Vendida en Vinted" : "Referencia eBay"}${
+      d.note ? " (estimada)" : ""
+    }: ${d.market_value.toFixed(2)} €${
+      d.sample ? ` (${d.sample} ${d.source === "vinted_sold" ? "ventas" : "anuncios"})` : ""
     }`,
     d.note ? `ℹ️ ${d.note}` : null,
     d.url ?? "",
