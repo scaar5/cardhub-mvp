@@ -13,7 +13,7 @@ const UA =
   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36";
 const H = { "User-Agent": UA, "Accept-Language": "es-ES,es;q=0.9", Accept: "text/html" };
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-const MAX_MS = 7 * 60_000;
+const MAX_MS = 9 * 60_000;
 
 /** Estado de un anuncio a partir del HTML de su página. */
 export function parseItemState(html, id) {

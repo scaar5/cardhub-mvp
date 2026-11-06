@@ -1,16 +1,16 @@
 name: vinted-sold
 
 # Ventas reales en Vinted: revisa los anuncios reconocidos que siguen abiertos y apunta los vendidos.
-# Cada hora (60 anuncios por pasada, con pausas: Vinted frena con 429 si se va rápido) y a mano desde la pestaña Actions.
+# Cada 20 min (75 anuncios por pasada, con pausas: Vinted frena con 429 si se va rápido) y a mano desde la pestaña Actions.
 on:
   schedule:
-    - cron: "13,43 * * * *"
+    - cron: "3,23,43 * * * *"
   workflow_dispatch:
 
 jobs:
   run:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 12
     env:
       ALERT_SECRET: ${{ secrets.ALERT_SECRET }}
       APP_URL: ${{ vars.APP_URL || 'https://scaard5-analytics.vercel.app' }}
