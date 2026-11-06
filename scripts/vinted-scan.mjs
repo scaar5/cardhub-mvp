@@ -69,6 +69,11 @@ async function main() {
     body: JSON.stringify({ items }),
   }).then((r) => r.json());
   console.log(JSON.stringify(result));
+  // Sin las tablas del catálogo todavía no hay nada que comparar: no es un fallo (evita emails de error)
+  if (!result.ok && /Could not find the table|does not exist/i.test(result.error ?? "")) {
+    console.log("Faltan las tablas: ejecuta supabase/migrations/003_catalogo.sql en Supabase.");
+    return;
+  }
   if (!result.ok) process.exit(1);
 }
 
