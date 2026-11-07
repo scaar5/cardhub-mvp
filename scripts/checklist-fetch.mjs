@@ -51,6 +51,8 @@ try {
   }
 } catch (e) { index.push("sitemap ERROR " + e.message); }
 index.push(`sitemap: ${SITE.length} urls`);
+// Lista de URLs del sitemap que podrían ser estas colecciones (para elegir candidatos a mano)
+writeFileSync("out/SITEMAP.txt", SITE.filter((u) => /stadium|bundesliga|sapphire|inception|museum|2020-21-topps-chrome|2021-topps-chrome|topps-chrome-uefa-champions-league/i.test(u)).join("\n") + "\n");
 for (const slug of Object.keys(URLS)) {
   const t = TARGETS[slug];
   const extra = SITE.filter((u) => u.includes(t.y) && okWords(u.replace(CI, ""), t));
