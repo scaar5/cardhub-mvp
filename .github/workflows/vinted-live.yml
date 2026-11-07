@@ -1,0 +1,36 @@
+name: vinted-live
+
+# Chollos de Vinted casi en directo: una pasada cada 15 min.
+# El cron de GitHub se retrasa mucho (en la práctica ~1 vez por hora), así que cada ejecución
+# se queda 110 min dentro haciendo pasadas, y se lanza una nueva cada hora. Nunca hay dos a la vez:
+# la siguiente espera a que termine la anterior, así que siempre hay una en marcha.
+# Si Vinted frena (403/429), espera 30 min antes de seguir.
+on:
+  schedule:
+    - cron: "7 * * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: vinted-live
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 125
+    env:
+      ALERT_SECRET: ${{ secrets.ALERT_SECRET }}
+      APP_URL: ${{ vars.APP_URL || 'https://scaard5-analytics.vercel.app' }}
+      LOOP_MINUTES: "110"
+      EVERY_MINUTES: "15"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: scripts
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Vinted → chollos (cada 15 min)
+        run: node scripts/vinted-scan.mjs

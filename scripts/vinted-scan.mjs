@@ -4,6 +4,9 @@
 //
 // Vinted no tiene API pública: se lee la misma página de resultados que ve cualquier visitante,
 // con pocas peticiones y pausas entre ellas. Si Vinted responde con un bloqueo, se para y se avisa.
+//
+// Modo continuo (workflow vinted-live.yml): LOOP_MINUTES=110 EVERY_MINUTES=15 → una pasada cada 15 min
+// durante 110 min, para no depender de los retrasos del cron de GitHub. Si Vinted bloquea, espera 30 min.
 
 const APP_URL = (process.env.APP_URL || "https://scaard5-analytics.vercel.app").replace(/\/$/, "");
 const SECRET = (process.env.ALERT_SECRET || "").trim();
@@ -36,9 +39,14 @@ export function parseCatalogHtml(html) {
   return out;
 }
 
-async function main() {
-  if (!SECRET) throw new Error("Falta ALERT_SECRET");
+const LOOP_MINUTES = Number(process.env.LOOP_MINUTES || 0);
+const EVERY_MINUTES = Number(process.env.EVERY_MINUTES || 15);
+const BLOCK_PAUSE_MIN = 30;
+
+/** Una pasada por todas las búsquedas. Devuelve { blocked } si Vinted ha frenado. */
+async function scanOnce() {
   const headers = { "x-alert-secret": SECRET };
+  let blocked = false;
 
   const cfg = await fetch(`${APP_URL}/api/vinted`, { headers }).then((r) => r.json());
   if (!cfg.ok) throw new Error(`No pude leer las búsquedas: ${JSON.stringify(cfg)}`);
@@ -52,6 +60,7 @@ async function main() {
       summary.push({ q, status: res.status });
       if (res.status === 403 || res.status === 429) {
         console.log(`Vinted ha respondido ${res.status} (bloqueo o límite). Paro esta pasada.`);
+        blocked = true;
         break;
       }
       continue;
@@ -59,9 +68,9 @@ async function main() {
     const found = parseCatalogHtml(await res.text());
     summary.push({ q, found: found.length });
     for (const it of found) items.push({ ...it, set });
-    await sleep(2500);
+    await sleep(4000 + Math.random() * 1500);
   }
-  console.log(JSON.stringify(summary));
+  console.log(`[${new Date().toISOString()}] ${JSON.stringify(summary)}`);
 
   const result = await fetch(`${APP_URL}/api/vinted`, {
     method: "POST",
@@ -72,9 +81,34 @@ async function main() {
   // Sin las tablas del catálogo todavía no hay nada que comparar: no es un fallo (evita emails de error)
   if (!result.ok && /Could not find the table|does not exist/i.test(result.error ?? "")) {
     console.log("Faltan las tablas: ejecuta supabase/migrations/003_catalogo.sql en Supabase.");
+    return { blocked, ok: true };
+  }
+  return { blocked, ok: !!result.ok };
+}
+
+async function main() {
+  if (!SECRET) throw new Error("Falta ALERT_SECRET");
+  if (!LOOP_MINUTES) {
+    const r = await scanOnce();
+    if (!r.ok) process.exit(1);
     return;
   }
-  if (!result.ok) process.exit(1);
+  const started = Date.now();
+  const end = started + LOOP_MINUTES * 60_000;
+  let passes = 0;
+  while (Date.now() < end) {
+    const t = Date.now();
+    const r = await scanOnce().catch((e) => {
+      console.error(e);
+      return { blocked: false, ok: false };
+    });
+    passes++;
+    const wait = r.blocked ? BLOCK_PAUSE_MIN * 60_000 : EVERY_MINUTES * 60_000 - (Date.now() - t);
+    if (r.blocked) console.log(`Espero ${BLOCK_PAUSE_MIN} min por el bloqueo.`);
+    if (Date.now() + wait >= end) break;
+    await sleep(Math.max(0, wait));
+  }
+  console.log(`FIN ${passes} pasadas en ${Math.round((Date.now() - started) / 60_000)} min`);
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {

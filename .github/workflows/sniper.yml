@@ -3,7 +3,8 @@ name: sniper
 # Cada 30 minutos (y a mano desde la pestaña Actions):
 #   1. eBay → guarda precios de referencia por carta (/api/sniper)
 #   1b. eBay → referencias a medida para las cartas de Vinted sin precio exacto (/api/ebay-targeted)
-#   2. Vinted → lee los anuncios nuevos y busca chollos frente a esa referencia (/api/vinted)
+#   2. Vinted → lee los anuncios nuevos y busca chollos (/api/vinted). Lo normal lo hace vinted-live.yml
+#      cada 15 min; aquí solo se ejecuta al lanzarlo a mano.
 on:
   schedule:
     - cron: "*/30 * * * *"
@@ -33,12 +34,15 @@ jobs:
             "$APP_URL/api/ebay-targeted"
 
       - uses: actions/checkout@v4
+        if: github.event_name == 'workflow_dispatch'
         with:
           sparse-checkout: scripts
 
       - uses: actions/setup-node@v4
+        if: github.event_name == 'workflow_dispatch'
         with:
           node-version: 22
 
-      - name: Vinted → chollos
+      - name: Vinted → chollos (solo a mano; lo programado va en vinted-live.yml)
+        if: github.event_name == 'workflow_dispatch'
         run: node scripts/vinted-scan.mjs
