@@ -1,3 +1,4 @@
+import { untranslateEbayTitle } from "./ebay-title";
 /**
  * Cliente mínimo de la Browse API oficial de eBay (España por defecto; también Alemania, Italia y Francia, todos en euros).
  * Necesita EBAY_CLIENT_ID y EBAY_CLIENT_SECRET (claves de "Production" de developer.ebay.com).
@@ -132,7 +133,7 @@ export async function searchEbay(
     .filter((it) => it.price && it.price.currency === "EUR")
     .map((it) => ({
       id: it.itemId,
-      title: it.title,
+      title: untranslateEbayTitle(it.title), // eBay traduce los títulos: se vuelve al nombre original
       price: Number(it.price!.value),
       url: it.itemWebUrl,
       createdAt: it.itemCreationDate ?? null,
