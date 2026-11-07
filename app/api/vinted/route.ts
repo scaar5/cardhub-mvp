@@ -22,6 +22,10 @@ export const maxDuration = 60;
  *   3. guarda los que tienen ≥ SAVE_THRESHOLD % de descuento en `deals`,
  *   4. avisa por Telegram de los nuevos con ≥ ALERT_THRESHOLD %.
  *
+ * Con { backfill: true } (páginas antiguas de Vinted) solo se hace el paso 1 y se guarda el anuncio en `listings`
+ * para seguir si se vende: NO se guardan chollos ni se avisa (no son anuncios recién publicados).
+ * Sí se cuenta cuántos lo habrían sido (`deals`), para saber si merece la pena avisar de los muy fuertes.
+ *
  * La lectura de Vinted la hace el workflow de GitHub (scripts/vinted-scan.mjs).
  */
 export async function GET(req: Request) {
@@ -48,7 +52,8 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: false, error: "Falta SUPABASE_SECRET_KEY" }, { status: 503 });
   }
 
-  const body = (await req.json().catch(() => null)) as { items?: InItem[] } | null;
+  const body = (await req.json().catch(() => null)) as { items?: InItem[]; backfill?: boolean } | null;
+  const backfill = body?.backfill === true;
   const items = (body?.items ?? []).filter(
     (i) => i && i.id && i.title && Number.isFinite(i.price) && i.price >= MIN_PRICE,
   );
@@ -116,6 +121,20 @@ export async function POST(req: Request) {
       pct,
       ref,
       match,
+    });
+  }
+
+  if (backfill) {
+    return NextResponse.json({
+      ok: true,
+      backfill: true,
+      received: items.length,
+      unique: seen.size,
+      recognized: recognized.length,
+      with_reference: withRef,
+      reference_levels: byLevel,
+      deals: deals.length,
+      strong_deals: deals.filter((d) => d.pct >= ALERT_THRESHOLD).length,
     });
   }
 

@@ -45,4 +45,6 @@ jobs:
 
       - name: Vinted → chollos (solo a mano; lo programado va en vinted-live.yml)
         if: github.event_name == 'workflow_dispatch'
+        env:
+          BACKFILL_PER_PASS: "6"
         run: node scripts/vinted-scan.mjs

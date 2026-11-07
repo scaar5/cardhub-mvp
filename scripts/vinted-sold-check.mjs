@@ -5,7 +5,7 @@
 //   - can_buy=false, sin reservar ni oculto → VENDIDO (se guarda como venta con su precio)
 //   - la página ya no existe (404/410)       → DESAPARECIDO (borrado: no cuenta como venta)
 //   - reservado                              → se vuelve a mirar en otra pasada
-// Pocas peticiones y con pausas. Si Vinted responde con un bloqueo (403/429), se para.
+// Pocas peticiones y con pausas. Si Vinted responde con un bloqueo (403/429), se para (en modo continuo, espera 30 min).
 //
 // Fotos: de cada venta se saca la foto principal del anuncio, se descarga aquí y se manda a la web,
 // que guarda una miniatura en Supabase Storage. También se rellenan ventas antiguas sin foto (photo_ids).
@@ -67,28 +67,46 @@ async function fetchPhoto(id, url) {
   }
 }
 
-async function main() {
-  if (!SECRET) throw new Error("Falta ALERT_SECRET");
-  const headers = { "x-alert-secret": SECRET };
-  const cfg = await fetch(`${APP_URL}/api/vinted-sold`, { headers }).then((r) => r.json());
+// Modo continuo (vinted-sold.yml): LOOP_MINUTES=110 → va pidiendo lotes de BATCH anuncios y los revisa uno a uno
+// durante 110 min, mandando el resultado de cada lote a la web. Sin LOOP_MINUTES hace un solo lote de 75 (≤9 min).
+const LOOP_MINUTES = Number(process.env.LOOP_MINUTES || 0);
+const BATCH = Number(process.env.BATCH || 100);
+const PAUSE_MS = Number(process.env.PAUSE_MS || 5000); // pausa mínima entre anuncios (+0–2 s al azar)
+const BLOCK_PAUSE_MIN = 30;
+const IDLE_PAUSE_MIN = 15; // si no queda nada pendiente, se espera
+
+async function getCookie() {
+  const home = await fetch("https://www.vinted.es/", { headers: H }).catch(() => null);
+  return (home?.headers.getSetCookie?.() ?? []).map((c) => c.split(";")[0]).join("; ");
+}
+
+/** Un lote: pide anuncios, los revisa y manda el resultado. Devuelve { blocked, ok, checked }. */
+async function checkBatch(headers, deadline, limit) {
+  const cfg = await fetch(`${APP_URL}/api/vinted-sold${limit ? `?limit=${limit}` : ""}`, { headers }).then((r) => r.json());
   if (!cfg.ok) throw new Error(`No pude leer los anuncios a revisar: ${JSON.stringify(cfg)}`);
-  console.log(`Anuncios abiertos en seguimiento: ${cfg.open} (${cfg.open_10 ?? "?"} de 10 € o más). Reviso ${cfg.ids.length}.`);
+  const { ids: _ids, photo_ids: _p, ...info } = cfg;
+  console.log(`[${new Date().toISOString()}] QUEUE ${JSON.stringify(info)} → reviso ${cfg.ids.length}`);
+  if (!cfg.ids.length && !(cfg.photo_ids ?? []).length) return { blocked: false, ok: true, checked: 0 };
 
-  const home = await fetch("https://www.vinted.es/", { headers: H });
-  const cookie = (home.headers.getSetCookie?.() ?? []).map((c) => c.split(";")[0]).join("; ");
-
+  const cookie = await getCookie();
   let retried = false;
-  const started = Date.now();
   const results = [];
   const photos = [];
   let sampled = false;
   let blocked = false;
   const count = { open: 0, sold: 0, gone: 0, reserved: 0, unknown: 0 };
+  const pause = () => sleep(PAUSE_MS + Math.random() * 2000);
   for (const id of cfg.ids) {
-    if (Date.now() - started > MAX_MS) break;
-    const res = await fetch(`https://www.vinted.es/items/${id}`, { headers: { ...H, Cookie: cookie } });
+    if (Date.now() > deadline) break;
+    const res = await fetch(`https://www.vinted.es/items/${id}`, { headers: { ...H, Cookie: cookie } }).catch(() => null);
+    if (!res) {
+      count.unknown++;
+      results.push({ id, state: "unknown" });
+      await pause();
+      continue;
+    }
     if (res.status === 403 || res.status === 429) {
-      // Una sola espera larga y reintento; si sigue frenando, se para hasta la próxima pasada
+      // Una sola espera corta y reintento; si sigue frenando, se para este lote
       if (!retried) {
         retried = true;
         console.log(`Vinted ha respondido ${res.status}. Espero 60 s y sigo.`);
@@ -96,7 +114,7 @@ async function main() {
         cfg.ids.push(id);
         continue;
       }
-      console.log(`Vinted ha respondido ${res.status} (bloqueo o límite). Paro esta pasada.`);
+      console.log(`Vinted ha respondido status ${res.status} (bloqueo o límite). Paro este lote.`);
       blocked = true;
       break;
     }
@@ -120,17 +138,19 @@ async function main() {
     // Los no abiertos se enseñan en el log para poder comprobar que la detección es correcta
     if (r.state !== "open") console.log(`ITEM ${id} ${r.state} ${JSON.stringify(r.raw ?? {})}`);
     results.push({ id, state: r.state, price: r.price });
-    await sleep(5000 + Math.random() * 2000);
+    await pause();
   }
   console.log(`TOTAL ${JSON.stringify(count)}`);
 
   // Ventas antiguas sin foto: se abre su página (sigue existiendo tras la venta) y se saca la foto
   let backfill = 0;
   for (const id of blocked ? [] : cfg.photo_ids ?? []) {
-    if (Date.now() - started > MAX_MS + 60_000) break;
-    const res = await fetch(`https://www.vinted.es/items/${id}`, { headers: { ...H, Cookie: cookie } });
+    if (Date.now() > deadline + 60_000) break;
+    const res = await fetch(`https://www.vinted.es/items/${id}`, { headers: { ...H, Cookie: cookie } }).catch(() => null);
+    if (!res) continue;
     if (res.status === 403 || res.status === 429) {
-      console.log(`Vinted ha respondido ${res.status} con las fotos. Paro.`);
+      console.log(`Vinted ha respondido status ${res.status} con las fotos. Paro.`);
+      blocked = true;
       break;
     }
     const ph = res.ok ? parsePhotoUrl(await res.text(), id) : null;
@@ -139,7 +159,7 @@ async function main() {
       photos.push(await fetchPhoto(id, ph.url));
       backfill++;
     }
-    await sleep(5000 + Math.random() * 2000);
+    await pause();
   }
   console.log(`PHOTOS ${JSON.stringify({ new_sales: photos.length - backfill, old_sales: backfill })}`);
 
@@ -149,7 +169,41 @@ async function main() {
     body: JSON.stringify({ results, photos }),
   }).then((r) => r.json());
   console.log(`RESULT ${JSON.stringify(out)}`);
-  if (!out.ok) process.exit(1);
+  return { blocked, ok: !!out.ok, checked: results.length };
+}
+
+async function main() {
+  if (!SECRET) throw new Error("Falta ALERT_SECRET");
+  const headers = { "x-alert-secret": SECRET };
+  if (!LOOP_MINUTES) {
+    const r = await checkBatch(headers, Date.now() + MAX_MS, 0);
+    if (!r.ok) process.exit(1);
+    return;
+  }
+  const started = Date.now();
+  const end = started + LOOP_MINUTES * 60_000;
+  let batches = 0;
+  let checked = 0;
+  while (Date.now() < end) {
+    const r = await checkBatch(headers, end, BATCH).catch((e) => {
+      console.error(e);
+      return { blocked: false, ok: false, checked: 0 };
+    });
+    batches++;
+    checked += r.checked;
+    let wait = 0;
+    if (r.blocked) {
+      wait = BLOCK_PAUSE_MIN * 60_000;
+      console.log(`Espero ${BLOCK_PAUSE_MIN} min por el bloqueo.`);
+    } else if (!r.ok) wait = 2 * 60_000;
+    else if (!r.checked) {
+      wait = IDLE_PAUSE_MIN * 60_000;
+      console.log(`No queda nada pendiente. Espero ${IDLE_PAUSE_MIN} min.`);
+    }
+    if (Date.now() + wait >= end) break;
+    await sleep(wait);
+  }
+  console.log(`FIN ${batches} lotes, ${checked} anuncios revisados en ${Math.round((Date.now() - started) / 60_000)} min`);
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {

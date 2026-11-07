@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { fetchAll } from "@/lib/fetch-all";
 import { authorized } from "@/lib/auth";
 import { CARDS, normalize, type CatalogCard } from "@/lib/catalog";
 import { MIN_PRICE } from "@/lib/config";
@@ -37,12 +38,15 @@ export async function GET(req: Request) {
 
   const started = Date.now();
   const since = new Date(Date.now() - VINTED_DAYS * 86400_000).toISOString();
-  const { data, error } = await db
-    .from("listings")
-    .select("card_id,parallel")
-    .eq("platform", "vinted")
-    .gte("seen_at", since)
-    .limit(10000);
+  const { data, error } = await fetchAll<{ card_id: string; parallel: string | null }>((from, to) =>
+    db
+      .from("listings")
+      .select("card_id,parallel")
+      .eq("platform", "vinted")
+      .gte("seen_at", since)
+      .order("external_id")
+      .range(from, to),
+  );
   if (error) return NextResponse.json({ ok: false, error: error.message }, { status: 500 });
 
   // Cartas (y variante) vistas en Vinted, sin referencia exacta

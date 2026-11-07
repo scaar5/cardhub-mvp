@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { authorized } from "@/lib/auth";
 import { MIN_PRICE, MIN_REF_VALUE } from "@/lib/config";
+import { fetchAll } from "@/lib/fetch-all";
 import { storeSalePhoto, type InPhoto } from "@/lib/photos";
 import { getSupabaseAdmin } from "@/lib/supabase-admin";
 
@@ -14,7 +15,8 @@ export const maxDuration = 60;
  *   platform = "vinted_sold"  → ese anuncio se ha VENDIDO   (external_id "vinted_sold:<id>", seen_at ≈ fecha de venta)
  *   platform = "vinted_gone"  → ese anuncio ha DESAPARECIDO (borrado por el vendedor: no cuenta como venta)
  *
- * GET  /api/vinted-sold (x-alert-secret) → anuncios abiertos que toca revisar (máx. CHECK_BATCH):
+ * GET  /api/vinted-sold[?limit=N] (x-alert-secret) → anuncios abiertos que toca revisar (máx. N o CHECK_BATCH;
+ *                                         no se repiten los mirados hace menos de RECHECK_HOURS):
  *                                         primero los de ≥ MIN_REF_VALUE €, y dentro de ellos los que hace
  *                                         más tiempo que no se miran (checked_at, migración 007)
  *                                         + photo_ids: ventas sin foto todavía (máx. PHOTO_BATCH)
@@ -24,8 +26,11 @@ export const maxDuration = 60;
  * La lectura de Vinted la hace el workflow de GitHub (scripts/vinted-sold-check.mjs).
  */
 const CHECK_BATCH = 75;
+const MAX_BATCH = 200;
 const TRACK_DAYS = 30;
 const PHOTO_BATCH = 10;
+// En modo continuo no se vuelve a mirar un anuncio hasta pasadas unas horas (si no, se repetirían siempre los mismos)
+const RECHECK_HOURS = 3;
 
 const vid = (externalId: string) => externalId.split(":")[1];
 
@@ -36,12 +41,32 @@ export async function GET(req: Request) {
   const db = getSupabaseAdmin();
   if (!db) return NextResponse.json({ ok: false, error: "Falta SUPABASE_SECRET_KEY" }, { status: 503 });
 
+  const limitParam = Number(new URL(req.url).searchParams.get("limit"));
+  const batch = Number.isFinite(limitParam) && limitParam > 0 ? Math.min(MAX_BATCH, Math.floor(limitParam)) : CHECK_BATCH;
+
   const since = new Date(Date.now() - TRACK_DAYS * 86400_000).toISOString();
+  type OpenRow = { external_id: string; price: number; checked_at?: string | null };
   const openQuery = (cols: string) =>
-    db.from("listings").select(cols).eq("platform", "vinted").gte("seen_at", since).limit(10000);
+    fetchAll<OpenRow>(
+      (from, to) =>
+        db
+          .from("listings")
+          .select(cols)
+          .eq("platform", "vinted")
+          .gte("seen_at", since)
+          .order("external_id")
+          .range(from, to) as unknown as PromiseLike<{ data: OpenRow[] | null; error: { message: string } | null }>,
+    );
   const [openFirst, closed, noPhoto] = await Promise.all([
     openQuery("external_id,price,checked_at"),
-    db.from("listings").select("external_id").in("platform", ["vinted_sold", "vinted_gone"]).limit(20000),
+    fetchAll<{ external_id: string }>((from, to) =>
+      db
+        .from("listings")
+        .select("external_id")
+        .in("platform", ["vinted_sold", "vinted_gone"])
+        .order("external_id")
+        .range(from, to),
+    ),
     db
       .from("listings")
       .select("external_id")
@@ -51,15 +76,12 @@ export async function GET(req: Request) {
       .limit(PHOTO_BATCH),
   ]);
   // Sin la migración 007 todavía no hay checked_at: se sigue como antes (al azar)
-  const open = (openFirst.error ? await openQuery("external_id,price") : openFirst) as unknown as {
-    data: { external_id: string; price: number; checked_at?: string | null }[] | null;
-    error: { message: string } | null;
-  };
+  const open = openFirst.error ? await openQuery("external_id,price") : openFirst;
   if (open.error || closed.error) {
     return NextResponse.json({ ok: false, error: open.error?.message ?? closed.error?.message }, { status: 500 });
   }
-  const done = new Set((closed.data ?? []).map((r) => vid(r.external_id)));
-  const pending = (open.data ?? [])
+  const done = new Set(closed.data.map((r) => vid(r.external_id)));
+  const pending = open.data
     .map((r) => ({
       id: vid(r.external_id),
       price: Number(r.price),
@@ -72,17 +94,24 @@ export async function GET(req: Request) {
     [pending[i], pending[j]] = [pending[j], pending[i]];
   }
   pending.sort((a, b) => a.checked - b.checked);
+  const recent = Date.now() - RECHECK_HOURS * 3600_000;
+  const due = pending.filter((r) => r.checked < recent);
   // Primero los de MIN_REF_VALUE € o más (los baratos no interesan); los baratos solo rellenan huecos
   const ordered = [
-    ...pending.filter((r) => r.price >= MIN_REF_VALUE),
-    ...pending.filter((r) => !(r.price >= MIN_REF_VALUE)),
+    ...due.filter((r) => r.price >= MIN_REF_VALUE),
+    ...due.filter((r) => !(r.price >= MIN_REF_VALUE)),
   ].map((r) => r.id);
   const important = pending.filter((r) => r.price >= MIN_REF_VALUE).length;
+  // Cuánto se tarda en dar la vuelta: el más antiguo de los de ≥10 € (horas desde que se miró)
+  const oldest10 = pending.find((r) => r.price >= MIN_REF_VALUE);
   return NextResponse.json({
     ok: true,
     open: pending.length,
     open_10: important,
-    ids: ordered.slice(0, CHECK_BATCH),
+    due: due.length,
+    never_checked: pending.filter((r) => !r.checked).length,
+    oldest_10_hours: oldest10?.checked ? Math.round((Date.now() - oldest10.checked) / 3600_000) : null,
+    ids: ordered.slice(0, batch),
     // Si la migración 006 no está, no hay columna photo_path: se sigue sin fotos
     photo_ids: noPhoto.error ? [] : (noPhoto.data ?? []).map((r) => vid(r.external_id)),
   });

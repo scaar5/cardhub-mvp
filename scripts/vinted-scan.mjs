@@ -42,6 +42,34 @@ export function parseCatalogHtml(html) {
 const LOOP_MINUTES = Number(process.env.LOOP_MINUTES || 0);
 const EVERY_MINUTES = Number(process.env.EVERY_MINUTES || 15);
 const BLOCK_PAUSE_MIN = 30;
+// Repaso del stock antiguo: además de la página 1 (lo más nuevo, con alertas), en cada pasada se leen
+// BACKFILL_PER_PASS páginas antiguas (2–5) por turnos. Esos anuncios se guardan para seguir sus ventas, SIN alerta.
+const BACKFILL_PER_PASS = Number(process.env.BACKFILL_PER_PASS || 0);
+const BACKFILL_PAGES = [2, 3, 4, 5];
+
+const vintedFetch = (q, page = 1) =>
+  fetch(
+    `https://www.vinted.es/catalog?order=newest_first&search_text=${encodeURIComponent(q)}${page > 1 ? `&page=${page}` : ""}`,
+    { headers: { "User-Agent": UA, "Accept-Language": "es-ES,es;q=0.9" } },
+  );
+
+/** Qué páginas antiguas tocan en esta pasada: turno según la hora (no hace falta guardar por dónde se iba). */
+function backfillSlice(searches) {
+  if (!BACKFILL_PER_PASS) return [];
+  const all = [];
+  for (const page of BACKFILL_PAGES) for (const s of searches) all.push({ ...s, page });
+  const slot = Math.floor(Date.now() / (EVERY_MINUTES * 60_000));
+  const start = (slot * BACKFILL_PER_PASS) % all.length;
+  return [...all.slice(start), ...all.slice(0, start)].slice(0, Math.min(BACKFILL_PER_PASS, all.length));
+}
+
+async function post(headers, body) {
+  return fetch(`${APP_URL}/api/vinted`, {
+    method: "POST",
+    headers: { ...headers, "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  }).then((r) => r.json());
+}
 
 /** Una pasada por todas las búsquedas. Devuelve { blocked } si Vinted ha frenado. */
 async function scanOnce() {
@@ -54,8 +82,7 @@ async function scanOnce() {
   const items = [];
   const summary = [];
   for (const { q, set } of cfg.searches) {
-    const url = `https://www.vinted.es/catalog?order=newest_first&search_text=${encodeURIComponent(q)}`;
-    const res = await fetch(url, { headers: { "User-Agent": UA, "Accept-Language": "es-ES,es;q=0.9" } });
+    const res = await vintedFetch(q);
     if (!res.ok) {
       summary.push({ q, status: res.status });
       if (res.status === 403 || res.status === 429) {
@@ -72,12 +99,33 @@ async function scanOnce() {
   }
   console.log(`[${new Date().toISOString()}] ${JSON.stringify(summary)}`);
 
-  const result = await fetch(`${APP_URL}/api/vinted`, {
-    method: "POST",
-    headers: { ...headers, "Content-Type": "application/json" },
-    body: JSON.stringify({ items }),
-  }).then((r) => r.json());
+  const result = await post(headers, { items });
   console.log(JSON.stringify(result));
+
+  // Páginas antiguas (sin alerta)
+  const old = [];
+  const oldSummary = [];
+  for (const { q, set, page } of blocked ? [] : backfillSlice(cfg.searches)) {
+    await sleep(4000 + Math.random() * 1500);
+    const res = await vintedFetch(q, page);
+    if (!res.ok) {
+      oldSummary.push({ q, page, status: res.status });
+      if (res.status === 403 || res.status === 429) {
+        console.log(`Vinted ha respondido ${res.status} en las páginas antiguas. Paro esta pasada.`);
+        blocked = true;
+        break;
+      }
+      continue;
+    }
+    const found = parseCatalogHtml(await res.text());
+    oldSummary.push({ q, page, found: found.length });
+    for (const it of found) old.push({ ...it, set });
+  }
+  if (oldSummary.length) {
+    console.log(`BACKFILL ${JSON.stringify(oldSummary)}`);
+    const r2 = await post(headers, { items: old, backfill: true }).catch((e) => ({ ok: false, error: String(e) }));
+    console.log(`BACKFILL_RESULT ${JSON.stringify(r2)}`);
+  }
   // Sin las tablas del catálogo todavía no hay nada que comparar: no es un fallo (evita emails de error)
   if (!result.ok && /Could not find the table|does not exist/i.test(result.error ?? "")) {
     console.log("Faltan las tablas: ejecuta supabase/migrations/003_catalogo.sql en Supabase.");

@@ -1,19 +1,29 @@
 name: vinted-sold
 
 # Ventas reales en Vinted: revisa los anuncios reconocidos que siguen abiertos y apunta los vendidos.
-# Cada 20 min (75 anuncios por pasada, con pausas: Vinted frena con 429 si se va rápido) y a mano desde la pestaña Actions.
+# Modo continuo (como vinted-live): cada ejecución se queda 110 min revisando anuncios uno a uno
+# (7–9 s entre peticiones → ~400 por hora), en lotes de 100, primero los de ≥10 € que hace más que no se miran.
+# El cron lanza una nueva cada hora; nunca hay dos a la vez (la siguiente espera), así que siempre hay una en marcha.
+# Si Vinted frena (403/429), espera 30 min antes de seguir.
 on:
   schedule:
-    - cron: "3,23,43 * * * *"
+    - cron: "37 * * * *"
   workflow_dispatch:
+
+concurrency:
+  group: vinted-sold
+  cancel-in-progress: false
 
 jobs:
   run:
     runs-on: ubuntu-latest
-    timeout-minutes: 12
+    timeout-minutes: 125
     env:
       ALERT_SECRET: ${{ secrets.ALERT_SECRET }}
       APP_URL: ${{ vars.APP_URL || 'https://scaard5-analytics.vercel.app' }}
+      LOOP_MINUTES: "110"
+      BATCH: "100"
+      PAUSE_MS: "7000"
     steps:
       - uses: actions/checkout@v4
         with:
@@ -23,5 +33,5 @@ jobs:
         with:
           node-version: 22
 
-      - name: Vinted → ventas
+      - name: Vinted → ventas (continuo)
         run: node scripts/vinted-sold-check.mjs
