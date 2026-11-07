@@ -1,0 +1,35 @@
+name: vinted-probe
+
+# Diagnóstico (a mano): mide cuántos anuncios aportarían más páginas (vinted.es 2–5) y otros países
+# (vinted.fr/.it/.de). No toca la base de datos: guarda los títulos en la rama "vinted-probe".
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: scripts
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/vinted-probe.mjs
+        env:
+          ALERT_SECRET: ${{ secrets.ALERT_SECRET }}
+      - name: Guardar en rama vinted-probe
+        run: |
+          cp out/probe.json /tmp/probe.json
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git checkout --orphan vinted-probe
+          git rm -rfq .
+          cp /tmp/probe.json .
+          git add -A
+          git commit -qm "vinted probe $(date -u +%FT%TZ)"
+          git push -f origin vinted-probe
