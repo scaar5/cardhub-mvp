@@ -207,7 +207,7 @@ function detectParallel(setSlug: string, t: string, rawTitle: string, card: Cata
 
 const AUTO_WORDS = [
   "auto", "autos", "autograph", "autographed", "autographs", "autografo", "autografos", "autografiada",
-  "autografato", "autographe", "autogramm", "firma", "firmada", "firmado", "autografiado", "autografiada", "signed", "signature",
+  "autografato", "autographe", "autogramm", "assinada", "assinado", "autografada", "firma", "firmada", "firmado", "autografiado", "autografiada", "signed", "signature",
 ];
 const INSERT_WORDS = ["insert", "inserto", "insertos", "case hit", "ssp", "sp", "short print"];
 const MEMORABILIA = ["relic", "patch", "parche", "memorabilia", "jersey", "camiseta", "shirt"];
@@ -246,7 +246,8 @@ export function recognize(title: string, hint?: string): RecognizeResult {
     if (fits === true || fits === "end") allSets.push({ rule, confidence: "alta", weak: !anyOk, tier: fits === true ? 1 : 2 });
     else {
       if (hint === rule.slug && anyOk) allSets.push({ rule, confidence: "media", weak: false, tier: 1 });
-      if (anyOk) freeSets.push({ rule, confidence: "alta", weak: false, tier: 1 });
+      // También solo con la marca ("Topps Finest … RC"): si sale rookie en UCC y en Premier, empate → nada
+      freeSets.push({ rule, confidence: "alta", weak: !anyOk, tier: 1 });
     }
   }
   // Rookie sin temporada ("Prestianni RC Purple /299 – Topps Chrome UEFA"): un jugador solo tiene
@@ -254,8 +255,20 @@ export function recognize(title: string, hint?: string): RecognizeResult {
   // carta rookie suya, es esa (alta). Si sale en varias, se queda como estaba.
   const rookieNoSeason = (): RecognizeResult | null => {
     if (!freeSets.length || !/\b(rc|rookie|rookies|rookie card)\b/.test(t)) return null;
-    const res = pickCard(freeSets);
-    return res?.match && res.match.card.rookie ? res : null;
+    // Solo con la marca (sin UEFA / Premier League): no vale si esa marca tiene otra colección esa
+    // temporada (p. ej. Chrome UCC y Chrome Premier League 2025-26), por si al catálogo le falta la otra.
+    const usable = freeSets.filter((x) => {
+      if (!x.weak) return true;
+      const brand = x.rule.all?.[0];
+      return !SET_RULES.some((r) => r !== x.rule && r.all?.[0] === brand && r.seasons.some((se) => x.rule.seasons.includes(se)));
+    });
+    // Solo cartas rookie; pickCard trata weak como "exige número o club": aquí basta con que la rookie sea única
+    const res = pickCard(usable.map((x) => ({ ...x, weak: false })), true);
+    if (!res?.match || !res.match.card.rookie) return null;
+    // Dentro de esa colección, sin filtrar, tiene que salir la misma carta (si el título nombra un
+    // insert del jugador, "Top of the World"…, no es la rookie de la serie base)
+    const same = pickCard(usable.filter((x) => x.rule.slug === res.match!.setSlug).map((x) => ({ ...x, weak: false })));
+    return same?.match && same.match.card.id === res.match.card.id ? res : null;
   };
   if (allSets.length === 0) return rookieNoSeason() ?? { match: null, reason: "colección no reconocida" };
   // Sin competición en el título solo hay duda si esa marca tiene otra colección esa temporada
@@ -272,7 +285,7 @@ export function recognize(title: string, hint?: string): RecognizeResult {
   if (r.match?.confidence !== "alta" && !seasons.pairs.length && !seasons.years.length) return rookieNoSeason() ?? r;
   return r;
 
-  function pickCard(sets: SetCand[]): RecognizeResult | null {
+  function pickCard(sets: SetCand[], onlyRookie = false): RecognizeResult | null {
   if (sets.length === 0) return null;
 
   // 2) Cartas posibles en esas colecciones
@@ -284,6 +297,7 @@ export function recognize(title: string, hint?: string): RecognizeResult {
     const setNumbers = numbersBySet.get(rule.slug) ?? new Set<string>();
     const setNums = numbers.filter((n) => setNumbers.has(n));
     for (const p of entry.players) {
+      if (onlyRookie && !p.card.rookie) continue;
       let score = 0;
       if (p.tokens.every((tok) => words.has(tok))) score = 3;
       else if (p.surname.length >= 4 && words.has(p.surname) && entry.surnameCount.get(p.surname) === 1) score = 2;
