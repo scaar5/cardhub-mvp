@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { authorized } from "@/lib/auth";
 import { CARDS, normalize, type CatalogCard } from "@/lib/catalog";
 import { MIN_PRICE } from "@/lib/config";
-import { ebayConfigured, searchEbay } from "@/lib/ebay";
+import { EBAY_EUR_MARKETS, ebayConfigured, searchEbayMarkets } from "@/lib/ebay";
 import { recognize } from "@/lib/recognize";
 import { loadReferences, resolveReference } from "@/lib/reference";
 import { ebayProduct } from "@/lib/valuation";
@@ -11,8 +11,11 @@ import { getSupabaseAdmin } from "@/lib/supabase-admin";
 export const dynamic = "force-dynamic";
 export const maxDuration = 60;
 
-/** Búsquedas por pasada: cabe en el tiempo y deja margen en el límite diario de eBay (5.000 llamadas). */
-const MAX_QUERIES = 35;
+/**
+ * Búsquedas por pasada. Cada búsqueda se lanza en 3 mercados (España, Italia, Alemania),
+ * así que son 20 × 3 = 60 llamadas: deja margen en el límite diario de eBay (5.000 llamadas).
+ */
+const MAX_QUERIES = 20;
 /** Anuncios de Vinted de los últimos días cuyas cartas buscamos en eBay. */
 const VINTED_DAYS = 7;
 
@@ -22,7 +25,7 @@ const cardById = new Map(CARDS.map((c) => [c.id, c]));
 /**
  * GET /api/ebay-targeted   (cabecera x-alert-secret: <ALERT_SECRET>)
  * Referencias a medida: para las cartas que han salido en Vinted y aún no tienen precio
- * de referencia EXACTO, busca en eBay.es "jugador + producto" (p. ej. "lamine yamal topps chrome").
+ * de referencia EXACTO, busca en eBay (España, Italia y Alemania, en euros) "jugador + producto" (p. ej. "lamine yamal topps chrome").
  * Una búsqueda trae todas las cartas de ese jugador en ese producto (todas las temporadas y
  * paralelas); el reconocedor decide cuál es cada anuncio y solo se guardan los de confianza alta.
  */
@@ -60,8 +63,8 @@ export async function GET(req: Request) {
     queries.set(q, (queries.get(q) ?? 0) + 1);
   }
   const all = [...queries.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).map(([q]) => q);
-  // Rotación: cada pasada (cada media hora) sigue por donde se quedó la anterior
-  const offset = all.length ? (Math.floor(Date.now() / 1_800_000) * MAX_QUERIES) % all.length : 0;
+  // Rotación: cada pasada (GitHub la lanza más o menos cada hora) sigue por donde se quedó la anterior
+  const offset = all.length ? (Math.floor(Date.now() / 3_600_000) * MAX_QUERIES) % all.length : 0;
   const batch = [...all.slice(offset), ...all.slice(0, offset)].slice(0, MAX_QUERIES);
 
   let saved = 0;
@@ -69,7 +72,7 @@ export async function GET(req: Request) {
   for (const q of batch) {
     if (Date.now() - started > 50_000) break;
     try {
-      const items = await searchEbay(q, { limit: 200 });
+      const { items, byMarket } = await searchEbayMarkets(q, EBAY_EUR_MARKETS, { limit: 200 });
       const now = new Date().toISOString();
       const rows = [];
       for (const it of items) {
@@ -92,7 +95,7 @@ export async function GET(req: Request) {
         if (e) throw new Error(e.message);
       }
       saved += rows.length;
-      report.push({ q, seen: items.length, recognized: rows.length });
+      report.push({ q, seen: items.length, by_market: byMarket, recognized: rows.length });
     } catch (e) {
       report.push({ q, error: e instanceof Error ? e.message : String(e) });
     }

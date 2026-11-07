@@ -14,7 +14,7 @@ export default function ValorarPage() {
       </Link>
       <h1 className="mt-8 text-3xl font-semibold tracking-tight">Valorar un anuncio</h1>
       <p className="mt-2 text-[15px] text-muted">
-        Pega un anuncio de Vinted o Wallapop. Comparo su precio con eBay España y te digo si es un
+        Pega un anuncio de Vinted o Wallapop. Comparo su precio con ventas reales de Vinted y anuncios de eBay (España, Italia y Alemania) y te digo si es un
         chollo.
       </p>
       <ValorarForm />

@@ -2,6 +2,12 @@
 
 import { useEffect, useState } from "react";
 
+/** País del anuncio de eBay según el dominio del enlace (ebay.it → "IT"). */
+function ebayLabel(url: string | null): string {
+  const m = url?.match(/ebay\.(es|it|de|fr)\b/);
+  return m ? `eBay ${m[1].toUpperCase()}` : "eBay";
+}
+
 interface Comparable {
   title: string;
   price: number;
@@ -47,7 +53,7 @@ function sourceText(r: Result): string {
   const n = r.sample ?? 0;
   if (r.source === "vinted_sold") return `Mediana de ${n} ventas reales en Vinted (últimos 90 días).`;
   const how = n >= 4 ? "precio bajo (percentil 25)" : "el más barato";
-  return `Basado en ${n} anuncios en venta en eBay España: ${how}, porque son precios pedidos, no vendidos.`;
+  return `Basado en ${n} anuncios en venta en eBay (España, Italia y Alemania): ${how}, porque son precios pedidos, no vendidos.`;
 }
 
 const EXCLUDED_LABEL: Record<string, string> = {
@@ -279,7 +285,7 @@ export default function ValorarForm() {
                         <span className={`shrink-0 rounded-full px-2 py-0.5 text-[11px] font-semibold ${
                           c.platform === "vinted_sold" ? "bg-good-soft text-good" : "bg-canvas text-muted"
                         }`}>
-                          {c.platform === "vinted_sold" ? "Vendida Vinted" : "eBay"}
+                          {c.platform === "vinted_sold" ? "Vendida Vinted" : ebayLabel(c.url)}
                         </span>
                         <span className="min-w-0 flex-1 truncate text-sm text-ink" title={c.title}>
                           {c.url ? (

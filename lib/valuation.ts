@@ -1,7 +1,7 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
 import { normalize, setBySlug, type CatalogCard } from "./catalog";
 import { EBAY_MIN_SAMPLE, MIN_PRICE, REF_DAYS, RELIABLE_SAMPLE, SOLD_DAYS } from "./config";
-import { searchEbay } from "./ebay";
+import { searchEbayMarkets, type EbayItem } from "./ebay";
 import { isComparable } from "./filters";
 import { flat, recognize, type Recognition } from "./recognize";
 import {
@@ -65,12 +65,12 @@ export function ebayProduct(card: CatalogCard): string | null {
   return null;
 }
 
-/** Varias búsquedas en eBay, sin repetir anuncios (si una falla, sigue con las demás). */
+/** Varias búsquedas en eBay (España, Italia y Alemania), sin repetir anuncios (si una falla, sigue con las demás). */
 async function searchMany(queries: string[]) {
-  const seen = new Map<string, Awaited<ReturnType<typeof searchEbay>>[number]>();
+  const seen = new Map<string, EbayItem>();
   for (const q of [...new Set(queries)]) {
     try {
-      for (const it of await searchEbay(q, { limit: 200 })) seen.set(it.id, it);
+      for (const it of (await searchEbayMarkets(q, undefined, { limit: 200 })).items) if (!seen.has(it.id)) seen.set(it.id, it);
     } catch {
       // seguimos con la siguiente búsqueda
     }
@@ -141,8 +141,8 @@ async function textValuation(query: string): Promise<{ ref: Valuation["ref"]; co
       comparables: comps,
       reason:
         comps.length === 0
-          ? "No hay anuncios en eBay España de esta misma carta."
-          : `Solo hay ${comps.length} anuncio${comps.length > 1 ? "s" : ""} en eBay España de esta misma carta (mínimo ${EBAY_MIN_SAMPLE}).`,
+          ? "No hay anuncios en eBay (España, Italia ni Alemania) de esta misma carta."
+          : `Solo hay ${comps.length} anuncio${comps.length > 1 ? "s" : ""} en eBay (ES/IT/DE) de esta misma carta (mínimo ${EBAY_MIN_SAMPLE}).`,
     };
   }
   return {

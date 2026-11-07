@@ -1,5 +1,5 @@
 /**
- * Cliente mínimo de la Browse API oficial de eBay (marketplace España).
+ * Cliente mínimo de la Browse API oficial de eBay (España por defecto; también Italia, Alemania y Francia, todos en euros).
  * Necesita EBAY_CLIENT_ID y EBAY_CLIENT_SECRET (claves de "Production" de developer.ebay.com).
  */
 
@@ -51,12 +51,49 @@ interface RawSummary {
   itemCreationDate?: string;
 }
 
-/** Busca anuncios de "Cómpralo ya" en eBay.es. */
+/**
+ * Mercados de eBay que usan euros (no hace falta convertir moneda: precios exactos).
+ * Italia y Alemania tienen muchos más anuncios de Topps/Panini que España.
+ */
+export type EbayMarket = "EBAY_ES" | "EBAY_IT" | "EBAY_DE" | "EBAY_FR";
+export const EBAY_EUR_MARKETS: EbayMarket[] = ["EBAY_ES", "EBAY_IT", "EBAY_DE"];
+const LANG: Record<EbayMarket, string> = {
+  EBAY_ES: "es-ES",
+  EBAY_IT: "it-IT",
+  EBAY_DE: "de-DE",
+  EBAY_FR: "fr-FR",
+};
+
+/** Busca la misma consulta en varios mercados de eBay a la vez, sin repetir anuncios. */
+export async function searchEbayMarkets(
+  q: string,
+  markets: EbayMarket[] = EBAY_EUR_MARKETS,
+  opts: { limit?: number } = {},
+): Promise<{ items: EbayItem[]; byMarket: Record<string, number | string> }> {
+  const results = await Promise.allSettled(markets.map((m) => searchEbay(q, { ...opts, market: m })));
+  const seen = new Map<string, EbayItem>();
+  const byMarket: Record<string, number | string> = {};
+  results.forEach((r, i) => {
+    const m = markets[i].slice(5);
+    if (r.status === "rejected") {
+      byMarket[m] = "error";
+      return;
+    }
+    byMarket[m] = r.value.length;
+    // El mismo anuncio puede salir en varios mercados: se queda el primero (España va primero)
+    for (const it of r.value) if (!seen.has(it.id)) seen.set(it.id, it);
+  });
+  if (results.every((r) => r.status === "rejected")) throw (results[0] as PromiseRejectedResult).reason;
+  return { items: [...seen.values()], byMarket };
+}
+
+/** Busca anuncios de "Cómpralo ya" en un mercado de eBay (por defecto eBay.es), solo en euros. */
 export async function searchEbay(
   q: string,
-  opts: { sort?: "newlyListed"; limit?: number } = {},
+  opts: { sort?: "newlyListed"; limit?: number; market?: EbayMarket } = {},
 ): Promise<EbayItem[]> {
   const token = await getToken();
+  const market = opts.market ?? "EBAY_ES";
   const params = new URLSearchParams({
     q,
     limit: String(opts.limit ?? 100),
@@ -67,8 +104,8 @@ export async function searchEbay(
   const res = await fetch(`https://api.ebay.com/buy/browse/v1/item_summary/search?${params}`, {
     headers: {
       Authorization: `Bearer ${token}`,
-      "X-EBAY-C-MARKETPLACE-ID": "EBAY_ES",
-      "Accept-Language": "es-ES",
+      "X-EBAY-C-MARKETPLACE-ID": market,
+      "Accept-Language": LANG[market],
     },
     cache: "no-store",
   });
