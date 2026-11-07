@@ -12,6 +12,50 @@ export function feedbackButtons(externalId: string, chosen?: "bueno" | "falso"):
   ]];
 }
 
+export type FbCard = "si" | "otra" | "lote";
+export type FbRef = "ok" | "alta" | "baja" | "nose";
+export const FB_CARD: Record<FbCard, string> = { si: "✅ Sí, es esa", otra: "🔀 Otra paralela/carta", lote: "📦 Lote/graduada/dañada" };
+export const FB_REF: Record<FbRef, string> = {
+  ok: "👍 Parecido",
+  alta: "📉 Se vende más barato",
+  baja: "📈 Se vende más caro",
+  nose: "❓ No encuentro ventas",
+};
+
+/**
+ * Pregunta 1 de la alerta: ¿es la carta? (callback "c:<resp>:<external_id>").
+ * Si ya se respondió que no, marca la respuesta elegida.
+ */
+export function cardQuestionButtons(externalId: string, chosen?: FbCard): Button[][] {
+  return [
+    [{ text: "1) ¿Es la carta del anuncio?", callback_data: `noop:${externalId}`.slice(0, 64) }],
+    ...(Object.keys(FB_CARD) as FbCard[]).map((k) => [
+      { text: `${chosen === k ? "✔️ " : ""}${FB_CARD[k]}`, callback_data: `c:${k}:${externalId}` },
+    ]),
+  ];
+}
+
+/** Pregunta 2: ¿qué dice 130point? (callback "r:<resp>:<external_id>"), con botón para corregir la 1. */
+export function refQuestionButtons(externalId: string, refValue: number | null, chosen?: FbRef): Button[][] {
+  const ref = refValue != null ? ` (referencia ${Math.round(refValue)} €)` : "";
+  return [
+    [{ text: `2) ¿Qué dice 130point?${ref}`, callback_data: `noop:${externalId}`.slice(0, 64) }],
+    ...(Object.keys(FB_REF) as FbRef[]).map((k) => [
+      { text: `${chosen === k ? "✔️ " : ""}${FB_REF[k]}`, callback_data: `r:${k}:${externalId}` },
+    ]),
+    [{ text: "↩️ Cambiar respuesta 1 (carta)", callback_data: `c:reset:${externalId}` }],
+  ];
+}
+
+/** Voto global a partir de las dos respuestas (null = sin decidir). */
+export function deriveFeedback(card: FbCard | null, ref: FbRef | null): "bueno" | "falso" | null {
+  if (card === "otra" || card === "lote") return "falso";
+  if (card !== "si") return null;
+  if (ref === "ok" || ref === "baja") return "bueno";
+  if (ref === "alta") return "falso";
+  return null;
+}
+
 /** Llamada genérica a la API del bot. */
 export async function telegramApi(method: string, body: Record<string, unknown>) {
   const token = process.env.TELEGRAM_BOT_TOKEN;
@@ -32,7 +76,7 @@ export async function sendTelegram(text: string, opts: { dealId?: string } = {})
     chat_id: chatId,
     text,
     disable_web_page_preview: false,
-    ...(opts.dealId ? { reply_markup: { inline_keyboard: feedbackButtons(opts.dealId) } } : {}),
+    ...(opts.dealId ? { reply_markup: { inline_keyboard: cardQuestionButtons(opts.dealId) } } : {}),
   });
 }
 
@@ -112,7 +156,7 @@ export function dealAlertHtml(d: {
 export async function sendDealAlert(html: string, opts: { dealId: string; photo?: string | null }) {
   const chatId = process.env.TELEGRAM_CHAT_ID;
   if (!process.env.TELEGRAM_BOT_TOKEN || !chatId) return { ok: false, error: "Telegram no configurado", photo: false };
-  const reply_markup = { inline_keyboard: feedbackButtons(opts.dealId) };
+  const reply_markup = { inline_keyboard: cardQuestionButtons(opts.dealId) };
   if (opts.photo) {
     const r = await telegramApi("sendPhoto", { chat_id: chatId, photo: opts.photo, caption: html, parse_mode: "HTML", reply_markup });
     if (r.ok) return { ...r, photo: true };

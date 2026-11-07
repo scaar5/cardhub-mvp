@@ -20,20 +20,40 @@ export async function GET(req: Request) {
   const days = Number(new URL(req.url).searchParams.get("days") ?? 30);
   const since = new Date(Date.now() - days * 86400_000).toISOString();
 
-  const { data, error } = await db
+  const base = "external_id,title,price,market_value,url,card_id,parallel,ref_source,ref_sample,ref_level,feedback,feedback_at";
+  let { data, error }: { data: unknown[] | null; error: { message: string } | null } = await db
     .from("deals")
-    .select("external_id,title,price,market_value,url,card_id,parallel,ref_source,ref_sample,ref_level,feedback,feedback_at")
-    .not("feedback", "is", null)
-    .gte("feedback_at", since)
-    .order("feedback_at", { ascending: false })
+    .select(`${base},fb_card,fb_ref`)
+    .or(`feedback_at.gte.${since},fb_card.not.is.null`)
+    .order("feedback_at", { ascending: false, nullsFirst: false })
     .limit(500);
+  if (error && /fb_card|fb_ref/.test(error.message)) {
+    // Sin migración 009
+    ({ data, error } = await db
+      .from("deals")
+      .select(base)
+      .not("feedback", "is", null)
+      .gte("feedback_at", since)
+      .order("feedback_at", { ascending: false })
+      .limit(500));
+  }
   if (error) return NextResponse.json({ ok: false, error: error.message }, { status: 500 });
 
-  const rows = (data ?? []).map((d) => {
+  type Row = { card_id: string | null; parallel: string | null; feedback: string | null; fb_card?: string | null; fb_ref?: string | null; title: string; price: number; market_value: number };
+  const all = ((data ?? []) as unknown as Row[]).map((d) => {
     const card = d.card_id ? cardById.get(d.card_id) : undefined;
     return { ...d, card: card ? cardLabel(card, d.parallel) : null };
   });
+  const rows = all.filter((r) => r.feedback);
   const good = rows.filter((r) => r.feedback === "bueno").length;
+  // Respuestas de las dos preguntas (alertas desde el paso 33)
+  const count = (key: "fb_card" | "fb_ref") =>
+    all.reduce<Record<string, number>>((m, r) => {
+      const v = r[key];
+      if (v) m[v] = (m[v] ?? 0) + 1;
+      return m;
+    }, {});
+  const inflated = all.filter((r) => r.fb_ref === "alta");
   return NextResponse.json({
     ok: true,
     days,
@@ -41,6 +61,12 @@ export async function GET(req: Request) {
     good,
     bad: rows.length - good,
     precision_pct: rows.length ? Math.round((good / rows.length) * 100) : null,
+    // ¿Es la carta?  si / otra (paralela o carta equivocada) / lote (lote, graduada, dañada)
+    carta: count("fb_card"),
+    // ¿Qué dice 130point?  ok / alta (referencia inflada) / baja (vale más) / nose (sin ventas)
+    referencia: count("fb_ref"),
+    referencia_inflada: inflated.map((r) => ({ title: r.title, price: r.price, ref: r.market_value, card: r.card })),
+    carta_equivocada: all.filter((r) => r.fb_card === "otra" || r.fb_card === "lote"),
     falsos: rows.filter((r) => r.feedback === "falso"),
     buenos: rows.filter((r) => r.feedback === "bueno").map((r) => ({ title: r.title, price: r.price, ref: r.market_value, card: r.card })),
   });
