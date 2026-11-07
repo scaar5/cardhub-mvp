@@ -10,6 +10,13 @@ const S5 = ["2021-22", "2022-23", "2023-24", "2024-25", "2025-26"];
 const T = (prefix, seasons, words, cands, bad = "japan|women|logofractor") =>
   seasons.map((y) => [`${prefix}-${y}`, { y, words, bad: new RegExp(bad, "i"), cands: cands.map((c) => `${y}-${c}`) }]);
 const UEFA = "(uefa|ucc|champions|club-competitions)";
+const CBC = "https://www.cardboardconnection.com/";
+// URLs completas: cardboardconnection (<y>-<c>-cards y <y>-<c>) y beckett (<y>-<c>-soccer-cards, <y>-<c>)
+const OLD = (prefix, seasons, words, cands, bad) =>
+  T(prefix, seasons, words, [], bad).map(([slug, t]) => [slug, { ...t, full: [
+    ...cands.flatMap((c) => [`${CBC}${t.y}-${c}-cards`, `${CBC}${t.y}-${c}`]),
+    ...cands.flatMap((c) => [`${BK}${t.y}-${c}-soccer-cards/`, `${BK}${t.y}-${c}/`, `${BK}${t.y}-${c}-soccer/`]),
+  ] }]);
 const TARGETS = Object.fromEntries([
   ...T("topps-stadium-club-chrome-ucc", S5, ["stadium", "chrome", UEFA], ["topps-stadium-club-chrome-uefa", "topps-stadium-club-chrome-uefa-club-competitions", "topps-stadium-club-chrome-uefa-club-competitions-soccer", "topps-stadium-club-chrome-uefa-champions-league", "topps-stadium-club-chrome-uefa-champions-league-soccer", "topps-stadium-club-chrome-uefa"]),
   ...T("topps-chrome-bundesliga", S5, ["chrome", "bundesliga"], ["topps-chrome-bundesliga", "topps-chrome-bundesliga-soccer-cards", "topps-chrome-bundesliga-soccer"], "japan|women|sapphire|logofractor|stadium|flagship"),
@@ -17,8 +24,15 @@ const TARGETS = Object.fromEntries([
   ...T("topps-chrome-ucc", ["2020-21"], ["chrome", UEFA], ["topps-chrome-uefa-champions-league", "topps-chrome-uefa-champions-league-soccer", "topps-chrome-uefa"], "japan|women|sapphire|stadium|logofractor|finest|merlin|bundesliga"),
   ...T("topps-inception-ucc", S5, ["inception", UEFA], ["topps-inception-uefa", "topps-inception-uefa-club-competitions", "topps-inception-uefa-champions-league", "topps-uefa-champions-league-inception", "topps-inception-uefa-club-competitions-soccer"]),
   ...T("topps-museum-collection-ucc", S5, ["museum", UEFA], ["topps-museum-collection-uefa", "topps-museum-collection-uefa-champions-league", "topps-museum-collection-uefa-club-competitions", "topps-museum-collection-uefa-champions-league", "topps-uefa-champions-league-museum-collection", "topps-museum-collection-uefa-club-competitions-soccer"]),
+  // Temporadas antiguas (no están en checklistinsider): cardboardconnection.com y, de reserva, beckett.com/news
+  ...OLD("topps-stadium-club-chrome-ucc", ["2020-21", "2021-22", "2022-23", "2024-25"], ["stadium", "chrome", UEFA], ["topps-stadium-club-chrome-uefa-champions-league", "topps-stadium-club-chrome-uefa", "topps-stadium-club-chrome-uefa-club-competitions"]),
+  ...OLD("topps-chrome-bundesliga", ["2020-21", "2021-22", "2022-23"], ["chrome", "bundesliga"], ["topps-chrome-bundesliga"], "japan|women|sapphire|logofractor|stadium|match-attax|match attax|bvb"),
+  ...OLD("topps-chrome-sapphire-ucc", ["2020-21", "2021-22", "2022-23"], ["sapphire", UEFA], ["topps-chrome-sapphire-edition-uefa-champions-league", "topps-chrome-sapphire-uefa-champions-league", "topps-chrome-sapphire-uefa-club-competitions", "topps-chrome-sapphire-edition-uefa-club-competitions", "topps-chrome-sapphire-uefa"], "japan|women|bundesliga|premier"),
+  ...OLD("topps-chrome-ucc", ["2020-21"], ["chrome", UEFA], ["topps-chrome-uefa-champions-league", "topps-chrome-uefa"], "japan|women|sapphire|stadium|logofractor|finest|merlin|bundesliga|match-attax|match attax|aoki"),
+  ...OLD("topps-inception-ucc", ["2020-21", "2021-22", "2022-23"], ["inception", UEFA], ["topps-inception-uefa-champions-league", "topps-inception-uefa", "topps-inception-uefa-club-competitions"]),
+  ...OLD("topps-museum-collection-ucc", ["2020-21", "2021-22", "2022-23"], ["museum", UEFA], ["topps-museum-collection-uefa-champions-league", "topps-museum-collection-uefa", "topps-museum-collection-uefa-club-competitions"]),
 ].filter(([s]) => !process.env.CHECKLIST_SLUGS || process.env.CHECKLIST_SLUGS.split(",").includes(s)));
-const URLS = Object.fromEntries(Object.entries(TARGETS).map(([s, t]) => [s, t.cands.map((c) => CI + c)]));
+const URLS = Object.fromEntries(Object.entries(TARGETS).map(([s, t]) => [s, t.full ?? t.cands.map((c) => CI + c)]));
 const okWords = (str, t) => str.includes(t.y.slice(0, 4)) && t.words.every((w) => new RegExp(w, "i").test(str)) && !t.bad.test(str);
 const UA = { "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36", "accept-language": "en-US,en;q=0.9", accept: "text/html" };
 
@@ -55,6 +69,7 @@ index.push(`sitemap: ${SITE.length} urls`);
 writeFileSync("out/SITEMAP.txt", SITE.filter((u) => /stadium|bundesliga|sapphire|inception|museum|2020-21-topps-chrome|2021-topps-chrome|topps-chrome-uefa-champions-league/i.test(u)).join("\n") + "\n");
 for (const slug of Object.keys(URLS)) {
   const t = TARGETS[slug];
+  if (t.full) continue;
   const extra = SITE.filter((u) => u.includes(t.y) && okWords(u.replace(CI, ""), t));
   index.push(`${slug} sitemap: ${extra.join(" ")}`);
   URLS[slug] = [...new Set([...extra.map((u) => u.replace(/\/$/, "")), ...URLS[slug]])];
@@ -70,7 +85,11 @@ for (const [slug, urls] of Object.entries(URLS)) {
       const autos = (txt.match(/autograph/gi) || []).length;
       tried.push(`${r.status} autos=${autos} ${u}`);
       const head = (txt.match(/^## (.+)$/m) || [, ""])[1];
-      const valid = okWords(head.toLowerCase().replace(/ /g, "-"), TARGETS[slug]) && /^## Base[^\n]*Checklist/m.test(txt);
+      const t = TARGETS[slug];
+      const title = (html.match(/<title>([^<]*)/i) || [, ""])[1];
+      const valid = t.full
+        ? okWords(decode(title + " " + head).toLowerCase().replace(/ /g, "-"), t) && /Base[^\n]{0,30}Checklist/i.test(txt) && (txt.match(/^\S+ [^\n]+ - [^\n]+$/gm) || []).length > 20
+        : okWords(head.toLowerCase().replace(/ /g, "-"), t) && /^## Base[^\n]*Checklist/m.test(txt);
       if (r.ok && valid) {
         writeFileSync(`out/${slug}.txt`, `# ${u}\n${txt}\n`);
         index.push(`${slug}: OK ${txt.split("\n").length} líneas <- ${u}`);
