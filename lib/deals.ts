@@ -14,5 +14,10 @@ export function judgeDeal(price: number, ref: ResolvedReference | null): { pct: 
   if (pct >= EXTREME_PCT && ref.source === "ebay" && ref.sample < EXTREME_MIN_SAMPLE) {
     return { reject: `-${pct} % con solo ${ref.sample} anuncios de eBay` };
   }
+  // Descuento extremo con un precio ESTIMADO (otra colección u otra numeración): no es fiable.
+  // Caso real (voto ❌, 7-nov): Mbappé Merlin 24-25 base a 2 € frente a 61,77 € sacados de otra colección.
+  if (pct >= EXTREME_PCT && ref.level > 1) {
+    return { reject: `-${pct} % con un precio estimado de otra colección o numeración` };
+  }
   return { pct };
 }

@@ -2,6 +2,7 @@ import type { SupabaseClient } from "@supabase/supabase-js";
 import { normalize, setBySlug, type CatalogCard } from "./catalog";
 import { EBAY_MIN_SAMPLE, MIN_PRICE, REF_DAYS, RELIABLE_SAMPLE, SOLD_DAYS } from "./config";
 import { searchEbayMarkets, type EbayItem } from "./ebay";
+import { photoPublicUrl } from "./photo-url";
 import { isComparable } from "./filters";
 import { flat, recognize, type Recognition } from "./recognize";
 import {
@@ -32,6 +33,8 @@ export interface Comparable {
   url: string | null;
   date: string | null;
   platform: "vinted_sold" | "ebay";
+  /** Miniatura guardada (solo ventas de Vinted con foto). */
+  photo_url?: string | null;
 }
 
 export interface Valuation {
@@ -164,12 +167,15 @@ async function textValuation(query: string): Promise<{ ref: Valuation["ref"]; co
 }
 
 /** Ventas / anuncios guardados que forman la referencia (para enseñarlos con su enlace). */
-async function loadComparables(db: SupabaseClient, ref: ResolvedReference): Promise<Comparable[]> {
+export async function loadComparables(
+  db: SupabaseClient,
+  ref: Pick<ResolvedReference, "source" | "cardId" | "parallel">,
+): Promise<Comparable[]> {
   const days = ref.source === "vinted_sold" ? SOLD_DAYS : REF_DAYS;
   const since = new Date(Date.now() - days * 86400_000).toISOString();
   let q = db
     .from("listings")
-    .select("title,price,url,seen_at,parallel")
+    .select("title,price,url,seen_at,parallel,photo_path,photo_url")
     .eq("platform", ref.source)
     .eq("card_id", ref.cardId)
     .gte("seen_at", since)
@@ -184,6 +190,7 @@ async function loadComparables(db: SupabaseClient, ref: ResolvedReference): Prom
       url: r.url ?? null,
       date: r.seen_at ?? null,
       platform: ref.source,
+      photo_url: photoPublicUrl(r.photo_path) ?? r.photo_url ?? null,
     }))
     .sort((a, b) => a.price - b.price);
 }

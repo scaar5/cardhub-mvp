@@ -6,7 +6,8 @@ import { recognize } from "@/lib/recognize";
 import { candidateCardIds, cardLabel, loadReferences, resolveReference } from "@/lib/reference";
 import { VINTED_SEARCHES } from "@/lib/set-rules";
 import { getSupabaseAdmin } from "@/lib/supabase-admin";
-import { dealMessage, sendTelegram } from "@/lib/telegram";
+import { dealAlertHtml, sendDealAlert } from "@/lib/telegram";
+import { loadComparables } from "@/lib/valuation";
 
 export const dynamic = "force-dynamic";
 export const maxDuration = 60;
@@ -41,7 +42,13 @@ interface InItem {
   price: number;
   url: string;
   set?: string;
+  /** 1.ª foto del anuncio (de la página de resultados de Vinted). */
+  photo?: string | null;
 }
+
+/** Solo fotos del CDN de Vinted (no se reenvía a Telegram cualquier URL que llegue). */
+const vintedPhoto = (u: unknown) =>
+  typeof u === "string" && /^https:\/\/images\d*\.vinted\.net\//.test(u) ? u : null;
 
 export async function POST(req: Request) {
   if (!authorized(req)) {
@@ -121,6 +128,7 @@ export async function POST(req: Request) {
       pct,
       ref,
       match,
+      it,
     });
   }
 
@@ -153,23 +161,43 @@ export async function POST(req: Request) {
   }
 
   let alerts = 0;
+  let alertPhotos = 0;
   for (const d of deals) {
     if (!inserted.has(d.row.external_id) || d.pct < ALERT_THRESHOLD) continue;
     const card = cardLabel(d.match.card, d.match.parallel);
-    await sendTelegram(
-      dealMessage({
+    const photo = vintedPhoto(d.it.photo);
+
+    // Comparables: las ventas (o anuncios de eBay) que forman la referencia, con enlace.
+    // Ventas → las más recientes; eBay → las más baratas (la referencia de eBay es la parte baja).
+    const all = await loadComparables(db, d.ref).catch(() => []);
+    const sold = d.ref.source === "vinted_sold";
+    const ordered = sold ? [...all].sort((a, b) => (b.date ?? "").localeCompare(a.date ?? "")) : all;
+    // Copia guardada con el chollo (aunque luego desaparezcan los anuncios). Si falta la migración 008, se sigue.
+    await db
+      .from("deals")
+      .update({ photo_url: photo, ref_comps: ordered.slice(0, 20) })
+      .eq("external_id", d.row.external_id)
+      .then(
+        () => null,
+        () => null,
+      );
+
+    const r = await sendDealAlert(
+      dealAlertHtml({
         ...d.row,
         card,
         sample: d.ref.sample,
         source: d.ref.source,
         note:
           d.ref.level > 1
-            ? `Precio estimado basado en ${d.ref.basedOn}, al no haber ventas exactas de ${card}`
+            ? `Precio estimado con ${d.ref.basedOn}, al no haber datos exactos de esta carta`
             : undefined,
+        comps: ordered.slice(0, 4),
       }),
-      { dealId: d.row.external_id },
+      { dealId: d.row.external_id, photo },
     );
-    alerts++;
+    if (r.ok) alerts++;
+    if (r.photo) alertPhotos++;
   }
 
   return NextResponse.json({
@@ -182,5 +210,7 @@ export async function POST(req: Request) {
     deals: deals.length,
     new_deals: inserted.size,
     alerts,
+    alert_photos: alertPhotos,
+    with_photo: recognized.filter(({ it }) => vintedPhoto(it.photo)).length,
   });
 }

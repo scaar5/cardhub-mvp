@@ -30,12 +30,34 @@ export function parseTitleAttr(attr) {
   return Number.isFinite(price) ? { title: m[1].trim(), price } : null;
 }
 
+const IMG_RE = /https:\/\/images\d*\.vinted\.net\/[^"'\s)]+/;
+
+/**
+ * Foto del anuncio en la página de resultados (sin peticiones extra):
+ *   1. la <img> marcada con el id del anuncio ("product-item-id-<id>--image--img");
+ *   2. si no, la primera foto de vinted.net dentro del bloque del anuncio (entre su enlace y el del anterior/siguiente).
+ */
+export function parseItemPhoto(html, id, from, to) {
+  const tag = html.match(new RegExp(`<img[^>]*product-item-id-${id}--image--img[^>]*>`));
+  const inTag = tag && (tag[0].match(/\ssrc="([^"]+)"/)?.[1] ?? tag[0].match(IMG_RE)?.[0]);
+  if (inTag && IMG_RE.test(inTag)) return { photo: decode(inTag), how: "img" };
+  const block = html.slice(from, to);
+  const m = block.match(IMG_RE);
+  return m ? { photo: decode(m[0]), how: "block" } : { photo: null, how: "none" };
+}
+
 export function parseCatalogHtml(html) {
   const out = [];
-  for (const m of html.matchAll(/data-testid="product-item-id-(\d+)--overlay-link" title="([^"]*)"/g)) {
+  const matches = [...html.matchAll(/data-testid="product-item-id-(\d+)--overlay-link" title="([^"]*)"/g)];
+  matches.forEach((m, i) => {
     const parsed = parseTitleAttr(m[2]);
-    if (parsed) out.push({ id: m[1], ...parsed, url: `https://www.vinted.es/items/${m[1]}` });
-  }
+    if (!parsed) return;
+    // Bloque del anuncio: desde el final del enlace anterior hasta el comienzo del siguiente
+    const from = i > 0 ? matches[i - 1].index + matches[i - 1][0].length : Math.max(0, m.index - 4000);
+    const to = i + 1 < matches.length ? matches[i + 1].index : m.index + 4000;
+    const { photo, how } = parseItemPhoto(html, m[1], from, to);
+    out.push({ id: m[1], ...parsed, url: `https://www.vinted.es/items/${m[1]}`, photo, photo_how: how });
+  });
   return out;
 }
 
@@ -63,6 +85,8 @@ function backfillSlice(searches) {
   return [...all.slice(start), ...all.slice(0, start)].slice(0, Math.min(BACKFILL_PER_PASS, all.length));
 }
 
+let photoDebugDone = false;
+
 async function post(headers, body) {
   return fetch(`${APP_URL}/api/vinted`, {
     method: "POST",
@@ -81,6 +105,7 @@ async function scanOnce() {
 
   const items = [];
   const summary = [];
+  const photoHow = {};
   for (const { q, set } of cfg.searches) {
     const res = await vintedFetch(q);
     if (!res.ok) {
@@ -92,12 +117,23 @@ async function scanOnce() {
       }
       continue;
     }
-    const found = parseCatalogHtml(await res.text());
+    const html = await res.text();
+    const found = parseCatalogHtml(html);
     summary.push({ q, found: found.length });
-    for (const it of found) items.push({ ...it, set });
+    if (!photoDebugDone && found.length) {
+      // Una vez por ejecución: trozo de HTML alrededor del primer anuncio (para comprobar de dónde sale la foto)
+      photoDebugDone = true;
+      const at = html.indexOf(`product-item-id-${found[0].id}--`);
+      console.log(`PHOTO_HTML ${html.slice(Math.max(0, at - 900), at + 900).replace(/\s+/g, " ")}`);
+    }
+    for (const { photo_how, ...it } of found) {
+      photoHow[photo_how] = (photoHow[photo_how] ?? 0) + 1;
+      items.push({ ...it, set });
+    }
     await sleep(4000 + Math.random() * 1500);
   }
   console.log(`[${new Date().toISOString()}] ${JSON.stringify(summary)}`);
+  console.log(`PHOTOS_PARSED ${JSON.stringify(photoHow)} ejemplo: ${items.find((i) => i.photo)?.photo ?? "-"}`);
 
   const result = await post(headers, { items });
   console.log(JSON.stringify(result));
@@ -119,7 +155,7 @@ async function scanOnce() {
     }
     const found = parseCatalogHtml(await res.text());
     oldSummary.push({ q, page, found: found.length });
-    for (const it of found) old.push({ ...it, set });
+    for (const { photo, photo_how, ...it } of found) old.push({ ...it, set }); // sin foto: no hay alerta
   }
   if (oldSummary.length) {
     console.log(`BACKFILL ${JSON.stringify(oldSummary)}`);

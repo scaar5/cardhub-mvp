@@ -44,6 +44,89 @@ export async function webhookSecret(): Promise<string | null> {
   return Buffer.from(hash).toString("hex").slice(0, 48);
 }
 
+const esc = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+const eur = (n: number) => `${n.toFixed(2).replace(".", ",")} €`;
+const shortDate = (iso: string | null) => {
+  if (!iso) return null;
+  const d = new Date(iso);
+  return Number.isNaN(d.getTime()) ? null : d.toLocaleDateString("es-ES", { day: "numeric", month: "short", timeZone: "Europe/Madrid" });
+};
+
+export interface AlertComparable {
+  title: string;
+  price: number;
+  url: string | null;
+  date: string | null;
+  platform: "vinted_sold" | "ebay";
+}
+
+/**
+ * Alerta "creíble" (HTML de Telegram): precio, referencia con de dónde sale, y las ventas / anuncios
+ * que forman esa referencia, cada uno con su enlace. Cabe en el pie de una foto (≤ 1.024 caracteres visibles).
+ */
+export function dealAlertHtml(d: {
+  title: string;
+  platform: string;
+  price: number;
+  market_value: number;
+  url: string | null;
+  card?: string;
+  sample?: number;
+  source?: "vinted_sold" | "ebay";
+  note?: string;
+  comps?: AlertComparable[];
+}): string {
+  const pct = Math.round((1 - d.price / d.market_value) * 100);
+  const where = d.platform === "vinted" ? "Vinted" : d.platform === "wallapop" ? "Wallapop" : d.platform;
+  const sold = d.source === "vinted_sold";
+  const refWhat = sold ? "ventas reales en Vinted" : "anuncios en eBay (precio pedido)";
+  const lines: string[] = [
+    `🔥 <b>Chollo -${pct}% en ${where}</b>`,
+    d.card ? `🃏 ${esc(d.card)}` : "",
+    `<i>${esc(d.title.slice(0, 150))}</i>`,
+    "",
+    `💶 Precio: <b>${eur(d.price)}</b>`,
+    `📈 Referencia${d.note ? " (estimada)" : ""}: <b>${eur(d.market_value)}</b>${d.sample ? ` · ${d.sample} ${refWhat}` : ""}`,
+    d.note ? `ℹ️ ${esc(d.note)}` : "",
+  ];
+  const comps = d.comps ?? [];
+  if (comps.length) {
+    lines.push("", sold ? "🧾 <b>Últimas ventas:</b>" : "🧾 <b>Anuncios más baratos:</b>");
+    for (const c of comps) {
+      const date = shortDate(c.date);
+      const label = `${eur(c.price)}${date ? ` · ${sold ? "vendida" : "visto"} ${date}` : ""}`;
+      lines.push(c.url ? `• <a href="${esc(c.url)}">${label}</a>` : `• ${label}`);
+    }
+  }
+  if (d.url) lines.push("", `👉 <a href="${esc(d.url)}">Ver el anuncio en ${where}</a>`);
+  // El texto visible (sin etiquetas) tiene que caber en el pie de foto: si no, se quitan comparables
+  const visible = (s: string) => s.replace(/<[^>]+>/g, "").length;
+  const html = lines.filter((l, i, a) => l !== "" || (i > 0 && a[i - 1] !== "")).join("\n");
+  if (visible(html) > 1000 && comps.length) return dealAlertHtml({ ...d, comps: comps.slice(0, -1) });
+  return html;
+}
+
+/**
+ * Manda una alerta de chollo: con foto si la hay (si Telegram no puede bajarla, sin foto) y botones de voto.
+ */
+export async function sendDealAlert(html: string, opts: { dealId: string; photo?: string | null }) {
+  const chatId = process.env.TELEGRAM_CHAT_ID;
+  if (!process.env.TELEGRAM_BOT_TOKEN || !chatId) return { ok: false, error: "Telegram no configurado", photo: false };
+  const reply_markup = { inline_keyboard: feedbackButtons(opts.dealId) };
+  if (opts.photo) {
+    const r = await telegramApi("sendPhoto", { chat_id: chatId, photo: opts.photo, caption: html, parse_mode: "HTML", reply_markup });
+    if (r.ok) return { ...r, photo: true };
+  }
+  const r = await telegramApi("sendMessage", {
+    chat_id: chatId,
+    text: html,
+    parse_mode: "HTML",
+    disable_web_page_preview: true,
+    reply_markup,
+  });
+  return { ...r, photo: false };
+}
+
 export function dealMessage(d: {
   title: string;
   platform: string;
