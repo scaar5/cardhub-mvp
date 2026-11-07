@@ -4,8 +4,7 @@ name: vinted-live
 # El cron de GitHub se retrasa mucho (en la práctica ~1 vez por hora), así que cada ejecución
 # se queda 110 min dentro haciendo pasadas, y se lanza una nueva cada hora. Nunca hay dos a la vez:
 # la siguiente espera a que termine la anterior, así que siempre hay una en marcha.
-# Además, en cada pasada lee 6 páginas antiguas (2–5) por turnos: se guardan para seguir sus ventas, sin alerta
-# (todas las búsquedas × 4 páginas = 108 → vuelta completa en ~4,5 h).
+# (Las páginas antiguas ya no se leen aquí: desde el 7-nov lo hace vinted-sweep.yml, que lo recorre TODO.)
 # Si Vinted frena (403/429), espera 30 min antes de seguir.
 on:
   schedule:
@@ -25,7 +24,7 @@ jobs:
       APP_URL: ${{ vars.APP_URL || 'https://scaard5-analytics.vercel.app' }}
       LOOP_MINUTES: "110"
       EVERY_MINUTES: "15"
-      BACKFILL_PER_PASS: "6"
+      BACKFILL_PER_PASS: "0"
     steps:
       - uses: actions/checkout@v4
         with:

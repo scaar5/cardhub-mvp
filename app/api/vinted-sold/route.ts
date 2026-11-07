@@ -31,6 +31,9 @@ const TRACK_DAYS = 30;
 const PHOTO_BATCH = 10;
 // En modo continuo no se vuelve a mirar un anuncio hasta pasadas unas horas (si no, se repetirían siempre los mismos)
 const RECHECK_HOURS = 3;
+// Repaso completo (vinted-sweep, ~85 min por vuelta): un anuncio que no se ha visto en las búsquedas desde hace
+// GONE_HOURS probablemente se ha vendido o borrado → se revisa ANTES que los demás.
+const GONE_HOURS = 3;
 
 const vid = (externalId: string) => externalId.split(":")[1];
 
@@ -45,7 +48,7 @@ export async function GET(req: Request) {
   const batch = Number.isFinite(limitParam) && limitParam > 0 ? Math.min(MAX_BATCH, Math.floor(limitParam)) : CHECK_BATCH;
 
   const since = new Date(Date.now() - TRACK_DAYS * 86400_000).toISOString();
-  type OpenRow = { external_id: string; price: number; checked_at?: string | null };
+  type OpenRow = { external_id: string; price: number; checked_at?: string | null; seen_at?: string | null };
   const openQuery = (cols: string) =>
     fetchAll<OpenRow>(
       (from, to) =>
@@ -58,7 +61,7 @@ export async function GET(req: Request) {
           .range(from, to) as unknown as PromiseLike<{ data: OpenRow[] | null; error: { message: string } | null }>,
     );
   const [openFirst, closed, noPhoto] = await Promise.all([
-    openQuery("external_id,price,checked_at"),
+    openQuery("external_id,price,checked_at,seen_at"),
     fetchAll<{ external_id: string }>((from, to) =>
       db
         .from("listings")
@@ -86,6 +89,7 @@ export async function GET(req: Request) {
       id: vid(r.external_id),
       price: Number(r.price),
       checked: r.checked_at ? Date.parse(r.checked_at) : 0, // nunca revisado → el primero
+      seen: r.seen_at ? Date.parse(r.seen_at) : 0,
     }))
     .filter((r) => r.id && !done.has(r.id));
   const cheap = pending.filter((r) => !(r.price >= MIN_REF_VALUE)).length;
@@ -99,7 +103,12 @@ export async function GET(req: Request) {
   tracked.sort((a, b) => a.checked - b.checked);
   const recent = Date.now() - RECHECK_HOURS * 3600_000;
   const due = tracked.filter((r) => r.checked < recent);
-  const ordered = due.map((r) => r.id);
+  // Desaparecidos: no se ven en las búsquedas desde hace GONE_HOURS y no se han revisado desde entonces
+  const goneLine = Date.now() - GONE_HOURS * 3600_000;
+  const isMissing = (r: { seen: number; checked: number }) => r.seen && r.seen < goneLine && r.checked < r.seen + GONE_HOURS * 3600_000;
+  const missing = tracked.filter(isMissing).sort((a, b) => b.seen - a.seen); // los que acaban de desaparecer, primero
+  const missingSet = new Set(missing.map((r) => r.id));
+  const ordered = [...missing.map((r) => r.id), ...due.filter((r) => !missingSet.has(r.id)).map((r) => r.id)];
   // Cuánto se tarda en dar la vuelta: el revisado hace más tiempo (horas), sin contar los nunca revisados
   const oldest = tracked.find((r) => r.checked);
   return NextResponse.json({
@@ -108,6 +117,7 @@ export async function GET(req: Request) {
     open_10: tracked.length,
     skipped_cheap: cheap,
     due: due.length,
+    missing: missing.length,
     never_checked: tracked.filter((r) => !r.checked).length,
     oldest_10_hours: oldest ? Math.round((Date.now() - oldest.checked) / 3600_000) : null,
     ids: ordered.slice(0, batch),
