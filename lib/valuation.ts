@@ -65,7 +65,7 @@ export function ebayProduct(card: CatalogCard): string | null {
   return null;
 }
 
-/** Varias búsquedas en eBay (España, Italia y Alemania), sin repetir anuncios (si una falla, sigue con las demás). */
+/** Varias búsquedas en eBay (España y Alemania), sin repetir anuncios (si una falla, sigue con las demás). */
 async function searchMany(queries: string[]) {
   const seen = new Map<string, EbayItem>();
   for (const q of [...new Set(queries)]) {
@@ -141,8 +141,8 @@ async function textValuation(query: string): Promise<{ ref: Valuation["ref"]; co
       comparables: comps,
       reason:
         comps.length === 0
-          ? "No hay anuncios en eBay (España, Italia ni Alemania) de esta misma carta."
-          : `Solo hay ${comps.length} anuncio${comps.length > 1 ? "s" : ""} en eBay (ES/IT/DE) de esta misma carta (mínimo ${EBAY_MIN_SAMPLE}).`,
+          ? "No hay anuncios en eBay (España ni Alemania) de esta misma carta."
+          : `Solo hay ${comps.length} anuncio${comps.length > 1 ? "s" : ""} en eBay (España/Alemania) de esta misma carta (mínimo ${EBAY_MIN_SAMPLE}).`,
     };
   }
   return {

@@ -53,7 +53,7 @@ function sourceText(r: Result): string {
   const n = r.sample ?? 0;
   if (r.source === "vinted_sold") return `Mediana de ${n} ventas reales en Vinted (últimos 90 días).`;
   const how = n >= 4 ? "precio bajo (percentil 25)" : "el más barato";
-  return `Basado en ${n} anuncios en venta en eBay (España, Italia y Alemania): ${how}, porque son precios pedidos, no vendidos.`;
+  return `Basado en ${n} anuncios en venta en eBay (España y Alemania): ${how}, porque son precios pedidos, no vendidos.`;
 }
 
 const EXCLUDED_LABEL: Record<string, string> = {

@@ -12,10 +12,10 @@ export const dynamic = "force-dynamic";
 export const maxDuration = 60;
 
 /**
- * Búsquedas por pasada. Cada búsqueda se lanza en 3 mercados (España, Italia, Alemania),
- * así que son 20 × 3 = 60 llamadas: deja margen en el límite diario de eBay (5.000 llamadas).
+ * Búsquedas por pasada. Cada búsqueda va a eBay España (+2.ª página si se llena) y Alemania:
+ * 2–3 llamadas por búsqueda, ≈60 por pasada; deja margen en el límite diario de eBay (5.000 llamadas).
  */
-const MAX_QUERIES = 20;
+const MAX_QUERIES = 22;
 /** Anuncios de Vinted de los últimos días cuyas cartas buscamos en eBay. */
 const VINTED_DAYS = 7;
 
@@ -25,7 +25,7 @@ const cardById = new Map(CARDS.map((c) => [c.id, c]));
 /**
  * GET /api/ebay-targeted   (cabecera x-alert-secret: <ALERT_SECRET>)
  * Referencias a medida: para las cartas que han salido en Vinted y aún no tienen precio
- * de referencia EXACTO, busca en eBay (España, Italia y Alemania, en euros) "jugador + producto" (p. ej. "lamine yamal topps chrome").
+ * de referencia EXACTO, busca en eBay (España y Alemania, en euros) "jugador + producto" (p. ej. "lamine yamal topps chrome").
  * Una búsqueda trae todas las cartas de ese jugador en ese producto (todas las temporadas y
  * paralelas); el reconocedor decide cuál es cada anuncio y solo se guardan los de confianza alta.
  */
