@@ -1,11 +1,12 @@
 # sCARDs — Contexto del proyecto (traspaso)
 
 > Documento para retomar el proyecto en otra conversación con Claude.
-> Última actualización: 7 de noviembre de 2026 (13:10, paso 29).
-> Pasos 1–9: extensión Claude in Chrome. Pasos 10–29: sesión de Claude con el repositorio conectado (push directo a `main`).
+> Última actualización: 7 de noviembre de 2026 (20:15, paso 30).
+> Pasos 1–9: extensión Claude in Chrome. Pasos 10–30: sesión de Claude con el repositorio conectado (push directo a `main`).
 
 ## 0. Al empezar una sesión
 
+0. **Tras el paso 30:** mirar en Telegram que las alertas llegan **con foto, referencia explicada y comparables con enlace**; en el log de `vinted-live`, `alert_photos` y `with_photo`. En `ebay-targeted` (log del sniper), los productos Chrome deberían reconocer ~55–60 % (antes 11–14 %); campos `why`/`samples` del `report` dicen por qué se pierde el resto. Revisar votos (`admin.yml` → `feedback`): el 7-nov 19:30 iban 5 votos, 4 ✅ / 1 ❌ (80 %).
 1. **Primera vez tras el paso 29:** log de una ejecución terminada de **`vinted-sold`** (continuo, ~110 min): líneas `QUEUE {...}` (`open`, `open_10`, `due`, `never_checked`, `oldest_10_hours` = horas que tarda en dar la vuelta a los de ≥10 €), `TOTAL`, `RESULT` por lote, `FIN N lotes`; buscar `status 429` / `Espero 30 min`. En `vinted-live`: `BACKFILL_RESULT {...}` (recognized, `strong_deals` = chollos fuertes de páginas antiguas que NO se avisan). Si hay 429, subir `PAUSE_MS` (vinted-sold) o bajar `BACKFILL_PER_PASS`.
 1b. **Tras el paso 25:** comprobar el log de una ejecución terminada de **`vinted-live.yml`**: líneas `[fecha] [...]` (una por pasada, ~cada 15 min), `{"ok":true,...}` por pasada, `FIN N pasadas`, y si aparece `Vinted ha respondido 403/429` o `Espero 30 min`. Si hay bloqueos, subir `EVERY_MINUTES` a 20–30. Comprobar en `vinted-sold` que `RESULT` trae `checked` > 0 (migración 007 ya ejecutada).
 2. Lanzar `admin.yml` con `action=feedback` → % de alertas buenas y lista de las marcadas ❌ (con carta reconocida y referencia usada). Revisar por qué fallaron, corregir, medir antes/después.
@@ -33,7 +34,7 @@
 | Web publicada | https://scaard5-analytics.vercel.app |
 | Código (GitHub) | https://github.com/scaar5/cardhub-mvp (rama `main`, **público** → Actions sin límite de minutos) |
 | Hosting | Vercel, equipo `s-card5-analytics`, proyecto `scaard5-analytics` (Hobby). Cada push a `main` se publica solo (~2 min) |
-| Base de datos | Supabase, proyecto "sCaard5 Analytics", ref `scuhirjstndmhgfavbim`. Tablas `deals`, `sets`, `cards`, `listings`. Migraciones en `supabase/migrations/` (hasta **007**, todas ejecutadas a mano por el usuario) |
+| Base de datos | Supabase, proyecto "sCaard5 Analytics", ref `scuhirjstndmhgfavbim`. Tablas `deals`, `sets`, `cards`, `listings`. Migraciones en `supabase/migrations/` (hasta **008**, todas ejecutadas a mano por el usuario) |
 | Fotos | Supabase Storage, bucket público **`ventas`** (creado por la migración 006). Ruta `vinted/<id>.webp` (miniatura WebP ≤400 px, ~25 KB). URL pública: `photoPublicUrl()` en `lib/photo-url.ts` |
 | Alertas | Bot de Telegram propio del usuario ("sCaard5 alertas"). **Webhook** conectado a `/api/telegram/webhook` (solo `callback_query`) |
 | GitHub Actions | **`vinted-live.yml`** (cron `7 * * * *`, `concurrency: vinted-live` sin cancelar; cada run hace pasadas de Vinted cada `EVERY_MINUTES=15` durante `LOOP_MINUTES=110`, así siempre hay uno en marcha aunque GitHub retrase el cron; si Vinted da 403/429 espera 30 min) · `sniper.yml` (`*/30`; en la práctica ~1/hora): 1 `/api/sniper` (eBay.es por colección) → 1b `/api/ebay-targeted` (eBay ES+DE por jugador + producto) → 2 Vinted chollos **solo si se lanza a mano** (útil para una pasada de prueba con log inmediato) · **`vinted-sold.yml` (desde el paso 29: continuo, cron `37 * * * *`, `concurrency: vinted-sold`, `LOOP_MINUTES=110`, lotes de `BATCH=100`, `PAUSE_MS=7000` (+0–2 s) → ~400 anuncios/hora; primero ≥10 €, y entre ellos los de `checked_at` más antiguo; no repite los mirados hace <3 h; si 403/429 espera 30 min; + fotos de ventas)** · **`vinted-probe.yml`** (a mano, diagnóstico: vinted.es páginas 1–5 + vinted.fr/.it/.de página 1 de cada búsqueda → rama `vinted-probe`, archivo `probe.json` con `count`, `samples`, `items[{src,id,attr,q,set,host}]`; ~176 peticiones, ~27 min; no toca la base) · `catalog-import.yml` (a mano) · `ebay-sold.yml` (a mano, eBay bloquea) · `checklist-fetch.yml` (a mano, input opcional `slugs`) · `vinted-dump.yml` (a mano: títulos de Vinted → rama `vinted-raw`) · `reference-check.yml` (a mano, inputs `card`/`parallel` → `/api/reference`) · **`admin.yml`** (a mano, input `action`: `telegram-setup` · `deals-recheck` (solo enseña) · `deals-recheck-apply` · `feedback`) |
@@ -123,6 +124,16 @@ Stack: Next.js 16 (App Router) · React 19 · Tailwind CSS v4 · Supabase JS · 
     - **`lib/fetch-all.ts`**: Supabase corta en 1.000 filas aunque se pida `.limit(10000)` → `fetchAll()` pagina. Usado en `/api/vinted-sold` (abiertos y cerrados) y `/api/ebay-targeted` (con >1.000 anuncios se perdían).
     - **Probado** (`sniper.yml` a mano): pág. 1 → 792 reconocidos; 6 páginas antiguas → 576 anuncios, **253 reconocidos nuevos**, 55 con referencia, 3 chollos fuertes (no avisados). Primer `vinted-sold` continuo: run `42370313435`.
 
+30. **Alertas creíbles + eBay Chrome ×4** (`403cb0a` → `d736aef`, 7-nov 19:30–20:15). Aprobados los puntos 0, 1 y 4 de la propuesta de la tarde.
+    - **Revisión (punto 0):** `vinted-sold` continuo sin 429: 762 anuncios en 110 min (~415/h), pero la cola crece (open 3.343 → 4.104, `never_checked` ~2.000) porque el repaso de páginas antiguas añade más rápido de lo que se revisa; `oldest_10_hours` sale `null` (sin revisar). `vinted-live` sin bloqueos: 8 pasadas, ~795 reconocidos/pasada, backfill ~13 chollos fuertes en 8 pasadas (sin avisar). Votos: 4 ✅ / 1 ❌.
+    - **El ❌:** Mbappé Merlin 24-25 #9 base a 2 € frente a 61,77 € (nivel 2, colección hermana). Nueva regla en `judgeDeal`: **descuento ≥ `EXTREME_PCT` (70 %) con referencia de nivel 2–3 → descartado**.
+    - **Foto del chollo:** `scripts/vinted-scan.mjs` → `parseItemPhoto()` saca la foto de la página de resultados (`<img data-testid="product-item-id-<id>--image--img" src="https://images1.vinted.net/t/.../310x430/...webp?s=...">`; probado 2.591/2.591). Solo página 1 (el backfill no la manda). Logs `PHOTOS_PARSED` y `PHOTO_HTML` (trozo de HTML, una vez por run).
+    - **Alerta nueva** (`dealAlertHtml` + `sendDealAlert` en `lib/telegram.ts`): HTML de Telegram, `sendPhoto` con pie (si Telegram no puede bajar la foto, `sendMessage` sin foto); precio, referencia con de dónde sale ("N ventas reales en Vinted" / "N anuncios en eBay (precio pedido)"), y **4 comparables con enlace** (ventas: las más recientes; eBay: las más baratas). Recorta comparables si el texto visible pasa de 1.000 caracteres. `loadComparables` (`lib/valuation.ts`) exportada y con `photo_url` (miniatura propia si hay `photo_path`). `/api/vinted` devuelve `alert_photos` y `with_photo`. **Probado:** 1 alerta con foto (19:58).
+    - **Migración 008** (✅ ejecutada): `deals.photo_url`, `deals.ref_comps jsonb` (copia de hasta 20 comparables). Si faltara, el update falla en silencio y la alerta sale igual.
+    - **eBay Chrome (punto 4).** Causa real del 11–14 %: **eBay ES/DE traduce automáticamente los títulos** ("Topps Cromo", "Zafiro", "Novato", "Púrpura/75", "Competiciones de Clubes UEFA"…) → "colección no reconocida". `lib/ebay-title.ts` → `untranslateEbayTitle()` aplicado en `searchEbay()` (afecta a todo lo de eBay: sniper, targeted, Valorar; el título guardado queda "destraducido"). **Medido:** Chrome 11 % → **58 %** reconocido; `references_saved` 776 → 1.873 por pasada. Las listings de eBay antiguas con título traducido no se recuperan (solo búsquedas nuevas).
+    - `ebay-targeted`: búsquedas Chrome con competición `(uefa,ucc,champions)` / `(premier,epl)` y `-psa -bgs -sgc -pca -lot -lote` (si no trae nada, repite la simple; no medido si el `-` funciona en la Browse API); **3/4 de las búsquedas a cartas con algún anuncio de Vinted ≥ 10 €** (`queries_pricey` ≈ 1.018 de 1.870; vuelta completa ~2 días); `report[]` con `why` (motivos) y `samples`.
+    - Lo que queda sin reconocer en Chrome: sobre todo autógrafos/inserts fuera del catálogo y "elige tu carta". **Ojo:** los colores en español ("verde /99", "rosa") tampoco los entiende el reconocedor en títulos de Vinted → probar con `compare-recognize` (regla 0 perdidos).
+
 ## 5. Plan del catálogo gama alta (acordado)
 
 Licencias: Premier League con Topps **solo 25-26**; Prizm PL e Impeccable de 21-22 a 24-25; **no existe Prizm Euro 2024** → Topps Chrome UEFA Euro 2024 (+ Sapphire); **no existe Select UEFA** tras 2021; "Topps Heritage UEFA" = **Merlin Heritage UEFA**; Bowman = **Bowman Chrome sub-21 (2022)** + "Bowman UEFA Youth League" en Chrome UCC 24-25/25-26. En ultra-lujo, firmas y parches.
@@ -147,7 +158,8 @@ Licencias: Premier League con Topps **solo 25-26**; Prizm PL e Impeccable de 21-
 
 ### Después (planning del 7-nov)
 **Semana 2 — alertas creíbles**
-- **Alertas con foto + comparables:**
+- ~~**Alertas con foto + comparables**~~ ✅ en Telegram (paso 30). Falta: página de detalle en la web con `ref_comps` y foto (punto 2 de la propuesta), y la "mejor foto" de cada carta (punto 3).
+- (Texto original) **Alertas con foto + comparables:**
    - **Comparables con enlace en Telegram:** reutilizar `loadComparables` de `lib/valuation.ts`. Guardarlas con el chollo (probable migración: `deals.ref_comps jsonb`). Alerta con las 3–4 más parecidas + enlace; página de detalle en la web con todas.
    - **Guardar snapshot**, no solo el enlace: precio, fecha, título, foto.
    - **Foto del chollo:** 1.ª foto del anuncio de Vinted (reutilizar `parsePhotoUrl`/`storeSalePhoto`; o sacar la miniatura de la página de resultados del sniper); alerta con `sendPhoto` (caption ≤ 1.024 caracteres) y foto en la web.
@@ -155,13 +167,15 @@ Licencias: Premier League con Topps **solo 25-26**; Prizm PL e Impeccable de 21-
 - Revisión de votos cada pocos días hasta tener ~20–30 votos.
 
 **Semana 3 — más referencias**
-- Mejorar "topps chrome" en `ebay-targeted` (añadir "uefa"/"ucc" o año: reconoce solo 55–114 de ~470) y saltar nombres de una palabra ambiguos.
+- ~~Mejorar "topps chrome" en `ebay-targeted`~~ ✅ (paso 30, era la traducción automática de eBay). Texto original: Mejorar "topps chrome" en `ebay-targeted` (añadir "uefa"/"ucc" o año: reconoce solo 55–114 de ~470) y saltar nombres de una palabra ambiguos.
 - Ver si `with_reference` sube con eBay DE (antes 120–122 de ~628; 125 el 7-nov 10:38). **Si no:** EBAY_GB convirtiendo GBP→€ con `convertedFromValue`.
 - Topps Chrome UCC 2020-21 (al menos rookies).
 
 **Aparcado:** Wallapop en el sniper (salvo bloqueo de Vinted), Panini (poco volumen), multiusuario.
 
 ### Resto
+- [ ] **Cola de `vinted-sold` creciendo** (paso 30): ~415 revisados/h frente a lo que añade el backfill. Opciones: bajar `BACKFILL_PER_PASS`, revisar solo ≥10 € del backfill, o bajar `PAUSE_MS` con cuidado (429).
+- [ ] Colores en español en el reconocedor (Vinted): medir antes con `compare-recognize`.
 - [ ] Revisar votos ✅/❌ semanalmente (sección 0) y corregir.
 - [ ] Si siguen colándose falsos chollos: coherencia con la base o ahorro mínimo en €.
 - [ ] Lotes de 2 cartas que se reconocen como una ("Arda Güler Merlín RC y nuevo fichaje Megacracks Panini", 25 €): el precio no es de una carta. Filtro "y"/"+" + otra marca.
