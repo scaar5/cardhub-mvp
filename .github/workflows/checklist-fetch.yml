@@ -3,6 +3,11 @@ name: checklist-fetch
 # Temporal: descarga checklists y los guarda en la rama "checklists-raw".
 on:
   workflow_dispatch:
+    inputs:
+      slugs:
+        description: 'Slugs separados por comas (vacío = todos los de TARGETS)'
+        required: false
+        default: ''
 
 permissions:
   contents: write
@@ -17,6 +22,8 @@ jobs:
         with:
           node-version: 22
       - run: node scripts/checklist-fetch.mjs
+        env:
+          CHECKLIST_SLUGS: ${{ inputs.slugs }}
       - name: Guardar en rama checklists-raw
         run: |
           mkdir /tmp/raw && cp -r out/* /tmp/raw/
