@@ -14,10 +14,11 @@ const RULES: [RegExp, string][] = [
   [/\bestadio club\b/gi, "Stadium Club"],
   [/\bclub del estadio\b/gi, "Stadium Club"],
   [/\b(colecci[oó]n (del )?museo|museo colecci[oó]n|museumssammlung)\b/gi, "Museum Collection"],
+  [/\bcompeticiones de clubes (de la )?uefa\b/gi, "UEFA Club Competitions"],
   [/\b(liga de (los )?campeones|campeones liga|campeones de la liga)\b/gi, "Champions League"],
   // Tipo de carta
   [/\b(novato|novata|novatos|neuling)\b/gi, "Rookie"],
-  [/\b(autom[aá]tico|autom[aá]tica|autogr[aá]fico)\b/gi, "Auto"],
+  [/\b(autom[aá]tico|autom[aá]tica|autogr[aá]fico|autogr[aá]fica|aut[oó]grafa|aut[oó]grafo|autogramm)\b/gi, "Auto"],
   [/\b(refractario|refractaria|refraktor)\b/gi, "Refractor"],
   [/\bmini diamantes\b/gi, "Mini Diamond"],
   // Colores (las paralelas se reconocen por el color en inglés)
