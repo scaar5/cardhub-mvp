@@ -58,6 +58,11 @@ export interface Valuation {
 /** Producto en palabras que salen en casi todos los títulos ("topps chrome", "prizm world cup"…). */
 export function ebayProduct(card: CatalogCard): string | null {
   const s = card.set_slug;
+  if (s.startsWith("topps-chrome-sapphire-")) return "topps chrome sapphire";
+  if (s.startsWith("topps-chrome-bundesliga-")) return "topps chrome bundesliga";
+  if (s.startsWith("topps-stadium-club-chrome-")) return "stadium club chrome";
+  if (s.startsWith("topps-inception-")) return "topps inception";
+  if (s.startsWith("topps-museum-collection-")) return "topps museum collection";
   if (s.startsWith("topps-chrome-")) return "topps chrome";
   if (s.startsWith("topps-merlin-")) return "topps merlin";
   if (s.startsWith("topps-finest-")) return "topps finest";

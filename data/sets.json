@@ -540,5 +540,421 @@
       "Gold",
       "Black"
     ]
+  },
+  {
+    "slug": "topps-stadium-club-chrome-ucc-2023-24",
+    "name": "Topps Stadium Club Chrome UEFA Club Competitions 2023-24",
+    "brand": "Topps",
+    "season": "2023-24",
+    "competition": "UEFA Club Competitions",
+    "keywords": [
+      "topps stadium club chrome",
+      "stadium club chrome"
+    ],
+    "parallels": [
+      "Refractor",
+      "Pink/Red Electric Charge",
+      "Black & White /299",
+      "Aqua Wave /250",
+      "Aqua/Green Electric Charge /199",
+      "Royal Blue /175",
+      "Green /150",
+      "Green/Yellow Electric Charge /125",
+      "Neon Green X-Fractor /99",
+      "Sepia Prism /75",
+      "Gold /50",
+      "Orange Wave /25",
+      "Purple /15",
+      "Orange/Blue Electric Charge /10",
+      "Red /5",
+      "Red/Orange Electric Charge /4",
+      "Superfractor /1"
+    ]
+  },
+  {
+    "slug": "topps-stadium-club-chrome-ucc-2025-26",
+    "name": "Topps Stadium Club Chrome UEFA Club Competitions 2025-26",
+    "brand": "Topps",
+    "season": "2025-26",
+    "competition": "UEFA Club Competitions",
+    "keywords": [
+      "topps stadium club chrome",
+      "stadium club chrome"
+    ],
+    "parallels": [
+      "Refractor",
+      "Yellow /275",
+      "Pink /250",
+      "Aqua /199",
+      "Blue /150",
+      "Black & White /125",
+      "Green /99",
+      "Purple /75",
+      "Gold /50",
+      "Orange /25",
+      "Black /10",
+      "Red /5",
+      "Hobby Exclusive Parallels:",
+      "Pink Wave",
+      "Aqua Wave",
+      "Photographer’s Proof",
+      "Aqua/Blue Electric /175",
+      "Blue Wave /150",
+      "Blue/Green Electric /140",
+      "Black/White Electric /125",
+      "Green Wave /99",
+      "Green/Purple Electric /80",
+      "Purple Wave /75",
+      "Purple/Gold Electric /65",
+      "Gold Wave /50",
+      "Gold/Orange Electric /30",
+      "Orange Wave /25",
+      "Orange/Black Electric /12",
+      "Black Wave /10",
+      "Black/Red Electric /8",
+      "Red Wave /5",
+      "Red/Gold Electric /3",
+      "Members Only Breaker Delight Exclusive Parallels:",
+      "Members Only",
+      "Blue Geometric /150",
+      "Black & White Geometric /125",
+      "Green Geometric /99",
+      "Purple Geometric /75",
+      "Gold Geometric /50",
+      "Orange Geometric /25",
+      "Black Geometric /10",
+      "Red Geometric /5",
+      "Value Blaster Exclusive Parallels:",
+      "RayWave",
+      "Magenta Mini-Diamonds /399",
+      "Teal Mini-Diamonds /299",
+      "Yellow Mini-Diamonds /275",
+      "Pink Mini-Diamonds /250",
+      "Aqua Mini-Diamonds /199",
+      "Blue Mini-Diamonds /150",
+      "Black & White Mini-Diamonds /125",
+      "Green Mini-Diamonds /99",
+      "Purple Mini-Diamond /75",
+      "Gold Mini-Diamonds /50",
+      "Orange Mini-Diamonds /25",
+      "Black Mini-Diamonds /10",
+      "Red Mini-Diamonds /5"
+    ]
+  },
+  {
+    "slug": "topps-chrome-bundesliga-2023-24",
+    "name": "Topps Chrome Bundesliga 2023-24",
+    "brand": "Topps",
+    "season": "2023-24",
+    "competition": "Bundesliga",
+    "keywords": [
+      "topps chrome bundesliga",
+      "chrome bundesliga"
+    ],
+    "parallels": [
+      "Gold Bundesliga 60 Years Foil",
+      "Refractor",
+      "Aqua Prism",
+      "Pulsar",
+      "Magenta /399",
+      "Purple /299",
+      "Purple Wave /299",
+      "Aqua Bubble /275",
+      "Aqua Bubble Wave /275",
+      "X-Fractor /250",
+      "Prism /225",
+      "Blue /175",
+      "Blue Wave /175",
+      "Green /99",
+      "Green Wave /99",
+      "Pink /75",
+      "Pink Wave /75",
+      "Bundesliga 60 Years Foil /60",
+      "Gold /50",
+      "Orange /25",
+      "Black /10",
+      "Red /5",
+      "Superfractor /1"
+    ]
+  },
+  {
+    "slug": "topps-chrome-bundesliga-2024-25",
+    "name": "Topps Chrome Bundesliga 2024-25",
+    "brand": "Topps",
+    "season": "2024-25",
+    "competition": "Bundesliga",
+    "keywords": [
+      "topps chrome bundesliga",
+      "chrome bundesliga"
+    ],
+    "parallels": [
+      "Refractor",
+      "Pulsar",
+      "Neon Green /250",
+      "Neon Green Lava /250",
+      "Pink /199",
+      "Pink Lava /199",
+      "Aqua /175",
+      "Blue /150",
+      "Blue Lava /150",
+      "Magenta /125",
+      "Magenta Lava /125",
+      "Green /99",
+      "Green Lava /99",
+      "Yellow /75",
+      "Yellow Lava /75",
+      "ToppsFractor /52",
+      "Gold /50",
+      "Gold Lava /50",
+      "Orange /25",
+      "Orange Lava /25",
+      "Black /10",
+      "Black Lava /10",
+      "Red /5",
+      "Red Lava /5",
+      "Superfractor /1"
+    ]
+  },
+  {
+    "slug": "topps-chrome-bundesliga-2025-26",
+    "name": "Topps Chrome Bundesliga 2025-26",
+    "brand": "Topps",
+    "season": "2025-26",
+    "competition": "Bundesliga",
+    "keywords": [
+      "topps chrome bundesliga",
+      "chrome bundesliga"
+    ],
+    "parallels": [
+      "Refractor",
+      "Pulsar",
+      "White Mini-Diamond",
+      "Aqua /199",
+      "Aqua Wave /199",
+      "Blue /150",
+      "Blue Wave /150",
+      "Blue Mini Diamond /150",
+      "Blue Lava /150",
+      "Green /99",
+      "Green Wave /99",
+      "Green Mini-Diamond /99",
+      "Purple /75",
+      "Purple Wave /75",
+      "Purple Mini-Diamond /75",
+      "ToppsFractor /52",
+      "Gold /50",
+      "Gold Wave /50",
+      "Gold Mini-Diamond /50",
+      "Orange /25",
+      "Orange Wave /25",
+      "Orange Mini-Diamond /25",
+      "Black /10",
+      "Black Wave /10",
+      "Black Mini-Diamond /10",
+      "Red /5",
+      "Red Wave /5",
+      "Red Mini-Diamond /5",
+      "FrozenFractor -5/0",
+      "Superfractor /1",
+      "Breaker Parallels:",
+      "Geometric",
+      "Purple Geometric /75",
+      "Gold Geometric /50",
+      "Orange Geometric /25",
+      "Black Geometric /10",
+      "Red Geometric /5"
+    ]
+  },
+  {
+    "slug": "topps-chrome-sapphire-ucc-2023-24",
+    "name": "Topps Chrome Sapphire UEFA Club Competitions 2023-24",
+    "brand": "Topps",
+    "season": "2023-24",
+    "competition": "UEFA Club Competitions",
+    "keywords": [
+      "topps chrome sapphire",
+      "chrome sapphire",
+      "topps sapphire"
+    ],
+    "parallels": [
+      "Yellow Sapphire /75",
+      "Gold Sapphire /50",
+      "Orange Sapphire /25",
+      "Black Sapphire /10",
+      "Red Sapphire /5",
+      "Padparadscha Sapphire /1"
+    ]
+  },
+  {
+    "slug": "topps-chrome-sapphire-ucc-2024-25",
+    "name": "Topps Chrome Sapphire UEFA Club Competitions 2024-25",
+    "brand": "Topps",
+    "season": "2024-25",
+    "competition": "UEFA Club Competitions",
+    "keywords": [
+      "topps chrome sapphire",
+      "chrome sapphire",
+      "topps sapphire"
+    ],
+    "parallels": [
+      "Yellow Sapphire /75",
+      "Gold Sapphire /50",
+      "Orange Sapphire /25",
+      "Black Sapphire /10",
+      "Red Sapphire /5",
+      "Padparadscha Sapphire /1"
+    ]
+  },
+  {
+    "slug": "topps-inception-ucc-2023-24",
+    "name": "Topps Inception UEFA Club Competitions 2023-24",
+    "brand": "Topps",
+    "season": "2023-24",
+    "competition": "UEFA Club Competitions",
+    "keywords": [
+      "topps inception",
+      "inception uefa"
+    ],
+    "parallels": [
+      "Rainbow Foil /150",
+      "Turquoise /125",
+      "Green /99",
+      "Pink /75",
+      "Blue /49",
+      "Purple /25",
+      "Red /10",
+      "Orange /5",
+      "Gold /1"
+    ]
+  },
+  {
+    "slug": "topps-inception-ucc-2024-25",
+    "name": "Topps Inception UEFA Club Competitions 2024-25",
+    "brand": "Topps",
+    "season": "2024-25",
+    "competition": "UEFA Club Competitions",
+    "keywords": [
+      "topps inception",
+      "inception uefa"
+    ],
+    "parallels": [
+      "Black /199",
+      "Magenta /150",
+      "Green /99",
+      "Pink /75",
+      "Blue /49",
+      "Purple /25",
+      "Red /10",
+      "Orange /5",
+      "Gold /1",
+      "Printing Plates /1"
+    ]
+  },
+  {
+    "slug": "topps-museum-collection-ucc-2023-24",
+    "name": "Topps Museum Collection UEFA Club Competitions 2023-24",
+    "brand": "Topps",
+    "season": "2023-24",
+    "competition": "UEFA Club Competitions",
+    "keywords": [
+      "topps museum collection",
+      "museum collection"
+    ],
+    "parallels": [
+      "Amethyst /99",
+      "Sapphire /75",
+      "Gold /50",
+      "Ruby /25",
+      "Black Diamond /10",
+      "Emerald /1"
+    ]
+  },
+  {
+    "slug": "topps-museum-collection-ucc-2024-25",
+    "name": "Topps Museum Collection UEFA Club Competitions 2024-25",
+    "brand": "Topps",
+    "season": "2024-25",
+    "competition": "UEFA Club Competitions",
+    "keywords": [
+      "topps museum collection",
+      "museum collection"
+    ],
+    "parallels": [
+      "Amethyst /99",
+      "Sapphire /75",
+      "Gold /50",
+      "Amber /35",
+      "Ruby /25",
+      "Black Diamond /10",
+      "Emerald /1"
+    ]
+  },
+  {
+    "slug": "topps-museum-collection-ucc-2025-26",
+    "name": "Topps Museum Collection UEFA Club Competitions 2025-26",
+    "brand": "Topps",
+    "season": "2025-26",
+    "competition": "UEFA Club Competitions",
+    "keywords": [
+      "topps museum collection",
+      "museum collection"
+    ],
+    "parallels": [
+      "Gold /249",
+      "Sapphire /150",
+      "Amethyst /99",
+      "Ruby /75",
+      "Turquoise /50",
+      "Blue Topaz /25",
+      "Black Diamond /10",
+      "Diamond /5",
+      "Emerald /1"
+    ]
+  },
+  {
+    "slug": "topps-chrome-sapphire-ucc-2025-26",
+    "name": "Topps Chrome Sapphire UEFA Club Competitions 2025-26",
+    "brand": "Topps",
+    "season": "2025-26",
+    "competition": "UEFA Club Competitions",
+    "keywords": [
+      "topps chrome sapphire",
+      "chrome sapphire",
+      "topps sapphire"
+    ],
+    "parallels": [
+      "Green Sapphire /99",
+      "Purple Sapphire /75",
+      "Gold Sapphire /50",
+      "Orange Sapphire /25",
+      "Black Sapphire /10",
+      "Red Sapphire /5",
+      "Padparadscha Sapphire /1"
+    ]
+  },
+  {
+    "slug": "topps-inception-ucc-2025-26",
+    "name": "Topps Inception UEFA Club Competitions 2025-26",
+    "brand": "Topps",
+    "season": "2025-26",
+    "competition": "UEFA Club Competitions",
+    "keywords": [
+      "topps inception",
+      "inception uefa"
+    ],
+    "parallels": [
+      "Foil /199",
+      "Yellow Foil /150",
+      "Magenta Foil /125",
+      "Green Foil /99",
+      "Pink Foil /75",
+      "Blue Foil /49",
+      "Purple Foil /25",
+      "Red Foil /10",
+      "Orange Foil /5",
+      "Gold Foil /1",
+      "Printing Plates /1",
+      "First XI - 11 cards"
+    ]
   }
 ]

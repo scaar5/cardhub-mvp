@@ -193,7 +193,9 @@ function detectParallel(setSlug: string, t: string, rawTitle: string, card: Cata
   const subset = flat(card.subset);
   const run = readPrintRun(rawTitle);
   if (run) {
-    const color = COLORS.find((c) => has(t, c) && !subset.includes(c));
+    // El color que forma parte del nombre de la colección ("Sapphire") no es paralela
+    const setName = flat(SETS.find((x) => x.slug === setSlug)?.name ?? "");
+    const color = COLORS.find((c) => has(t, c) && !subset.includes(c) && !setName.includes(c));
     return color ? `${color[0].toUpperCase()}${color.slice(1)} /${run}` : `/${run}`;
   }
   const named = (parallelsBySet.get(setSlug) ?? [])

@@ -36,6 +36,48 @@ const OTHER_TOPPS = [
 
 const UCC_WORDS = ["ucc", "ucl", "uefa", "champions league", "club competitions"];
 
+/** OTHER_TOPPS sin las palabras del propio producto. */
+const others = (...allow: string[]) => OTHER_TOPPS.filter((w) => !allow.includes(w));
+
+/**
+ * Productos UEFA "aparte" (fase 2): Stadium Club Chrome, Chrome Sapphire, Inception, Museum Collection.
+ * El título debe decir el producto (all); si no dice UEFA/UCC, cuenta como "weak" (exige número o club).
+ */
+function uefaProduct(prefix: string, season: string, words: string[], allow: string[], ebay: string[], vinted: string[] = []): SetRule {
+  const [a, b] = season.split("-");
+  return {
+    slug: `${prefix}-${season}`,
+    searches: ebay.map((q) => `${q} ${a} ${b}`),
+    vinted,
+    any: UCC_WORDS,
+    all: words,
+    forbid: [...others(...allow), "premier league", "epl", "finest", "merlin", "summer signing"].filter((w) => !words.includes(w)),
+    seasons: [season],
+  };
+}
+const stadiumChrome = (season: string, vinted: string[] = []) =>
+  uefaProduct("topps-stadium-club-chrome-ucc", season, ["stadium club", "chrome"], ["stadium club", "stadium"], ["topps stadium club chrome"], vinted);
+const sapphireUcc = (season: string, vinted: string[] = []) =>
+  uefaProduct("topps-chrome-sapphire-ucc", season, ["sapphire"], ["sapphire"], ["topps chrome sapphire uefa"], vinted);
+const inceptionUcc = (season: string, vinted: string[] = []) =>
+  uefaProduct("topps-inception-ucc", season, ["inception"], ["inception"], ["topps inception uefa"], vinted);
+const museumUcc = (season: string, vinted: string[] = []) =>
+  uefaProduct("topps-museum-collection-ucc", season, ["museum"], ["museum"], ["topps museum collection uefa"], vinted);
+
+/** Topps Chrome Bundesliga (solo Chrome; el papel, Sapphire, Midnight, Gold... son otros productos). */
+function chromeBundesliga(season: string, vinted: string[] = []): SetRule {
+  const [a, b] = season.split("-");
+  return {
+    slug: `topps-chrome-bundesliga-${season}`,
+    searches: [`topps chrome bundesliga ${a} ${b}`],
+    vinted,
+    any: ["bundesliga"],
+    all: ["bundesliga", "chrome"], // "bundesliga" primero: all[0] es la "marca" para las hermanas de Chrome UCC
+    forbid: [...others("bundesliga"), ...UCC_WORDS, "premier league", "epl", "finest", "merlin", "midnight", "international stars", "frauen", "summer signing"],
+    seasons: [season],
+  };
+}
+
 /** Topps Chrome UEFA (Champions League en 21-22, Club Competitions desde 22-23). */
 function chromeUcc(season: string, vinted: string[]): SetRule {
   const [a, b] = season.split("-");
@@ -100,6 +142,28 @@ export const SET_RULES: SetRule[] = [
   finestUcc("2023-24", ["topps finest 2023 24"]),
   finestUcc("2022-23", ["topps finest 2022 23"]),
   finestUcc("2021-22", ["topps finest 2021 22"]),
+
+  // --- Topps Stadium Club Chrome UCC (checklistinsider: solo 23-24 y 25-26) -------------
+  stadiumChrome("2025-26", ["stadium club chrome"]),
+  stadiumChrome("2023-24"),
+
+  // --- Topps Chrome Sapphire UCC (producto propio; Chrome normal lo sigue prohibiendo) ----
+  sapphireUcc("2025-26"),
+  sapphireUcc("2024-25", ["topps chrome sapphire"]),
+  sapphireUcc("2023-24"),
+
+  // --- Topps Inception / Museum Collection UCC -----------------------------
+  inceptionUcc("2025-26"),
+  inceptionUcc("2024-25", ["topps inception"]),
+  inceptionUcc("2023-24"),
+  museumUcc("2025-26", ["topps museum collection"]),
+  museumUcc("2024-25"),
+  museumUcc("2023-24"),
+
+  // --- Topps Chrome Bundesliga ---------------------------------------------
+  chromeBundesliga("2025-26", ["topps chrome bundesliga"]),
+  chromeBundesliga("2024-25"),
+  chromeBundesliga("2023-24"),
 
   // --- Premier League (Topps, solo desde 25-26) --------------------------
   {

@@ -1,0 +1,453 @@
+## Base
+1|Gregor Kobel|Borussia Dortmund (First XI)|
+2|Dani Carvajal|Real Madrid C.F. (First XI)|
+3|Ian Maatsen|Aston Villa (First XI)|
+4|Antonio Rüdiger|Real Madrid C.F. (First XI)|
+5|Mats Hummels|AS Roma (First XI)|
+6|Vitinha|Paris Saint-Germain (First XI)|
+7|Vini Jr.|Real Madrid C.F. (First XI)|
+8|Marcel Sabitzer|Borussia Dortmund (First XI)|
+9|Harry Kane|FC Bayern Mϋnchen (First XI)|
+10|Jude Bellingham|Real Madrid C.F. (First XI)|
+11|Phil Foden|Manchester City (First XI)|
+12|Corventina|OL Lyonnes (Superior)|
+13|Kjell Wätjen|Borussia Dortmund (Emerging Stars)|RC
+14|Julien Duranville|Borussia Dortmund (Succession)|
+15|Bradley Barcola|Paris Saint-Germain (Succession)|
+16|Kevin De Bruyne|Manchester City (Star Quality)|
+17|Paulo Dybala|AS Roma (Star Quality)|
+18|Jamie Gittens|Borussia Dortmund (Star Quality)|
+19|Martin Ødegaard|Arsenal FC (Star Quality)|
+20|George Best|Manchester United (Legacy)|
+21|Tyrique George|Chelsea FC (Star Quality)|RC
+22|Lautaro Martínez|FC Internazionale Milano (Star Quality)|
+23|Archie Gray|Tottenham Hotspur (Emerging Stars)|RC
+24|Bukayo Saka|Arsenal FC (Star Quality)|
+25|Antoine Griezmann|Atlético de Madrid (Star Quality)|
+26|Mikey Moore|Tottenham Hotspur (Star Quality)|RC
+27|Gerd Müller|FC Bayern München (Legacy)|
+28|Geovany Quenda|Sporting Clube de Portugal (Emerging Stars)|RC
+29|Cole Palmer|Chelsea FC (Star Quality)|
+30|Chido Obi|Manchester United (Emerging Stars)|RC
+31|Heung-min Son|Tottenham Hotspur (Star Quality)|
+32|Savinho|Manchester City (Star Quality)|
+33|Conrad Harder|Sporting Clube de Portugal (Star Quality)|RC
+34|Matías Soulé|AS Roma (Star Quality)|
+35|Myles Lewis-Skelly|Arsenal FC (Emerging Stars)|RC
+36|Alexia Putellas|FC Barcelona (Superior)|
+37|Bruno Fernandes|Manchester United (Star Quality)|
+38|Ronaldo|FC Internazionale Milano (Legacy)|
+39|Robert Lewandowski|FC Barcelona (Star Quality)|
+40|Lamine Yamal|FC Barcelona (Succession)|
+41|Gianluca Prestianni|SL Benfica (Star Quality)|RC
+42|Viktor Gyökeres|Sporting Clube de Portugal (Star Quality)|
+43|Ethan Nwaneri|Arsenal FC (Emerging Stars)|RC
+44|Ronaldinho|FC Barcelona (Legacy)|
+45|Neymar Jr|FC Barcelona (Inception Point)|
+46|Alistair Johnston|Celtic FC (Star Quality)|
+47|Naomi Girma|Chelsea FC (Superior)|
+48|Pau Cubarsí|FC Barcelona (Succession)|
+49|Thomas Müller|FC Bayern München (Inception Point)|
+50|Zinédine Zidane|Real Madrid C.F. (Legacy)|
+51|Rafael Leão|AC Milan (Star Quality)|
+52|Gavi|FC Barcelona (Star Quality)|
+53|Linda Caicedo|Real Madrid C.F. (Superior)|
+54|Weston McKennie|Juventus (Star Quality)|
+55|Gabriel Martinelli|Arsenal FC (Star Quality)|
+56|Morgan Rogers|Aston Villa (Star Quality)|
+57|Didier Drogba|Chelsea FC (Legacy)|
+58|Erling Haaland|Manchester City (Star Quality)|
+59|Florian Wirtz|Bayer 04 Leverkusen (Star Quality)|
+60|Ollie Watkins|Aston Villa (Star Quality)|
+61|João Simões|Sporting Clube de Portugal (Star Quality)|RC
+62|Lionel Messi|FC Barcelona (Inception Point)|
+63|Endrick|Real Madrid C.F. (Emerging Stars)|RC
+64|Diego Costa|Atlético de Madrid (Inception Point)|
+65|Ibrahim Mbaye|Paris Saint-Germain (Emerging Stars)|RC
+66|Lucas Bergvall|Tottenham Hotspur (Star Quality)|RC
+67|Marco van Basten|AC Milan (Legacy)|
+68|Julián Alvarez|Atlético de Madrid (Star Quality)|
+69|Toni Fernández|FC Barcelona (Star Quality)|RC
+70|Senny Mayulu|Paris Saint-Germain (Star Quality)|RC
+71|Virgil van Dijk|Liverpool FC (Star Quality)|
+72|Zlatan Ibrahimović|AC Milan (Legacy)|
+73|Kobbie Mainoo|Manchester United (Star Quality)|
+74|Bunny Shaw|Manchester City (Superior)|
+75|Aitana Bonmatí|FC Barcelona (Superior)|
+76|Thierry Henry|Arsenal FC (Legacy)|
+77|Daizen Maeda|Celtic FC (Star Quality)|
+78|Alessandro Del Piero|Juventus (Inception Point)|
+79|Warren Zaïre-Emery|Paris Saint-Germain (Star Quality)|
+80|Lindsey Heaps|OL Lyonnes (Superior)|
+81|Ángel Di María|SL Benfica (Star Quality)|
+82|Álvaro Carreras|SL Benfica (Star Quality)|RC
+83|Trey Nyoni|Liverpool FC (Star Quality)|RC
+84|Jamal Musiala|FC Bayern München (Star Quality)|
+85|Victor Boniface|Bayer 04 Leverkusen (Star Quality)|
+86|Johan Cruyff|FC Barcelona (Legacy)|
+87|Pedri|FC Barcelona (Star Quality)|
+88|Theo Hernández|AC Milan (Star Quality)|
+89|Sergio Agüero|Atlético de Madrid (Inception Point)|
+90|Pau Víctor|FC Barcelona (Star Quality)|RC
+91|Alessandro Bastoni|FC Internazionale Milano (Star Quality)|
+92|Lauren James|Chelsea FC (Superior)|
+93|Kenan Yildiz|Juventus (Succession)|
+94|Alessia Russo|Arsenal FC (Superior)|
+95|João Neves|Paris Saint-Germain (Star Quality)|
+96|Matty Warhurst|Manchester City (Star Quality)|RC
+## Dual Autographs
+DA-AH|Sergio Agüero|Manchester City|
+U2-2|Erling Haaland|Manchester City|
+DA-BZ|Jude Bellingham|Real Madrid C.F.|
+U2-4|Zinédine Zidane|Real Madrid C.F.|
+DA-CB|Linda Caicedo|Real Madrid C.F.|
+U2-6|Jude Bellingham|Real Madrid C.F.|
+DA-DT|Didier Drogba|Chelsea FC|
+U2-8|Fernando Torres|Chelsea FC|
+DA-GB|Archie Gray|Tottenham Hotspur|
+U2-10|Lucas Bergvall|Tottenham Hotspur|
+DA-HM|Lindsey Heaps|OL Lyonnes|
+U2-12|Weston McKennie|Juventus|
+DA-JP|Lauren James|Chelsea FC|
+U2-14|Cole Palmer|Chelsea FC|
+DA-KR|Kaká|AC Milan|
+U2-16|Ronaldo|FC Internazionale Milano|
+DA-MK|Kobbie Mainoo|Manchester United|
+U2-18|Roy Keane|Manchester United|
+DA-MY|Lionel Messi|FC Barcelona|
+U2-20|Lamine Yamal|FC Barcelona|
+DA-ZR|Zinédine Zidane|Real Madrid C.F.|
+U2-22|Ronaldinho|FC Barcelona|
+## Emerging Stars Autographs
+ESA-AG|Archie Gray|Tottenham Hotspur|
+ESA-CO|Chido Obi|Manchester United|
+ESA-E|Endrick|Real Madrid C.F.|
+ESA-EN|Ethan Nwaneri|Arsenal FC|
+ESA-GQ|Geovany Quenda|Sporting Clube de Portugal|
+ESA-KW|Kjell Wätjen|Borussia Dortmund|
+ESA-ML|Myles Lewis-Skelly|Arsenal FC|
+## First XI Autographs
+FXIA-GK|Gregor Kobel|Borussia Dortmund|
+FXIA-HK|Harry Kane|FC Bayern München|
+FXIA-IM|Ian Maatsen|Aston Villa|
+FXIA-JB|Jude Bellingham|Real Madrid C.F.|
+FXIA-MS|Marcel Sabitzer|Borussia Dortmund|
+FXIA-PF|Phil Foden|Manchester City|
+FXIA-V|Vitinha|Paris Saint-Germain|
+FXIA-VJ|Vini Jr.|Real Madrid C.F.|
+## Immersion Autographs
+IIA-ADM|Ángel Di María|SL Benfica|
+IIA-AI|Andrés Iniesta|FC Barcelona|
+IIA-AP|Andrea Pirlo|AC Milan|
+IIA-E|Endrick|Real Madrid C.F.|
+IIA-EN|Ethan Nwaneri|Arsenal FC|
+IIA-FV|Federico Valverde|Real Madrid C.F.|
+IIA-GQ|Geovany Quenda|Sporting Clube de Portugal|
+IIA-GR|Archie Gray|Tottenham Hotspur|
+IIA-JD|Jérémy Doku|Manchester City|
+IIA-JF|João Félix|AC Milan|
+IIA-JG|Jamie Gittens|Borussia Dortmund|
+IIA-KY|Kenan Yildiz|Juventus|
+IIA-LM|Lautaro Martínez|FC Internazionale Milano|
+IIA-LS|Leroy Sané|FC Bayern München|
+IIA-LY|Lamine Yamal|FC Barcelona|
+IIA-MA|Manuel Akanji|Manchester City|
+IIA-MB|Marc Bernal|FC Barcelona|
+IIA-NJ|Neymar Jr|FC Barcelona|
+IIA-PD|Paulo Dybala|AS Roma|
+IIA-RM|Romário|FC Barcelona|
+IIA-RY|Rodrygo|Real Madrid C.F.|
+IIA-SA|Sergio Agüero|Atlético de Madrid|
+IIA-TW|Timothy Weah|Juventus|
+## Inception Point Autographs
+IPA-ADP|Alessandro Del Piero|Juventus|
+IPA-LM|Lionel Messi|FC Barcelona|
+IPA-NJ|Neymar Jr|FC Barcelona|
+IPA-SA|Sergio Agüero|Atlético de Madrid|
+IPA-TM|Thomas Müller|FC Bayern München|
+## Institutions Autograph Book
+II-BMTV|Franco Baresi|AC Milan|
+U7-2|Paolo Maldini|AC Milan|
+U7-3|John Terry|Chelsea FC|
+U7-4|Virgil van Dijk|Liverpool FC|
+II-SIOD|Paul Scholes|Manchester United|
+U7-6|Andrés Iniesta|FC Barcelona|
+U7-7|Mesut Özil|Real Madrid C.F.|
+U7-8|Kevin De Bruyne|Manchester City|
+II-ZSCC|Dino Zoff|Juventus|
+U7-10|Peter Schmeichel|Manchester United|
+U7-11|Petr Čech|Chelsea FC|
+U7-12|Thibaut Courtois|Real Madrid C.F.|
+## Legacy Autographs
+LAV-DD|Didier Drogba|Chelsea FC|
+LAV-MVB|Marco van Basten|AC Milan|
+LAV-R|Ronaldinho|FC Barcelona|
+LAV-R9|Ronaldo|FC Internazionale Milano|
+LAV-TH|Thierry Henry|Arsenal FC|
+LAV-ZI|Zlatan Ibrahimović|AC Milan|
+LAV-ZZ|Zinédine Zidane|Real Madrid C.F.|
+## Marks of Excellence
+ME-AD4|Alessandro Del Piero|Juventus|
+ME-EG2|Eidur Gudjohnsen|Chelsea FC|
+ME-EN2|Ethan Nwaneri|Arsenal FC|
+ME-SE1|Stefan Effenberg|FC Bayern München|
+## Only1 Autographs
+U10-1|Marco van Basten|AC Milan|
+## Silver Signings
+SSAL-FL|Frank Lampard|Chelsea FC|
+SSAL-FT|Fernando Torres|Liverpool FC|
+SSAL-KD|Kenny Dalglish|Liverpool FC|
+SSAL-LM|Lionel Messi|FC Barcelona|
+SSAL-LS|Luis Suárez|FC Barcelona|
+SSAL-MA|Lothar Matthäus|FC Bayern München|
+SSAL-PL|Philipp Lahm|FC Bayern München|
+SSAL-PS|Paul Scholes|Manchester United|
+SSAL-R|Ronaldo|FC Internazionale Milano|
+SSAL-RB|Roberto Baggio|Juventus|
+SSAL-RI|Ronaldinho|FC Barcelona|
+SSAL-TH|Thierry Henry|Arsenal FC|
+SSAL-WR|Wayne Rooney|Manchester United|
+SSAL-YT|Yaya Touré|Manchester City|
+SSAL-ZI|Zlatan Ibrahimović|AC Milan|
+SSAL-ZZ|Zinédine Zidane|Real Madrid C.F.|
+SSAV-AB|Aitana Bonmatí|FC Barcelona|
+SSAV-AG|Antoine Griezmann|Atlético de Madrid|
+SSAV-AP|Alexia Putellas|FC Barcelona|
+SSAV-E|Endrick|Real Madrid C.F.|
+SSAV-G|Gavi|FC Barcelona|
+SSAV-HK|Harry Kane|FC Bayern München|
+SSAV-JB|Jude Bellingham|Real Madrid C.F.|
+SSAV-JM|Jamal Musiala|FC Bayern München|
+SSAV-KW|Kjell Wätjen|Borussia Dortmund|
+SSAV-LC|Linda Caicedo|Real Madrid C.F.|
+SSAV-ND|Noah Darvich|FC Barcelona|
+SSAV-P|Pedri|FC Barcelona|
+SSAV-S|Savinho|Manchester City|
+SSAV-SK|Sam Kerr|Chelsea FC|
+SSAV-VV|Virgil Van Dijk|Liverpool FC|
+## Star Quality Autographs
+SQA-AB|Alessandro Bastoni|FC Internazionale Milano|
+SQA-AG|Antoine Griezmann|Atlético de Madrid|
+SQA-BE|Bernardo Silva|Manchester City|
+SQA-BF|Bruno Fernandes|Manchester United|
+SQA-BS|Bukayo Saka|Arsenal FC|
+SQA-CC|Cole Campbell|Borussia Dortmund|
+SQA-CG|Cody Gakpo|Liverpool FC|
+SQA-CH|Conrad Harder|Sporting Clube de Portugal|
+SQA-CP|Cole Palmer|Chelsea FC|
+SQA-DM|Daizen Maeda|Celtic FC|
+SQA-DS|David Silva|Manchester City|
+SQA-DY|Daniel Yañez|Real Madrid C.F.|
+SQA-EC|Eric Cantona|Manchester United|
+SQA-EH|Erling Haaland|Manchester City|
+SQA-FC|Federico Chiesa|Liverpool FC|
+SQA-FL|Frank Lampard|Chelsea FC|
+SQA-FT|Francesco Totti|AS Roma|
+SQA-G|Gavi|FC Barcelona|
+SQA-GB|Gareth Bale|Tottenham Hotspur|
+SQA-GI|Santiago Giménez|AC Milan|
+SQA-GW|George Weah|AC Milan|
+SQA-HMS|Heung-min Son|Tottenham Hotspur|
+SQA-JF|Jeremie Frimpong|Bayer 04 Leverkusen|
+SQA-JM|Jamal Musiala|FC Bayern München|
+SQA-JN|João Neves|Paris Saint-Germain|
+SQA-JS|João Simões|Sporting Clube de Portugal|
+SQA-K|Kaká|AC Milan|
+SQA-KD|Kenny Dalglish|Celtic FC|
+SQA-KDB|Kevin De Bruyne|Manchester City|
+SQA-LB|Lucas Bergvall|Tottenham Hotspur|
+SQA-LE|Rafael Leão|AC Milan|
+SQA-LM|Luka Modrić|Real Madrid C.F.|
+SQA-LS|Luis Suárez|FC Barcelona|
+SQA-MA|Mike Maignan|AC Milan|
+SQA-MB|Michael Ballack|Bayer 04 Leverkusen|
+SQA-ML|Mattia Liberali|AC Milan|
+SQA-MM|Mikey Moore|Tottenham Hotspur|
+SQA-MO|Mesut Özil|Real Madrid C.F.|
+SQA-MR|Morgan Rogers|Aston Villa|
+SQA-MW|Matty Warhurst|Manchester City|
+SQA-ND|Noah Darvich|FC Barcelona|
+SQA-NO|Nico O'Reilly|Manchester City|
+SQA-P|Pedri|FC Barcelona|
+SQA-PN|Pavel Nedvěd|Juventus|
+SQA-PS|Paul Scholes|Manchester United|
+SQA-PV|Pau Víctor|FC Barcelona|
+SQA-R|Rivaldo|FC Barcelona|
+SQA-RA|Raúl|Real Madrid C.F.|
+SQA-RL|Robert Lewandowski|FC Barcelona|
+SQA-RP|Raphinha|FC Barcelona|
+SQA-S|Savinho|Manchester City|
+SQA-SCH|Bastian Schweinsteiger|FC Bayern München|
+SQA-SE|Samuel Eto'o|FC Internazionale Milano|
+SQA-SM|Senny Mayulu|Paris Saint-Germain|
+SQA-TC|Toby Collyer|Manchester United|
+SQA-TF|Toni Fernández|FC Barcelona|
+SQA-TH|Theo Hernández|AC Milan|
+SQA-TN|Trey Nyoni|Liverpool FC|
+SQA-TO|Fernando Torres|Liverpool FC|
+SQA-VV|Virgil van Dijk|Liverpool FC|
+SQA-WM|Weston McKennie|Juventus|
+SQA-WR|Wayne Rooney|Manchester United|
+## Succession Autographs
+SAV-BB|Bradley Barcola|Paris Saint-Germain|
+SAV-KY|Kenan Yildiz|Juventus|
+SAV-LY|Lamine Yamal|FC Barcelona|
+## Superior Autographs
+SPA-AB|Aitana Bonmatí|FC Barcelona|
+SPA-AP|Alexia Putellas|FC Barcelona|
+SPA-C|Corventina|OL Lyonnes|
+SPA-KS|Bunny Shaw|Manchester City|
+SPA-LC|Linda Caicedo|Real Madrid C.F.|
+SPA-LH|Lindsey Heaps|OL Lyonnes|
+SPA-LJ|Lauren James|Chelsea FC|
+## Winners Quad Autograph Book
+WQ-BPHP|Aitana Bonmatí|FC Barcelona|
+U15-2|Alexia Putellas|FC Barcelona|
+U15-3|Caroline Graham Hansen|FC Barcelona|
+U15-4|Salma Paralluelo|FC Barcelona|
+WQ-BCNM|Franco Baresi|AC Milan|
+U15-6|Alessandro Costacurta|AC Milan|
+U15-7|Alessandro Nesta|AC Milan|
+U15-8|Paolo Maldini|AC Milan|
+WQ-CSPK|Rui Costa|AC Milan|
+U15-10|Andriy Shevchenko|AC Milan|
+U15-11|Andrea Pirlo|AC Milan|
+U15-12|Kaká|AC Milan|
+WQ-KDGV|Kevin Keegan|Liverpool FC|
+U15-14|Kenny Dalglish|Liverpool FC|
+U15-15|Steven Gerrard|Liverpool FC|
+U15-16|Virgil van Dijk|Liverpool FC|
+WQ-RHMH|Wendie Renard|OL Lyonnes|
+U15-18|Lindsey Heaps|OL Lyonnes|
+U15-19|Catarina Macario|OL Lyonnes|
+U15-20|Ada Hegerberg|OL Lyonnes|
+## Autograph Patch
+AP-AG|Antoine Griezmann|Atlético de Madrid|
+AP-CO|Chido Obi|Manchester United|
+AP-DD|Didier Drogba|Chelsea FC|
+AP-DS|Dominik Szoboszlai|Liverpool FC|
+AP-E|Endrick|Real Madrid C.F.|
+AP-EC|Eduardo Camavinga|Real Madrid C.F.|
+AP-EH|Erling Haaland|Manchester City|
+AP-FL|Fermín López|FC Barcelona|
+AP-GR|Archie Gray|Tottenham Hotspur|
+AP-HMS|Heung-min Son|Tottenham Hotspur|
+AP-IG|ølkay Gündoğan|Manchester City|
+AP-JB|Jude Bellingham|Real Madrid C.F.|
+AP-JM|Jamal Musiala|FC Bayern München|
+AP-K|Kaká|AC Milan|
+AP-KA|Karim Adeyemi|Borussia Dortmund|
+AP-KDB|Kevin De Bruyne|Manchester City|
+AP-KW|Kjell Wätjen|Borussia Dortmund|
+AP-KY|Kenan Yildiz|Juventus|
+AP-LB|Lucas Bergvall|Tottenham Hotspur|
+AP-LE|Rafael Leão|AC Milan|
+AP-LM|Lionel Messi|FC Barcelona|
+AP-LO|Lothar Matthäus|FC Bayern München|
+AP-LS|Luis Suárez|FC Barcelona|
+AP-LY|Lamine Yamal|FC Barcelona|
+AP-MA|Lautaro Martínez|FC Internazionale Milano|
+AP-MO|Luka Modrić|Real Madrid C.F.|
+AP-MOO|Mikey Moore|Tottenham Hotspur|
+AP-NJ|Neymar Jr.|FC Barcelona|
+AP-PF|Phil Foden|Manchester City|
+AP-R|Ronaldo|FC Internazionale Milano|
+AP-RA|Raphinha|FC Barcelona|
+AP-RL|Robert Lewandowski|FC Barcelona|
+AP-S|Savinho|Manchester City|
+AP-SA|Leroy Sané|FC Bayern München|
+AP-SG|Serhou Guirassy|Borussia Dortmund|
+AP-SM|Senny Mayulu|Paris Saint-Germain|
+AP-VG|Viktor Gyökeres|Sporting Clube de Portugal|
+AP-WM|Weston McKennie|Juventus|
+AP-WR|Wayne Rooney|Manchester United|
+AP-WZE|Warren Zaïre-Emery|Paris Saint-Germain|
+AP-ZI|Zlatan Ibrahimović|AC Milan|
+AP-ZZ|Zinédine Zidane|Juventus|
+## Autograph Branded Patch Book
+ABB-CG|Cody Gakpo|Liverpool FC|
+ABB-CO|Chido Obi|Manchester United|
+ABB-EH|Erling Haaland|Manchester City|
+ABB-GQ|Geovany Quenda|Sporting Clube de Portugal|
+ABB-HMS|Heung-min Son|Tottenham Hotspur|
+ABB-JG|Jamie Gittens|Borussia Dortmund|
+ABB-JM|Jamal Musiala|FC Bayern München|
+ABB-KDB|Kevin De Bruyne|Manchester City|
+ABB-LB|Lucas Bergvall|Tottenham Hotspur|
+ABB-LE|Rafael Leão|AC Milan|
+ABB-MO|Mikey Moore|Tottenham Hotspur|
+ABB-P|Pedri|FC Barcelona|
+ABB-S|Savinho|Manchester City|
+ABB-SM|Senny Mayulu|Paris Saint-Germain|
+ABB-WZE|Warren Zaïre-Emery|Paris Saint-Germain|
+## Club Crest Auto Patch
+CCA-EH|Erling Haaland|Manchester City|
+CCA-HMS|Heung-min Son|Tottenham Hotspur|
+CCA-JB|Jude Bellingham|Real Madrid C.F.|
+CCA-JG|Jamie Gittens|Borussia Dortmund|
+CCA-JM|Jamal Musiala|FC Bayern München|
+CCA-KDB|Kevin De Bruyne|Manchester City|
+CCA-KW|Kjell Wätjen|Borussia Dortmund|
+CCA-LS|Leroy Sané|FC Bayern München|
+CCA-LY|Lamine Yamal|FC Barcelona|
+CCA-MM|Mike Maignan|AC Milan|
+CCA-NS|Nico Schlotterbeck|Borussia Dortmund|
+CCA-OB|Oscar Bobb|Manchester City|
+CCA-R|Raphinha|FC Barcelona|
+CCA-RL|Rafael Leão|AC Milan|
+CCA-S|Savinho|Manchester City|
+CCA-SM|Senny Mayulu|Paris Saint-Germain|
+CCA-WZE|Warren Zaïre-Emery|Paris Saint-Germain|
+## Dual Autograph Patch Book
+DAPB-AG|Karim Adeyemi|Borussia Dortmund|
+U19-2|Jamie Gittens|Borussia Dortmund|
+DAPB-BG|Lucas Bergvall|Tottenham Hotspur|
+U19-4|Archie Gray|Tottenham Hotspur|
+DAPB-BI|Aitana Bonmatí|FC Barcelona|
+U19-6|Andrés Iniesta|FC Barcelona|
+DAPB-DH|Kevin De Bruyne|Manchester City|
+U19-8|Erling Haaland|Manchester City|
+DAPB-JP|Lauren James|Chelsea FC|
+U19-10|Cole Palmer|Chelsea FC|
+DAPB-MK|Thomas Müller|FC Bayern München|
+U19-12|Joshua Kimmich|FC Bayern München|
+DAPB-PK|Andrea Pirlo|AC Milan|
+U19-14|Kaká|AC Milan|
+DAPB-PG|Pedri|FC Barcelona|
+U19-16|Gavi|FC Barcelona|
+DAPB-SM|Georgia Stanway|FC Bayern München|
+U19-18|Jamal Musiala|FC Bayern München|
+DAPB-YM|Lamine Yamal|FC Barcelona|
+U19-20|Lionel Messi|FC Barcelona|
+DAPB-ZB|Warren Zaïre-Emery|Paris Saint-Germain|
+U19-22|Bradley Barcola|Paris Saint-Germain|
+## Wembley Warmup Auto Relic
+WWAR-AG|Arda Güler|Real Madrid C.F.|
+WWAR-AT|Aurélien Tchouaméni|Real Madrid C.F.|
+WWAR-DA|David Alaba|Real Madrid C.F.|
+WWAR-EC|Eduardo Camavinga|Real Madrid C.F.|
+WWAR-FM|Ferland Mendy|Real Madrid C.F.|
+WWAR-FV|Federico Valverde|Real Madrid C.F.|
+WWAR-JB|Jude Bellingham|Real Madrid C.F.|
+WWAR-LM|Luka Modrić|Real Madrid C.F.|
+WWAR-R|Rodrygo|Real Madrid C.F.|
+WWAR-VJ|Vini Jr.|Real Madrid C.F.|
+## Wembley Warmup Relic
+WWR-AR|Antonio Rüdiger|Real Madrid C.F.|
+WWR-EC|Eduardo Camavinga|Real Madrid C.F.|
+WWR-EM|Éder Militão|Real Madrid C.F.|
+WWR-FV|Federico Valverde|Real Madrid C.F.|
+WWR-JB|Jude Bellingham|Real Madrid C.F.|
+WWR-LM|Luka Modrić|Real Madrid C.F.|
+WWR-R|Rodrygo|Real Madrid C.F.|
+## Wembley Warmup Squad Book
+WWSB-EM|Jude Bellingham|Real Madrid C.F.|
+U23-2|Vini Jr.|Real Madrid C.F.|
+U23-3|Rodrygo|Real Madrid C.F.|
+U23-4|Luka Modrić|Real Madrid C.F.|
+U23-5|Federico Valverde|Real Madrid C.F.|
+U23-6|Eduardo Camavinga|Real Madrid C.F.|
+U23-7|Arda Güler|Real Madrid C.F.|
+U23-8|Aurélien Tchouaméni|Real Madrid C.F.|
+U23-9|Antonio Rüdiger|Real Madrid C.F.|
+U23-10|Éder Militão|Real Madrid C.F.|
