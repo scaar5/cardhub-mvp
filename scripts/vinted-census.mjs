@@ -31,41 +31,71 @@ function save() {
   );
 }
 
-for (const { q, set } of cfg.searches) {
-  if (stop) break;
-  const seen = new Set();
-  const st = { q, pages: 0, items: 0, end: "max" };
-  for (let page = 1; page <= MAX_PAGES; page++) {
-    if (Date.now() - started > BUDGET_MIN * 60000) { st.end = "time"; stop = true; break; }
-    const url = `https://www.vinted.es/catalog?order=newest_first&search_text=${encodeURIComponent(q)}${page > 1 ? `&page=${page}` : ""}`;
-    let res = await fetch(url, { headers: { "User-Agent": UA, "Accept-Language": "es-ES,es;q=0.9" } });
+// Tramos de precio: Vinted corta cada búsqueda en ~11 páginas (~950 anuncios). Si una búsqueda llega al tope,
+// se repite por tramos de precio (cada tramo tiene su propio tope); si un tramo también llega, se parte en dos.
+const BANDS = [0, 1, 2, 3, 4, 5, 6, 8, 10, 12, 15, 20, 25, 30, 40, 50, 75, 100, 150, 250, 500, 100000];
+const CAP = 850;
+
+async function getPage(url) {
+  let res = await fetch(url, { headers: { "User-Agent": UA, "Accept-Language": "es-ES,es;q=0.9" } });
+  requests++;
+  if (res.status === 403 || res.status === 429) {
+    blocks++;
+    console.log(`${res.status} → espero 15 min`);
+    await sleep(15 * 60000);
+    res = await fetch(url, { headers: { "User-Agent": UA, "Accept-Language": "es-ES,es;q=0.9" } });
     requests++;
-    if (res.status === 403 || res.status === 429) {
-      blocks++;
-      console.log(`${q} p${page}: ${res.status} → espero 15 min`);
-      await sleep(15 * 60000);
-      res = await fetch(url, { headers: { "User-Agent": UA, "Accept-Language": "es-ES,es;q=0.9" } });
-      requests++;
-      if (!res.ok) { console.log(`Sigue ${res.status}: paro el censo.`); st.end = `blocked ${res.status}`; stop = true; break; }
-    }
-    if (!res.ok) { st.end = `status ${res.status}`; break; }
-    const html = await res.text();
+    if (!res.ok) { console.log(`Sigue ${res.status}: paro el censo.`); stop = true; return null; }
+  }
+  return res.ok ? res.text() : "";
+}
+
+/** Lee todas las páginas de una búsqueda (opcionalmente en un tramo de precio). Devuelve { seen, pages, end }. */
+async function crawl(q, set, from, to) {
+  const seen = new Set();
+  let pages = 0, end = "max", newGlobal = 0;
+  for (let page = 1; page <= MAX_PAGES; page++) {
+    if (Date.now() - started > BUDGET_MIN * 60000) { end = "time"; stop = true; break; }
+    const price = from == null ? "" : `&price_from=${from}&price_to=${to}&currency=EUR`;
+    const html = await getPage(`https://www.vinted.es/catalog?order=newest_first&search_text=${encodeURIComponent(q)}${price}${page > 1 ? `&page=${page}` : ""}`);
+    if (html == null) { end = "blocked"; break; }
     let n = 0, fresh = 0;
     for (const m of html.matchAll(/data-testid="product-item-id-(\d+)--overlay-link"[^>]*?title="([^"]*)"/g)) {
       n++;
       if (seen.has(m[1])) continue;
       seen.add(m[1]);
       fresh++;
-      if (!seenAll.has(m[1])) { seenAll.add(m[1]); items.push({ id: m[1], attr: decode(m[2]), q, set, page }); }
+      if (!seenAll.has(m[1])) { seenAll.add(m[1]); newGlobal++; items.push({ id: m[1], attr: decode(m[2]), q, set, page }); }
     }
-    st.pages = page;
-    st.items = seen.size;
-    if (!n) { st.end = "empty"; break; }
-    if (!fresh) { st.end = "repeat"; break; } // Vinted devuelve otra vez la última página
+    pages = page;
     await sleep(5000 + Math.random() * 2000);
+    if (!n) { end = "empty"; break; }
+    if (!fresh) { end = "repeat"; break; }
+    if (n < 80) { end = "last"; break; } // página incompleta = última
   }
+  return { seen: seen.size, pages, end, newGlobal };
+}
+
+async function crawlBand(q, set, from, to, depth = 0) {
+  if (stop) return;
+  const r = await crawl(q, set, from, to);
+  const st = { q, from, to, ...r };
   perSearch.push(st);
-  console.log(`SEARCH ${JSON.stringify(st)} total_unicos=${seenAll.size}`);
+  console.log(`BAND ${JSON.stringify(st)} total_unicos=${seenAll.size}`);
+  if (r.seen >= CAP && to - from > 0.5 && depth < 4) {
+    const mid = Math.round(((from + Math.min(to, from * 4 + 10)) / 2) * 2) / 2;
+    await crawlBand(q, set, from, mid, depth + 1);
+    await crawlBand(q, set, mid, to, depth + 1);
+  }
+}
+
+for (const { q, set } of cfg.searches) {
+  if (stop) break;
+  const r = await crawl(q, set);
+  perSearch.push({ q, ...r });
+  console.log(`SEARCH ${JSON.stringify({ q, ...r })} total_unicos=${seenAll.size}`);
+  if (r.seen >= CAP) for (let i = 0; i + 1 < BANDS.length && !stop; i++) await crawlBand(q, set, BANDS[i], BANDS[i + 1]);
+  console.log(`DONE ${q} total_unicos=${seenAll.size}`);
   save();
 }
 save();
