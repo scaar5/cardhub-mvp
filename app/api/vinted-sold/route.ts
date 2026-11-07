@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { authorized } from "@/lib/auth";
 import { MIN_PRICE, MIN_REF_VALUE } from "@/lib/config";
+import { storeSalePhoto, type InPhoto } from "@/lib/photos";
 import { getSupabaseAdmin } from "@/lib/supabase-admin";
 
 export const dynamic = "force-dynamic";
@@ -14,12 +15,15 @@ export const maxDuration = 60;
  *   platform = "vinted_gone"  → ese anuncio ha DESAPARECIDO (borrado por el vendedor: no cuenta como venta)
  *
  * GET  /api/vinted-sold (x-alert-secret) → anuncios abiertos que toca revisar (máx. CHECK_BATCH, al azar)
- * POST /api/vinted-sold (x-alert-secret) → { results: [{ id, state: "sold"|"gone"|"open"|"reserved", price? }] }
+ *                                         + photo_ids: ventas sin foto todavía (máx. PHOTO_BATCH)
+ * POST /api/vinted-sold (x-alert-secret) → { results: [{ id, state: "sold"|"gone"|"open"|"reserved", price? }],
+ *                                            photos?: [{ id, url, data? }] }  (foto de cada venta → Supabase Storage)
  *
  * La lectura de Vinted la hace el workflow de GitHub (scripts/vinted-sold-check.mjs).
  */
 const CHECK_BATCH = 75;
 const TRACK_DAYS = 30;
+const PHOTO_BATCH = 10;
 
 const vid = (externalId: string) => externalId.split(":")[1];
 
@@ -31,9 +35,16 @@ export async function GET(req: Request) {
   if (!db) return NextResponse.json({ ok: false, error: "Falta SUPABASE_SECRET_KEY" }, { status: 503 });
 
   const since = new Date(Date.now() - TRACK_DAYS * 86400_000).toISOString();
-  const [open, closed] = await Promise.all([
+  const [open, closed, noPhoto] = await Promise.all([
     db.from("listings").select("external_id,price").eq("platform", "vinted").gte("seen_at", since).limit(10000),
     db.from("listings").select("external_id").in("platform", ["vinted_sold", "vinted_gone"]).limit(20000),
+    db
+      .from("listings")
+      .select("external_id")
+      .eq("platform", "vinted_sold")
+      .is("photo_path", null)
+      .order("seen_at", { ascending: false })
+      .limit(PHOTO_BATCH),
   ]);
   if (open.error || closed.error) {
     return NextResponse.json({ ok: false, error: open.error?.message ?? closed.error?.message }, { status: 500 });
@@ -53,7 +64,14 @@ export async function GET(req: Request) {
     ...pending.filter((r) => !(r.price >= MIN_REF_VALUE)),
   ].map((r) => r.id);
   const important = pending.filter((r) => r.price >= MIN_REF_VALUE).length;
-  return NextResponse.json({ ok: true, open: pending.length, open_10: important, ids: ordered.slice(0, CHECK_BATCH) });
+  return NextResponse.json({
+    ok: true,
+    open: pending.length,
+    open_10: important,
+    ids: ordered.slice(0, CHECK_BATCH),
+    // Si la migración 006 no está, no hay columna photo_path: se sigue sin fotos
+    photo_ids: noPhoto.error ? [] : (noPhoto.data ?? []).map((r) => vid(r.external_id)),
+  });
 }
 
 interface InResult {
@@ -69,14 +87,17 @@ export async function POST(req: Request) {
   const db = getSupabaseAdmin();
   if (!db) return NextResponse.json({ ok: false, error: "Falta SUPABASE_SECRET_KEY" }, { status: 503 });
 
-  const body = (await req.json().catch(() => null)) as { results?: InResult[] } | null;
+  const body = (await req.json().catch(() => null)) as { results?: InResult[]; photos?: InPhoto[] } | null;
   const closed = (body?.results ?? []).filter((r) => r && r.id && (r.state === "sold" || r.state === "gone"));
-  if (closed.length === 0) return NextResponse.json({ ok: true, sold: 0, gone: 0 });
+  const photos = (body?.photos ?? []).filter((p) => p && p.id && (p.url || p.data)).slice(0, 20);
+  if (closed.length === 0 && photos.length === 0) return NextResponse.json({ ok: true, sold: 0, gone: 0, photos: 0 });
 
-  const { data, error } = await db
-    .from("listings")
-    .select("external_id,card_id,parallel,title,price,url")
-    .in("external_id", closed.map((r) => `vinted:${r.id}`));
+  const { data, error } = closed.length
+    ? await db
+        .from("listings")
+        .select("external_id,card_id,parallel,title,price,url")
+        .in("external_id", closed.map((r) => `vinted:${r.id}`))
+    : { data: [], error: null };
   if (error) return NextResponse.json({ ok: false, error: error.message }, { status: 500 });
   const byId = new Map((data ?? []).map((l) => [vid(l.external_id), l]));
 
@@ -101,9 +122,24 @@ export async function POST(req: Request) {
     const { error: e2 } = await db.from("listings").upsert(rows, { onConflict: "external_id" });
     if (e2) return NextResponse.json({ ok: false, error: e2.message }, { status: 500 });
   }
+
+  // Fotos de las ventas (después de guardar la venta, para poder apuntarla)
+  let photoOk = 0;
+  const photoErrors: string[] = [];
+  for (const p of photos) {
+    try {
+      await storeSalePhoto(db, p);
+      photoOk++;
+    } catch (e) {
+      photoErrors.push(`${p.id}: ${e instanceof Error ? e.message : String(e)}`);
+    }
+  }
+
   return NextResponse.json({
     ok: true,
     sold: rows.filter((r) => r.platform === "vinted_sold").length,
     gone: rows.filter((r) => r.platform === "vinted_gone").length,
+    photos: photoOk,
+    ...(photoErrors.length ? { photo_errors: photoErrors } : {}),
   });
 }

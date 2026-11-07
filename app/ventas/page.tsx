@@ -3,6 +3,7 @@ import SalesChart, { type ChartPoint } from "@/components/SalesChart";
 import { CARDS, normalize, setBySlug } from "@/lib/catalog";
 import { median } from "@/lib/market";
 import { getSupabase } from "@/lib/supabase";
+import { photoPublicUrl } from "@/lib/photo-url";
 
 export const metadata = { title: "Historial de ventas — sCARDs" };
 export const revalidate = 300;
@@ -16,6 +17,7 @@ interface Sale {
   seen_at: string;
   title: string;
   url: string | null;
+  photo_path: string | null;
 }
 
 const cardById = new Map(CARDS.map((c) => [c.id, c]));
@@ -44,7 +46,7 @@ export default async function VentasPage({ searchParams }: { searchParams: Param
     const [s, t] = await Promise.all([
       db
         .from("listings")
-        .select("card_id,parallel,price,seen_at,title,url")
+        .select("card_id,parallel,price,seen_at,title,url,photo_path")
         .eq("platform", "vinted_sold")
         .order("seen_at", { ascending: true })
         .limit(5000),
@@ -194,7 +196,20 @@ export default async function VentasPage({ searchParams }: { searchParams: Param
           <ul className="mt-3 divide-y divide-line">
             {[...selSales].reverse().map((s, i) => (
               <li key={i} className="flex items-center justify-between gap-3 px-5 py-3 text-sm">
-                <span className="min-w-0 truncate text-muted">{s.title}</span>
+                <span className="flex min-w-0 items-center gap-3">
+                  {photoPublicUrl(s.photo_path) ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={photoPublicUrl(s.photo_path)!}
+                      alt=""
+                      loading="lazy"
+                      className="h-14 w-10 shrink-0 rounded-md bg-line object-cover"
+                    />
+                  ) : (
+                    <span className="h-14 w-10 shrink-0 rounded-md bg-line" />
+                  )}
+                  <span className="min-w-0 truncate text-muted">{s.title}</span>
+                </span>
                 <span className="shrink-0 tabular-nums">
                   {fecha(s.seen_at)} · <strong>{eur(s.price)}</strong>
                   {s.url && (
