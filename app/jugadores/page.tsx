@@ -48,8 +48,8 @@ export default async function JugadoresPage({ searchParams }: { searchParams: Pa
 
       <h1 className="mt-8 text-3xl font-semibold tracking-tight">Jugadores</h1>
       <p className="mt-2 max-w-2xl text-[15px] text-muted">
-        {PLAYERS.length.toLocaleString("es-ES")} jugadores del catálogo. Elige uno para ver todas sus cartas, sus ventas
-        reales en Vinted y los precios pedidos en eBay, en una gráfica.
+        {PLAYERS.length.toLocaleString("es-ES")} jugadores del catálogo. Elige uno para ver la gráfica de las ventas reales
+        registradas de cada una de sus cartas.
       </p>
 
       <div className="mt-6">
