@@ -174,7 +174,7 @@ Licencias: Premier League con Topps **solo 25-26**; Prizm PL e Impeccable de 21-
 **Aparcado:** Wallapop en el sniper (salvo bloqueo de Vinted), Panini (poco volumen), multiusuario.
 
 ### Resto
-- [ ] **Cola de `vinted-sold` creciendo** (paso 30): ~415 revisados/h frente a lo que añade el backfill. Opciones: bajar `BACKFILL_PER_PASS`, revisar solo ≥10 € del backfill, o bajar `PAUSE_MS` con cuidado (429).
+- [x] **Cola de `vinted-sold` creciendo** (paso 30): decidido por el usuario → **`vinted-sold` solo revisa anuncios de ≥ 10 €** (`MIN_REF_VALUE`); los baratos se siguen guardando pero no se miran (`skipped_cheap` en `QUEUE`). ~1.770 de ≥10 € a ~415/h → vuelta en ~4–5 h. `oldest_10_hours` ahora = el revisado hace más tiempo (ignora los nunca revisados).
 - [ ] Colores en español en el reconocedor (Vinted): medir antes con `compare-recognize`.
 - [ ] Revisar votos ✅/❌ semanalmente (sección 0) y corregir.
 - [ ] Si siguen colándose falsos chollos: coherencia con la base o ahorro mínimo en €.

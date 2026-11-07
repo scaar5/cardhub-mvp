@@ -17,8 +17,8 @@ export const maxDuration = 60;
  *
  * GET  /api/vinted-sold[?limit=N] (x-alert-secret) → anuncios abiertos que toca revisar (máx. N o CHECK_BATCH;
  *                                         no se repiten los mirados hace menos de RECHECK_HOURS):
- *                                         primero los de ≥ MIN_REF_VALUE €, y dentro de ellos los que hace
- *                                         más tiempo que no se miran (checked_at, migración 007)
+ *                                         SOLO los de ≥ MIN_REF_VALUE € (los baratos no interesan; desde el 7-nov),
+ *                                         primero los que hace más tiempo que no se miran (checked_at, migración 007)
  *                                         + photo_ids: ventas sin foto todavía (máx. PHOTO_BATCH)
  * POST /api/vinted-sold (x-alert-secret) → { results: [{ id, state: "sold"|"gone"|"open"|"reserved", price? }],
  *                                            photos?: [{ id, url, data? }] }  (foto de cada venta → Supabase Storage)
@@ -88,29 +88,28 @@ export async function GET(req: Request) {
       checked: r.checked_at ? Date.parse(r.checked_at) : 0, // nunca revisado → el primero
     }))
     .filter((r) => r.id && !done.has(r.id));
+  const cheap = pending.filter((r) => !(r.price >= MIN_REF_VALUE)).length;
+  // Solo se revisan los de MIN_REF_VALUE € o más: los baratos se guardan, pero no se gasta Vinted en ellos
+  const tracked = pending.filter((r) => r.price >= MIN_REF_VALUE);
   // Al azar entre iguales, y luego por turno: el que lleva más tiempo sin mirarse va antes
-  for (let i = pending.length - 1; i > 0; i--) {
+  for (let i = tracked.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    [pending[i], pending[j]] = [pending[j], pending[i]];
+    [tracked[i], tracked[j]] = [tracked[j], tracked[i]];
   }
-  pending.sort((a, b) => a.checked - b.checked);
+  tracked.sort((a, b) => a.checked - b.checked);
   const recent = Date.now() - RECHECK_HOURS * 3600_000;
-  const due = pending.filter((r) => r.checked < recent);
-  // Primero los de MIN_REF_VALUE € o más (los baratos no interesan); los baratos solo rellenan huecos
-  const ordered = [
-    ...due.filter((r) => r.price >= MIN_REF_VALUE),
-    ...due.filter((r) => !(r.price >= MIN_REF_VALUE)),
-  ].map((r) => r.id);
-  const important = pending.filter((r) => r.price >= MIN_REF_VALUE).length;
-  // Cuánto se tarda en dar la vuelta: el más antiguo de los de ≥10 € (horas desde que se miró)
-  const oldest10 = pending.find((r) => r.price >= MIN_REF_VALUE);
+  const due = tracked.filter((r) => r.checked < recent);
+  const ordered = due.map((r) => r.id);
+  // Cuánto se tarda en dar la vuelta: el revisado hace más tiempo (horas), sin contar los nunca revisados
+  const oldest = tracked.find((r) => r.checked);
   return NextResponse.json({
     ok: true,
-    open: pending.length,
-    open_10: important,
+    open: tracked.length,
+    open_10: tracked.length,
+    skipped_cheap: cheap,
     due: due.length,
-    never_checked: pending.filter((r) => !r.checked).length,
-    oldest_10_hours: oldest10?.checked ? Math.round((Date.now() - oldest10.checked) / 3600_000) : null,
+    never_checked: tracked.filter((r) => !r.checked).length,
+    oldest_10_hours: oldest ? Math.round((Date.now() - oldest.checked) / 3600_000) : null,
     ids: ordered.slice(0, batch),
     // Si la migración 006 no está, no hay columna photo_path: se sigue sin fotos
     photo_ids: noPhoto.error ? [] : (noPhoto.data ?? []).map((r) => vid(r.external_id)),
