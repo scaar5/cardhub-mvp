@@ -7,6 +7,7 @@ import type { CatalogCard } from "@/lib/catalog";
 import { fetchAll } from "@/lib/fetch-all";
 import { median } from "@/lib/market";
 import { photoPublicUrl } from "@/lib/photo-url";
+import PhotoZoom from "@/components/PhotoZoom";
 import { cardSet, playerBySlug } from "@/lib/players";
 import { getSupabase } from "@/lib/supabase";
 
@@ -165,7 +166,10 @@ export default async function JugadorPage({ params, searchParams }: { params: Pa
   const change = period.length >= 2 ? current! - start! : null;
   const growth = change !== null && start ? (change / start) * 100 : null;
   const last = sel[0];
-  const photo = sel.map(photoOf).find(Boolean) ?? null;
+  const photoRow = sel.find((r) => photoOf(r));
+  const photo = photoRow ? photoOf(photoRow) : null;
+  // Original de Vinted (más grande) para el zoom; si ya no existe, se usa nuestra copia.
+  const photoBig = photoRow?.photo_url && photoRow.photo_path ? photoRow.photo_url : null;
   const info = setInfo(c);
 
   const points: SalePoint[] = period.map((r) => ({
@@ -207,8 +211,13 @@ export default async function JugadorPage({ params, searchParams }: { params: Pa
       <section className="mt-8 grid gap-8 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
         <div className="flex aspect-[4/3] items-center justify-center rounded-3xl bg-card p-6 shadow-card">
           {photo ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img src={photo} alt={`${player.name} ${info.set}`} className="max-h-full max-w-full rounded-lg object-contain" />
+            <PhotoZoom
+              src={photo}
+              big={photoBig}
+              alt={`${player.name} ${info.set}`}
+              className="flex h-full w-full items-center justify-center"
+              thumbClassName="max-h-full max-w-full rounded-lg object-contain"
+            />
           ) : (
             <p className="text-sm text-faint">Sin foto</p>
           )}
@@ -291,8 +300,13 @@ function Item({ r, c }: { r: Row; c: CatalogCard }) {
     <li className="flex items-center justify-between gap-3 px-5 py-3 text-sm">
       <span className="flex min-w-0 items-center gap-3">
         {photo ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img src={photo} alt="" loading="lazy" className="h-16 w-12 shrink-0 rounded-md bg-line object-cover" />
+          <PhotoZoom
+            src={photo}
+            big={r.photo_path ? r.photo_url : null}
+            alt={r.title ?? ""}
+            className="shrink-0 [&>span]:hidden"
+            thumbClassName="h-16 w-12 rounded-md bg-line object-cover"
+          />
         ) : (
           <span className="h-16 w-12 shrink-0 rounded-md bg-line" />
         )}
