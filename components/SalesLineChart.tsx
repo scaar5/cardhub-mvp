@@ -75,8 +75,15 @@ export default function SalesLineChart({ points, from, to }: { points: SalePoint
     const yMax = ticks[ticks.length - 1];
     const x = (t: number) => PAD.left + ((t - t0) / (t1 - t0)) * (W - PAD.left - PAD.right);
     const y = (v: number) => H - PAD.bottom - (v / yMax) * (H - PAD.top - PAD.bottom);
-    const n = 10;
-    const xTicks = Array.from({ length: n + 1 }, (_, i) => t0 + ((t1 - t0) * i) / n);
+    // Marcas del eje X: como mucho 11, sin repetir el mismo día
+    const n = Math.max(1, Math.min(10, Math.round((t1 - t0) / 86400_000)));
+    const seen = new Set<string>();
+    const xTicks = Array.from({ length: n + 1 }, (_, i) => t0 + ((t1 - t0) * i) / n).filter((t) => {
+      const k = dayShort(t);
+      if (seen.has(k)) return false;
+      seen.add(k);
+      return true;
+    });
     const xy = pts.map((p) => ({ x: x(p.t), y: y(p.y) }));
     return { pts, x, y, ticks, xTicks, path: smoothPath(xy) };
   }, [points, from, to]);
@@ -124,6 +131,17 @@ export default function SalesLineChart({ points, from, to }: { points: SalePoint
             </text>
           </g>
         ))}
+        {g.pts.length === 1 && (
+          <line
+            x1={PAD.left}
+            x2={W - PAD.right}
+            y1={g.y(g.pts[0].y)}
+            y2={g.y(g.pts[0].y)}
+            stroke="var(--color-good)"
+            strokeDasharray="4 4"
+            opacity={0.5}
+          />
+        )}
         <path d={g.path} fill="none" stroke="var(--color-good)" strokeWidth={2.5} strokeLinecap="round" />
         {g.pts.map((p, i) => (
           <circle

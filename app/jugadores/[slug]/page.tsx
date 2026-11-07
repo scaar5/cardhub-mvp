@@ -39,8 +39,8 @@ const PERIODS = [
 ] as const;
 
 const eur = (n: number) => `${n.toLocaleString("es-ES", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} €`;
-const fecha = (s: string | number) => new Date(s).toLocaleDateString("es-ES", { day: "numeric", month: "short", year: "numeric" });
-const fechaNum = (t: number) => new Date(t).toLocaleDateString("es-ES", { day: "2-digit", month: "2-digit", year: "numeric" });
+const fecha = (s: string | number) => new Date(s).toLocaleDateString("es-ES", { day: "numeric", month: "short", year: "numeric", timeZone: "Europe/Madrid" });
+const fechaNum = (t: number) => new Date(t).toLocaleDateString("es-ES", { day: "2-digit", month: "2-digit", year: "numeric", timeZone: "Europe/Madrid" });
 const parKey = (p: string | null) => p ?? "base";
 const parLabel = (k: string) => (k === "base" ? "Base (sin numerar)" : k);
 const itemId = (s: string) => s.match(/(\d{6,})/)?.[1] ?? s;
@@ -162,7 +162,7 @@ export default async function JugadorPage({ params, searchParams }: { params: Pa
   const prices = period.map((r) => r.price);
   const start = period[0]?.price;
   const current = period[period.length - 1]?.price;
-  const change = start !== undefined && current !== undefined ? current - start : null;
+  const change = period.length >= 2 ? current! - start! : null;
   const growth = change !== null && start ? (change / start) * 100 : null;
   const last = sel[0];
   const photo = sel.map(photoOf).find(Boolean) ?? null;
@@ -175,7 +175,7 @@ export default async function JugadorPage({ params, searchParams }: { params: Pa
     url: r.url,
     photo: photoOf(r),
   }));
-  const from = since || (period[0] ? Date.parse(period[0].seen_at) : Date.now());
+  const from = since || Math.min(period[0] ? Date.parse(period[0].seen_at) : Date.now(), Date.now() - 30 * 86400_000);
   const to = Date.now();
 
   const cardOptions = cardList.map(([id, rows]) => {
