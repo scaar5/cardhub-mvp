@@ -69,6 +69,12 @@ export default async function Home() {
               Valorar un anuncio
             </Link>
             <Link
+              href="/jugadores"
+              className="rounded-full bg-white/10 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-white/20"
+            >
+              Jugadores
+            </Link>
+            <Link
               href="/cartas"
               className="rounded-full bg-white/10 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-white/20"
             >
