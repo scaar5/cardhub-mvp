@@ -1,8 +1,8 @@
 # sCARDs — Contexto del proyecto (traspaso)
 
 > Documento para retomar el proyecto en otra conversación con Claude.
-> Última actualización: 7 de noviembre de 2026 (13:00).
-> Pasos 1–9: extensión Claude in Chrome. Pasos 10–27: sesión de Claude con el repositorio conectado (push directo a `main`).
+> Última actualización: 7 de noviembre de 2026 (13:30).
+> Pasos 1–9: extensión Claude in Chrome. Pasos 10–28: sesión de Claude con el repositorio conectado (push directo a `main`).
 
 ## 0. Al empezar una sesión
 
@@ -18,7 +18,7 @@
 - Una página **"Valorar"** sirve para pegar a mano anuncios de **Vinted y Wallapop**. Desde v0.11 usa el mismo sistema que las alertas y enseña los comparables con enlace (con país: "eBay ES" / "eBay DE").
 - Página **"Historial de ventas"** (`app/ventas`): ventas reales de Vinted detectadas, **con miniatura de la foto** (desde el paso 24).
 - Los chollos llegan como **alerta por Telegram**, con botones **✅ Buen chollo / ❌ Falso**.
-- **Catálogo (v0.12): 17.644 cartas en 33 colecciones**, solo gama alta / media-alta / rookies / selecciones desde 2021-22.
+- **Catálogo (v0.13): 21.376 cartas en 49 colecciones**, solo gama alta / media-alta / rookies / selecciones desde 2021-22 (y 2020-21 en los productos de la fase 2).
 - **Cómo funciona el catálogo:** cada carta es UNA línea (`código|jugador|equipo|RC`). Las numeradas/paralelas NO son líneas aparte: el reconocedor las detecta en el título (`detectParallel` en `lib/recognize.ts`, paralelas por set en `data/sets.json`).
 
 **Sobre el usuario:** no es programador. Prefiere que Claude lo haga todo y que, cuando tenga que hacer algo él, se le den pasos muy concretos. Escribe en español. **Le preocupa el gasto de tokens**: leer solo lo necesario y filtrar logs. **Quiere referencias de ventas reales y precios que no se alejen de lo real** (preferir datos exactos a aproximaciones; mejor "no sé" que un precio malo). **No le interesan cartas de menos de 10 €.** Revisa las alertas y avisa de los chollos raros. **Quiere que las alertas sean creíbles** (ver de dónde sale el precio) y **una base de datos propia con fotos de cada carta vendida**. **Quiere los chollos rápido** (anuncios de hace unas horas, no de hace una semana). Usa 130point para contrastar precios. **Le preocupa que el historial de ventas crezca muy despacio** y quiere **más anuncios seguidos → más ventas detectadas → más cartas valoradas**. Ante el riesgo de bloqueo de Vinted eligió un ritmo moderado. **Le gusta aprobar por puntos:** antes de cambios grandes, proponerle la lista numerada y esperar a que diga cuáles sí.
@@ -108,6 +108,13 @@ Stack: Next.js 16 (App Router) · React 19 · Tailwind CSS v4 · Supabase JS · 
     - `lib/set-rules.ts`: `uefaProduct()` (Stadium Club Chrome, Sapphire, Inception, Museum: el título debe decir el producto; si no dice UEFA/UCC es `weak`) y `chromeBundesliga()` (`all: ["bundesliga","chrome"]`; **"bundesliga" primero**, porque `all[0]` es la "marca" para buscar hermanas: con "chrome" primero se perdían 33 anuncios de Chrome UCC). "sapphire" sigue en `OTHER_TOPPS` → Chrome normal lo prohíbe; las reglas nuevas usan `others(...)` para quitarse su propia palabra. Vinted: +5 búsquedas por pasada (una por producto).
     - `lib/recognize.ts`: un color que forma parte del nombre de la colección ("Sapphire") no cuenta como paralela. `ebayProduct()` con los 5 productos nuevos (antes que "topps-chrome-").
     - **Medido (probe, 8.518 anuncios):** 3.486 → **3.718 (+232), 0 perdidos, 0 cambiados.** Nuevos: Stadium Club Chrome 141 (70 de ≥10 €), Bundesliga 48 (25), Sapphire 33 (24), Inception 8 (8), Museum 3 (3). Muestra revisada a mano: correctos.
+28. **v0.13 · Temporadas antiguas** (`0c2fdfe`, 7-nov 13:30). El usuario pidió 2020-21 → 2023-24. Fuente: **cardboardconnection.com** (mismo formato que checklistinsider; `checklist-fetch` con `OLD()` = URLs completas, beckett.com/news de reserva). +3.732 cartas → **21.376 en 49 colecciones**; `catalog-import` ✅.
+    - Añadido 2020-21, 2021-22 y 2022-23 de Stadium Club Chrome UCC (198/209/258), Chrome Bundesliga (245/252/292), Chrome Sapphire UCC (115/214/250), Inception UCC (133/251/278) y Museum Collection UCC (323/311/356) + **Chrome UCC 2020-21 solo rookies** (47, `--rookies`). Nombres 20-21/21-22 = "UEFA Champions League".
+    - **Sigue sin fuente: Stadium Club Chrome UCC 2024-25** (no está en checklistinsider ni cardboardconnection).
+    - cardboardconnection no marca RC en Chrome Bundesliga 20-21 y 22-23, ni en Inception 20-21/21-22/22-23 (base sin números → números sintéticos `U…`): la regla "rookie sin temporada" no sirve ahí.
+    - `add-collection` entiende "X Set Checklist", "REFRACTOR PARALLELS: a #/99, b" y "Base / Inserts"; los Team Sets cortan la lectura (salvo "Beam Team").
+    - **Medido:** 3.718 → **3.851 (+133; +365 desde el inicio del paso 27), 0 perdidos, 0 cambiados.** Nuevos: Bundesliga 21-22 28 · 22-23 42; Stadium Club Chrome 22-23 33 · 21-22 14 · 20-21 1; Sapphire 21-22 7 · 22-23 7; Chrome 20-21 1. Inception/Museum antiguos: 0 en el probe (poco volumen).
+    - ⚠️ Visto en la muestra: "Camavinga #FS-12 Future Stars RC Topps Chrome" cae en la rookie base de Chrome 20-21 (los inserts de 20-21 no están en el catálogo). Mismo problema que el de `INSERT_WORDS` (sección 6).
 
 ## 5. Plan del catálogo gama alta (acordado)
 
@@ -115,7 +122,8 @@ Licencias: Premier League con Topps **solo 25-26**; Prizm PL e Impeccable de 21-
 
 - [x] Fase 1 y 1.5.
 - [x] **Fase 2 (paso 27), lo que hay en checklistinsider (2023-24 → 2025-26):** Stadium Club Chrome UCC (23-24, 25-26), Chrome Bundesliga, Chrome Sapphire UCC (producto propio), Inception UCC, Museum Collection UCC.
-- [ ] **Fase 2 · huecos** (no están en checklistinsider; buscar otra fuente, p. ej. beckett.com/news, o cartas clave a mano): **Stadium Club Chrome UCC 21-22, 22-23 y 24-25** (prioridad: más volumen en Vinted), Bundesliga/Sapphire/Inception/Museum 21-22 y 22-23, **Topps Chrome UCC 2020-21 (solo rookies: Bellingham, etc.; usar `--rookies`)**.
+- [x] **Fase 2 · temporadas 2020-21 → 2022-23 (paso 28)** desde cardboardconnection, + rookies de Chrome UCC 2020-21.
+- [ ] **Fase 2 · hueco:** Stadium Club Chrome UCC 2024-25 (sin fuente; probar beckett/tcdb o cartas clave a mano). Posible: inserts/firmas de Chrome UCC 2020-21.
 - [ ] Fase 2 · pendientes: Chrome Black (UCC + PL 25-26), Merlin Heritage UEFA. Posibles (existen en checklistinsider): Chrome Sapphire Bundesliga 23-24 → 25-26, Inception Bundesliga 24-25, Sapphire UWCL.
 - [ ] Fase 3 — Panini: Prizm PL, Select, Donruss / Optic, Impeccable, National Treasures (poco volumen en Vinted: baja prioridad; ~104 anuncios ≥10 € en el probe).
 - [ ] Fase 4 — Topps Chrome Euro 2024 (+ Sapphire Euro 2024, está en checklistinsider), Prizm World Cup 2026, Bowman Chrome sub-21.
