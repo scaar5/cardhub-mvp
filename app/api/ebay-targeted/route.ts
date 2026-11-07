@@ -123,10 +123,17 @@ export async function GET(req: Request) {
       }
       const now = new Date().toISOString();
       const rows = [];
+      const why: Record<string, number> = {};
+      const samples: string[] = [];
       for (const it of items) {
         if (it.price < MIN_PRICE) continue;
-        const { match } = recognize(it.title);
-        if (!match || match.confidence !== "alta") continue;
+        const { match, reason } = recognize(it.title);
+        if (!match || match.confidence !== "alta") {
+          const r = reason ?? (match ? `confianza ${match.confidence}` : "?");
+          why[r] = (why[r] ?? 0) + 1;
+          if (samples.length < 4 && /colecci|jugador/.test(r)) samples.push(it.title.slice(0, 90));
+          continue;
+        }
         rows.push({
           external_id: `ebay:${it.id}`,
           card_id: match.card.id,
@@ -143,7 +150,7 @@ export async function GET(req: Request) {
         if (e) throw new Error(e.message);
       }
       saved += rows.length;
-      report.push({ q: used, seen: items.length, by_market: byMarket, recognized: rows.length });
+      report.push({ q: used, seen: items.length, by_market: byMarket, recognized: rows.length, why, samples });
     } catch (e) {
       report.push({ q, error: e instanceof Error ? e.message : String(e) });
     }
