@@ -1,0 +1,40 @@
+name: vinted-census
+
+# Censo (a mano): recorre todas las páginas de cada búsqueda de vinted.es para saber cuántos anuncios hay hoy.
+# No toca la base de datos: guarda los títulos en la rama "vinted-census" (census.json).
+on:
+  workflow_dispatch:
+    inputs:
+      max_pages:
+        description: "Máximo de páginas por búsqueda"
+        default: "60"
+
+permissions:
+  contents: write
+
+jobs:
+  census:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/vinted-census.mjs
+        env:
+          ALERT_SECRET: ${{ secrets.ALERT_SECRET }}
+          MAX_PAGES: ${{ inputs.max_pages }}
+      - name: Guardar en rama vinted-census
+        if: always()
+        run: |
+          test -f out/census.json || exit 0
+          cp out/census.json /tmp/census.json
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git checkout --orphan vinted-census
+          git rm -rfq .
+          cp /tmp/census.json .
+          git add -A
+          git commit -qm "vinted census $(date -u +%FT%TZ)"
+          git push -f origin vinted-census
