@@ -234,6 +234,8 @@ export function recognize(title: string, hint?: string): RecognizeResult {
   // tier 2 = temporada leída por el año de salida: solo se usa si el tier 1 no encuentra la carta.
   type SetCand = { rule: SetRule; confidence: Confidence; weak: boolean; tier: 1 | 2 };
   const allSets: SetCand[] = [];
+  // Sin temporada en el título: todas las temporadas de ese producto (para la regla del rookie, abajo)
+  const freeSets: SetCand[] = [];
   for (const rule of SET_RULES) {
     const anyOk = rule.any.some((p) => has(t, p));
     if (rule.all && !rule.all.every((p) => has(t, p))) continue;
@@ -242,9 +244,20 @@ export function recognize(title: string, hint?: string): RecognizeResult {
     const fits = seasonFits(rule, seasons);
     if (fits === false) continue;
     if (fits === true || fits === "end") allSets.push({ rule, confidence: "alta", weak: !anyOk, tier: fits === true ? 1 : 2 });
-    else if (hint === rule.slug && anyOk) allSets.push({ rule, confidence: "media", weak: false, tier: 1 });
+    else {
+      if (hint === rule.slug && anyOk) allSets.push({ rule, confidence: "media", weak: false, tier: 1 });
+      if (anyOk) freeSets.push({ rule, confidence: "alta", weak: false, tier: 1 });
+    }
   }
-  if (allSets.length === 0) return { match: null, reason: "colección no reconocida" };
+  // Rookie sin temporada ("Prestianni RC Purple /299 – Topps Chrome UEFA"): un jugador solo tiene
+  // rookie card en una temporada de cada producto, así que si en todas las temporadas sale una sola
+  // carta rookie suya, es esa (alta). Si sale en varias, se queda como estaba.
+  const rookieNoSeason = (): RecognizeResult | null => {
+    if (!freeSets.length || !/\b(rc|rookie|rookies|rookie card)\b/.test(t)) return null;
+    const res = pickCard(freeSets);
+    return res?.match && res.match.card.rookie ? res : null;
+  };
+  if (allSets.length === 0) return rookieNoSeason() ?? { match: null, reason: "colección no reconocida" };
   // Sin competición en el título solo hay duda si esa marca tiene otra colección esa temporada
   // (p. ej. Chrome UCC y Chrome Premier League 2025-26); si no, "Topps Finest 2023/24" basta.
   for (const x of allSets) {
@@ -256,6 +269,7 @@ export function recognize(title: string, hint?: string): RecognizeResult {
   const tier1 = allSets.filter((x) => x.tier === 1);
   const r1 = tier1.length ? pickCard(tier1) : null;
   const r = r1 && r1.match ? r1 : (pickCard(allSets.filter((x) => x.tier === 2)) ?? r1)!;
+  if (r.match?.confidence !== "alta" && !seasons.pairs.length && !seasons.years.length) return rookieNoSeason() ?? r;
   return r;
 
   function pickCard(sets: SetCand[]): RecognizeResult | null {
