@@ -117,10 +117,20 @@ export default async function JugadorPage({ params, searchParams }: { params: Pa
   const m90 = saleAgo(90);
   const salesPeriod = sales.filter(inPeriod);
 
-  // --- Gráfica
-  const describe = (r: Row) => {
+  // --- Qué carta es cada anuncio: jugador, colección, temporada, número y variante
+  const parts = (r: Row): Parts => {
     const c = cardMap.get(r.card_id)!;
-    return `${cardSet(c).name} #${c.number}${c.subset !== "Base" ? ` ${c.subset}` : ""} · ${parLabel(parKey(r.parallel))}`;
+    const set = cardSet(c);
+    return {
+      player: c.player,
+      set: set.name.replace(new RegExp(`\\s*${set.season}$`), ""),
+      season: set.season,
+      detail: [`#${c.number}`, c.subset !== "Base" ? c.subset : null, parLabel(parKey(r.parallel))].filter(Boolean).join(" · "),
+    };
+  };
+  const describe = (r: Row) => {
+    const d = parts(r);
+    return `${d.player} · ${d.set} ${d.season} · ${d.detail}`;
   };
   const toPoint = (r: Row, kind: PricePoint["kind"]): PricePoint => ({
     t: Date.parse(r.seen_at),
@@ -295,7 +305,7 @@ export default async function JugadorPage({ params, searchParams }: { params: Pa
           {sales.length ? (
             <ul className="mt-3 divide-y divide-line">
               {sales.slice(0, 30).map((s) => (
-                <SaleItem key={s.external_id} r={s} detail={describe(s)} />
+                <SaleItem key={s.external_id} r={s} d={parts(s)} />
               ))}
             </ul>
           ) : (
@@ -312,7 +322,7 @@ export default async function JugadorPage({ params, searchParams }: { params: Pa
           {open.length ? (
             <ul className="mt-3 divide-y divide-line">
               {open.slice(0, 15).map((s) => (
-                <SaleItem key={s.external_id} r={s} detail={describe(s)} />
+                <SaleItem key={s.external_id} r={s} d={parts(s)} />
               ))}
             </ul>
           ) : (
@@ -380,20 +390,34 @@ export default async function JugadorPage({ params, searchParams }: { params: Pa
   );
 }
 
-function SaleItem({ r, detail }: { r: Row; detail: string }) {
+interface Parts {
+  player: string;
+  set: string;
+  season: string;
+  detail: string;
+}
+
+function SaleItem({ r, d }: { r: Row; d: Parts }) {
   const photo = photoPublicUrl(r.photo_path) ?? r.photo_url;
   return (
     <li className="flex items-center justify-between gap-3 px-5 py-3 text-sm">
       <span className="flex min-w-0 items-center gap-3">
         {photo ? (
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={photo} alt="" loading="lazy" className="h-14 w-10 shrink-0 rounded-md bg-line object-cover" />
+          <img src={photo} alt="" loading="lazy" className="h-16 w-12 shrink-0 rounded-md bg-line object-cover" />
         ) : (
-          <span className="h-14 w-10 shrink-0 rounded-md bg-line" />
+          <span className="h-16 w-12 shrink-0 rounded-md bg-line" />
         )}
         <span className="min-w-0">
-          <span className="block truncate text-xs text-muted">{detail}</span>
-          <span className="block truncate">{r.title}</span>
+          <span className="block truncate font-semibold">{d.player}</span>
+          <span className="block truncate">
+            {d.set}{" "}
+            <span className="rounded-full bg-accent-soft px-1.5 py-0.5 text-[11px] font-semibold text-accent">{d.season}</span>
+          </span>
+          <span className="block truncate text-xs text-muted">{d.detail}</span>
+          <span className="block truncate text-xs text-faint" title={r.title}>
+            {r.title}
+          </span>
         </span>
       </span>
       <span className="shrink-0 text-right tabular-nums">
