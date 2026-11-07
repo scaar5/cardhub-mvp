@@ -128,6 +128,7 @@ export const SET_RULES: SetRule[] = [
   chromeUcc("2023-24", ["topps chrome 2023 24"]),
   chromeUcc("2022-23", ["topps chrome 2022 23"]),
   chromeUcc("2021-22", ["topps chrome 2021 22"]),
+  chromeUcc("2020-21", []), // solo rookies en el catálogo
 
   // --- Topps Merlin Chrome UCC -------------------------------------------
   merlinUcc("2025-26", ["topps merlin 2025 26 uefa", "merlin ucc 2025"], true),
@@ -143,27 +144,42 @@ export const SET_RULES: SetRule[] = [
   finestUcc("2022-23", ["topps finest 2022 23"]),
   finestUcc("2021-22", ["topps finest 2021 22"]),
 
-  // --- Topps Stadium Club Chrome UCC (checklistinsider: solo 23-24 y 25-26) -------------
+  // --- Topps Stadium Club Chrome UCC (falta 24-25: no está en checklistinsider ni cardboardconnection) ---
   stadiumChrome("2025-26", ["stadium club chrome"]),
   stadiumChrome("2023-24"),
+  stadiumChrome("2022-23"),
+  stadiumChrome("2021-22"),
+  stadiumChrome("2020-21"),
 
   // --- Topps Chrome Sapphire UCC (producto propio; Chrome normal lo sigue prohibiendo) ----
   sapphireUcc("2025-26"),
   sapphireUcc("2024-25", ["topps chrome sapphire"]),
   sapphireUcc("2023-24"),
+  sapphireUcc("2022-23"),
+  sapphireUcc("2021-22"),
+  sapphireUcc("2020-21"),
 
   // --- Topps Inception / Museum Collection UCC -----------------------------
   inceptionUcc("2025-26"),
   inceptionUcc("2024-25", ["topps inception"]),
   inceptionUcc("2023-24"),
+  inceptionUcc("2022-23"),
+  inceptionUcc("2021-22"),
+  inceptionUcc("2020-21"),
   museumUcc("2025-26", ["topps museum collection"]),
   museumUcc("2024-25"),
   museumUcc("2023-24"),
+  museumUcc("2022-23"),
+  museumUcc("2021-22"),
+  museumUcc("2020-21"),
 
   // --- Topps Chrome Bundesliga ---------------------------------------------
   chromeBundesliga("2025-26", ["topps chrome bundesliga"]),
   chromeBundesliga("2024-25"),
   chromeBundesliga("2023-24"),
+  chromeBundesliga("2022-23"),
+  chromeBundesliga("2021-22"),
+  chromeBundesliga("2020-21"),
 
   // --- Premier League (Topps, solo desde 25-26) --------------------------
   {

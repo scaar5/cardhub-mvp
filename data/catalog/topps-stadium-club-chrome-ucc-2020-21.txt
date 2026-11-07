@@ -1,0 +1,206 @@
+## Base
+1|Lionel Messi|FC Barcelona|
+2|Mitchel Bakker|Paris Saint-Germain|RC
+3|Malik Tillman|FC Bayern München|RC
+4|Noa Lang|Club Brugge|RC
+5|Edouard Mendy|Chelsea FC|RC
+6|Timo Werner|Chelsea FC|
+7|Jurrien Timber|AFC Ajax|RC
+8|Francisco Trincão|FC Barcelona|RC
+9|Erling Haaland|Borussia Dortmund|
+10|Alessandro Del Piero|Juventus|
+11|Tino Anjorin|Chelsea FC|RC
+12|Billy Gilmour|Chelsea FC|RC
+13|Radu Drăgușin|Juventus|RC
+14|Dejan Kulusevski|Juventus|
+15|Jadon Sancho|Borussia Dortmund|
+16|Sergiño Dest|FC Barcelona|
+17|Leroy Sané|FC Bayern München|
+18|Jan Oblak|Atlético de Madrid|
+19|Raheem Sterling|Manchester City FC|
+20|Karim Adeyemi|FC Salzburg|RC
+21|Fábio Vieira|FC Porto|RC
+22|Jérémy Doku|Stade Rennais F.C.|RC
+23|Curtis Jones|Liverpool FC|RC
+24|Gianluca Vialli|Juventus|
+25|João Félix|Atlético de Madrid|
+26|Pedri|FC Barcelona|RC
+27|Neco Williams|Liverpool FC|RC
+28|Mason Mount|Chelsea FC|
+29|Amadou Haidara|RB Leipzig|RC
+30|Sadio Mané|Liverpool FC|
+31|Duje Ćaleta-Car|Olympique de Marseille|RC
+32|Phil Foden|Manchester City FC|
+33|Ryan Gravenberch|AFC Ajax|RC
+34|Konrad de la Fuente|FC Barcelona|RC
+35|Eduardo Camavinga|Stade Rennais F.C.|RC
+36|Charles De Ketelaere|Club Brugge|RC
+37|Reinier Jesus|Borussia Dortmund|RC
+38|Anthony Martial|Manchester United|
+39|Romelu Lukaku|FC Internazionale Milano|
+40|Rhys Williams|Liverpool FC|RC
+41|Jamal Musiala|FC Bayern München|RC
+42|Robin Gosens|Atalanta B.C.|
+43|Lassina Traoré|AFC Ajax|RC
+44|Giovanni Reyna|Borussia Dortmund|
+45|Marcus Thuram|VfL Borussia Mönchengladbach|
+46|Kai Havertz|Chelsea FC|
+47|Júlio César|FC Internazionale Milano|
+48|Noah Okafor|FC Salzburg|RC
+49|Antony|AFC Ajax|RC
+50|Christian Pulisic|Chelsea FC|
+51|Dayot Upamecano|RB Leipzig|
+52|Eric García|Manchester City FC|RC
+53|Jules Koundé|Sevilla FC|
+54|Jude Bellingham|Borussia Dortmund|RC
+55|Dodô|FC Shakhtar Donetsk|RC
+56|Marley Aké|Juventus|RC
+57|Youssoufa Moukoko|Borussia Dortmund|RC
+58|Ibrahima Konaté|RB Leipzig|RC
+59|Brandon Williams|Manchester United|RC
+60|Alassane Plea|VfL Borussia Mönchengladbach|
+61|Michaël Cuisance|Olympique de Marseille|RC
+62|Lucas Perrin|Olympique de Marseille|RC
+63|Xavi Simons|Paris Saint-Germain|RC
+64|Romário Baró|FC Porto|RC
+65|Christopher Nkunku|RB Leipzig|
+66|İlkay Gündoğan|Manchester City FC|
+67|Weston McKennie|Juventus|
+68|Robert Lewandowski|FC Bayern München|
+69|Ciro Immobile|SS Lazio|
+70|Amad Diallo|Manchester United|RC
+71|João Cancelo|Manchester City FC|
+72|Diogo Jota|Liverpool FC|
+73|Rodrygo|Real Madrid C.F.|
+74|Brandon Soppy|Stade Rennais F.C.|RC
+75|Kylian Mbappé|Paris Saint-Germain|
+76|Vinícius Júnior|Real Madrid C.F.|
+77|Dominik Szoboszlai|RB Leipzig|
+78|Malang Sarr|FC Porto|RC
+79|Luka Modrić|Real Madrid C.F.|
+80|Bruno Fernandes|Manchester United|
+81|Ferran Torres|Manchester City FC|
+82|Luis Alberto|SS Lazio|
+83|Ansu Fati|FC Barcelona|
+84|Andreas Pereira|SS Lazio|
+85|Sergio Arribas|Real Madrid C.F.|RC
+86|Marcus Rashford|Manchester United|
+87|Federico Valverde|Real Madrid C.F.|
+88|Thiago Alcântara|Liverpool FC|
+89|Neymar Jr|Paris Saint-Germain|
+90|Tyler Adams|RB Leipzig|
+91|Colin Dagba|Paris Saint-Germain|RC
+92|Ivan Rakitić|Sevilla FC|
+93|Achraf Hakimi|FC Internazionale Milano|
+94|Simon Mignolet|Club Brugge|
+95|Hee-chan Hwang|RB Leipzig|
+96|Wesley Sneijder|FC Internazionale Milano|
+97|Alphonso Davies|FC Bayern München|
+98|Kevin De Bruyne|Manchester City FC|
+99|Kenneth Taylor|AFC Ajax|RC
+100|Cristiano Ronaldo|Juventus|
+## Chrome Autographs
+CA-AD|Alphonso Davies|FC Bayern München|
+CA-AF|Ansu Fati|FC Barcelona|
+CA-AH|Amadou Haidara|RB Leipzig|
+CA-AP|Andreas Pereira|SS Lazio|
+CA-AR|Antonio Rüdiger|Chelsea FC|
+CA-BG|Billy Gilmour|Chelsea FC|
+CA-BW|Brandon Williams|Manchester United|
+CA-CN|Christopher Nkunku|RB Leipzig|
+CA-E|Evanilson|FC Porto|
+CA-FT|Ferran Torres|Manchester City FC|
+CA-GR|Giovanni Reyna|Borussia Dortmund|
+CA-JBL|Jude Bellingham|Borussia Dortmund|
+CA-KA|Karim Adeyemi|FC Salzburg|
+CA-KAZ|Kepa Arrizabalaga|Chelsea FC|
+CA-KH|Kai Havertz|Chelsea FC|
+CA-KT|Kenneth Taylor|AFC Ajax|
+CA-LK|Lukas Klostermann|RB Leipzig|
+CA-LL|Lucas Leiva|SS Lazio|
+CA-LP|Lucas Perrin|Olympique de Marseille|
+CA-LT|Lassina Traoré|AFC Ajax|
+CA-MA|Marley Aké|Juventus|
+CA-MF|Matheus Fernandes|FC Barcelona|
+CA-MT|Malik Tillman|FC Bayern München|
+CA-MV|Marco Verratti|Paris Saint-Germain|
+CA-NL|Noa Lang|Club Brugge|
+CA-NU|Naci Ünüvar|AFC Ajax|
+CA-P|Pedri|FC Barcelona|
+CA-SG|Serge Gnabry|FC Bayern München|
+CA-SM|Simon Mignolet|Club Brugge|
+CA-TA|Tino Anjorin|Chelsea FC|
+CA-TAL|Thiago Alcântara|Liverpool FC|
+CA-TK|Thilo Kehrer|Paris Saint-Germain|
+CA-TW|Timo Werner|Chelsea FC|
+## Championship Contributions Autographs
+CC-DJ|Diogo Jota|Liverpool FC|
+CC-JF|João Félix|Atlético de Madrid|
+CC-LM|Lionel Messi|FC Barcelona|
+CC-N|Neymar Jr|Paris Saint-Germain|
+CC-R|Rodrygo|Real Madrid C.F.|
+CC-RLW|Robert Lewandowski|FC Bayern München|
+CC-SG|Serge Gnabry|FC Bayern München|
+CC-TW|Timo Werner|Chelsea FC|
+## Cup Holder’s Honour Autographs
+CHH-ADN|David Neres|AFC Ajax|
+CHH-BAF|Ansu Fati|FC Barcelona|
+CHH-BL|Lionel Messi|FC Barcelona|
+CHH-BMA|Alphonso Davies|FC Bayern München|
+CHH-BMR|Robert Lewandowski|FC Bayern München|
+CHH-LR|Roberto Firmino|Liverpool FC|
+CHH-RL|Luka Modrić|Real Madrid C.F.|
+## Glimpses of Gold Autographs
+GG-EC|Eduardo Camavinga|Stade Rennais F.C.|
+GG-JB|Jude Bellingham|Borussia Dortmund|
+GG-P|Pedri|FC Barcelona|
+GG-RG|Ryan Gravenberch|AFC Ajax|
+GG-TA|Tino Anjorin|Chelsea FC|
+## Championship Contributions
+CC-CR|Cristiano Ronaldo|Juventus|
+CC-DJ|Diogo Jota|Liverpool FC|
+CC-DT|Dušan Tadić|AFC Ajax|
+CC-EH|Erling Haaland|Borussia Dortmund|
+CC-JF|João Félix|Atlético de Madrid|
+CC-KB|Karim Benzema|Real Madrid C.F.|
+CC-KD|Kevin de Bruyne|Manchester City FC|
+CC-LM|Lionel Messi|FC Barcelona|
+CC-MR|Marcus Rashford|Manchester United|
+CC-N|Neymar Jr|Paris Saint-Germain|
+CC-R|Rodrygo|Real Madrid C.F.|
+CC-RL|Romelu Lukaku|FC Internazionale Milano|
+CC-RLW|Robert Lewandowski|FC Bayern München|
+CC-SG|Serge Gnabry|FC Bayern München|
+CC-TW|Timo Werner|Chelsea FC|
+## Cup Holder’s Honour
+CHH-AD|Dušan Tadić|AFC Ajax|
+CHH-ADN|David Neres|AFC Ajax|
+CHH-BA|Antoine Griezmann|FC Barcelona|
+CHH-BAF|Ansu Fati|FC Barcelona|
+CHH-BL|Lionel Messi|FC Barcelona|
+CHH-BMA|Alphonso Davies|FC Bayern München|
+CHH-BMM|Manuel Neuer|FC Bayern München|
+CHH-BMR|Robert Lewandowski|FC Bayern München|
+CHH-LM|Mohamed Salah|Liverpool FC|
+CHH-LR|Roberto Firmino|Liverpool FC|
+CHH-LV|Virgil van Dijk|Liverpool FC|
+CHH-RK|Karim Benzema|Real Madrid C.F.|
+CHH-RL|Luka Modrić|Real Madrid C.F.|
+CHH-RS|Sergio Ramos|Real Madrid C.F.|
+CHH-RT|Toni Kroos|Real Madrid C.F.|
+## Glimpses of Gold
+GG-AD|Amad Diallo|Manchester United|
+GG-CD|Charles De Ketelaere|Club Brugge|
+GG-CJ|Curtis Jones|Liverpool FC|
+GG-EC|Eduardo Camavinga|Stade Rennais F.C.|
+GG-JB|Jude Bellingham|Borussia Dortmund|
+GG-JD|Jérémy Doku|Stade Rennais F.C.|
+GG-JM|Jamal Musiala|FC Bayern München|
+GG-KD|Konrad de la Fuente|FC Barcelona|
+GG-NO|Noah Okafor|FC Salzburg|
+GG-P|Pedri|FC Barcelona|
+GG-RD|Radu Drăgușin|Juventus|
+GG-RG|Ryan Gravenberch|AFC Ajax|
+GG-RJ|Reinier Jesus|Borussia Dortmund|
+GG-TA|Tino Anjorin|Chelsea FC|
+GG-YM|Youssoufa Moukoko|Borussia Dortmund|

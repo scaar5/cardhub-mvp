@@ -1,0 +1,117 @@
+## Base
+1|Lionel Messi|FC Barcelona|
+2|Jérémy Doku|Stade Rennais FC|RC
+3|Stefan Savic|Atlético de Madrid|
+4|Francisco Trincão|FC Barcelona|RC
+5|Malik Tillman|FC Bayern München|RC
+6|Curtis Jones|Liverpool FC|RC
+7|Emil Forsberg|RB Leipzig|
+8|Sergiño Dest|FC Barcelona|
+9|Devyne Rensch|AFC Ajax|RC
+10|Hee-chan Hwang|RB Leipzig|
+11|Odilon Kossounou|Club Brugge|RC
+12|Dennis Borkowski|RB Leipzig|RC
+13|Ciro Immobile|SS Lazio|
+14|Alessandro Del Piero|Juventus|
+15|Ansu Fati|FC Barcelona|
+16|Neymar Jr|Paris Saint-Germain|
+17|Mason Greenwood|Manchester United|
+18|Kevin De Bruyne|Manchester City FC|
+19|João Félix|Atlético de Madrid|
+20|Kai Havertz|Chelsea FC|
+21|Manolo Portanova|Juventus|RC
+22|Chris Richards|FC Bayern München|
+23|Amadou Haidara|RB Leipzig|RC
+24|Luis Alberto|SS Lazio|
+25|Timo Werner|Chelsea FC|
+26|Dominik Szoboszlai|FC Salzburg|
+27|Brandon Soppy|Stade Rennais FC|RC
+28|Teden Mengi|Manchester United|RC
+29|Antoine Griezmann|FC Barcelona|
+30|Duje Caleta-Car|Olympique de Marseille|RC
+31|Achraf Hakimi|FC Internazionale Milano|
+32|Romário Baró|FC Porto|RC
+33|Roberto Firmino|Liverpool FC|
+34|Phil Foden|Manchester City FC|
+35|Caoimhin Kelleher|Liverpool FC|RC
+36|Malang Sarr|FC Porto|RC
+37|Charles De Ketelaere|Club Brugge|RC
+38|Edouard Mendy|Chelsea FC|RC
+39|Florian Neuhaus|VfL Borussia Mönchengladbach|
+40|Hiroki Sakai|Olympique de Marseille|
+41|Malcom|FC Zenit|
+42|Alphonso Davies|FC Bayern München|
+43|André Onana|AFC Ajax|
+44|Eduardo Camavinga|Stade Rennais FC|RC
+45|Mason Mount|Chelsea FC|
+46|Virgil van Dijk|Liverpool FC|
+47|Paulo Dybala|Juventus|
+48|Dayot Upamecano|RB Leipzig|
+49|Erling Haaland|Borussia Dortmund|
+50|Robert Lewandowski|FC Bayern München|
+51|Mitchel Bakker|Paris Saint-Germain|RC
+52|Gianluca Vialli|Juventus|
+53|Giovanni Reyna|Borussia Dortmund|
+54|Marcos Llorente|Atlético de Madrid|
+55|Youssoufa Moukoko|Borussia Dortmund|RC
+56|Marley Aké|Olympique de Marseille|RC
+57|Kenneth Taylor|AFC Ajax|RC
+58|Konrad de la Fuente|FC Barcelona|RC
+59|Marcos Antonio|FC Shakhtar Donetsk|RC
+60|Lassina Traoré|AFC Ajax|RC
+61|Pedri|FC Barcelona|RC
+62|Leroy Sané|FC Bayern München|
+63|Tete|FC Shakhtar Donetsk|
+64|Brandon Williams|Manchester United|RC
+65|Luis Henrique|Olympique de Marseille|RC
+66|Billy Gilmour|Chelsea FC|RC
+67|Federico Valverde|Real Madrid C.F.|
+68|Jude Bellingham|Borussia Dortmund|RC
+69|Alassane Plea|VfL Borussia Mönchengladbach|
+70|Lucas Perrin|Olympique de Marseille|RC
+71|Jurrien Timber|AFC Ajax|RC
+72|Serge Gnabry|FC Bayern München|
+73|Tyler Adams|RB Leipzig|
+74|Dodo|FC Shakhtar Donetsk|RC
+75|Luka Modric|Real Madrid C.F.|
+76|Raheem Sterling|Manchester City FC|
+77|Sergio Camello|Atlético de Madrid|RC
+78|Jadon Sancho|Borussia Dortmund|
+79|Weston McKennie|Juventus|
+80|Danilo Pereira|Paris Saint-Germain|
+81|Jamal Musiala|FC Bayern München|RC
+82|Donny Van de Beek|Manchester United|
+83|Alejandro Marqués|Juventus|RC
+84|Hakim Ziyech|Chelsea FC|
+85|Noa Lang|Club Brugge|RC
+86|Marco Carnesecchi|Atalanta B.C.|RC
+87|Antony|AFC Ajax|RC
+88|Júlio César|FC Internazionale Milano|
+89|Vinícius Júnior|Real Madrid C.F.|
+90|Jean-Claude Ntenda|Juventus|RC
+91|Yasser Larouci|Liverpool FC|RC
+92|Sergio Ramos|Real Madrid C.F.|
+93|Reinier Jesus|Borussia Dortmund|RC
+94|Neco  Williams|Liverpool FC|RC
+95|Kylian Mbappé|Paris Saint-Germain|
+96|Eric Garcia|Manchester City FC|RC
+97|Tino Anjorin|Chelsea FC|RC
+98|Ryan Gravenberch|AFC Ajax|RC
+99|Karim Adeyemi|FC Salzburg|RC
+100|Cristiano Ronaldo|Juventus|
+## Future Stars
+FS-AD|Alphonso Davies|FC Bayern München|
+FS-AF|Ansu Fati|FC Barcelona|
+FS-CP|Christian Pulisic|Chelsea FC|
+FS-DK|Dejan Kulusevski|Juventus|
+FS-DS|Dominik Szoboszlai|FC Salzburg|
+FS-EH|Erling Haaland|Borussia Dortmund|
+FS-GR|Giovanni Reyna|Borussia Dortmund|
+FS-HH|Hee-chan Hwang|RB Leipzig|
+FS-JF|João Félix|Atlético de Madrid|
+FS-JS|Jadon Sancho|Borussia Dortmund|
+FS-JZ|Joshua Zirkzee|FC Bayern München|
+FS-MG|Mason Greenwood|Manchester United|
+FS-PF|Phil Foden|Manchester City FC|
+FS-RJ|Reece James|Chelsea FC|
+FS-TA|Trent Alexander-Arnold|Liverpool FC|

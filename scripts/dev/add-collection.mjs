@@ -19,37 +19,39 @@ const season = (slug.match(/(\d{4}-\d{2}|\d{4})$/) || [])[1];
 const lines = readFileSync(rawFile, "utf8").split("\n").map((l) => l.trim());
 
 // Secciones que no son listas de cartas
-const SKIP_HEAD = /guide|rundown|release date|brands|details|configuration|box break|buy |team (set )?list|team set checklist|^\d{4}(-\d{2})? topps .*(autograph|insert|relic|memorabilia) checklist$/i;
+const SKIP_HEAD = /guide|rundown|release date|brands|details|configuration|box break|buy |odds \/ npn|^\d{4}(-\d{2})? topps .*(autograph|insert|relic|memorabilia) checklist$/i;
 const CARD = /^([A-Z]{0,6}-?[A-Z0-9]*\d[A-Z0-9]*|[A-Z]{1,6}-[A-Z0-9]{1,6})\s+(.+?)\s+-\s+(.+?)(\s+RC)?(?:\s+-\s+.*)?$/;
 const cleanPar = (p) => {
-  let x = p.replace(/\s*\([^)]*\)\s*$/, "").replace(/\s*-\s*\/?\d+ or less$/i, "").replace(/\s+1\/1$/, " /1").replace(/\s+/g, " ").trim();
+  let x = p.replace(/#\//g, "/").replace(/\s*\([^)]*\)\s*$/, "").replace(/\s*-\s*\/?\d+ or less$/i, "").replace(/\s+1\/1$/, " /1").replace(/\s+/g, " ").trim();
   x = x.replace(/^SuperFractor/i, "Superfractor");
   if (!/^refractor$/i.test(x)) x = x.replace(/ Refractor(?= \/|$)/i, "");
   return x;
 };
 
 const sections = []; // {name, cards:[]}
-let cur = null, inPar = false, baseParallels = null, started = false;
+let cur = null, inPar = false, baseParallels = null, started = false, firstBase = null;
 for (const l of lines) {
   if (l.startsWith("## ")) {
     inPar = false;
-    const h = l.slice(3).replace(/\s+Checklist$/i, "").trim();
-    if (/team set checklist|team set list|team list/i.test(l) && started) { cur = null; break; }
+    const h = l.slice(3).replace(/\s+Checklist$/i, "").replace(/\s+Set$/i, "").trim(); // "Chrome Autographs Set Checklist" (cardboardconnection)
+    if (/team set checklist|team set list|team list|^## team checklist/i.test(l) && !/beam team/i.test(l) && started) { cur = null; break; }
     if (SKIP_HEAD.test(l) || !/checklist$/i.test(l) || (/variation/i.test(h) && !flags.has("--keep-variations"))) { cur = null; continue; }
-    let sec = h.replace(/^(Base) (Common|Set|Cards|Sapphire|Chrome|Cards Set)$/i, "Base");
+    let sec = h.replace(/^(Base) (Common|Set|Cards|Sapphire|Chrome|Cards Set|\/ Inserts)$/i, "Base");
     if (/^\d{4}/.test(sec)) { cur = null; continue; } // título general de la página
     cur = { name: sec, cards: [], seen: new Set() };
+    if (!firstBase && /^base/i.test(sec)) firstBase = cur;
     sections.push(cur);
     started = true;
     continue;
   }
   if (!cur) continue;
-  const inline = l.match(/^(?:Parallels|Versions):\s*(.+)$/i);
+  // "Parallels: a; b." (checklistinsider) o "REFRACTOR PARALLELS: a #/99, b." / "PARALLEL CARDS: ..." (cardboardconnection)
+  const inline = l.match(/^(?:[A-Za-z ]*parallels?(?: cards)?|versions):\s*(.+)$/i);
   if (inline) {
-    if (!baseParallels && sections.length === 1 && /^base/i.test(cur.name)) baseParallels = inline[1].replace(/\.$/, "").split(/;\s*/).map(cleanPar).filter(Boolean);
+    if (!baseParallels && cur === firstBase) baseParallels = inline[1].replace(/\.$/, "").split(/;\s*|,\s*(?![^(]*\))/).map(cleanPar).filter(Boolean);
     continue;
   }
-  if (/^(Parallels|Versions):?$/i.test(l)) { inPar = true; if (!baseParallels && sections.length === 1 && /^base/i.test(cur.name)) baseParallels = []; continue; }
+  if (/^(Parallels|Versions):?$/i.test(l)) { inPar = true; if (!baseParallels && cur === firstBase) baseParallels = []; continue; }
   const m = l.replace(/^#(\S+)\s+-\s+/, "$1 ").match(CARD);
   if (m && !/^\d+ cards/i.test(l)) {
     inPar = false;
@@ -68,7 +70,7 @@ for (const l of lines) {
     cur.cards.push(`${num}|${u[1]}|${u[2]}|${u[3] ? "RC" : ""}`);
     continue;
   }
-  if (inPar && baseParallels && sections.length === 1 && cur.cards.length === 0 && /[A-Za-z]/.test(l) && l.length < 60) baseParallels.push(cleanPar(l));
+  if (inPar && baseParallels && cur === firstBase && cur.cards.length === 0 && /[A-Za-z]/.test(l) && l.length < 60) baseParallels.push(cleanPar(l));
 }
 
 let kept = sections.filter((s) => s.cards.length);

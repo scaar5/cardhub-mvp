@@ -1,0 +1,284 @@
+## Base
+U2-1|Alejandro Garnacho|Manchester United|
+U2-2|Antonio Silva|SL Benfica|
+U2-3|Fabio Blanco|Barcelona|
+U2-4|Fabio Carvalho|Liverpool|
+U2-5|Fashion Sakala|Rangers|
+U2-6|Hugo Ekitike|Paris Saint-Germain|
+U2-7|Kobbie Mainoo|Manchester United|
+U2-8|Pablo Torre|Barcelona|
+U2-9|Rico Lewis|Manchester City|
+U2-10|Stefan Bajcetic|Liverpool|
+U2-11|Warren Zaire-Emery|Paris Saint-Germain|
+U2-12|Youri Regeer|AFC Ajax|
+U2-13|David Alaba|Real Madrid|
+U2-14|Erling Haaland|Manchester City|
+U2-15|Gianluigi Donnarumma|Paris Saint-Germain|
+U2-16|Jamal Musiala|Bayern München|
+U2-17|Jude Bellingham|Borussia Dortmund|
+U2-18|Kevin De Bruyne|Manchester City|
+U2-19|Kylian Mbappe|Paris Saint-Germain|
+U2-20|Lionel Messi|Paris Saint-Germain|
+U2-21|Pedri|Barcelona|
+U2-22|Theo Hernandez|AC Milan|
+U2-23|Virgil van Dijk|Liverpool|
+U2-24|Andres Iniesta|Barcelona|
+U2-25|Dennis Bergkamp|Arsenal|
+U2-26|Edwin van der Sar|Manchester United|
+U2-27|Fabio Cannavaro|Real Madrid|
+U2-28|Francesco Totti|AS Roma|
+U2-29|Gabriel Batistuta|ACF Fiorentina|
+U2-30|Hristo Stoichkov|Barcelona|
+U2-31|Kaka|AC Milan|
+U2-32|Luis Figo|Real Madrid|
+U2-33|Michael Owen|Liverpool|
+U2-34|Paul Scholes|Manchester United|
+U2-35|Rivaldo|Barcelona|
+U2-36|Ronaldinho|Barcelona|
+U2-37|Ronaldo|Real Madrid|
+U2-38|Roy Keane|Manchester United|
+U2-39|Wayne Rooney|Manchester United|
+U2-40|Xabi Alonso|Real Madrid|
+U2-41|Xavi|Barcelona|
+U2-42|Zinedine Zidane|Real Madrid|
+U2-43|Zvonimir Boban|AC Milan|
+U2-44|Antoine Griezmann|Atletico Madrid|
+U2-45|Erling Haaland|Manchester City|
+U2-46|Julian Alvarez|Manchester City|
+U2-47|Kylian Mbappe|Paris Saint-Germain|
+U2-48|Marcus Edwards|Sporting CP|
+U2-49|Richarlison|Tottenham Hotspur|
+U2-50|Robert Lewandowski|Barcelona|
+U2-51|Serge Gnabry|Bayern München|
+U2-52|Alejandro Balde|Barcelona|
+U2-53|Alessandro Bastoni|Inter Milan|
+U2-54|Alexia Putellas|Barcelona|
+U2-55|Anthony Elanga|Manchester United|
+U2-56|Antoine Griezmann|Atletico Madrid|
+U2-57|Antony|Manchester United|
+U2-58|Ben Chilwell|Chelsea|
+U2-59|Bruno Fernandes|Manchester United|
+U2-60|Christopher Nkunku|RB Leipzig|
+U2-61|Cody Gakpo|Liverpool|
+U2-62|Dani Olmo|RB Leipzig|
+U2-63|Darwin Nunez|Liverpool|
+U2-64|Dayot Upamecano|Bayern München|
+U2-65|Dejan Kulusevski|Tottenham Hotspur|
+U2-66|Devyne Rensch|AFC Ajax|
+U2-67|Dusan Vlahovic|Juventus|
+U2-68|Eduardo Camavinga|Real Madrid|
+U2-69|Gabriel Jesus|Arsenal|
+U2-70|Gabriel Martinelli|Arsenal|
+U2-71|Gavi|Barcelona|
+U2-72|Giovanni Reyna|Borussia Dortmund|
+U2-73|Goncalo Ramos|SL Benfica|
+U2-74|Granit Xhaka|Arsenal|
+U2-75|Harry Kane|Tottenham Hotspur|
+U2-76|Harry Maguire|Manchester United|
+U2-77|Harvey Elliott|Liverpool|
+U2-78|Hector Bellerin|Sporting CP|
+U2-79|Heung-Min Son|Tottenham Hotspur|
+U2-80|Jack Grealish|Manchester City|
+U2-81|Jarrod Bowen|West Ham United|
+U2-82|Joao Felix|Chelsea|
+U2-83|John Stones|Manchester City|
+U2-84|Karim Benzema|Real Madrid|
+U2-85|Keira Walsh|Barcelona|
+U2-86|Kenneth Taylor|AFC Ajax|
+U2-87|Kingsley Coman|Bayern München|
+U2-88|Kyle Walker|Manchester City|
+U2-89|Lautaro Martinez|Inter Milan|
+U2-90|Lucas Hernandez|Bayern München|
+U2-91|Malick Thiaw|AC Milan|
+U2-92|Marcus Rashford|Manchester United|
+U2-93|Martin Odegaard|Arsenal|
+U2-94|Mathys Tel|Bayern München|
+U2-95|Mohamed Salah|Liverpool|
+U2-96|Neymar Jr|Paris Saint-Germain|
+U2-97|Paul Wanner|Bayern München|
+U2-98|Phil Foden|Manchester City|
+U2-99|Rafael Leao|AC Milan|
+U2-100|Randal Kolo Muani|Eintracht Frankfurt|
+U2-101|Raphael Varane|Manchester United|
+U2-102|Reece James|Chelsea|
+U2-103|Renato Sanches|Paris Saint-Germain|
+U2-104|Riyad Mahrez|Manchester City|
+U2-105|Robert Lewandowski|Barcelona|
+U2-106|Rodri|Manchester City|
+U2-107|Sadio Mane|Bayern München|
+U2-108|Sam Kerr|Chelsea|
+U2-109|Sandro Tonali|AC Milan|
+U2-110|Sergio Busquets|Barcelona|
+U2-111|Trent Alexander-Arnold|Liverpool|
+U2-112|Vini Jr|Real Madrid|
+U2-113|Vitinha|Paris Saint-Germain|
+U2-114|Wesley Fofana|Chelsea|
+U2-115|Youssoufa Moukoko|Borussia Dortmund|
+U2-116|Bukayo Saka|Arsenal|
+U2-117|Enzo Fernandez|Chelsea|
+U2-118|Josko Gvardiol|RB Leipzig|
+U2-119|Julian Alvarez|Manchester City|
+U2-120|Mykhailo Mudryk|Chelsea|
+## Base Autographs
+U3-1|Alejandro Garnacho|Manchester United|
+U3-2|Antonio Silva|SL Benfica|
+U3-3|Fabio Blanco|Barcelona|
+U3-4|Fabio Carvalho|Liverpool|
+U3-5|Fashion Sakala|Rangers|
+U3-6|Hugo Ekitike|Paris Saint-Germain|
+U3-7|Kobbie Mainoo|Manchester United|
+U3-8|Pablo Torre|Barcelona|
+U3-9|Rico Lewis|Manchester City|
+U3-10|Stefan Bajcetic|Liverpool|
+U3-11|Warren Zaire-Emery|Paris Saint-Germain|
+U3-12|Youri Regeer|AFC Ajax|
+U3-13|David Alaba|Real Madrid|
+U3-14|Erling Haaland|Manchester City|
+U3-15|Gianluigi Donnarumma|Paris Saint-Germain|
+U3-16|Jamal Musiala|Bayern München|
+U3-17|Jude Bellingham|Borussia Dortmund|
+U3-18|Kevin De Bruyne|Manchester City|
+U3-19|Lionel Messi|Paris Saint-Germain|
+U3-20|Pedri|Barcelona|
+U3-21|Theo Hernandez|AC Milan|
+U3-22|Virgil van Dijk|Liverpool|
+U3-23|Dennis Bergkamp|Arsenal|
+U3-24|Edwin van der Sar|Manchester United|
+U3-25|Fabio Cannavaro|Real Madrid|
+U3-26|Francesco Totti|AS Roma|
+U3-27|Gabriel Batistuta|ACF Fiorentina|
+U3-28|Hristo Stoichkov|Barcelona|
+U3-29|Kaka|AC Milan|
+U3-30|Luis Figo|Real Madrid|
+U3-31|Michael Owen|Liverpool|
+U3-32|Paul Scholes|Manchester United|
+U3-33|Ronaldo|Real Madrid|
+U3-34|Roy Keane|Manchester United|
+U3-35|Wayne Rooney|Manchester United|
+U3-36|Xabi Alonso|Real Madrid|
+U3-37|Xavi|Barcelona|
+U3-38|Zvonimir Boban|AC Milan|
+U3-39|Erling Haaland|Manchester City|
+U3-40|Robert Lewandowski|Barcelona|
+U3-41|Serge Gnabry|Bayern München|
+U3-42|Alejandro Balde|Barcelona|
+U3-43|Alessandro Bastoni|Inter Milan|
+U3-44|Alexia Putellas|Barcelona|
+U3-45|Anthony Elanga|Manchester United|
+U3-46|Antony|Manchester United|
+U3-47|Ben Chilwell|Chelsea|
+U3-48|Bruno Fernandes|Manchester United|
+U3-49|Christopher Nkunku|RB Leipzig|
+U3-50|Cody Gakpo|Liverpool|
+U3-51|Dani Olmo|RB Leipzig|
+U3-52|Dayot Upamecano|Bayern München|
+U3-53|Dejan Kulusevski|Tottenham Hotspur|
+U3-54|Devyne Rensch|AFC Ajax|
+U3-55|Eduardo Camavinga|Real Madrid|
+U3-56|Giovanni Reyna|Borussia Dortmund|
+U3-57|Goncalo Ramos|SL Benfica|
+U3-58|Granit Xhaka|Arsenal|
+U3-59|Harry Kane|Tottenham Hotspur|
+U3-60|Harry Maguire|Manchester United|
+U3-61|Harvey Elliott|Liverpool|
+U3-62|Hector Bellerin|Sporting CP|
+U3-63|Heung-Min Son|Tottenham Hotspur|
+U3-64|Jack Grealish|Manchester City|
+U3-65|Jarrod Bowen|West Ham United|
+U3-66|Joao Felix|Chelsea|
+U3-67|John Stones|Manchester City|
+U3-68|Karim Benzema|Real Madrid|
+U3-69|Keira Walsh|Barcelona|
+U3-70|Kenneth Taylor|AFC Ajax|
+U3-71|Kingsley Coman|Bayern München|
+U3-72|Kyle Walker|Manchester City|
+U3-73|Lautaro Martinez|Inter Milan|
+U3-74|Lucas Hernandez|Bayern München|
+U3-75|Malick Thiaw|AC Milan|
+U3-76|Martin Odegaard|Arsenal|
+U3-77|Neymar Jr|Paris Saint-Germain|
+U3-78|Phil Foden|Manchester City|
+U3-79|Rafael Leao|AC Milan|
+U3-80|Raphael Varane|Manchester United|
+U3-81|Reece James|Chelsea|
+U3-82|Renato Sanches|Paris Saint-Germain|
+U3-83|Riyad Mahrez|Manchester City|
+U3-84|Rodri|Manchester City|
+U3-85|Sam Kerr|Chelsea|
+U3-86|Sandro Tonali|AC Milan|
+U3-87|Sergio Busquets|Barcelona|
+U3-88|Trent Alexander-Arnold|Liverpool|
+U3-89|Vitinha|Paris Saint-Germain|
+U3-90|Wesley Fofana|Chelsea|
+U3-91|Youssoufa Moukoko|Borussia Dortmund|
+U3-92|Enzo Fernandez|Chelsea|
+U3-93|Josko Gvardiol|RB Leipzig|
+U3-94|Mykhailo Mudryk|Chelsea|
+## Short Print Autographs
+U4-1|Aitana Bonmati|Barcelona|
+U4-2|Alessandro Del Piero|Juventus|
+U4-3|Bernardo Silva|Manchester City|
+U4-4|Bobby Clarke|Liverpool|
+U4-5|Caroline Weir|Real Madrid|
+U4-6|Charles De Ketelaere|AC Milan|
+U4-7|David Vila|Barcelona|
+U4-8|Diego Moreira|SL Benfica|
+U4-9|Eidur Gudjohnsen|Barcelona|
+U4-10|Estanis Pedrola|Barcelona|
+U4-11|Fabrizio Ravanelli|Juventus|
+U4-12|Georgia Stanway|Bayern München|
+U4-13|Gianluca Zambrotta|Juventus|
+U4-14|Gianluigi Buffon|Juventus|
+U4-15|Goncalo Borges|Porto|
+U4-16|Hernan Crespo|Inter Milan|
+U4-17|Ian Wright|Arsenal|
+U4-18|Ilias Akhomach|Barcelona|
+U4-19|Javier Zanetti|Inter Milan|
+U4-20|Joao Cancelo|Bayern München|
+U4-21|Jordan Henderson|Liverpool|
+U4-22|Kai Havertz|Chelsea|
+U4-23|Karim Adeyemi|Borussia Dortmund|
+U4-24|Kyogo Furuhashi|Celtic|
+U4-25|Marco Verratti|Paris Saint-Germain|
+U4-26|Micah Richards|Manchester City|
+U4-27|Paulo Dybala|AS Roma|
+U4-28|Pavel Nedved|Juventus|
+U4-29|Pernille Harder|Chelsea|
+U4-30|Raphinha|Barcelona|
+U4-31|Ruben Dias|Manchester City|
+U4-32|Samuel Eto’o|Barcelona|
+U4-33|Thomas Muller|Bayern München|
+U4-34|Walter Samuel|Inter Milan|
+U4-35|William Saliba|Arsenal|
+U4-36|Youri Baas|AFC Ajax|
+## Silver Signings On-Card Autographs
+U5-1|Andrew Cole|Manchester United|
+U5-2|David Seaman|Arsenal|
+U5-3|Eric Cantona|Manchester United|
+U5-4|Gary Lineker|Tottenham Hotspur|
+U5-5|Glenn Hoddle|Tottenham Hotspur|
+U5-6|Ian Rush|Liverpool|
+U5-7|Jack Grealish|Manchester City|
+U5-8|Jamal Musiala|Bayern München|
+U5-9|John Barnes|Liverpool|
+U5-10|Jude Bellingham|Borussia Dortmund|
+U5-11|Karim Benzema|Real Madrid|
+U5-12|Kevin Keegan|Liverpool|
+U5-13|Martin Keown|Arsenal|
+## Patch Autographs
+U12-1|Christopher Nkunku|RB Leipzig|
+U12-2|Dusan Vlahovic|Juventus|
+U12-3|Erling Haaland|Manchester City|
+U12-4|Harry Kane|Tottenham Hotspur|
+U12-5|Josko Gvardiol|RB Leipzig|
+U12-6|Lautaro Martinez|Inter Milan|
+U12-7|Luis Figo|Real Madrid|
+U12-8|Rafael Leao|AC Milan|
+## Patch
+U14-1|Antony|Manchester United|
+U14-2|Fabio Carvalho|Liverpool|
+U14-3|Henrik Larsson|Celtic|
+U14-4|Jack Grealish|Manchester City|
+U14-5|Lionel Messi|Paris Saint-Germain|
+U14-6|Robert Lewandowski|Barcelona|
+U14-7|Rodrygo|Real Madrid|

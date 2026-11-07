@@ -956,5 +956,389 @@
       "Printing Plates /1",
       "First XI - 11 cards"
     ]
+  },
+  {
+    "slug": "topps-stadium-club-chrome-ucc-2020-21",
+    "name": "Topps Stadium Club Chrome UEFA Champions League 2020-21",
+    "brand": "Topps",
+    "season": "2020-21",
+    "competition": "UEFA Club Competitions",
+    "keywords": [
+      "topps stadium club chrome",
+      "stadium club chrome"
+    ],
+    "parallels": [
+      "Refractor",
+      "Orange/Yellow Electric Wave",
+      "Aqua /199",
+      "Aqua/Green Electric /150",
+      "Green /99",
+      "Green/Yellow Electric /75",
+      "Gold /50",
+      "Orange /25",
+      "Orange/Blue Electric /10",
+      "Red /5",
+      "Red/Orange Electric /4",
+      "Superfractor /1"
+    ]
+  },
+  {
+    "slug": "topps-stadium-club-chrome-ucc-2021-22",
+    "name": "Topps Stadium Club Chrome UEFA Champions League 2021-22",
+    "brand": "Topps",
+    "season": "2021-22",
+    "competition": "UEFA Club Competitions",
+    "keywords": [
+      "topps stadium club chrome",
+      "stadium club chrome"
+    ],
+    "parallels": [
+      "Refractor",
+      "Blue Prism",
+      "Pink/Red Electric Charge",
+      "Black & White /299",
+      "Aqua Wave /250",
+      "Aqua/Green Electric Charge /199",
+      "Night Vision Prism /175",
+      "Green /150",
+      "Green/Yellow Electric Charge /125",
+      "Sepia Prism /75",
+      "Gold /50",
+      "Orange Wave /25",
+      "Orange/Blue Electric Charge /10",
+      "Red Wave /5",
+      "Red/Orange Electric Charge /4",
+      "Superfractor /1"
+    ]
+  },
+  {
+    "slug": "topps-stadium-club-chrome-ucc-2022-23",
+    "name": "Topps Stadium Club Chrome UEFA Club Competitions 2022-23",
+    "brand": "Topps",
+    "season": "2022-23",
+    "competition": "UEFA Club Competitions",
+    "keywords": [
+      "topps stadium club chrome",
+      "stadium club chrome"
+    ],
+    "parallels": [
+      "Refractor",
+      "Blue Prism",
+      "Pink/Red Electric Charge",
+      "Black & White Prism /399",
+      "Aqua Wave /275",
+      "Aqua/Green Electric Charge /225",
+      "Night Vision Prism /199",
+      "Pink Wave /150",
+      "Green/Yellow Electric Charge /125",
+      "Green /199",
+      "Sepia Prism /75",
+      "Gold /50",
+      "Gold Prism /50",
+      "Black/Gold Electric Charge /35",
+      "Orange Wave /25",
+      "Orange/Blue Electric Charge /10",
+      "Red /5",
+      "Red/Orange Electric Charge /4",
+      "Superfractor /1"
+    ]
+  },
+  {
+    "slug": "topps-chrome-bundesliga-2020-21",
+    "name": "Topps Chrome Bundesliga 2020-21",
+    "brand": "Topps",
+    "season": "2020-21",
+    "competition": "Bundesliga",
+    "keywords": [
+      "topps chrome bundesliga",
+      "chrome bundesliga"
+    ],
+    "parallels": [
+      "Refractor",
+      "Purple /299",
+      "X-Fractor /250",
+      "Prism /199",
+      "Blue /150",
+      "Blue Wave /150",
+      "Green /99",
+      "Green Wave /99",
+      "Pink /75",
+      "Pink Wave /75",
+      "Gold /50",
+      "Gold Wave /50",
+      "Orange /25",
+      "Red /10",
+      "Superfractor /1"
+    ]
+  },
+  {
+    "slug": "topps-chrome-bundesliga-2021-22",
+    "name": "Topps Chrome Bundesliga 2021-22",
+    "brand": "Topps",
+    "season": "2021-22",
+    "competition": "Bundesliga",
+    "keywords": [
+      "topps chrome bundesliga",
+      "chrome bundesliga"
+    ],
+    "parallels": [
+      "Base",
+      "Gold RayWave",
+      "Magenta /399",
+      "Magenta Wave /399",
+      "Purple /299",
+      "Purple Wave /299",
+      "Aqua Bubble /275",
+      "X-Fractor /250",
+      "Prism /199",
+      "Blue /150",
+      "Blue Wave /150",
+      "Green /99",
+      "Green Wave /99",
+      "Pink /75",
+      "Pink Wave /75",
+      "Gold /50",
+      "Gold Wave /50",
+      "Orange /25",
+      "Red /10",
+      "Superfractor /1"
+    ]
+  },
+  {
+    "slug": "topps-chrome-bundesliga-2022-23",
+    "name": "Topps Chrome Bundesliga 2022-23",
+    "brand": "Topps",
+    "season": "2022-23",
+    "competition": "Bundesliga",
+    "keywords": [
+      "topps chrome bundesliga",
+      "chrome bundesliga"
+    ],
+    "parallels": [
+      "Base",
+      "Purple /299",
+      "Aqua Bubble /275",
+      "Aqua Bubble Wave /275",
+      "X-Fractor /250",
+      "Prism /230",
+      "Blue /180",
+      "Blue Wave /180",
+      "Green /99",
+      "Green Wave /99",
+      "Pink /75",
+      "Pink Wave /75",
+      "Gold /50",
+      "Gold Wave /50",
+      "Orange /25",
+      "Black /10",
+      "Red /5",
+      "Superfractor /1"
+    ]
+  },
+  {
+    "slug": "topps-chrome-sapphire-ucc-2020-21",
+    "name": "Topps Chrome Sapphire UEFA Champions League 2020-21",
+    "brand": "Topps",
+    "season": "2020-21",
+    "competition": "UEFA Club Competitions",
+    "keywords": [
+      "topps chrome sapphire",
+      "chrome sapphire",
+      "topps sapphire"
+    ],
+    "parallels": [
+      "Aqua /150",
+      "Yellow /99",
+      "Green /75",
+      "Orange /50",
+      "Purple /25",
+      "Red /5",
+      "Padparadscha /1"
+    ]
+  },
+  {
+    "slug": "topps-chrome-sapphire-ucc-2021-22",
+    "name": "Topps Chrome Sapphire UEFA Champions League 2021-22",
+    "brand": "Topps",
+    "season": "2021-22",
+    "competition": "UEFA Club Competitions",
+    "keywords": [
+      "topps chrome sapphire",
+      "chrome sapphire",
+      "topps sapphire"
+    ],
+    "parallels": [
+      "Yellow /99",
+      "Green /75",
+      "Orange /50",
+      "Purple /25",
+      "Red /5",
+      "Padparadscha /1"
+    ]
+  },
+  {
+    "slug": "topps-chrome-sapphire-ucc-2022-23",
+    "name": "Topps Chrome Sapphire UEFA Club Competitions 2022-23",
+    "brand": "Topps",
+    "season": "2022-23",
+    "competition": "UEFA Club Competitions",
+    "keywords": [
+      "topps chrome sapphire",
+      "chrome sapphire",
+      "topps sapphire"
+    ],
+    "parallels": [
+      "Yellow /99",
+      "Green /70",
+      "Orange /50",
+      "Purple /15",
+      "Red /5",
+      "Padparadscha /1"
+    ]
+  },
+  {
+    "slug": "topps-inception-ucc-2020-21",
+    "name": "Topps Inception UEFA Champions League 2020-21",
+    "brand": "Topps",
+    "season": "2020-21",
+    "competition": "UEFA Club Competitions",
+    "keywords": [
+      "topps inception",
+      "inception uefa"
+    ],
+    "parallels": []
+  },
+  {
+    "slug": "topps-inception-ucc-2021-22",
+    "name": "Topps Inception UEFA Champions League 2021-22",
+    "brand": "Topps",
+    "season": "2021-22",
+    "competition": "UEFA Club Competitions",
+    "keywords": [
+      "topps inception",
+      "inception uefa"
+    ],
+    "parallels": [
+      "Green /99",
+      "Blue /49",
+      "Purple /25",
+      "Red /10",
+      "Orange /5",
+      "Gold /1"
+    ]
+  },
+  {
+    "slug": "topps-inception-ucc-2022-23",
+    "name": "Topps Inception UEFA Club Competitions 2022-23",
+    "brand": "Topps",
+    "season": "2022-23",
+    "competition": "UEFA Club Competitions",
+    "keywords": [
+      "topps inception",
+      "inception uefa"
+    ],
+    "parallels": [
+      "Rainbow /150",
+      "Green /99",
+      "Blue /49",
+      "Purple /25",
+      "Red /10",
+      "Orange /5",
+      "Gold /1"
+    ]
+  },
+  {
+    "slug": "topps-museum-collection-ucc-2020-21",
+    "name": "Topps Museum Collection UEFA Champions League 2020-21",
+    "brand": "Topps",
+    "season": "2020-21",
+    "competition": "UEFA Club Competitions",
+    "keywords": [
+      "topps museum collection",
+      "museum collection"
+    ],
+    "parallels": [
+      "Copper /99",
+      "Sapphire /75",
+      "Gold /50",
+      "Ruby /25",
+      "Emerald /1"
+    ]
+  },
+  {
+    "slug": "topps-museum-collection-ucc-2021-22",
+    "name": "Topps Museum Collection UEFA Champions League 2021-22",
+    "brand": "Topps",
+    "season": "2021-22",
+    "competition": "UEFA Club Competitions",
+    "keywords": [
+      "topps museum collection",
+      "museum collection"
+    ],
+    "parallels": [
+      "Amethyst /99",
+      "Sapphire /75",
+      "Gold /50",
+      "Ruby /25",
+      "Emerald /1"
+    ]
+  },
+  {
+    "slug": "topps-museum-collection-ucc-2022-23",
+    "name": "Topps Museum Collection UEFA Club Competitions 2022-23",
+    "brand": "Topps",
+    "season": "2022-23",
+    "competition": "UEFA Club Competitions",
+    "keywords": [
+      "topps museum collection",
+      "museum collection"
+    ],
+    "parallels": [
+      "Copper /125",
+      "Amethyst /99",
+      "Sapphire /75",
+      "Gold /50",
+      "Ruby /25",
+      "Emerald /1"
+    ]
+  },
+  {
+    "slug": "topps-chrome-ucc-2020-21",
+    "name": "Topps Chrome UEFA Champions League 2020-21",
+    "brand": "Topps",
+    "season": "2020-21",
+    "competition": "UEFA Club Competitions",
+    "keywords": [
+      "topps chrome ucl",
+      "topps chrome uefa",
+      "topps chrome champions league"
+    ],
+    "parallels": [
+      "Refractor",
+      "Speckle",
+      "Pink X-Fractor",
+      "Yellow Mini-Diamond /299",
+      "Purple /250",
+      "Purple Mini-Diamond /250",
+      "Purple Carbon Fiber",
+      "Aqua /199",
+      "Aqua Wave /199",
+      "Pink /175",
+      "Pink Mini-Diamond /175",
+      "Blue /150",
+      "Aqua Bubbles",
+      "Blue Bubbles",
+      "Neon Green /99",
+      "Neon Green Bubbles",
+      "Blue Wave /75",
+      "Gold Bubbles",
+      "Gold /50",
+      "Orange /25",
+      "Orange Bubbles",
+      "Red Carbon Fiber",
+      "Red /10",
+      "Red Wave /5",
+      "Superfractor /1"
+    ]
   }
 ]

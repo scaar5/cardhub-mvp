@@ -1,0 +1,327 @@
+## Base
+1|Robert Lewandowski|FC Bayern München|
+2|Olivier Giroud|AC Milan|
+3|Gianluigi Donnarumma|Paris Saint-Germain|
+4|Mason Mount|Chelsea FC|
+5|Mohammed Kudus|AFC Ajax|
+6|Raheem Sterling|Manchester City FC|
+7|Cristiano Ronaldo|Manchester United|
+8|Edouard Mendy|Chelsea FC|
+9|Memphis Depay|FC Barcelona|
+10|Kylian Mbappé|Paris Saint-Germain|
+11|Iván Romero|Sevilla FC|RC
+12|Kaio Jorge|Juventus|RC
+13|Phil Foden|Manchester City FC|
+14|João Félix|Atlético de Madrid|
+15|Paulo Dybala|Juventus|
+16|Ryan Gravenberch|AFC Ajax|
+17|Kevin De Bruyne|Manchester City FC|
+18|Sergio Ramos|Paris Saint-Germain|
+19|Trent Alexander-Arnold|Liverpool FC|
+20|Neymar Jr|Paris Saint-Germain|
+21|Jules Koundé|Sevilla FC|
+22|Gerard Piqué|FC Barcelona|
+23|Marcus Rashford|Manchester United|
+24|Alphonso Davies|FC Bayern München|
+25|Zlatan Ibrahimović|AC Milan|
+26|Giovanni Reyna|Borussia Dortmund|
+27|Mohamed Daramy|AFC Ajax|RC
+28|Marcel Sabitzer|FC Bayern München|
+29|Matthijs de Ligt|Juventus|
+30|Lionel Messi|Paris Saint-Germain|
+31|Luis Muriel|Atalanta B.C.|
+32|Antoine Griezmann|Atlético de Madrid|
+33|Toni Kroos|Real Madrid C.F.|
+34|Alisson Becker|Liverpool FC|
+35|Martín Satriano|FC Internazionale Milano|RC
+36|Jack Grealish|Manchester City FC|
+37|Kenneth Taylor|AFC Ajax|
+38|Paul Pogba|Manchester United|
+39|Sandro Tonali|AC Milan|
+40|Christian Pulisic|Chelsea FC|
+41|Youssoufa Moukoko|Borussia Dortmund|
+42|Joško Gvardiol|RB Leipzig|RC
+43|Romelu Lukaku|Chelsea FC|
+44|Federico Chiesa|Juventus|
+45|Vini Jr.|Real Madrid C.F.|
+46|Eduardo Camavinga|Real Madrid C.F.|
+47|Abde Ezzalzouli|FC Barcelona|RC
+48|N'Golo Kante|Chelsea FC|
+49|Nicolò Barella|FC Internazionale Milano|
+50|Pierre Kalulu|AC Milan|RC
+51|Suso|Sevilla FC|
+52|Sidney Raebiger|RB Leipzig|RC
+53|Ansu Fati|FC Barcelona|
+54|Weston McKennie|Juventus|
+55|Duván Zapata|Atalanta B.C.|
+56|Roméo Lavia|Manchester City FC|RC
+57|Sadio Mané|Liverpool FC|
+58|Virgil van Dijk|Liverpool FC|
+59|Pedri|FC Barcelona|
+60|Donyell Malen|Borussia Dortmund|
+61|Jadon Sancho|Manchester United|
+62|Jude Bellingham|Borussia Dortmund|
+63|David Alaba|Real Madrid C.F.|
+64|Thomas Müller|FC Bayern München|
+65|Gavi|FC Barcelona|RC
+66|Jamal Musiala|FC Bayern München|
+67|Kai Havertz|Chelsea FC|
+68|Alessandro Bastoni|FC Internazionale Milano|
+69|Lautaro Martínez|FC Internazionale Milano|
+70|Frenkie de Jong|FC Barcelona|
+71|Antonio Rüdiger|Chelsea FC|
+72|Nuno Mendes|Paris Saint-Germain|RC
+73|Dominik Szoboszlai|RB Leipzig|
+74|Hannibal|Manchester United|RC
+75|Erling Haaland|Borussia Dortmund|
+## Archival Autographs
+AA-A|Antony|AFC Ajax|
+AA-AB|Alejandro Balde|FC Barcelona|
+AA-AL|Aymeric Laporte|Manchester City FC|
+AA-AS|Marco Asensio|Real Madrid C.F.|
+AA-CA|Eduardo Camavinga|Real Madrid C.F.|
+AA-CD|Charles De Ketelaere|Club Brugge|
+AA-DA|David Alaba|Real Madrid C.F.|
+AA-DO|Dani Olmo|RB Leipzig|
+AA-DR|Daniele Rugani|Juventus|
+AA-DS|Dominik Szoboszlai|RB Leipzig|
+AA-EC|Eric Cantona|Manchester United|
+AA-FB|Federico Bernardeschi|Juventus|
+AA-GJ|Gabriel Jesus|Manchester City FC|
+AA-HL|Henrik Larsson|FC Barcelona|
+AA-J|Jorginho|Chelsea FC|
+AA-JB|Jude Bellingham|Borussia Dortmund|
+AA-JC|Jamie Carragher|Liverpool FC|
+AA-JG|Jack Grealish|Manchester City FC|
+AA-JK|Joshua Kimmich|FC Bayern München|
+AA-KH|Kai Havertz|Chelsea FC|
+AA-LA|Lautaro Martínez|FC Internazionale Milano|
+AA-LE|Rafael Leão|AC Milan|
+AA-LM|Lionel Messi|Paris Saint-Germain|
+AA-LN|Lukas Nmecha|VfL Wolfsburg|
+AA-LU|Romelu Lukaku|Chelsea FC|
+AA-MA|Marcos Alonso|Chelsea FC|
+AA-MD|Memphis Depay|FC Barcelona|
+AA-MM|Mason Mount|Chelsea FC|
+AA-NM|Nuno Mendes|Paris Saint-Germain|
+AA-P|Pedri|FC Barcelona|
+AA-RG|Ryan Gravenberch|AFC Ajax|
+AA-RL|Robert Lewandowski|FC Bayern München|
+AA-SG|Steven Gerrard|Liverpool FC|
+AA-SR|Sidney Raebiger|RB Leipzig|
+AA-ST|Sandro Tonali|AC Milan|
+## Archival Dual Autographs
+ADA-GC|Jamie Carragher|Liverpool FC|
+ADA-LL|Brian Laudrup|FC Bayern München|
+ADA-LM|Thomas Müller|FC Bayern München|
+ADA-MM|Paolo Maldini|AC Milan|
+ADA-RM|Lionel Messi|Paris Saint-Germain|
+## Framed Autographs
+FA-CA|Eduardo Camavinga|Real Madrid C.F.|
+FA-CR|Cristiano Ronaldo|Manchester United|
+FA-EC|Eric Cantona|Manchester United|
+FA-EH|Erling Haaland|Borussia Dortmund|
+FA-FB|Franz Beckenbauer|FC Bayern München|
+FA-GB|Gareth Bale|Real Madrid C.F.|
+FA-GC|Giorgio Chiellini|Juventus|
+FA-IC|Iker Casillas|Real Madrid C.F.|
+FA-JF|João Félix|Atlético de Madrid|
+FA-JG|Jack Grealish|Manchester City FC|
+FA-KH|Kai Havertz|Chelsea FC|
+FA-LM|Lionel Messi|Paris Saint-Germain|
+FA-MM|Mason Mount|Chelsea FC|
+FA-N|Neymar Jr|Paris Saint-Germain|
+FA-VV|Virgil Van Dijk|Liverpool FC|
+## Rookie Reverence Autographs
+RRA-AE|Anthony Elanga|Manchester United|
+RRA-BS|Benjamin Sesko|FC Salzburg|
+RRA-CP|Cole Palmer|Manchester City FC|
+RRA-HM|Hannibal|Manchester United|
+RRA-JG|Joško Gvardiol|RB Leipzig|
+RRA-NG|Nico González|FC Barcelona|
+RRA-NM|Nuno Mendes|Paris Saint-Germain|
+RRA-PG|Pedro Gonçalves|Sporting Clube De Portugal|
+RRA-PK|Pierre Kalulu|AC Milan|
+RRA-SR|Sidney Raebiger|RB Leipzig|
+RRA-TC|Trevoh Chalobah|Chelsea FC|
+RRA-YD|Yusuf Demir|FC Barcelona|
+## Momentous Material Autograph Jumbo Relics
+MMJA-A|Antony|AFC Ajax|
+MMJA-AE|Anthony Elanga|Manchester United|
+MMJA-AF|Ansu Fati|FC Barcelona|
+MMJA-CL|Clément Lenglet|FC Barcelona|
+MMJA-DA|David Alaba|Real Madrid C.F.|
+MMJA-DJ|Diogo Jota|Liverpool FC|
+MMJA-DO|Dani Olmo|RB Leipzig|
+MMJA-EC|Eduardo Camavinga|Real Madrid C.F.|
+MMJA-J|Jorginho|Chelsea FC|
+MMJA-JB|Jude Bellingham|Borussia Dortmund|
+MMJA-JK|Joshua Kimmich|FC Bayern München|
+MMJA-JN|Jesús Navas|Sevilla FC|
+MMJA-LK|Lukas Klostermann|RB Leipzig|
+MMJA-LM|Lautaro Martínez|FC Internazionale Milano|
+MMJA-ML|Maxence Lacroix|VfL Wolfsburg|
+MMJA-MM|Mason Mount|Chelsea FC|
+MMJA-MP|Matteo Pessina|Atalanta B.C.|
+MMJA-MS|Maarten Stekelenburg|AFC Ajax|
+MMJA-NL|Noa Lang|Club Brugge|
+MMJA-P|Pedri|FC Barcelona|
+MMJA-RG|Robin Gosens|Atalanta B.C.|
+MMJA-RP|Riqui Puig|FC Barcelona|
+MMJA-S|Suso|Sevilla FC|
+MMJA-ST|Sandro Tonali|AC Milan|
+MMJA-TW|Timo Werner|Chelsea FC|
+## Museum Autograph Relics
+MAR-A|Antony|AFC Ajax|
+MAR-AH|Achraf Hakimi|Paris Saint-Germain|
+MAR-AN|Angeliño|RB Leipzig|
+MAR-BS|Bouna Sarr|FC Bayern München|
+MAR-DZ|Duván Zapata|Atalanta B.C.|
+MAR-GO|Robin Gosens|Atalanta B.C.|
+MAR-GR|Giovanni Reyna|Borussia Dortmund|
+MAR-JF|João Félix|Atlético de Madrid|
+MAR-KD|Kevin De Bruyne|Manchester City FC|
+MAR-LM|Lautaro Martínez|FC Internazionale Milano|
+MAR-MP|Matteo Pessina|Atalanta B.C.|
+MAR-MS|Maarten Stekelenburg|AFC Ajax|
+MAR-MT|Marc-André ter Stegen|FC Barcelona|
+MAR-NL|Noa Lang|Club Brugge|
+MAR-P|Pedri|FC Barcelona|
+MAR-RG|Ryan Gravenberch|AFC Ajax|
+MAR-RJ|Reece James|Chelsea FC|
+MAR-RL|Robert Lewandowski|FC Bayern München|
+MAR-RP|Riqui Puig|FC Barcelona|
+MAR-S|Suso|Sevilla FC|
+MAR-SG|Serge Gnabry|FC Bayern München|
+MAR-SI|Mohamed Simakan|RB Leipzig|
+MAR-ST|Sandro Tonali|AC Milan|
+MAR-TH|Theo Hernández|AC Milan|
+MAR-TK|Thilo Kehrer|Paris Saint-Germain|
+MAR-TM|Thomas Mϋller|FC Bayern München|
+MAR-WM|Weston McKennie|Juventus|
+## Museum Framed Autograph Patch
+FAPC-KA|Karim Adeyemi|FC Salzburg|
+FAPC-LM|Lionel Messi|Paris Saint-Germain|
+FAPC-MM|Mason Mount|Chelsea FC|
+FAPC-N|Neymar Jr|Paris Saint-Germain|
+FAPC-PE|Pedri|FC Barcelona|
+## Rookie Reverend Dual Autograph Relics
+RRDA-BG|Alejandro Balde|FC Barcelona|
+RRDA-GN|Matheus Nunes|Sporting Clube De Portugal|
+RRDA-MM|Edouard Michut|Paris Saint-Germain|
+RRDA-MR|Sidney Raebiger|RB Leipzig|
+RRDA-PD|Liam Delap|Manchester City FC|
+RRDA-TG|Tiago Tomás|Sporting Clube De Portugal|
+## Single-Player Triple Relic Autographs
+SPTR-AE|Anthony Elanga|Manchester United|
+SPTR-AF|Ansu Fati|FC Barcelona|
+SPTR-JN|Jesus Navas|Sevilla FC|
+SPTR-MT|Marc-André ter Stegen|FC Barcelona|
+SPTR-N|Neymar Jr|Paris Saint-Germain|
+SPTR-NL|Noa Lang|Club Brugge|
+SPTR-P|Pepe|FC Porto|
+SPTR-RG|Robin Gosens|Atalanta B.C|
+SPTR-S|Suso|Sevilla FC|
+SPTR-TK|Thilo Kehrer|Paris Saint-Germain|
+## Meaningful Material Single Relics
+MMR-AD|Alphonso Davies|FC Bayern München|
+MMR-AH|Achraf Hakimi|Paris Saint-Germain|
+MMR-AW|Aaron Wan-Bissaka|Manchester United|
+MMR-BC|Ben Chilwell|Chelsea FC|
+MMR-DJ|Diogo Jota|Liverpool FC|
+MMR-DP|Danilo Pereira|Paris Saint-Germain|
+MMR-DZ|Duván Zapata|Atalanta B.C.|
+MMR-E|Ederson|Manchester City FC|
+MMR-EM|Edouard Michut|Paris Saint-Germain|
+MMR-EV|Evanilson|FC Porto|
+MMR-GO|Robin Gosens|Atalanta B.C.|
+MMR-HA|Amadou Haidara|RB Leipzig|
+MMR-HV|Hans Vanaken|Club Brugge|
+MMR-JB|Jude Bellingham|Borussia Dortmund|
+MMR-JC|João Cancelo|Manchester City FC|
+MMR-JN|Jesús Navas|Sevilla FC|
+MMR-KA|Karim Adeyemi|FC Salzburg|
+MMR-KC|Kingsley Coman|FC Bayern München|
+MMR-LM|Lionel Messi|Paris Saint-Germain|
+MMR-LS|Luke Shaw|Manchester United|
+MMR-MK|Mohammed Kudus|AFC Ajax|
+MMR-MN|Matheus Nunes|Sporting Clube De Portugal|
+MMR-N|Neymar Jr|Paris Saint-Germain|
+MMR-NL|Noa Lang|Club Brugge|
+MMR-P|Pedri|FC Barcelona|
+MMR-PE|Pepe|FC Porto|
+MMR-R|Rodri|Manchester City FC|
+MMR-RF|Roberto Firmino|Liverpool FC|
+MMR-RG|Ryan Gravenberch|AFC Ajax|
+MMR-RJ|Reece James|Chelsea FC|
+MMR-RL|Robert Lewandowski|FC Bayern München|
+MMR-S|Suso|Sevilla FC|
+MMR-TH|Theo Hernández|AC Milan|
+MMR-TM|Thomas Mϋller|FC Bayern München|
+MMR-V|Vini Jr.|Real Madrid C.F.|
+## Momentous Material Jumbo Relics
+MMJR-AH|Achraf Hakimi|Paris Saint-Germain|
+MMJR-AW|Aaron Wan-Bissaka|Manchester United|
+MMJR-D|Danilo Pereira|Paris Saint-Germain|
+MMJR-DA|David Alaba|Real Madrid C.F.|
+MMJR-EC|Eduardo Camavinga|Real Madrid C.F.|
+MMJR-JK|Joshua Kimmich|FC Bayern München|
+MMJR-LM|Lionel Messi|Paris Saint-Germain|
+MMJR-MP|Matteo Pessina|Atalanta B.C.|
+MMJR-MU|Luis Muriel|Atalanta B.C.|
+MMJR-P|Pedri|FC Barcelona|
+MMJR-PE|Pepe|FC Porto|
+MMJR-SB|Sven Botman|LOSC Lille|
+MMJR-SD|Sergiño Dest|FC Barcelona|
+MMJR-SG|Serge Gnabry|FC Bayern München|
+MMJR-TH|Theo Hernández|AC Milan|
+## Momentous Material Prime Patch Relics
+MPR-AH|Achraf Hakimi|Paris Saint-Germain|
+MPR-CP|Cole Palmer|Manchester City FC|
+MPR-DO|Dani Olmo|RB Leipzig|
+MPR-JF|João Félix|Atlético de Madrid|
+MPR-KC|Kingsley Coman|FC Bayern München|
+MPR-LM|Lionel Messi|Paris Saint-Germain|
+MPR-P|Pepe|FC Porto|
+MPR-RG|Ryan Gravenberch|AFC Ajax|
+MPR-RL|Robert Lewandowski|FC Bayern München|
+MPR-WM|Weston McKennie|Juventus|
+## Rookie Reverence Relics
+RRR-AB|Alejandro Balde|FC Barcelona|
+RRR-AE|Anthony Elanga|Manchester United|
+RRR-CP|Cole Palmer|Manchester City FC|
+RRR-EM|Edouard Michut|Paris Saint-Germain|
+RRR-LD|Liam Delap|Manchester City FC|
+RRR-NG|Nico González|FC Barcelona|
+RRR-PK|Pierre Kalulu|AC Milan|
+RRR-SB|Sven Botman|LOSC Lille|
+RRR-SR|Sidney Raebiger|RB Leipzig|
+RRR-TC|Trevoh Chalobah|Chelsea FC|
+## Single Player Triple Relics
+SPTR-AE|Anthony Elanga|Manchester United|
+SPTR-AF|Ansu Fati|FC Barcelona|
+SPTR-DM|Daniel Maldini|AC Milan|
+SPTR-DO|Dani Olmo|RB Leipzig|
+SPTR-JN|Jesús Navas|Sevilla FC|
+SPTR-KA|Karim Adeyemi|FC Salzburg|
+SPTR-LM|Lionel Messi|Paris Saint-Germain|
+SPTR-ML|Maxence Lacroix|VfL Wolfsburg|
+SPTR-MT|Marc-André ter Stegen|FC Barcelona|
+SPTR-N|Neymar Jr|Paris Saint-Germain|
+SPTR-NL|Noa Lang|Club Brugge|
+SPTR-P|Pepe|FC Porto|
+SPTR-RF|Roberto Firmino|Liverpool FC|
+SPTR-RG|Robin Gosens|Atalanta B.C.|
+SPTR-SB|Sven Botman|LOSC Lille|
+SPTR-ST|Sandro Tonali|AC Milan|
+SPTR-TA|Tyler Adams|RB Leipzig|
+SPTR-TK|Thilo Kehrer|Paris Saint-Germain|
+SPTR-WM|Weston McKennie|Juventus|
+## Triple Player Team Crest Relics
+TC-FPB|Alejandro Balde|FC Barcelona|
+TC-JMW|Reece James|Chelsea FC|
+TC-KHN|Neymar Jr|Paris Saint-Germain|
+TC-MKH|Daniel Maldini|AC Milan|
+TC-MZP|Duván Zapata|Atalanta B.C.|
+TC-NBG|Daniel Bragança|Sporting Clube De Portugal|
+TC-SGT|Serge Gnabry|FC Bayern München|

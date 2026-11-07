@@ -1,0 +1,253 @@
+## Base
+1|Marco Richter|FC Augsburg|
+2|Alfreð Finnbogason|FC Augsburg|
+3|Ruben Vargas|FC Augsburg|
+4|Rafał Gikiewicz|FC Augsburg|
+5|Florian Niederlechner|FC Augsburg|
+6|Rani Khedira|FC Augsburg|
+7|Lucas Tousart|Hertha Berlin|
+8|Krzysztof Piatek|Hertha Berlin|
+9|Dodi Lukebakio|Hertha Berlin|
+10|Niklas Stark|Hertha Berlin|
+11|Javairô Dilrosun|Hertha Berlin|
+12|Santiago Ascacibar|Hertha Berlin|
+13|Christopher Lenz|1. FC Union Berlin|
+14|Max Kruse|1. FC Union Berlin|
+15|Loris Karius|1. FC Union Berlin|
+16|Marcus Ingvartsen|1. FC Union Berlin|
+17|Marvin Friedrich|1. FC Union Berlin|
+18|Marcel Hartel|DSC Arminia Bielefeld|
+19|Reinhold Yabo|DSC Arminia Bielefeld|
+20|Joakim Nilsson|DSC Arminia Bielefeld|
+21|Andreas Voglsammer|DSC Arminia Bielefeld|
+22|Amos Pieper|DSC Arminia Bielefeld|
+23|Josh Sargent|SV Werder Bremen|
+24|Theodor Gebre Selassie|SV Werder Bremen|
+25|Davie Selke|SV Werder Bremen|
+26|Yuya Osako|SV Werder Bremen|
+27|Jiri Pavlenka|SV Werder Bremen|
+28|Maximilian Eggestein|SV Werder Bremen|
+29|Youssoufa Moukoko|Borussia Dortmund|
+30|Marco Reus|Borussia Dortmund|
+31|Jude Bellingham|Borussia Dortmund|
+32|Erling Haaland|Borussia Dortmund|
+33|Giovanni Reyna|Borussia Dortmund|
+34|Daichi Kamada|Eintracht Frankfurt|
+35|Timothy Chandler|Eintracht Frankfurt|
+36|André Silva|Eintracht Frankfurt|
+37|Kevin Trapp|Eintracht Frankfurt|
+38|Martin Hinteregger|Eintracht Frankfurt|
+39|Filip Kostic|Eintracht Frankfurt|
+40|Lucas Höler|Sport-Club Freiburg|
+41|Nils Petersen|Sport-Club Freiburg|
+42|Dominique Heintz|Sport-Club Freiburg|
+43|Baptiste Santamaria|Sport-Club Freiburg|
+44|Jonathan Schmid|Sport-Club Freiburg|
+45|Kevin Akpoguma|TSG Hoffenheim|
+46|ndrej Kramarić|TSG Hoffenheim|
+47|Robert Skov|TSG Hoffenheim|
+48|Oliver Baumann|TSG Hoffenheim|
+49|Munas Dabbur|TSG Hoffenheim|
+50|Sebastiaan Bornauw|1. FC Köln|
+51|Sebastian Andersson|1. FC Köln|
+52|Noah Katterbach|1. FC Köln|
+53|Timo Horn|1. FC Köln|
+54|Jonas Hector|1. FC Köln|
+55|Tyler Adams|RB Leipzig|
+56|Dani Olmo|RB Leipzig|
+57|Yussuf Poulsen|RB Leipzig|
+58|Lukas Klostermann|RB Leipzig|
+59|Christopher Nkunku|RB Leipzig|
+60|Hee-chan Hwang|RB Leipzig|
+61|Edmond Tapsoba|Bayer 04 Leverkusen|
+62|MoussaDiaby|Bayer 04 Leverkusen|
+63|Patrik Schick|Bayer 04 Leverkusen|
+64|Florian Wirtz|Bayer 04 Leverkusen|
+65|Exequiel Palacios|Bayer 04 Leverkusen|
+66|NadiemAmiri|Bayer 04 Leverkusen|
+67|Jean-Philippe Mateta|1. FSV Mainz 05|
+68|Stefan Bell|1. FSV Mainz 05|
+69|Jean-Paul Boëtius|1. FSV Mainz 05|
+70|Robin Quaison|1. FSV Mainz 05|
+71|MoussaNiakhaté|1. FSV Mainz 05|
+72|Levin Öztunali|1. FSV Mainz 05|
+73|Matthias Ginter|Borussia Mönchengladbach|
+74|Denis Zakaria|Borussia Mönchengladbach|
+75|Marcus Thuram|Borussia Mönchengladbach|
+76|Alassane Plea|Borussia Mönchengladbach|
+77|Yann Sommer|Borussia Mönchengladbach|
+78|Stefan Lainer|Borussia Mönchengladbach|
+79|David Alaba|FC Bayern München|
+80|Robert Lewandowski|FC Bayern München|
+81|Serge Gnabry|FC Bayern München|
+82|Alphonso Davies|FC Bayern München|
+83|Joshua Kimmich|FC Bayern München|
+84|Gonçalo Paciência|FC Schalke 04|
+85|Ozan Kabak|FC Schalke 04|
+86|Amine Harit|FC Schalke 04|
+87|Suat Serdar|FC Schalke 04|
+88|Matija Nastasic|FC Schalke 04|
+89|Omar Mascarell|FC Schalke 04|
+90|Daniel Didavi|VfB Stuttgart|
+91|Atakan Karazor|VfB Stuttgart|
+92|Waldemar Anton|VfB Stuttgart|
+93|Silas Wamangituka|VfB Stuttgart|
+94|Wataru Endo|VfB Stuttgart|
+95|Maximilian Arnold|VfL Wolfsburg|
+96|Koen Casteels|VfL Wolfsburg|
+97|Josip Brekalo|VfL Wolfsburg|
+98|Wout Weghorst|VfL Wolfsburg|
+99|Xaver Schlager|VfL Wolfsburg|
+100|Joao Victor|VfL Wolfsburg|
+## Chrome Autographs
+BCA-ADA|Alphonso Davies|FC Bayern München|
+BCA-AHAR|Amine Harit|FC Schalke 04|
+BCA-AKR|Andrej Kramarić|TSG Hoffenheim|
+BCA-AKUT|Ahmed Kutucu|FC Schalke 04|
+BCA-API|Amos Pieper|DSC Arminia Bielefeld|
+BCA-APL|Alassane Plea|Borussia Mönchengladbach|
+BCA-AVO|Andreas Voglsammer|DSC Arminia Bielefeld|
+BCA-BDO|Bas Dost|Eintracht Frankfurt|
+BCA-BSA|Baptiste Santamaria|Sport-Club Freiburg|
+BCA-CLE|Christopher Lenz|1. FC Union Berlin|
+BCA-CNK|Christopher Nkunku|RB Leipzig|
+BCA-DAL|David Alaba|FC Bayern München|
+BCA-DDI|Daniel Didavi|VfB Stuttgart|
+BCA-DKA|Daichi Kamada|Eintracht Frankfurt|
+BCA-DLU|Dodi Lukebakio|Hertha Berlin|
+BCA-DOL|Dani Olmo|RB Leipzig|
+BCA-DSE|Davie Selke|SV Werder Bremen|
+BCA-DZA|Denis Zakaria|Borussia Mönchengladbach|
+BCA-FWI|Florian Wirtz|Bayer 04 Leverkusen|
+BCA-GRE|Giovanni Reyna|Borussia Dortmund|
+BCA-HHW|Hee-chan Hwang|RB Leipzig|
+BCA-JBE|Jude Bellingham|Borussia Dortmund|
+BCA-JBR|Josip Brekalo|VfL Wolfsburg|
+BCA-JDI|Javairô Dilrosun|Hertha Berlin|
+BCA-JHE|Jonas Hector|1. FC Köln|
+BCA-JKI|Joshua Kimmich|FC Bayern München|
+BCA-JPBO|Jean-Paul Boëtius|1. FSV Mainz 05|
+BCA-JPMA|Jean-Philippe Mateta|1. FSV Mainz 05|
+BCA-JSA|Josh Sargent|SV Werder Bremen|
+BCA-JSC|Jonathan Schmid|Sport-Club Freiburg|
+BCA-KPU|Krzysztof Piatek|Hertha Berlin|
+BCA-LHO|Lucas Höler|Sport-Club Freiburg|
+BCA-LKA|Loris Karius|1. FC Union Berlin|
+BCA-LTO|Lucas Tousart|Hertha Berlin|
+BCA-MAR|Maximilian Arnold|VfL Wolfsburg|
+BCA-MDA|Munas Dabbur|TSG Hoffenheim|
+BCA-MDI|Moussa Diaby|Bayer 04 Leverkusen|
+BCA-MGI|Matthias Ginter|Borussia Mönchengladbach|
+BCA-MHA|Marcel Hartel|DSC Arminia Bielefeld|
+BCA-MHI|Martin Hinteregger|Eintracht Frankfurt|
+BCA-MIN|Marcus Ingvartsen|1. FC Union Berlin|
+BCA-MKR|Max Kruse|1. FC Union Berlin|
+BCA-MNI|Moussa Niakhaté|1. FSV Mainz 05|
+BCA-MRE|Marco Reus|Borussia Dortmund|
+BCA-MRI|Marco Richter|FC Augsburg|
+BCA-MTH|Marcus Thuram|Borussia MG|
+BCA-NAM|Nadiem Amiri|Bayer 04 Leverkusen|
+BCA-NPE|Nils Petersen|Sport-Club Freiburg|
+BCA-OBA|Oliver Baumann|TSG Hoffenheim|
+BCA-OKA|Ozan Kabak|FC Schalke 04|
+BCA-PSC|Patrik Schick|Bayer 04 Leverkusen|
+BCA-RGI|Rafał Gikiewicz|FC Augsburg|
+BCA-RKH|Rani Khedira|FC Augsburg|
+BCA-RMAT|Rabbi Matondo|FC Schalke 04|
+BCA-ROX|Reece Oxford|FC Augsburg|
+BCA-RQU|Robin Quaison|1. FSV Mainz 05|
+BCA-RSK|Robert Skov|TSG Hoffenheim|
+BCA-RVA|Ruben Vargas|FC Augsburg|
+BCA-SAN|Sebastian Andersson|1. FC Köln|
+BCA-SBO|Sebastiaan Bornauw|1. FC Köln|
+BCA-SGN|Serge Gnabry|FC Bayern München|
+BCA-SWA|Silas Wamangituka|VfB Stuttgart|
+BCA-TAD|Tyler Adams|RB Leipzig|
+BCA-TCH|Timothy Chandler|Eintracht Frankfurt|
+BCA-TGS|Theodor Gebre Selassie|SV Werder Bremen|
+BCA-THO|Timo Horn|1. FC Köln|
+BCA-WAN|Waldemar Anton|VfB Stuttgart|
+BCA-WEN|Wataru Endo|VfB Stuttgart|
+BCA-WWE|Wout Weghorst|VfL Wolfsburg|
+BCA-XSC|Xaver Schlager|VfL Wolfsburg|
+BCA-YOS|Yuya Osako|SV Werder Bremen|
+BCA-YPO|Yussuf Poulsen|RB Leipzig|
+## Decade of Dominance Die-Cut Autographs
+DDA-DA|David Alaba|FC Bayern München|
+DDA-LB|Lars Bender|Bayer 04 Leverkusen|
+DDA-MA|Maximilian Arnold|VfL Wolfsburg|
+DDA-MN|Matija Nastasic|FC Schalke 04|
+DDA-MR|Marco Reus|Borussia Dortmund|
+DDA-OB|Oliver Baumann|TSG Hoffenheim|
+DDA-TC|Timothy Chandler|Eintracht Frankfurt|
+DDA-TGS|Theodor Gebre Selassie|SV Werder Bremen|
+DDA-TH|Timo Horn|1. FC Köln|
+DDA-VG|Vincenzo Grifo|Sport-Club Freiburg|
+## Future Stars Autographs
+FSA-AP|Amos Pieper|DSC Arminia Bielefeld|
+FSA-DK|Daichi Kamada|Eintracht Frankfurt|
+FSA-DO|Dani Olmo|RB Leipzig|
+FSA-DZ|Denis Zakaria|Borussia Mönchengladbach|
+FSA-ES|Ellyes Skhiri|1. FC Köln|
+FSA-JS|Josh Sargent|SV Werder Bremen|
+FSA-LT|Lucas Tousart|Hertha Berlin|
+FSA-OK|Ozan Kabak|FC Schalke 04|
+FSA-RS|Robert Skov|TSG Hoffenheim|
+FSA-XS|Xaver Schlager|VfL Wolfsburg|
+## Top XI Autographs
+TOA-AK|Andrej Kramaric|TSG Hoffenheim|
+TOA-FN|Florian Niederlechner|FC Augsburg|
+TOA-RQ|Robin Quaison|1. FSV Mainz 05|
+TOA-SA|Sebastian Andersson|1. FC Köln|
+TOA-SG|Serge Gnabry|FC Bayern München|
+TOA-WW|Wout Weghorst|VfL Wolfsburg|
+## Decade of Dominance Die-Cut
+DD-AF|Alfreð Finnbogason|FC Augsburg|
+DD-CL|Christopher Lenz|1. FC Union Berlin|
+DD-DA|David Alaba|FC Bayern München|
+DD-LB|Lars Bender|Bayer 04 Leverkusen|
+DD-LK|Lukas Klostermann|RB Leipzig|
+DD-MA|Maximilian Arnold|VfL Wolfsburg|
+DD-MN|Matija Nastasic|FC Schalke 04|
+DD-MR|Marco Reus|Borussia Dortmund|
+DD-NS|Niklas Stark|Hertha Berlin|
+DD-OB|Oliver Baumann|TSG Hoffenheim|
+DD-RY|Reinhold Yabo|DSC Arminia Bielefeld|
+DD-SB|Stefan Bell|1. FSV Mainz 05|
+DD-TC|Timothy Chandler|Eintracht Frankfurt|
+DD-TGS|Theodor Gebre Selassie|SV Werder Bremen|
+DD-TH|Timo Horn|1. FC Köln|
+DD-VG|Vincenzo Grifo|Sport-Club Freiburg|
+DD-WE|Wataru Endo|VfB Stuttgart|
+DD-YS|Yann Sommer|Borussia Mönchengladbach|
+## Future Stars
+FS-AD|Alphonso Davies|FC Bayern München|
+FS-AP|Amos Pieper|DSC Arminia Bielefeld|
+FS-DK|Daichi Kamada|Eintracht Frankfurt|
+FS-DO|Dani Olmo|RB Leipzig|
+FS-DZ|Denis Zakaria|Borussia Mönchengladbach|
+FS-EP|Exequiel Palacios|Bayer 04 Leverkusen|
+FS-ES|Ellyes Skhiri|1. FC Köln|
+FS-JPM|Jean-Philippe Mateta|1. FSV Mainz 05|
+FS-JS|Josh Sargent|SV Werder Bremen|
+FS-KS|Keven Schlotterbeck|Sport-Club Freiburg|
+FS-LT|Lucas Tousart|Hertha Berlin|
+FS-MI|Marcus Ingvartsen|1. FC Union Berlin|
+FS-MR|Marco Richter|FC Augsburg|
+FS-NG|Nicolás González|VfB Stuttgart|
+FS-OK|Ozan Kabak|FC Schalke 04|
+FS-RS|Robert Skov|TSG Hoffenheim|
+FS-XS|Xaver Schlager|VfL Wolfsburg|
+FS-YM|Youssoufa Moukoko|Borussia Dortmund|
+## Top XI
+TO-AK|Andrej Kramaric|TSG Hoffenheim|
+TO-AP|Jhon Córdoba|Hertha Berlin|
+TO-AS|André Silva|Eintracht Frankfurt|
+TO-EH|Erling Haaland|Borussia Dortmund|
+TO-FN|Florian Niederlechner|FC Augsburg|
+TO-JS|Jadon Sancho|Borussia Dortmund|
+TO-RL|Robert Lewandowski|FC Bayern München|
+TO-RQ|Robin Quaison|1. FSV Mainz 05|
+TO-SA|Sebastian Andersson|1. FC Köln|
+TO-SG|Serge Gnabry|FC Bayern München|
+TO-WW|Wout Weghorst|VfL Wolfsburg|
