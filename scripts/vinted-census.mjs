@@ -33,7 +33,10 @@ function save() {
 
 // Tramos de precio: Vinted corta cada búsqueda en ~11 páginas (~950 anuncios). Si una búsqueda llega al tope,
 // se repite por tramos de precio (cada tramo tiene su propio tope); si un tramo también llega, se parte en dos.
-const BANDS = [0, 1, 2, 3, 4, 5, 6, 8, 10, 12, 15, 20, 25, 30, 40, 50, 75, 100, 150, 250, 500, 100000];
+const MIN_PRICE = Number(process.env.MIN_PRICE || 10); // por debajo no interesa (y es la mayoría del stock)
+const BANDS = [0, 1, 2, 3, 4, 5, 6, 8, 10, 12, 15, 20, 25, 30, 40, 50, 75, 100, 150, 250, 500, 100000].filter(
+  (b, i, a) => b >= MIN_PRICE || a[i + 1] > MIN_PRICE,
+).map((b) => Math.max(b, MIN_PRICE));
 const CAP = 850;
 
 async function getPage(url) {
@@ -65,7 +68,7 @@ async function crawl(q, set, from, to) {
       if (seen.has(m[1])) continue;
       seen.add(m[1]);
       fresh++;
-      if (!seenAll.has(m[1])) { seenAll.add(m[1]); newGlobal++; items.push({ id: m[1], attr: decode(m[2]), q, set, page }); }
+      if (!seenAll.has(m[1])) { seenAll.add(m[1]); newGlobal++; items.push({ id: m[1], attr: Buffer.from(decode(m[2])).toString(), q, set, page }); }
     }
     pages = page;
     await sleep(5000 + Math.random() * 2000);
@@ -91,7 +94,7 @@ async function crawlBand(q, set, from, to, depth = 0) {
 
 for (const { q, set } of cfg.searches) {
   if (stop) break;
-  const r = await crawl(q, set);
+  const r = await crawl(q, set, MIN_PRICE, 100000);
   perSearch.push({ q, ...r });
   console.log(`SEARCH ${JSON.stringify({ q, ...r })} total_unicos=${seenAll.size}`);
   if (r.seen >= CAP) for (let i = 0; i + 1 < BANDS.length && !stop; i++) await crawlBand(q, set, BANDS[i], BANDS[i + 1]);
