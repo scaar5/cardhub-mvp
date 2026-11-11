@@ -119,6 +119,8 @@ export function dealAlertHtml(d: {
   source?: "vinted_sold" | "ebay";
   note?: string;
   comps?: AlertComparable[];
+  /** Texto de búsqueda de 130point para esta carta (enlace + texto para copiar). */
+  point130?: string;
 }): string {
   const pct = Math.round((1 - d.price / d.market_value) * 100);
   const where = d.platform === "vinted" ? "Vinted" : d.platform === "wallapop" ? "Wallapop" : d.platform;
@@ -143,6 +145,12 @@ export function dealAlertHtml(d: {
     }
   }
   if (d.url) lines.push("", `👉 <a href="${esc(d.url)}">Ver el anuncio en ${where}</a>`);
+  if (d.point130) {
+    lines.push(
+      `🔎 <a href="https://130point.com/sales/?q=${encodeURIComponent(d.point130)}">Comprobar en 130point</a>`,
+      `<code>${esc(d.point130)}</code>`,
+    );
+  }
   // El texto visible (sin etiquetas) tiene que caber en el pie de foto: si no, se quitan comparables
   const visible = (s: string) => s.replace(/<[^>]+>/g, "").length;
   const html = lines.filter((l, i, a) => l !== "" || (i > 0 && a[i - 1] !== "")).join("\n");

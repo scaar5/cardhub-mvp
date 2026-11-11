@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { point130Query } from "@/lib/point130";
 import { authorized } from "@/lib/auth";
 import { ALERT_THRESHOLD, SAVE_THRESHOLD } from "@/lib/config";
 import { judgeDeal } from "@/lib/deals";
@@ -52,6 +53,7 @@ export async function POST(req: Request) {
   const base = {
     ok: true,
     card: v.label,
+    point130: v.recognition ? point130Query(v.recognition.card, v.recognition.parallel) : null,
     confidence: v.recognition?.confidence ?? null,
     approximate: v.approximate,
     searched: v.searched,

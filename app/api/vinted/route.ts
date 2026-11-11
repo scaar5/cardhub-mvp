@@ -3,6 +3,7 @@ import { authorized } from "@/lib/auth";
 import { ALERT_THRESHOLD, MIN_PRICE } from "@/lib/config";
 import { judgeDeal } from "@/lib/deals";
 import { recognize } from "@/lib/recognize";
+import { point130Query } from "@/lib/point130";
 import { candidateCardIds, cardLabel, loadReferences, resolveReference } from "@/lib/reference";
 import { VINTED_SEARCHES } from "@/lib/set-rules";
 import { getSupabaseAdmin } from "@/lib/supabase-admin";
@@ -193,6 +194,7 @@ export async function POST(req: Request) {
             ? `Precio estimado con ${d.ref.basedOn}, al no haber datos exactos de esta carta`
             : undefined,
         comps: ordered.slice(0, 4),
+        point130: point130Query(d.match.card, d.match.parallel),
       }),
       { dealId: d.row.external_id, photo },
     );

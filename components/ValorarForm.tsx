@@ -20,6 +20,7 @@ interface Result {
   ok: boolean;
   error?: string;
   card?: string | null;
+  point130?: string | null;
   confidence?: "alta" | "media" | null;
   approximate?: boolean;
   searched?: string[];
@@ -204,6 +205,18 @@ export default function ValorarForm() {
               <p className="mt-1 text-[15px] font-semibold text-ink">
                 {res.card ?? "No está en el catálogo"}
               </p>
+              {res.point130 && (
+                <a
+                  href={`https://130point.com/sales/?q=${encodeURIComponent(res.point130)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => navigator.clipboard?.writeText(res.point130!).catch(() => {})}
+                  className="mt-2 inline-flex items-center gap-1.5 rounded-full bg-canvas px-3 py-1 text-xs font-medium text-muted hover:text-ink"
+                  title={`Busca: ${res.point130} (también se copia, por si 130point no la rellena)`}
+                >
+                  🔎 Comprobar en 130point
+                </a>
+              )}
               {!res.card && (
                 <p className="mt-1 text-xs text-muted">
                   Busco en eBay con el título tal cual, contando solo anuncios con las mismas palabras y la misma
