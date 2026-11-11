@@ -340,6 +340,15 @@ export function recognize(title: string, hint?: string): RecognizeResult {
   if (/^base/i.test(card.subset) && INSERT_WORDS.some((w) => has(t, w))) {
     return { match: null, reason: "insert que no está en el catálogo" };
   }
+  // Código de insert con letras ("NL-06", "FS-12", "CL-3") que no es el número de esta carta: es un insert que el
+  // catálogo no tiene (voto ❌ del 11-nov: "No Limits NL-06" se reconocía como Yamal #27 base).
+  if (/^base/i.test(card.subset)) {
+    const known = numbersBySet.get(best.slug) ?? new Set<string>();
+    const codes = [...title.matchAll(/(?<![A-Za-z0-9])([A-Za-z]{2,4}-\d{1,3})(?![A-Za-z0-9])/g)].map((m) => m[1].toUpperCase()).filter((c) => !c.startsWith("SUB-")); // "Sub-23" es una categoría de edad
+    if (codes.some((c) => c !== card.number.toUpperCase() && !known.has(c))) {
+      return { match: null, reason: "insert con código que no está en el catálogo" };
+    }
+  }
   if (isAuto && !/aut|firma|signature/i.test(card.subset)) return { match: null, reason: "autógrafo (no está en el catálogo)" };
   // Al revés: la carta del catálogo es firmada pero el anuncio no lo dice → seguramente es otra carta (la normal)
   if (!isAuto && /aut|firma|signature/i.test(card.subset)) return { match: null, reason: "carta firmada pero el anuncio no dice auto" };

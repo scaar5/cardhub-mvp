@@ -5,7 +5,8 @@ import { judgeDeal } from "@/lib/deals";
 import { excludedReason, isOffTopic } from "@/lib/filters";
 import { recognize } from "@/lib/recognize";
 import { point130Query } from "@/lib/point130";
-import { candidateCardIds, cardLabel, loadReferences, resolveReference } from "@/lib/reference";
+import { median } from "@/lib/market";
+import { candidateCardIds, cardLabel, loadReferences, printRun, resolveReference } from "@/lib/reference";
 import { VINTED_SEARCHES } from "@/lib/set-rules";
 import { getSupabaseAdmin } from "@/lib/supabase-admin";
 import { dealAlertHtml, sendDealAlert } from "@/lib/telegram";
@@ -13,6 +14,11 @@ import { loadComparables } from "@/lib/valuation";
 
 export const dynamic = "force-dynamic";
 export const maxDuration = 60;
+
+// Segunda opinión frente a los anuncios abiertos de Vinted (solo para referencias de eBay)
+const ASKS_FRESH_HOURS = 4; // anuncio "abierto" = visto en las búsquedas en las últimas horas (el sweep da una vuelta en ~1,5 h)
+const MIN_OPEN_ASKS = 3;
+const INFLATED_RATIO = 0.75;
 
 /**
  * GET /api/vinted   (x-alert-secret) → lista de búsquedas que hay que hacer en Vinted.
@@ -129,7 +135,7 @@ export async function POST(req: Request) {
   const refs = await loadReferences(db, candidateCardIds(recognized.map((r) => r.match.card)));
   let withRef = 0;
   const byLevel = { exact: 0, sibling: 0, nearby: 0 };
-  const deals = [];
+  const candidates = [];
   for (const { it, match } of recognized) {
     const ref = resolveReference(refs, match.card, match.parallel);
     if (!ref) continue;
@@ -140,7 +146,7 @@ export async function POST(req: Request) {
     const verdict = judgeDeal(it.price, ref);
     if (!("pct" in verdict)) continue;
     const pct = verdict.pct;
-    deals.push({
+    candidates.push({
       row: {
         external_id: `vinted:${it.id}`,
         title: it.title,
@@ -162,6 +168,39 @@ export async function POST(req: Request) {
     });
   }
 
+  // 3b) Segunda opinión para referencias de eBay (precios PEDIDOS, tiran al alza): si los demás anuncios abiertos de
+  //     Vinted de esa misma carta y variante piden mucho menos que la referencia, la referencia está inflada.
+  let inflatedDropped = 0;
+  const deals = [...candidates];
+  const ebayCandidates = candidates.filter((d) => d.ref.source === "ebay");
+  if (ebayCandidates.length) {
+    const ids = [...new Set(ebayCandidates.map((d) => d.match.card.id))];
+    const active = new Date(Date.now() - ASKS_FRESH_HOURS * 3600_000).toISOString();
+    const asks: { external_id: string; card_id: string; parallel: string | null; price: number }[] = [];
+    for (let i = 0; i < ids.length; i += 200) {
+      const { data } = await db
+        .from("listings")
+        .select("external_id,card_id,parallel,price")
+        .eq("platform", "vinted")
+        .gte("seen_at", active)
+        .gte("price", MIN_REF_VALUE)
+        .in("card_id", ids.slice(i, i + 200))
+        .limit(5000);
+      asks.push(...(data ?? []));
+    }
+    for (const d of ebayCandidates) {
+      const run = printRun(d.match.parallel);
+      const others = asks
+        .filter((a) => a.card_id === d.match.card.id && a.external_id !== d.row.external_id)
+        .filter((a) => (run !== null ? printRun(a.parallel) === run : (a.parallel ?? "") === (d.match.parallel ?? "")))
+        .map((a) => Number(a.price));
+      if (others.length >= MIN_OPEN_ASKS && median(others) < d.ref.value * INFLATED_RATIO) {
+        deals.splice(deals.indexOf(d), 1);
+        inflatedDropped++;
+      }
+    }
+  }
+
   if (backfill) {
     return NextResponse.json({
       ok: true,
@@ -174,6 +213,7 @@ export async function POST(req: Request) {
       with_reference: withRef,
       reference_levels: byLevel,
       deals: deals.length,
+      ebay_ref_inflated: inflatedDropped,
       strong_deals: deals.filter((d) => d.pct >= ALERT_THRESHOLD).length,
     });
   }
@@ -243,6 +283,7 @@ export async function POST(req: Request) {
     with_reference: withRef,
     reference_levels: byLevel,
     deals: deals.length,
+    ebay_ref_inflated: inflatedDropped,
     new_deals: inserted.size,
     alerts,
     alert_photos: alertPhotos,
