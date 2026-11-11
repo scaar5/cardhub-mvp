@@ -5,18 +5,21 @@ name: admin
 #   deals-recheck    → enseña qué chollos guardados ya no lo son (sin tocar nada)
 #   deals-recheck-apply → los borra / actualiza
 #   feedback         → resumen de tus votos ✅/❌
+#   sales-stats      → ventas por día, anuncios en seguimiento y calibración eBay ↔ ventas reales
+#   reclassify       → cuenta cuántos anuncios "no reconocidos" ya se reconocen (sin tocar nada)
+#   reclassify-apply → los pasa a reconocidos (venta incluida)
 on:
   workflow_dispatch:
     inputs:
       action:
-        description: "telegram-setup | deals-recheck | deals-recheck-apply | feedback"
+        description: "telegram-setup | deals-recheck | deals-recheck-apply | feedback | sales-stats | reclassify | reclassify-apply"
         required: true
         default: feedback
 
 jobs:
   run:
     runs-on: ubuntu-latest
-    timeout-minutes: 3
+    timeout-minutes: 4
     steps:
       - env:
           ALERT_SECRET: ${{ secrets.ALERT_SECRET }}
@@ -29,6 +32,9 @@ jobs:
             deals-recheck) URL="$BASE/deals-recheck" ;;
             deals-recheck-apply) URL="$BASE/deals-recheck?apply=1" ;;
             feedback) URL="$BASE/feedback" ;;
+            sales-stats) URL="$BASE/sales-stats" ;;
+            reclassify) URL="$BASE/reclassify" ;;
+            reclassify-apply) URL="$BASE/reclassify?apply=1" ;;
             *) echo "Acción desconocida: $ACTION"; exit 1 ;;
           esac
           curl -sS -m 90 -H "x-alert-secret: $SECRET" "$URL"

@@ -56,7 +56,7 @@ export async function storeSalePhoto(db: SupabaseClient, p: InPhoto): Promise<st
   const { error } = await db
     .from("listings")
     .update({ photo_path: path, photo_url: p.url && isVintedImage(p.url) ? p.url : null })
-    .eq("external_id", `vinted_sold:${p.id}`);
+    .in("external_id", [`vinted_sold:${p.id}`, `vinted_x_sold:${p.id}`]);
   if (error) throw new Error(`listings: ${error.message}`);
   return path;
 }

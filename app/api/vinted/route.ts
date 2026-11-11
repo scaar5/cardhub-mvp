@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
 import { authorized } from "@/lib/auth";
-import { ALERT_THRESHOLD, MIN_PRICE } from "@/lib/config";
+import { ALERT_THRESHOLD, MIN_PRICE, MIN_REF_VALUE } from "@/lib/config";
 import { judgeDeal } from "@/lib/deals";
+import { excludedReason, isOffTopic } from "@/lib/filters";
 import { recognize } from "@/lib/recognize";
 import { point130Query } from "@/lib/point130";
 import { candidateCardIds, cardLabel, loadReferences, resolveReference } from "@/lib/reference";
@@ -69,15 +70,43 @@ export async function POST(req: Request) {
   // 1) Reconocer (sin repetir anuncios que salen en varias búsquedas)
   const seen = new Set<string>();
   const recognized = [];
+  // Anuncios de ≥ MIN_REF_VALUE € que parecen una carta suelta de fútbol pero no se reconocen (colección o jugador
+  // fuera del catálogo, insert, etc.). Se guardan con plataforma `vinted_x` para que, si se venden, la venta quede
+  // registrada y se pueda reconocer más adelante (/api/reclassify) cuando el catálogo crezca.
+  const others: InItem[] = [];
   for (const it of items) {
     if (seen.has(it.id)) continue;
     seen.add(it.id);
     const { match } = recognize(it.title, it.set);
     if (match?.confidence === "alta") recognized.push({ it, match });
+    else if (it.price >= MIN_REF_VALUE && !excludedReason(it.title) && !isOffTopic(it.title)) others.push(it);
   }
 
   // 2) Historial: guardar también los anuncios de Vinted (para analytics futuras)
   const now = new Date().toISOString();
+  let othersSaved = 0;
+  let othersError: string | undefined;
+  for (let i = 0; i < others.length; i += 500) {
+    const chunk = others.slice(i, i + 500);
+    const { error } = await db.from("listings").upsert(
+      chunk.map((it) => ({
+        external_id: `vinted_x:${it.id}`,
+        card_id: null,
+        parallel: null,
+        platform: "vinted_x",
+        title: it.title,
+        price: it.price,
+        url: it.url,
+        seen_at: now,
+      })),
+      { onConflict: "external_id" },
+    );
+    if (error) {
+      othersError = error.message; // no frena el resto (chollos y alertas)
+      break;
+    }
+    othersSaved += chunk.length;
+  }
   if (recognized.length) {
     const { error } = await db.from("listings").upsert(
       recognized.map(({ it, match }) => ({
@@ -140,6 +169,8 @@ export async function POST(req: Request) {
       received: items.length,
       unique: seen.size,
       recognized: recognized.length,
+      others_saved: othersSaved,
+      ...(othersError ? { others_error: othersError } : {}),
       with_reference: withRef,
       reference_levels: byLevel,
       deals: deals.length,
@@ -207,6 +238,8 @@ export async function POST(req: Request) {
     received: items.length,
     unique: seen.size,
     recognized: recognized.length,
+    others_saved: othersSaved,
+    ...(othersError ? { others_error: othersError } : {}),
     with_reference: withRef,
     reference_levels: byLevel,
     deals: deals.length,

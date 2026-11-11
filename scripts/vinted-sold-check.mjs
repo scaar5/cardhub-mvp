@@ -105,6 +105,9 @@ const cfg = await fetch(`${APP_URL}/api/vinted-sold${qs.size ? `?${qs}` : ""}`, 
   let blocked = false;
   let blockHits = 0; // respuestas 403/429 de este lote
   const count = { open: 0, sold: 0, gone: 0, reserved: 0, unknown: 0 };
+  // De dónde salen los aciertos: los primeros n_missing_in_batch ids son "desaparecidos de las búsquedas", el resto, rotación
+  const missIds = new Set(cfg.ids.slice(0, cfg.n_missing_in_batch ?? 0));
+  const hits = { missing: { n: 0, sold: 0, gone: 0 }, rotation: { n: 0, sold: 0, gone: 0 } };
   const pause = () => sleep(PAUSE_MS + Math.random() * 2000);
   for (const id of cfg.ids) {
     if (Date.now() > deadline) break;
@@ -135,6 +138,9 @@ const cfg = await fetch(`${APP_URL}/api/vinted-sold${qs.size ? `?${qs}` : ""}`, 
     else if (!res.ok) r = { state: "unknown", raw: { status: res.status } };
     else r = parseItemState((html = await res.text()), id);
     count[r.state]++;
+    const src = hits[missIds.has(id) ? "missing" : "rotation"];
+    src.n++;
+    if (r.state === "sold" || r.state === "gone") src[r.state]++;
     if (html && (r.state === "sold" || !sampled)) {
       const ph = parsePhotoUrl(html, id);
       if (r.state === "sold") {
@@ -152,6 +158,7 @@ const cfg = await fetch(`${APP_URL}/api/vinted-sold${qs.size ? `?${qs}` : ""}`, 
     await pause();
   }
   console.log(`TOTAL ${JSON.stringify(count)} shard=${SHARD}/${SHARDS} bloqueos403_429=${blockHits}`);
+  console.log(`HITS ${JSON.stringify(hits)}`);
 
   // Ventas antiguas sin foto: se abre su página (sigue existiendo tras la venta) y se saca la foto
   let backfill = 0;

@@ -42,6 +42,13 @@ export function excludedReason(title: string): string | null {
   return null;
 }
 
+/** Otros deportes / juegos: no son cartas de fútbol, no se guardan ni como "no reconocidas". */
+const OFF_TOPIC = words([
+  "nba", "wnba", "mlb", "nfl", "nhl", "ufc", "wwe", "pok[eé]mon", "yu-?gi-?oh", "baloncesto", "basketball",
+  "baseball", "b[eé]isbol", "hockey", "formula 1", "f[oó]rmula 1", "f1", "magic the gathering", "lorcana",
+]);
+export const isOffTopic = (title: string) => OFF_TOPIC.test(title);
+
 export function isComparable(title: string): boolean {
   return excludedReason(title) === null;
 }
