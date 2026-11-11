@@ -103,6 +103,7 @@ const cfg = await fetch(`${APP_URL}/api/vinted-sold${qs.size ? `?${qs}` : ""}`, 
   const photos = [];
   let sampled = false;
   let blocked = false;
+  let blockHits = 0; // respuestas 403/429 de este lote
   const count = { open: 0, sold: 0, gone: 0, reserved: 0, unknown: 0 };
   const pause = () => sleep(PAUSE_MS + Math.random() * 2000);
   for (const id of cfg.ids) {
@@ -115,6 +116,7 @@ const cfg = await fetch(`${APP_URL}/api/vinted-sold${qs.size ? `?${qs}` : ""}`, 
       continue;
     }
     if (res.status === 403 || res.status === 429) {
+      blockHits++;
       // Una sola espera corta y reintento; si sigue frenando, se para este lote
       if (!retried) {
         retried = true;
@@ -158,6 +160,7 @@ const cfg = await fetch(`${APP_URL}/api/vinted-sold${qs.size ? `?${qs}` : ""}`, 
     const res = await fetch(`https://www.vinted.es/items/${id}`, { headers: { ...H, Cookie: cookie } }).catch(() => null);
     if (!res) continue;
     if (res.status === 403 || res.status === 429) {
+      blockHits++;
       console.log(`Vinted ha respondido status ${res.status} con las fotos. Paro.`);
       blocked = true;
       break;
