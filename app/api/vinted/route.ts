@@ -95,7 +95,7 @@ export async function POST(req: Request) {
   }
 
   // 3) Comparar con la referencia de eBay
-  //    En cascada: exacta → colección hermana (misma /N) → misma colección (numeración cercana)
+  //    En cascada: exacta → misma colección (numeración cercana). La colección hermana ya no se usa.
   const refs = await loadReferences(db, candidateCardIds(recognized.map((r) => r.match.card)));
   let withRef = 0;
   const byLevel = { exact: 0, sibling: 0, nearby: 0 };

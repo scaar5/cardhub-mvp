@@ -64,14 +64,9 @@ export function cardLabel(card: CatalogCard, parallel: string | null): string {
   }${parallel ? ` · ${parallel}` : ""}`;
 }
 
-/** Ids de todas las cartas cuya referencia puede hacer falta (la propia + sus hermanas). */
+/** Ids de las cartas cuya referencia puede hacer falta (solo la propia: la colección hermana ya no se usa). */
 export function candidateCardIds(cards: CatalogCard[]): string[] {
-  const ids = new Set<string>();
-  for (const c of cards) {
-    ids.add(c.id);
-    for (const s of siblingCards(c)) ids.add(s.id);
-  }
-  return [...ids];
+  return [...new Set(cards.map((c) => c.id))];
 }
 
 /**
@@ -132,7 +127,7 @@ export async function loadReferences(
 /**
  * Cascada de referencia:
  *   1. Exacta: misma carta y misma variante (o misma numeración /N aunque el color se escriba distinto).
- *   2. Colección hermana: mismo jugador, temporada y tipo de carta, misma numeración /N
+ *   2. (Desactivado) Colección hermana: mismo jugador, temporada y tipo de carta, misma numeración /N
  *      (o la misma variante sin numerar) en otra colección (p. ej. Merlin Chrome /150 → Topps Chrome /150).
  *   3. Numeración cercana: misma carta, la variante numerada más próxima (p. ej. /150 → /125 o /199).
  * Dentro de cada nivel gana una referencia de ventas reales (Vinted) sobre una de anuncios (eBay); luego, la de más datos.
@@ -154,15 +149,9 @@ export function resolveReference(
     own.find((r) => (r.parallel ?? "") === (parallel ?? "")) ?? best(own.filter((r) => sameVariant(r.parallel)));
   if (exact) return { ...exact, level: 1, cardId: card.id };
 
-  // 2) Colección hermana, misma numeración
-  const fromSiblings = siblingCards(card).flatMap((s) =>
-    (refs.get(s.id) ?? []).filter((r) => sameVariant(r.parallel)).map((r) => ({ ...r, cardId: s.id })),
-  );
-  const sib = best(fromSiblings);
-  if (sib) {
-    const c = cardById.get(sib.cardId)!;
-    return { ...sib, level: 2, basedOn: cardLabel(c, sib.parallel) };
-  }
+  // 2) Colección hermana: DESACTIVADO (11-nov). Con los votos, 21 de 24 falsos venían de aquí
+  //    (p. ej. Yamal Finest #50 y Stadium Club #27 con el mismo precio de otra colección).
+  //    Decisión del usuario: si no hay precio de esa carta, no hay precio.
 
   // 3) Misma colección, numeración más cercana y parecida (solo si la carta es numerada)
   if (run !== null) {
