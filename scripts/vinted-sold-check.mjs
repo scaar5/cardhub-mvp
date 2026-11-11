@@ -73,6 +73,9 @@ const LOOP_MINUTES = Number(process.env.LOOP_MINUTES || 0);
 const BATCH = Number(process.env.BATCH || 100);
 const PAUSE_MS = Number(process.env.PAUSE_MS || 5000); // pausa mínima entre anuncios (+0–2 s al azar)
 const BLOCK_PAUSE_MIN = 30;
+// Reparto en trabajos paralelos: este trabajo solo revisa los anuncios con id % SHARDS === SHARD
+const SHARDS = Number(process.env.SHARDS || 1);
+const SHARD = Number(process.env.SHARD || 0);
 const IDLE_PAUSE_MIN = 15; // si no queda nada pendiente, se espera
 
 async function getCookie() {
@@ -82,7 +85,13 @@ async function getCookie() {
 
 /** Un lote: pide anuncios, los revisa y manda el resultado. Devuelve { blocked, ok, checked }. */
 async function checkBatch(headers, deadline, limit) {
-  const cfg = await fetch(`${APP_URL}/api/vinted-sold${limit ? `?limit=${limit}` : ""}`, { headers }).then((r) => r.json());
+  const qs = new URLSearchParams();
+if (limit) qs.set("limit", String(limit));
+if (SHARDS > 1) {
+qs.set("shards", String(SHARDS));
+qs.set("shard", String(SHARD));
+}
+const cfg = await fetch(`${APP_URL}/api/vinted-sold${qs.size ? `?${qs}` : ""}`, { headers }).then((r) => r.json());
   if (!cfg.ok) throw new Error(`No pude leer los anuncios a revisar: ${JSON.stringify(cfg)}`);
   const { ids: _ids, photo_ids: _p, ...info } = cfg;
   console.log(`[${new Date().toISOString()}] QUEUE ${JSON.stringify(info)} → reviso ${cfg.ids.length}`);
@@ -140,7 +149,7 @@ async function checkBatch(headers, deadline, limit) {
     results.push({ id, state: r.state, price: r.price });
     await pause();
   }
-  console.log(`TOTAL ${JSON.stringify(count)}`);
+  console.log(`TOTAL ${JSON.stringify(count)} shard=${SHARD}/${SHARDS} bloqueos403_429=${blockHits}`);
 
   // Ventas antiguas sin foto: se abre su página (sigue existiendo tras la venta) y se saca la foto
   let backfill = 0;

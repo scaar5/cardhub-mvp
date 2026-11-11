@@ -2,28 +2,35 @@ name: vinted-sold
 
 # Ventas reales en Vinted: revisa los anuncios reconocidos que siguen abiertos y apunta los vendidos.
 # Modo continuo (como vinted-live): cada ejecución se queda 110 min revisando anuncios uno a uno
-# (7–9 s entre peticiones → ~400 por hora), en lotes de 100, primero los de ≥10 € que hace más que no se miran.
-# El cron lanza una nueva cada hora; nunca hay dos a la vez (la siguiente espera), así que siempre hay una en marcha.
-# Si Vinted frena (403/429), espera 30 min antes de seguir.
+# (5–7 s entre peticiones), en lotes de 100, primero los de ≥10 € que hace más que no se miran.
+# Se reparte en 3 trabajos en paralelo (shards): cada uno revisa solo los anuncios cuyo id cumple id % 3 == shard,
+# así no se repiten y la vuelta completa tarda ~1/3. Cada trabajo corre en su propia máquina (IP distinta).
+# El cron lanza uno nuevo por shard cada hora; nunca hay dos del mismo shard a la vez (la siguiente espera).
+# Si Vinted frena (403/429), ese trabajo espera 30 min antes de seguir.
 on:
   schedule:
     - cron: "37 * * * *"
   workflow_dispatch:
 
-concurrency:
-  group: vinted-sold
-  cancel-in-progress: false
-
 jobs:
   run:
     runs-on: ubuntu-latest
     timeout-minutes: 125
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2]
+    concurrency:
+      group: vinted-sold-${{ matrix.shard }}
+      cancel-in-progress: false
     env:
       ALERT_SECRET: ${{ secrets.ALERT_SECRET }}
       APP_URL: ${{ vars.APP_URL || 'https://scaard5-analytics.vercel.app' }}
       LOOP_MINUTES: "110"
       BATCH: "100"
-      PAUSE_MS: "7000"
+      PAUSE_MS: "5000"
+      SHARD: ${{ matrix.shard }}
+      SHARDS: "3"
     steps:
       - uses: actions/checkout@v4
         with:

@@ -47,6 +47,17 @@ export async function GET(req: Request) {
   const limitParam = Number(new URL(req.url).searchParams.get("limit"));
   const batch = Number.isFinite(limitParam) && limitParam > 0 ? Math.min(MAX_BATCH, Math.floor(limitParam)) : CHECK_BATCH;
 
+  // Reparto entre trabajos paralelos: ?shards=M&shard=N → solo los anuncios con id % M === N
+  const sp = new URL(req.url).searchParams;
+  const shardsN = Math.floor(Number(sp.get("shards")));
+  const shardN = Math.floor(Number(sp.get("shard")));
+  const sharded = Number.isFinite(shardsN) && shardsN > 1 && Number.isFinite(shardN) && shardN >= 0 && shardN < shardsN;
+  const inShard = (id: string) => {
+  if (!sharded) return true;
+  const n = Number(id);
+  return Number.isFinite(n) ? n % shardsN === shardN : false;
+  };
+
   const since = new Date(Date.now() - TRACK_DAYS * 86400_000).toISOString();
   type OpenRow = { external_id: string; price: number; checked_at?: string | null; seen_at?: string | null };
   const openQuery = (cols: string) =>
@@ -91,7 +102,7 @@ export async function GET(req: Request) {
       checked: r.checked_at ? Date.parse(r.checked_at) : 0, // nunca revisado → el primero
       seen: r.seen_at ? Date.parse(r.seen_at) : 0,
     }))
-    .filter((r) => r.id && !done.has(r.id));
+    .filter((r) => r.id && !done.has(r.id) && inShard(r.id));
   const cheap = pending.filter((r) => !(r.price >= MIN_REF_VALUE)).length;
   // Solo se revisan los de MIN_REF_VALUE € o más: los baratos se guardan, pero no se gasta Vinted en ellos
   const tracked = pending.filter((r) => r.price >= MIN_REF_VALUE);
@@ -122,7 +133,7 @@ export async function GET(req: Request) {
     oldest_10_hours: oldest ? Math.round((Date.now() - oldest.checked) / 3600_000) : null,
     ids: ordered.slice(0, batch),
     // Si la migración 006 no está, no hay columna photo_path: se sigue sin fotos
-    photo_ids: noPhoto.error ? [] : (noPhoto.data ?? []).map((r) => vid(r.external_id)),
+    photo_ids: noPhoto.error ? [] : (noPhoto.data ?? []).map((r) => vid(r.external_id)).filter(inShard),
   });
 }
 
