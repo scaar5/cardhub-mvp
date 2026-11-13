@@ -21,8 +21,8 @@ const MIN_OPEN_ASKS = 3;
 const INFLATED_RATIO = 0.75;
 // Chollo "frente al mercado abierto" (cartas SIN referencia de ventas ni de eBay): el anuncio tiene que estar claramente
 // por debajo de otros anuncios idénticos que se ofrecen ahora mismo en Vinted. Son precios pedidos, no ventas: más estricto.
-const OPEN_MIN_ASKS = 4; // anuncios iguales (misma carta y variante) además del propio
-const OPEN_MIN_PCT = 45; // % por debajo de la mediana
+const OPEN_MIN_ASKS = 3; // anuncios iguales (misma carta y variante) además del propio (13-nov: 4 → 3, decisión del usuario)
+const OPEN_MIN_PCT = 35; // % por debajo de la mediana (13-nov: 45 → 35)
 const OPEN_BELOW_MIN = 0.85; // y por debajo del más barato de los demás (×0,85)
 const OPEN_MAX_ALERTS = 5; // tope de alertas de este tipo por llamada
 
