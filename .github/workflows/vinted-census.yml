@@ -8,6 +8,12 @@ on:
       max_pages:
         description: "Máximo de páginas por búsqueda"
         default: "60"
+      queries:
+        description: "Búsquedas nuevas separadas por | (vacío = las del sniper)"
+        default: ""
+      branch:
+        description: "Rama donde guardar el resultado"
+        default: "vinted-census"
 
 permissions:
   contents: write
@@ -25,16 +31,20 @@ jobs:
         env:
           ALERT_SECRET: ${{ secrets.ALERT_SECRET }}
           MAX_PAGES: ${{ inputs.max_pages }}
+          QUERIES: ${{ inputs.queries }}
+          BRANCH: ${{ inputs.branch }}
       - name: Guardar en rama vinted-census
         if: always()
+        env:
+          BRANCH: ${{ inputs.branch }}
         run: |
           test -f out/census.json || exit 0
           cp out/census.json /tmp/census.json
           git config user.name "github-actions"
           git config user.email "github-actions@users.noreply.github.com"
-          git checkout --orphan vinted-census
+          git checkout --orphan "$BRANCH"
           git rm -rfq .
           cp /tmp/census.json .
           git add -A
           git commit -qm "vinted census $(date -u +%FT%TZ)"
-          git push -f origin vinted-census
+          git push -f origin "$BRANCH"

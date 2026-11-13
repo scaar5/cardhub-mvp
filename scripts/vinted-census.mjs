@@ -15,7 +15,11 @@ const decode = (s) =>
   s.replace(/&quot;/g, '"').replace(/&#x27;|&#39;/g, "'").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&");
 
 const started = Date.now();
-const cfg = await fetch(`${APP_URL}/api/vinted`, { headers: { "x-alert-secret": SECRET } }).then((r) => r.json());
+// QUERIES="a|b|c": censo solo de esas búsquedas nuevas (no se lee la lista del sniper)
+const extra = (process.env.QUERIES || "").split("|").map((q) => q.trim()).filter(Boolean);
+const cfg = extra.length
+  ? { ok: true, searches: extra.map((q) => ({ q, set: "extra" })) }
+  : await fetch(`${APP_URL}/api/vinted`, { headers: { "x-alert-secret": SECRET } }).then((r) => r.json());
 if (!cfg.ok) throw new Error(`No pude leer las búsquedas: ${JSON.stringify(cfg)}`);
 
 const items = [];
