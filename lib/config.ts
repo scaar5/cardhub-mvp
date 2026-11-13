@@ -48,3 +48,9 @@ export const MIN_PRICE = 0.5;
 
 /** Para el valorador manual (/valorar): nº mínimo de comparables de una búsqueda libre. */
 export const MIN_SAMPLE = 8;
+
+/**
+ * Precio mínimo de los anuncios que se SIGUEN para registrar ventas (base de datos de ventas). Las alertas de chollos
+ * siguen exigiendo MIN_REF_VALUE (10 €): esto solo amplía el seguimiento (decisión del usuario, 13-nov).
+ */
+export const TRACK_MIN_PRICE = 5;

@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { authorized } from "@/lib/auth";
-import { ALERT_THRESHOLD, EXTREME_PCT, MIN_PRICE, MIN_REF_VALUE } from "@/lib/config";
+import { ALERT_THRESHOLD, EXTREME_PCT, MIN_PRICE, MIN_REF_VALUE, TRACK_MIN_PRICE } from "@/lib/config";
 import { judgeDeal } from "@/lib/deals";
 import { excludedReason, isOffTopic } from "@/lib/filters";
 import { recognize } from "@/lib/recognize";
@@ -82,7 +82,7 @@ export async function POST(req: Request) {
   // 1) Reconocer (sin repetir anuncios que salen en varias búsquedas)
   const seen = new Set<string>();
   const recognized = [];
-  // Anuncios de ≥ MIN_REF_VALUE € que parecen una carta suelta de fútbol pero no se reconocen (colección o jugador
+  // Anuncios de ≥ TRACK_MIN_PRICE € que parecen una carta suelta de fútbol pero no se reconocen (colección o jugador
   // fuera del catálogo, insert, etc.). Se guardan con plataforma `vinted_x` para que, si se venden, la venta quede
   // registrada y se pueda reconocer más adelante (/api/reclassify) cuando el catálogo crezca.
   const others: InItem[] = [];
@@ -91,7 +91,7 @@ export async function POST(req: Request) {
     seen.add(it.id);
     const { match } = recognize(it.title, it.set);
     if (match?.confidence === "alta") recognized.push({ it, match });
-    else if (it.price >= MIN_REF_VALUE && !excludedReason(it.title) && !isOffTopic(it.title)) others.push(it);
+    else if (it.price >= TRACK_MIN_PRICE && !excludedReason(it.title) && !isOffTopic(it.title)) others.push(it);
   }
 
   // 2) Historial: guardar también los anuncios de Vinted (para analytics futuras)

@@ -1,6 +1,7 @@
 name: vinted-sweep
 
-# Vigilancia total: recorre TODAS las páginas de todas las búsquedas de vinted.es (≥10 €; troceando por precio
+# Vigilancia total (desde el 13-nov: ≥5 € y 2 trabajos en paralelo, cada uno con la mitad de las búsquedas, para que
+# la vuelta no se alargue). Recorre TODAS las páginas de todas las búsquedas de vinted.es (antes ≥10 €; troceando por precio
 # cuando Vinted corta en ~950 anuncios). ~750 peticiones y ~85 min por vuelta. Guarda/actualiza los anuncios
 # (seen_at) SIN alertas; los que dejan de verse los revisa vinted-sold los primeros (venta o borrado).
 # Igual que vinted-live: cada ejecución dura 110 min y se lanza una cada hora; nunca hay dos a la vez.
@@ -18,11 +19,17 @@ jobs:
   run:
     runs-on: ubuntu-latest
     timeout-minutes: 125
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1]
     env:
+      SHARDS: "2"
+      SHARD: ${{ matrix.shard }}
       ALERT_SECRET: ${{ secrets.ALERT_SECRET }}
       APP_URL: ${{ vars.APP_URL || 'https://scaard5-analytics.vercel.app' }}
       LOOP_MINUTES: "110"
-      MIN_PRICE: "10"
+      MIN_PRICE: "5"
     steps:
       - uses: actions/checkout@v4
         with:

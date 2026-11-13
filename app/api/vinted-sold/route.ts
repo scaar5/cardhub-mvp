@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { authorized } from "@/lib/auth";
-import { MIN_PRICE, MIN_REF_VALUE } from "@/lib/config";
+import { MIN_PRICE, TRACK_MIN_PRICE } from "@/lib/config";
 import { fetchAll } from "@/lib/fetch-all";
 import { storeSalePhoto, type InPhoto } from "@/lib/photos";
 import { getSupabaseAdmin } from "@/lib/supabase-admin";
@@ -17,7 +17,7 @@ export const maxDuration = 60;
  *
  * GET  /api/vinted-sold[?limit=N] (x-alert-secret) → anuncios abiertos que toca revisar (máx. N o CHECK_BATCH;
  *                                         no se repiten los mirados hace menos de RECHECK_HOURS):
- *                                         SOLO los de ≥ MIN_REF_VALUE € (los baratos no interesan; desde el 7-nov),
+ *                                         SOLO los de ≥ TRACK_MIN_PRICE € (5 € desde el 13-nov; antes 10 €),
  *                                         primero los que hace más tiempo que no se miran (checked_at, migración 007)
  *                                         + photo_ids: ventas sin foto todavía (máx. PHOTO_BATCH)
  * POST /api/vinted-sold (x-alert-secret) → { results: [{ id, state: "sold"|"gone"|"open"|"reserved", price? }],
@@ -118,9 +118,9 @@ export async function GET(req: Request) {
     if (!prev || (row.recognized && !prev.recognized)) byId.set(id, row);
   }
   const pending = [...byId.values()];
-  const cheap = pending.filter((r) => !(r.price >= MIN_REF_VALUE)).length;
-  // Solo se revisan los de MIN_REF_VALUE € o más: los baratos se guardan, pero no se gasta Vinted en ellos
-  const all = pending.filter((r) => r.price >= MIN_REF_VALUE);
+  const cheap = pending.filter((r) => !(r.price >= TRACK_MIN_PRICE)).length;
+  // Solo se revisan los de TRACK_MIN_PRICE € o más (5 €): los más baratos se guardan, pero no se gasta Vinted en ellos
+  const all = pending.filter((r) => r.price >= TRACK_MIN_PRICE);
   // Rotación lenta: solo los reconocidos. Los `vinted_x` se revisan únicamente cuando desaparecen de las búsquedas.
   const tracked = all.filter((r) => r.recognized);
   // Al azar entre iguales, y luego por turno: el que lleva más tiempo sin mirarse va antes

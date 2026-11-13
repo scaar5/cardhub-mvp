@@ -1,4 +1,5 @@
-// Repaso COMPLETO de Vinted (vigilancia total), desde MIN_PRICE € (10 €).
+// Repaso COMPLETO de Vinted (vigilancia total), desde MIN_PRICE € (5 € desde el 13-nov; antes 10 €).
+// SHARDS/SHARD: varios trabajos en paralelo, cada uno con una parte de las búsquedas (índice % SHARDS).
 // Cada vuelta recorre todas las búsquedas del sniper, todas sus páginas; si una búsqueda llega al tope de Vinted
 // (~11 páginas, ~950 anuncios), la trocea por tramos de precio. Censo del 7-nov: ~750 peticiones, ~85 min por vuelta,
 // 6.467 anuncios de cartas del catálogo (≥10 €).
@@ -15,7 +16,9 @@ const MAX_PAGES = 12;
 const CAP = 850;
 const BLOCK_PAUSE_MIN = 30;
 const UA = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36";
-const BANDS = [10, 12, 15, 20, 25, 30, 40, 50, 75, 100, 150, 250, 500, 100000]
+const SHARDS = Math.max(1, Number(process.env.SHARDS || 1));
+const SHARD = Number(process.env.SHARD || 0);
+const BANDS = [5, 6, 8, 10, 12, 15, 20, 25, 30, 40, 50, 75, 100, 150, 250, 500, 100000]
   .filter((b, i, a) => b >= MIN_PRICE || a[i + 1] > MIN_PRICE)
   .map((b) => Math.max(b, MIN_PRICE));
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -79,7 +82,8 @@ async function sweepOnce(n) {
   if (!cfg.ok) throw new Error(`No pude leer las búsquedas: ${JSON.stringify(cfg)}`);
   const t0 = Date.now(), r0 = requests;
   const total = { searches: 0, seen: 0, recognized: 0 };
-  for (const { q, set } of cfg.searches) {
+  const mine = cfg.searches.filter((_, i) => i % SHARDS === SHARD);
+  for (const { q, set } of mine) {
     if (!timeLeft()) break;
     const out = new Map();
     const n0 = await crawl(q, MIN_PRICE, 100000, out);
@@ -91,7 +95,7 @@ async function sweepOnce(n) {
     total.recognized += r.recognized ?? 0;
     console.log(`SWEEP_Q ${JSON.stringify({ q, seen: items.length, recognized: r.recognized, ok: r.ok, error: r.error })}`);
   }
-  console.log(`SWEEP ${JSON.stringify({ vuelta: n, ...total, requests: requests - r0, minutes: Math.round((Date.now() - t0) / 60000) })}`);
+  console.log(`SWEEP ${JSON.stringify({ vuelta: n, shard: `${SHARD}/${SHARDS}`, ...total, requests: requests - r0, minutes: Math.round((Date.now() - t0) / 60000) })}`);
 }
 
 async function main() {
