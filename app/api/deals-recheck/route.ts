@@ -21,7 +21,7 @@ export async function GET(req: Request) {
   if (!db) return NextResponse.json({ ok: false, error: "Falta SUPABASE_SECRET_KEY" }, { status: 503 });
   const apply = new URL(req.url).searchParams.get("apply") === "1";
 
-  const { data, error } = await db.from("deals").select("id,external_id,title,platform,price,market_value,feedback").limit(5000);
+  const { data, error } = await db.from("deals").select("id,external_id,title,platform,price,market_value,feedback,ref_source").limit(5000);
   if (error) return NextResponse.json({ ok: false, error: error.message }, { status: 500 });
 
   const deals = (data ?? []).filter((d) => !d.feedback);
@@ -40,6 +40,7 @@ export async function GET(req: Request) {
       remove.push({ ...base, old_ref: Number(d.market_value), why: "chollo de eBay (eBay ya solo es referencia)" });
       continue;
     }
+    if (d.ref_source === "vinted_open") continue; // referencia = anuncios abiertos de aquel momento; no se puede recalcular
     if (!match || match.confidence !== "alta") {
       remove.push({ ...base, old_ref: Number(d.market_value), why: "la carta ya no se reconoce con seguridad" });
       continue;

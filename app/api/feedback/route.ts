@@ -39,7 +39,7 @@ export async function GET(req: Request) {
   }
   if (error) return NextResponse.json({ ok: false, error: error.message }, { status: 500 });
 
-  type Row = { card_id: string | null; parallel: string | null; feedback: string | null; fb_card?: string | null; fb_ref?: string | null; title: string; price: number; market_value: number };
+  type Row = { ref_source?: string | null; card_id: string | null; parallel: string | null; feedback: string | null; fb_card?: string | null; fb_ref?: string | null; title: string; price: number; market_value: number };
   const all = ((data ?? []) as unknown as Row[]).map((d) => {
     const card = d.card_id ? cardById.get(d.card_id) : undefined;
     return { ...d, card: card ? cardLabel(card, d.parallel) : null };
@@ -54,6 +54,15 @@ export async function GET(req: Request) {
       return m;
     }, {});
   const inflated = all.filter((r) => r.fb_ref === "alta");
+  // Precisión según de dónde sale la referencia (ventas reales / eBay / anuncios abiertos de Vinted)
+  const bySource: Record<string, { votes: number; good: number; precision_pct: number }> = {};
+  for (const r of rows) {
+    const k = r.ref_source ?? "desconocida";
+    const e = (bySource[k] ??= { votes: 0, good: 0, precision_pct: 0 });
+    e.votes++;
+    if (r.feedback === "bueno") e.good++;
+  }
+  for (const e of Object.values(bySource)) e.precision_pct = Math.round((e.good / e.votes) * 100);
   return NextResponse.json({
     ok: true,
     days,
@@ -61,6 +70,7 @@ export async function GET(req: Request) {
     good,
     bad: rows.length - good,
     precision_pct: rows.length ? Math.round((good / rows.length) * 100) : null,
+    por_fuente: bySource,
     // ¿Es la carta?  si / otra (paralela o carta equivocada) / lote (lote, graduada, dañada)
     carta: count("fb_card"),
     // ¿Qué dice 130point?  ok / alta (referencia inflada) / baja (vale más) / nose (sin ventas)

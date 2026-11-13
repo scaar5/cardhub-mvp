@@ -101,7 +101,7 @@ export interface AlertComparable {
   price: number;
   url: string | null;
   date: string | null;
-  platform: "vinted_sold" | "ebay";
+  platform: "vinted_sold" | "ebay" | "vinted";
 }
 
 /**
@@ -116,7 +116,7 @@ export function dealAlertHtml(d: {
   url: string | null;
   card?: string;
   sample?: number;
-  source?: "vinted_sold" | "ebay";
+  source?: "vinted_sold" | "ebay" | "vinted_open";
   note?: string;
   comps?: AlertComparable[];
   /** Texto de búsqueda de 130point para esta carta (enlace + texto para copiar). */
@@ -125,19 +125,24 @@ export function dealAlertHtml(d: {
   const pct = Math.round((1 - d.price / d.market_value) * 100);
   const where = d.platform === "vinted" ? "Vinted" : d.platform === "wallapop" ? "Wallapop" : d.platform;
   const sold = d.source === "vinted_sold";
-  const refWhat = sold ? "ventas reales en Vinted" : "anuncios en eBay (precio pedido)";
+  const open = d.source === "vinted_open";
+  const refWhat = sold
+    ? "ventas reales en Vinted"
+    : open
+      ? "anuncios iguales abiertos en Vinted (precio pedido, sin ventas todavía)"
+      : "anuncios en eBay (precio pedido)";
   const lines: string[] = [
     `🔥 <b>Chollo -${pct}% en ${where}</b>`,
     d.card ? `🃏 ${esc(d.card)}` : "",
     `<i>${esc(d.title.slice(0, 150))}</i>`,
     "",
     `💶 Precio: <b>${eur(d.price)}</b>`,
-    `📈 Referencia${d.note ? " (estimada)" : ""}: <b>${eur(d.market_value)}</b>${d.sample ? ` · ${d.sample} ${refWhat}` : ""}`,
+    `📈 Referencia${d.note || open ? " (estimada)" : ""}: <b>${eur(d.market_value)}</b>${d.sample ? ` · ${d.sample} ${refWhat}` : ""}`,
     d.note ? `ℹ️ ${esc(d.note)}` : "",
   ];
   const comps = d.comps ?? [];
   if (comps.length) {
-    lines.push("", sold ? "🧾 <b>Últimas ventas:</b>" : "🧾 <b>Anuncios más baratos:</b>");
+    lines.push("", sold ? "🧾 <b>Últimas ventas:</b>" : open ? "🧾 <b>Otros anuncios abiertos:</b>" : "🧾 <b>Anuncios más baratos:</b>");
     for (const c of comps) {
       const date = shortDate(c.date);
       const label = `${eur(c.price)}${date ? ` · ${sold ? "vendida" : "visto"} ${date}` : ""}`;

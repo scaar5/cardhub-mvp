@@ -1,15 +1,15 @@
 import { NextResponse } from "next/server";
 import { authorized } from "@/lib/auth";
-import { ALERT_THRESHOLD, MIN_PRICE, MIN_REF_VALUE } from "@/lib/config";
+import { ALERT_THRESHOLD, EXTREME_PCT, MIN_PRICE, MIN_REF_VALUE } from "@/lib/config";
 import { judgeDeal } from "@/lib/deals";
 import { excludedReason, isOffTopic } from "@/lib/filters";
 import { recognize } from "@/lib/recognize";
 import { point130Query } from "@/lib/point130";
 import { median } from "@/lib/market";
-import { candidateCardIds, cardLabel, loadReferences, printRun, resolveReference } from "@/lib/reference";
+import { candidateCardIds, cardLabel, loadReferences, printRun, resolveReference, type ResolvedReference } from "@/lib/reference";
 import { VINTED_SEARCHES } from "@/lib/set-rules";
 import { getSupabaseAdmin } from "@/lib/supabase-admin";
-import { dealAlertHtml, sendDealAlert } from "@/lib/telegram";
+import { dealAlertHtml, sendDealAlert, type AlertComparable } from "@/lib/telegram";
 import { loadComparables } from "@/lib/valuation";
 
 export const dynamic = "force-dynamic";
@@ -19,6 +19,12 @@ export const maxDuration = 60;
 const ASKS_FRESH_HOURS = 4; // anuncio "abierto" = visto en las búsquedas en las últimas horas (el sweep da una vuelta en ~1,5 h)
 const MIN_OPEN_ASKS = 3;
 const INFLATED_RATIO = 0.75;
+// Chollo "frente al mercado abierto" (cartas SIN referencia de ventas ni de eBay): el anuncio tiene que estar claramente
+// por debajo de otros anuncios idénticos que se ofrecen ahora mismo en Vinted. Son precios pedidos, no ventas: más estricto.
+const OPEN_MIN_ASKS = 4; // anuncios iguales (misma carta y variante) además del propio
+const OPEN_MIN_PCT = 45; // % por debajo de la mediana
+const OPEN_BELOW_MIN = 0.85; // y por debajo del más barato de los demás (×0,85)
+const OPEN_MAX_ALERTS = 5; // tope de alertas de este tipo por llamada
 
 /**
  * GET /api/vinted   (x-alert-secret) → lista de búsquedas que hay que hacer en Vinted.
@@ -135,10 +141,35 @@ export async function POST(req: Request) {
   const refs = await loadReferences(db, candidateCardIds(recognized.map((r) => r.match.card)));
   let withRef = 0;
   const byLevel = { exact: 0, sibling: 0, nearby: 0 };
-  const candidates = [];
+  type Cand = {
+    row: {
+      external_id: string;
+      title: string;
+      platform: string;
+      price: number;
+      market_value: number;
+      url: string | null;
+      query: string | null;
+      card_id: string;
+      parallel: string | null;
+      ref_source: string;
+      ref_sample: number;
+      ref_level: number;
+    };
+    pct: number;
+    ref: { value: number; sample: number; source: "vinted_sold" | "ebay" | "vinted_open"; level: number; basedOn?: string };
+    match: (typeof recognized)[number]["match"];
+    it: (typeof recognized)[number]["it"];
+    comps?: AlertComparable[]; // solo los chollos "vinted_open": los otros anuncios abiertos
+  };
+  const candidates: Cand[] = [];
+  const noRef: typeof recognized = []; // reconocidos sin ninguna referencia: candidatos a "chollo frente al mercado abierto"
   for (const { it, match } of recognized) {
     const ref = resolveReference(refs, match.card, match.parallel);
-    if (!ref) continue;
+    if (!ref) {
+      noRef.push({ it, match });
+      continue;
+    }
     withRef++;
     if (ref.level === 1) byLevel.exact++;
     else if (ref.level === 2) byLevel.sibling++;
@@ -168,36 +199,78 @@ export async function POST(req: Request) {
     });
   }
 
-  // 3b) Segunda opinión para referencias de eBay (precios PEDIDOS, tiran al alza): si los demás anuncios abiertos de
-  //     Vinted de esa misma carta y variante piden mucho menos que la referencia, la referencia está inflada.
+  // 3b) Anuncios abiertos de Vinted (vistos en las últimas horas) de las cartas implicadas: se usan para
+  //     (a) segunda opinión en referencias de eBay y (b) chollos frente al mercado abierto en cartas sin referencia.
   let inflatedDropped = 0;
+  let openRefDeals = 0;
   const deals = [...candidates];
   const ebayCandidates = candidates.filter((d) => d.ref.source === "ebay");
-  if (ebayCandidates.length) {
-    const ids = [...new Set(ebayCandidates.map((d) => d.match.card.id))];
+  const askIds = [...new Set([...ebayCandidates.map((d) => d.match.card.id), ...noRef.map((d) => d.match.card.id)])];
+  if (askIds.length) {
     const active = new Date(Date.now() - ASKS_FRESH_HOURS * 3600_000).toISOString();
-    const asks: { external_id: string; card_id: string; parallel: string | null; price: number }[] = [];
-    for (let i = 0; i < ids.length; i += 200) {
+    const asks: { external_id: string; card_id: string; parallel: string | null; price: number; title: string; url: string | null }[] = [];
+    for (let i = 0; i < askIds.length; i += 200) {
       const { data } = await db
         .from("listings")
-        .select("external_id,card_id,parallel,price")
+        .select("external_id,card_id,parallel,price,title,url")
         .eq("platform", "vinted")
         .gte("seen_at", active)
         .gte("price", MIN_REF_VALUE)
-        .in("card_id", ids.slice(i, i + 200))
-        .limit(5000);
+        .in("card_id", askIds.slice(i, i + 200))
+        .limit(8000);
       asks.push(...(data ?? []));
     }
+    const sameCard = (cardId: string, parallel: string | null, selfId: string) => {
+      const run = printRun(parallel);
+      return asks.filter(
+        (a) =>
+          a.card_id === cardId &&
+          a.external_id !== selfId &&
+          (run !== null ? printRun(a.parallel) === run : (a.parallel ?? "") === (parallel ?? "")),
+      );
+    };
     for (const d of ebayCandidates) {
-      const run = printRun(d.match.parallel);
-      const others = asks
-        .filter((a) => a.card_id === d.match.card.id && a.external_id !== d.row.external_id)
-        .filter((a) => (run !== null ? printRun(a.parallel) === run : (a.parallel ?? "") === (d.match.parallel ?? "")))
-        .map((a) => Number(a.price));
+      const others = sameCard(d.match.card.id, d.match.parallel, d.row.external_id).map((a) => Number(a.price));
       if (others.length >= MIN_OPEN_ASKS && median(others) < d.ref.value * INFLATED_RATIO) {
         deals.splice(deals.indexOf(d), 1);
         inflatedDropped++;
       }
+    }
+    for (const { it, match } of noRef) {
+      if (openRefDeals >= OPEN_MAX_ALERTS) break;
+      const others = sameCard(match.card.id, match.parallel, `vinted:${it.id}`);
+      if (others.length < OPEN_MIN_ASKS) continue;
+      const prices = others.map((a) => Number(a.price));
+      const mid = median(prices);
+      const pct = Math.round((1 - it.price / mid) * 100);
+      // Dentro de la banda fiable: bastante por debajo de la mediana, claramente bajo el más barato, y sin llegar al
+      // descuento extremo (casi siempre es una variante mal reconocida, no una ganga)
+      if (mid < MIN_REF_VALUE || pct < OPEN_MIN_PCT || pct >= EXTREME_PCT || it.price >= Math.min(...prices) * OPEN_BELOW_MIN) continue;
+      openRefDeals++;
+      deals.push({
+        row: {
+          external_id: `vinted:${it.id}`,
+          title: it.title,
+          platform: "vinted",
+          price: it.price,
+          market_value: mid,
+          url: it.url,
+          query: it.set ?? null,
+          card_id: match.card.id,
+          parallel: match.parallel,
+          ref_source: "vinted_open",
+          ref_sample: others.length,
+          ref_level: 1,
+        },
+        pct,
+        ref: { value: mid, sample: others.length, source: "vinted_open", level: 1 },
+        match,
+        it,
+        comps: others
+          .sort((a, b) => Number(a.price) - Number(b.price))
+          .slice(0, 4)
+          .map((a) => ({ title: a.title, price: Number(a.price), url: a.url, date: null, platform: "vinted" as const })),
+      });
     }
   }
 
@@ -214,6 +287,7 @@ export async function POST(req: Request) {
       reference_levels: byLevel,
       deals: deals.length,
       ebay_ref_inflated: inflatedDropped,
+      open_ref_deals: openRefDeals,
       strong_deals: deals.filter((d) => d.pct >= ALERT_THRESHOLD).length,
     });
   }
@@ -241,7 +315,7 @@ export async function POST(req: Request) {
 
     // Comparables: las ventas (o anuncios de eBay) que forman la referencia, con enlace.
     // Ventas → las más recientes; eBay → las más baratas (la referencia de eBay es la parte baja).
-    const all = await loadComparables(db, d.ref).catch(() => []);
+    const all = d.comps ?? (await loadComparables(db, d.ref as ResolvedReference).catch(() => []));
     const sold = d.ref.source === "vinted_sold";
     const ordered = sold ? [...all].sort((a, b) => (b.date ?? "").localeCompare(a.date ?? "")) : all;
     // Copia guardada con el chollo (aunque luego desaparezcan los anuncios). Si falta la migración 008, se sigue.
@@ -284,6 +358,7 @@ export async function POST(req: Request) {
     reference_levels: byLevel,
     deals: deals.length,
     ebay_ref_inflated: inflatedDropped,
+    open_ref_deals: openRefDeals,
     new_deals: inserted.size,
     alerts,
     alert_photos: alertPhotos,
