@@ -30,7 +30,7 @@ const MAX_BATCH = 200;
 const TRACK_DAYS = 30;
 const PHOTO_BATCH = 10;
 // En modo continuo no se vuelve a mirar un anuncio hasta pasadas unas horas (si no, se repetirían siempre los mismos)
-const RECHECK_HOURS = 3;
+const RECHECK_HOURS = 24; // medido 13-nov: la rotación acierta 1 de cada ~2.800 revisiones; los desaparecidos (missing) 3 de 53
 // Repaso completo (vinted-sweep, ~85 min por vuelta): un anuncio que no se ha visto en las búsquedas desde hace
 // GONE_HOURS probablemente se ha vendido o borrado → se revisa ANTES que los demás.
 const GONE_HOURS = 3;
