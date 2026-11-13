@@ -30,17 +30,24 @@ export async function GET(req: Request) {
   if (!db) return NextResponse.json({ ok: false, error: "Falta SUPABASE_SECRET_KEY" }, { status: 503 });
 
   type Row = { title: string; price: number };
-  const { data, error } = await fetchAll<Row>(
-    (from, to) =>
-      db
-        .from("listings")
-        .select("title,price")
-        .in("platform", ["vinted_x", "vinted_x_sold"])
-        .order("external_id")
-        .range(from, to) as unknown as PromiseLike<{ data: Row[] | null; error: { message: string } | null }>,
-    40_000,
-  );
-  if (error) return NextResponse.json({ ok: false, error: error.message }, { status: 500 });
+  // Por plataforma y con el mismo filtro de fecha que usa el seguimiento (la consulta conjunta superaba el tiempo de Supabase)
+  const since = new Date(Date.now() - 30 * 86400_000).toISOString();
+  const data: Row[] = [];
+  for (const platform of ["vinted_x_sold", "vinted_x_gone", "vinted_x"]) {
+    const r = await fetchAll<Row>(
+      (from, to) =>
+        db
+          .from("listings")
+          .select("title,price")
+          .eq("platform", platform)
+          .gte("seen_at", since)
+          .order("external_id")
+          .range(from, to) as unknown as PromiseLike<{ data: Row[] | null; error: { message: string } | null }>,
+      platform === "vinted_x" ? 9000 : 3000,
+    );
+    if (r.error) return NextResponse.json({ ok: false, error: `${platform}: ${r.error.message}` }, { status: 500 });
+    data.push(...r.data);
+  }
 
   const reasons: Record<string, number> = {};
   const words: Record<string, Record<string, number>> = {};
