@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { authorized } from "@/lib/auth";
 import { median } from "@/lib/market";
+import { recognize } from "@/lib/recognize";
 import { fetchAll } from "@/lib/fetch-all";
 import { getSupabaseAdmin } from "@/lib/supabase-admin";
 
@@ -85,9 +86,27 @@ export async function GET(req: Request) {
   const rs = ratios.map((r) => r.ratio).sort((a, b) => a - b);
   const q = (p: number) => (rs.length ? Math.round(rs[Math.floor((rs.length - 1) * p)] * 100) / 100 : null);
 
+  // 4) Por qué no se reconocen las ventas de `vinted_x_sold` (para decidir qué ampliar del catálogo / reconocedor)
+  const xs = await db
+    .from("listings")
+    .select("title,price")
+    .eq("platform", "vinted_x_sold")
+    .order("seen_at", { ascending: false })
+    .limit(400);
+  const why: Record<string, number> = {};
+  const samples: { title: string; price: number; why: string }[] = [];
+  for (const r of xs.data ?? []) {
+    const { match, reason } = recognize(r.title);
+    const w = match ? `reconocible ahora (${match.confidence})` : (reason ?? "sin motivo").replace(/ "[^"]*"/g, "").slice(0, 60);
+    why[w] = (why[w] ?? 0) + 1;
+    if (samples.length < 25) samples.push({ title: r.title.slice(0, 110), price: Number(r.price), why: w });
+  }
+
   return NextResponse.json({
     ok: true,
     days,
+    sold_x_unrecognized_reasons: Object.fromEntries(Object.entries(why).sort((a, b) => b[1] - a[1])),
+    sold_x_samples: samples,
     per_day: perDay,
     totals_in_period: {
       sold: closed.data.filter((r) => r.platform === "vinted_sold").length,

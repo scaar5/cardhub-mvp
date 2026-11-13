@@ -42,8 +42,10 @@ export default async function VentasPage({ searchParams }: { searchParams: Param
   const db = getSupabase();
   let sales: Sale[] = [];
   let tracked = 0;
+  let unrecognizedSales = 0;
+  let trackedUnrecognized = 0;
   if (db) {
-    const [s, t] = await Promise.all([
+    const [s, t, ux, ut] = await Promise.all([
       db
         .from("listings")
         .select("card_id,parallel,price,seen_at,title,url,photo_path")
@@ -51,7 +53,11 @@ export default async function VentasPage({ searchParams }: { searchParams: Param
         .order("seen_at", { ascending: true })
         .limit(5000),
       db.from("listings").select("external_id", { count: "exact", head: true }).eq("platform", "vinted"),
+      db.from("listings").select("external_id", { count: "exact", head: true }).eq("platform", "vinted_x_sold"),
+      db.from("listings").select("external_id", { count: "exact", head: true }).eq("platform", "vinted_x"),
     ]);
+    unrecognizedSales = ux.count ?? 0;
+    trackedUnrecognized = ut.count ?? 0;
     sales = (s.data ?? []).map((r) => ({ ...r, price: Number(r.price) })) as Sale[];
     tracked = t.count ?? 0;
   }
@@ -125,6 +131,13 @@ export default async function VentasPage({ searchParams }: { searchParams: Param
         Ventas reales en Vinted de las cartas del catálogo. Cada hora se revisan los anuncios en seguimiento y se apuntan
         los que se han vendido, con su precio y fecha. Si se vendió con una oferta, el precio real pudo ser algo menor.
       </p>
+      {unrecognizedSales > 0 && (
+        <p className="mt-2 max-w-2xl text-[13px] text-faint">
+          Además se han registrado {unrecognizedSales.toLocaleString("es-ES")} ventas de anuncios que todavía no se
+          reconocen como una carta del catálogo ({trackedUnrecognized.toLocaleString("es-ES")} más en seguimiento). No
+          salen en esta lista; se asignarán a su carta cuando el catálogo las reconozca.
+        </p>
+      )}
 
       <form action="/ventas" className="mt-6 flex flex-wrap gap-2">
         <input
