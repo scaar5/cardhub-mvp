@@ -12,7 +12,7 @@ on:
   workflow_dispatch:
     inputs:
       action:
-        description: "telegram-setup | deals-recheck | deals-recheck-apply | feedback | sales-stats | reclassify | reclassify-apply"
+        description: "telegram-setup | deals-recheck | deals-recheck-apply | feedback | sales-stats | reclassify | reclassify-apply | unrecognized-report"
         required: true
         default: feedback
 
@@ -35,6 +35,7 @@ jobs:
             sales-stats) URL="$BASE/sales-stats" ;;
             reclassify) URL="$BASE/reclassify" ;;
             reclassify-apply) URL="$BASE/reclassify?apply=1" ;;
+            unrecognized-report) URL="$BASE/unrecognized-report" ;;
             *) echo "Acción desconocida: $ACTION"; exit 1 ;;
           esac
           curl -sS -m 90 -H "x-alert-secret: $SECRET" "$URL"
