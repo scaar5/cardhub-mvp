@@ -272,7 +272,20 @@ export function recognize(title: string, hint?: string): RecognizeResult {
     const same = pickCard(usable.filter((x) => x.rule.slug === res.match!.setSlug).map((x) => ({ ...x, weak: false })));
     return same?.match && same.match.card.id === res.match.card.id ? res : null;
   };
-  if (allSets.length === 0) return rookieNoSeason() ?? { match: null, reason: "colección no reconocida" };
+  // Sin temporada en el título (ni rookie): si mirando TODAS las temporadas del producto solo hay una carta posible
+  // (misma persona, mismo insert / auto / numeración), es esa. Si hay varias (base en cada temporada), pickCard
+  // devuelve "dudoso" y no se asigna. Medido con anuncios reales antes de dejarlo (compare-recognize).
+  const productNoSeason = (): RecognizeResult | null => {
+    if (!freeSets.length || seasons.pairs.length || seasons.years.length) return null;
+    const usable = freeSets.filter((x) => {
+      if (!x.weak) return true;
+      const brand = x.rule.all?.[0];
+      return !SET_RULES.some((r) => r !== x.rule && r.all?.[0] === brand && r.seasons.some((se) => x.rule.seasons.includes(se)));
+    });
+    const res = pickCard(usable.map((x) => ({ ...x, weak: false })));
+    return res?.match && res.match.confidence === "alta" ? res : null;
+  };
+  if (allSets.length === 0) return rookieNoSeason() ?? productNoSeason() ?? { match: null, reason: "colección no reconocida" };
   // Sin competición en el título solo hay duda si esa marca tiene otra colección esa temporada
   // (p. ej. Chrome UCC y Chrome Premier League 2025-26); si no, "Topps Finest 2023/24" basta.
   for (const x of allSets) {
