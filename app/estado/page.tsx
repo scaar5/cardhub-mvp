@@ -208,7 +208,9 @@ export default async function EstadoPage() {
       {/* 2. Procesos automáticos */}
       <h2 className="mt-10 text-lg font-semibold">Procesos automáticos</h2>
       <p className="mt-1 text-sm text-muted">
-        Cada uno se lanza solo una vez por hora y trabaja casi 2 horas. Si la última ejecución sale en rojo, avísame.
+        GitHub los relanza cada hora y cada ejecución trabaja casi 2 horas, así que casi siempre hay una "en marcha". Las
+        "canceladas" son ejecuciones que esperaban turno y se descartan al llegar la siguiente: es normal. Si una sale
+        "con error" (punto rojo), avísame.
       </p>
       <div className="mt-3 overflow-hidden rounded-2xl bg-card shadow-card">
         {runs.map((w) => {
@@ -260,7 +262,7 @@ export default async function EstadoPage() {
         </div>
         <div className="space-y-1.5">
           {days
-            .slice()
+            .filter((d, i) => i >= days.findIndex((x) => { const e = perDay.get(x)!; return e.sold + e.soldX + e.gone > 0; }))
             .reverse()
             .map((d) => {
               const e = perDay.get(d)!;
