@@ -1,3 +1,4 @@
+import { ebaySoldUrl, POINT130_URL } from "./point130";
 export function telegramConfigured(): boolean {
   return Boolean(process.env.TELEGRAM_BOT_TOKEN && process.env.TELEGRAM_CHAT_ID);
 }
@@ -152,7 +153,7 @@ export function dealAlertHtml(d: {
   if (d.url) lines.push("", `👉 <a href="${esc(d.url)}">Ver el anuncio en ${where}</a>`);
   if (d.point130) {
     lines.push(
-      `🔎 <a href="https://130point.com/sales/?q=${encodeURIComponent(d.point130)}">Comprobar en 130point</a>`,
+      `🔎 <a href="${ebaySoldUrl(d.point130)}">Ventas en eBay</a> · <a href="${POINT130_URL}">130point</a> (pega el texto):`,
       `<code>${esc(d.point130)}</code>`,
     );
   }

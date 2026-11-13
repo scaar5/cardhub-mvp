@@ -206,16 +206,27 @@ export default function ValorarForm() {
                 {res.card ?? "No está en el catálogo"}
               </p>
               {res.point130 && (
-                <a
-                  href={`https://130point.com/sales/?q=${encodeURIComponent(res.point130)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => navigator.clipboard?.writeText(res.point130!).catch(() => {})}
-                  className="mt-2 inline-flex items-center gap-1.5 rounded-full bg-canvas px-3 py-1 text-xs font-medium text-muted hover:text-ink"
-                  title={`Busca: ${res.point130} (también se copia, por si 130point no la rellena)`}
-                >
-                  🔎 Comprobar en 130point
-                </a>
+                <div className="mt-2 flex flex-wrap gap-2">
+                  <a
+                    href={`https://www.ebay.com/sch/i.html?_nkw=${encodeURIComponent(res.point130)}&LH_Sold=1&LH_Complete=1&_sop=13`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 rounded-full bg-canvas px-3 py-1 text-xs font-medium text-muted hover:text-ink"
+                    title={`Ventas terminadas en eBay: ${res.point130}`}
+                  >
+                    🔎 Ventas en eBay
+                  </a>
+                  <a
+                    href="https://130point.com/sales/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => navigator.clipboard?.writeText(res.point130!).catch(() => {})}
+                    className="inline-flex items-center gap-1.5 rounded-full bg-canvas px-3 py-1 text-xs font-medium text-muted hover:text-ink"
+                    title={`Se copia "${res.point130}": pégalo en el buscador de 130point`}
+                  >
+                    📋 130point (copia la búsqueda)
+                  </a>
+                </div>
               )}
               {!res.card && (
                 <p className="mt-1 text-xs text-muted">

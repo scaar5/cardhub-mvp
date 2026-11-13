@@ -19,7 +19,10 @@ export function point130Query(card: CatalogCard, parallel: string | null): strin
     .trim();
 }
 
-/** Enlace a la búsqueda de ventas de 130point. Si 130point no rellena la búsqueda, el texto va aparte para copiarlo. */
-export function point130Url(query: string): string {
-  return `https://130point.com/sales/?q=${encodeURIComponent(query)}`;
+/** 130point NO lee la búsqueda desde la URL (comprobado por el usuario, 13-nov): solo abre su buscador. */
+export const POINT130_URL = "https://130point.com/sales/";
+
+/** Ventas terminadas de eBay (los mismos datos que 130point), en eBay.com, que sí acepta la búsqueda en la URL. */
+export function ebaySoldUrl(query: string): string {
+  return `https://www.ebay.com/sch/i.html?_nkw=${encodeURIComponent(query)}&LH_Sold=1&LH_Complete=1&_sop=13`;
 }
