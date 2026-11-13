@@ -28,7 +28,7 @@ jobs:
       APP_URL: ${{ vars.APP_URL || 'https://scaard5-analytics.vercel.app' }}
       LOOP_MINUTES: "110"
       BATCH: "100"
-      PAUSE_MS: "5000"
+      PAUSE_MS: "8000" # 13-nov: 403 en 2 de 3 trabajos tras ampliar el sweep a 5 € → más pausa
       SHARD: ${{ matrix.shard }}
       SHARDS: "3"
     steps:
