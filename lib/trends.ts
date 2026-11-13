@@ -156,9 +156,10 @@ export function computeTrends(sales: Sale[], asks: Ask[], now = Date.now()) {
       .filter((p) => p.priceChangePct !== null && p.priceChangePct < 0)
       .sort((a, b) => a.priceChangePct! - b.priceChangePct!)
       .slice(0, 10),
-    // Más demanda que oferta: se venden muchas para las que hay a la venta (menos de 2 semanas de stock)
+    // Más demanda que oferta: los que menos semanas de stock tienen (relativo: siempre se ve más oferta que ventas,
+    // porque no todo lo que se vende se detecta; lo útil es la comparación entre jugadores)
     hot: out
-      .filter((p) => p.sales7 >= 3 && p.weeksOfStock !== null && p.weeksOfStock < 2)
+      .filter((p) => p.sales7 >= 3 && p.weeksOfStock !== null)
       .sort((a, b) => a.weeksOfStock! - b.weeksOfStock! || b.sales7 - a.sales7)
       .slice(0, 12),
     // Más oferta que demanda: muchos anuncios y pocas ventas

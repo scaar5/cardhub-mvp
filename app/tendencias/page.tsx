@@ -45,6 +45,7 @@ export default async function TendenciasPage() {
   const sales = salesRes.data.map((s) => ({ ...s, price: Number(s.price) }));
   const t = computeTrends(sales, asksRes.data);
   const fewData = t.daysOfData < 28;
+  const canCompareWeeks = t.daysOfData >= 14; // sin 2 semanas completas, "frente a la semana anterior" engaña
 
   return (
     <main className="mx-auto max-w-5xl px-5 pb-16 pt-6">
@@ -69,20 +70,32 @@ export default async function TendenciasPage() {
       )}
 
       {/* Volumen */}
-      <Section title="Más vendidos esta semana" sub="Ventas de los últimos 7 días y cambio frente a los 7 anteriores.">
+      <Section
+        title="Más vendidos esta semana"
+        sub={
+          canCompareWeeks
+            ? "Ventas de los últimos 7 días y cambio frente a los 7 anteriores."
+            : "Ventas de los últimos 7 días. La comparación con la semana anterior aparecerá cuando haya 2 semanas de datos."
+        }
+      >
         <Table
           rows={t.topVolume}
           empty="Todavía no hay ventas esta semana."
           cols={[
             { h: "Ventas 7 días", v: (p) => <b>{p.sales7}</b> },
-            { h: "Semana anterior", v: (p) => p.salesPrev7 },
-            { h: "Cambio", v: (p) => <Change v={p.volumeChangePct} /> },
-            { h: "Precio mediano", v: (p) => eur(p.medianPrice7), hideSm: true },
+            ...(canCompareWeeks
+              ? [
+                  { h: "Semana anterior", v: (p: PlayerTrend) => p.salesPrev7 },
+                  { h: "Cambio", v: (p: PlayerTrend) => <Change v={p.volumeChangePct} /> },
+                ]
+              : []),
+            { h: "A la venta", v: (p) => p.open, hideSm: true },
+            { h: "Precio mediano", v: (p) => eur(p.medianPrice7) },
           ]}
         />
       </Section>
 
-      {t.risingVolume.length > 0 && (
+      {canCompareWeeks && t.risingVolume.length > 0 && (
         <Section title="Se venden cada vez más" sub="Los que más han aumentado sus ventas respecto a la semana anterior.">
           <Table
             rows={t.risingVolume}
@@ -119,8 +132,8 @@ export default async function TendenciasPage() {
         <div>
           <h2 className="text-lg font-semibold">Más demanda que oferta</h2>
           <p className="mt-1 text-sm text-muted">
-            Se venden rápido para lo poco que hay a la venta: buenas para revender. &quot;Stock&quot; = semanas que se tardaría en
-            vender todo lo que hay ahora al ritmo actual.
+            Los que menos tardarían en agotar lo que hay a la venta al ritmo actual (&quot;stock&quot;, en semanas): se venden rápido
+            para lo que hay, buenas para revender. Compáralos entre sí más que por la cifra exacta.
           </p>
           <SupplyList rows={t.hot} kind="hot" />
         </div>
