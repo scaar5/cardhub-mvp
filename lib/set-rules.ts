@@ -225,4 +225,19 @@ export const ruleBySlug = new Map(SET_RULES.map((r) => [r.slug, r]));
 
 /** Búsquedas de eBay y de Vinted, con la colección a la que pertenecen (pista para el reconocedor). */
 export const EBAY_SEARCHES = SET_RULES.flatMap((r) => r.searches.map((q) => ({ q, set: r.slug })));
-export const VINTED_SEARCHES = SET_RULES.flatMap((r) => r.vinted.map((q) => ({ q, set: r.slug })));
+/**
+ * Búsquedas de Vinted sin colección fija (sin pista para el reconocedor): encuentran anuncios de cartas del catálogo
+ * cuyo título no casa con las búsquedas por colección. Medido con el censo del 13-nov (anuncios ≥10 € con carta
+ * reconocida que no estaban en el censo base): rookie 628, auto 529, Yamal 187, Chrome Black 92, Bellingham 85.
+ */
+const EXTRA_VINTED: string[] = [
+  "topps chrome rookie",
+  "topps chrome auto",
+  "lamine yamal topps",
+  "bellingham topps",
+  "topps chrome black",
+];
+export const VINTED_SEARCHES: { q: string; set?: string }[] = [
+  ...SET_RULES.flatMap((r) => r.vinted.map((q) => ({ q, set: r.slug }))),
+  ...EXTRA_VINTED.map((q) => ({ q })),
+];
