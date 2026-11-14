@@ -82,7 +82,11 @@ async function sweepOnce(n) {
   if (!cfg.ok) throw new Error(`No pude leer las búsquedas: ${JSON.stringify(cfg)}`);
   const t0 = Date.now(), r0 = requests;
   const total = { searches: 0, seen: 0, recognized: 0 };
-  const mine = cfg.searches.filter((_, i) => i % SHARDS === SHARD);
+  const all = cfg.searches.filter((_, i) => i % SHARDS === SHARD);
+  // Si la vuelta no cabe en la ejecución (14-nov: ~112 min con 32 búsquedas desde 5 €), las últimas búsquedas nunca se
+  // repasarían. Cada vuelta empieza en una búsqueda distinta (por la hora), así todas se repasan sin aumentar la carga.
+  const start = (Math.floor(Date.now() / 3600_000) * 3 + n) % (all.length || 1);
+  const mine = [...all.slice(start), ...all.slice(0, start)];
   for (const { q, set } of mine) {
     if (!timeLeft()) break;
     const out = new Map();
